@@ -722,6 +722,10 @@ export async function readJsonAndFile(
   }
 }
 
+export async function writeJson(filename: string, object: mixed): Promise<void> {
+  await fs.writeFile(filename, JSON.stringify(object, null, 2), 'utf8');
+}
+
 export async function find(filename: string, dir: string): Promise<string | false> {
   const parts = dir.split(path.sep);
 
