@@ -1,6 +1,6 @@
 /* @flow */
 
-import type {Manifest} from './types.js';
+import type {Manifest, PackageRemote} from './types.js';
 import type PackageResolver from './package-resolver.js';
 import type {Reporter} from './reporters/index.js';
 import type Config from './config.js';
@@ -65,7 +65,11 @@ export default class PackageLinker {
     this.topLevelBinLinking = topLevelBinLinking;
   }
 
-  async linkSelfDependencies(pkg: Manifest, pkgLoc: string, targetBinLoc: string): Promise<void> {
+  async linkSelfDependencies(
+    pkg: Manifest,
+    pkgLoc: string,
+    targetBinLoc: string,
+  ): Promise<void> {
     targetBinLoc = path.join(targetBinLoc, '.bin');
     await fs.mkdirp(targetBinLoc);
     targetBinLoc = await fs.realpath(targetBinLoc);
@@ -110,7 +114,11 @@ export default class PackageLinker {
     // link up the `bin` scripts in bundled dependencies
     if (pkg.bundleDependencies) {
       for (const depName of pkg.bundleDependencies) {
-        const loc = path.join(this.config.generateHardModulePath(ref), this.config.getFolder(pkg), depName);
+        const loc = path.join(
+          this.config.generateHardModulePath(ref),
+          this.config.getFolder(pkg),
+          depName,
+        );
         try {
           const dep = await this.config.readManifest(loc, remote.registry);
 
@@ -140,7 +148,10 @@ export default class PackageLinker {
     }
   }
 
-  getFlatHoistedTree(patterns: Array<string>, {ignoreOptional}: {ignoreOptional: ?boolean} = {}): HoistManifestTuples {
+  getFlatHoistedTree(
+    patterns: Array<string>,
+    {ignoreOptional}: {ignoreOptional: ?boolean} = {},
+  ): HoistManifestTuples {
     const hoister = new PackageHoister(this.config, this.resolver, {ignoreOptional});
     hoister.seed(patterns);
     return hoister.init();
@@ -149,7 +160,10 @@ export default class PackageLinker {
   async copyModules(
     patterns: Array<string>,
     workspaceLayout?: WorkspaceLayout,
-    {linkDuplicates, ignoreOptional}: {linkDuplicates: ?boolean, ignoreOptional: ?boolean} = {},
+    {
+      linkDuplicates,
+      ignoreOptional,
+    }: {linkDuplicates: ?boolean, ignoreOptional: ?boolean} = {},
   ): Promise<void> {
     let flatTree = this.getFlatHoistedTree(patterns, {ignoreOptional});
     // sorted tree makes file creation and copying not to interfere with each other
@@ -160,9 +174,10 @@ export default class PackageLinker {
     // list of artifacts in modules to remove from extraneous removal
     const artifactFiles = [];
 
-    const copyQueue: Map<string, CopyQueueItem> = new Map();
+    const copyQueue: Map<string, {remote: ?any, item: CopyQueueItem}> = new Map();
     const hardlinkQueue: Map<string, CopyQueueItem> = new Map();
-    const hardlinksEnabled = linkDuplicates && (await fs.hardlinksWork(this.config.cwd));
+    const hardlinksEnabled =
+      false && linkDuplicates && (await fs.hardlinksWork(this.config.cwd));
 
     const copiedSrcs: Map<string, string> = new Map();
     const symlinkPaths: Map<string, string> = new Map();
@@ -222,13 +237,16 @@ export default class PackageLinker {
           copiedSrcs.set(src, dest);
         }
         copyQueue.set(dest, {
-          src,
-          dest,
-          type,
-          onFresh() {
-            if (ref) {
-              ref.setFresh(true);
-            }
+          remote: remote,
+          item: {
+            src,
+            dest,
+            type,
+            onFresh() {
+              if (ref) {
+                ref.setFresh(true);
+              }
+            },
           },
         });
       } else {
@@ -341,9 +359,11 @@ export default class PackageLinker {
       }
     }
 
+    const linkTasks = Array.from(copyQueue.values());
+
     //
     let tick;
-    await fs.copyBulk(Array.from(copyQueue.values()), this.reporter, {
+    await fs.copyBulk(linkTasks.map(item => item.item), this.reporter, {
       possibleExtraneous,
       artifactFiles,
 
@@ -380,6 +400,18 @@ export default class PackageLinker {
       await fs.unlink(loc);
     }
 
+    // inject PackageRemote info into installation dep tree
+    await Promise.all(
+      linkTasks.map(async ({remote, item: {dest}}) => {
+        const packageJsonFilename = path.join(dest, 'package.json');
+        const packageJson = await fs.readJson(packageJsonFilename);
+        if (remote != null && remote.resolved != null) {
+          packageJson._resolved = remote.resolved;
+        }
+        await fs.writeJson(packageJsonFilename, packageJson);
+      }),
+    );
+
     // remove any empty scoped directories
     for (const scopedPath of scopedPaths) {
       const files = await fs.readdir(scopedPath);
@@ -391,7 +423,9 @@ export default class PackageLinker {
     // create binary links
     if (this.config.binLinks) {
       const topLevelDependencies = this.determineTopLevelBinLinks(flatTree);
-      const tickBin = this.reporter.progress(flatTree.length + topLevelDependencies.length);
+      const tickBin = this.reporter.progress(
+        flatTree.length + topLevelDependencies.length,
+      );
 
       // create links in transient dependencies
       await promise.queue(
@@ -410,7 +444,12 @@ export default class PackageLinker {
       await promise.queue(
         topLevelDependencies,
         async ([dest, pkg]) => {
-          if (pkg._reference && pkg._reference.location && pkg.bin && Object.keys(pkg.bin).length) {
+          if (
+            pkg._reference &&
+            pkg._reference.location &&
+            pkg.bin &&
+            Object.keys(pkg.bin).length
+          ) {
             const binLoc = path.join(this.config.cwd, this.config.getFolder(pkg));
             await this.linkSelfDependencies(pkg, dest, binLoc);
             tickBin();
@@ -447,14 +486,20 @@ export default class PackageLinker {
       const ref = pkg._reference;
       invariant(ref, 'Package reference is missing');
       // TODO: We are taking the "shortest" ref tree but there may be multiple ref trees with the same length
-      const refTree = ref.requests.map(req => req.parentNames).sort((arr1, arr2) => arr1.length - arr2.length)[0];
+      const refTree = ref.requests
+        .map(req => req.parentNames)
+        .sort((arr1, arr2) => arr1.length - arr2.length)[0];
 
       const getLevelDistance = pkgRef => {
         let minDistance = Infinity;
         for (const req of pkgRef.requests) {
           const distance = refTree.length - req.parentNames.length;
 
-          if (distance >= 0 && distance < minDistance && req.parentNames.every((name, idx) => name === refTree[idx])) {
+          if (
+            distance >= 0 &&
+            distance < minDistance &&
+            req.parentNames.every((name, idx) => name === refTree[idx])
+          ) {
             minDistance = distance;
           }
         }
@@ -496,14 +541,22 @@ export default class PackageLinker {
         if (resolvedPeerPkgPattern) {
           ref.addDependencies(resolvedPeerPkgPattern);
         } else {
-          this.reporter.warn(this.reporter.lang(peerError, `${pkg.name}@${pkg.version}`, `${peerDepName}@${range}`));
+          this.reporter.warn(
+            this.reporter.lang(
+              peerError,
+              `${pkg.name}@${pkg.version}`,
+              `${peerDepName}@${range}`,
+            ),
+          );
         }
       }
     }
   }
 
   _satisfiesPeerDependency(range: string, version: string): boolean {
-    return range === '*' || satisfiesWithPreleases(version, range, this.config.looseSemver);
+    return (
+      range === '*' || satisfiesWithPreleases(version, range, this.config.looseSemver)
+    );
   }
 
   async _warnForMissingBundledDependencies(pkg: Manifest): Promise<void> {
@@ -511,10 +564,16 @@ export default class PackageLinker {
 
     if (pkg.bundleDependencies) {
       for (const depName of pkg.bundleDependencies) {
-        const loc = path.join(this.config.generateHardModulePath(ref), this.config.getFolder(pkg), depName);
+        const loc = path.join(
+          this.config.generateHardModulePath(ref),
+          this.config.getFolder(pkg),
+          depName,
+        );
         if (!await fs.exists(loc)) {
           const pkgHuman = `${pkg.name}@${pkg.version}`;
-          this.reporter.warn(this.reporter.lang('missingBundledDependency', pkgHuman, depName));
+          this.reporter.warn(
+            this.reporter.lang('missingBundledDependency', pkgHuman, depName),
+          );
         }
       }
     }
@@ -523,7 +582,10 @@ export default class PackageLinker {
   async init(
     patterns: Array<string>,
     workspaceLayout?: WorkspaceLayout,
-    {linkDuplicates, ignoreOptional}: {linkDuplicates: ?boolean, ignoreOptional: ?boolean} = {},
+    {
+      linkDuplicates,
+      ignoreOptional,
+    }: {linkDuplicates: ?boolean, ignoreOptional: ?boolean} = {},
   ): Promise<void> {
     this.resolvePeerModules();
     await this.copyModules(patterns, workspaceLayout, {linkDuplicates, ignoreOptional});
