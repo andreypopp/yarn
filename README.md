@@ -17,7 +17,32 @@
 </p>
 ---
 
-**Fast:** Yarn caches every package it has downloaded, so it never needs to download the same package again. It also does almost everything concurrently to maximize resource utilization. This means even faster installs.
+# Esy (Yarn fork for native compilation with sandboxing)
+
+## Developing Esy
+
+When developing esy (or cloning the repo to use locally), you must have filterdiff installed (which you can obtain via brew install patchutils).
+
+To make changes to esy and test them locally, check out and build the esy repo as such:
+
+```
+git clone git@github.com:jordwalke/esy.git
+cd esy
+npm install
+git submodule init
+git submodule update
+make build convert-opam-packages
+```
+
+Then you may "point" to that built version of esy by simply referencing its path.
+
+```
+/path/to/esy/bin/esy build
+```
+
+# Yarn
+
+**Fast:** Yarn caches every package it downloads so it never needs to download the same package again. It also parallelizes operations to maximize resource utilization so install times are faster than ever.
 
 **Reliable:** Using a detailed but concise lockfile format and a deterministic algorithm for install operations, Yarn is able to guarantee that any installation that works on one system will work exactly the same on another system.
 
