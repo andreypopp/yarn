@@ -9,7 +9,11 @@ import * as fetchers from './fetchers/index.js';
 import * as fs from './util/fs.js';
 import * as promise from './util/promise.js';
 
-async function fetchCache(dest: string, fetcher: Fetchers, config: Config): Promise<FetchedMetadata> {
+async function fetchCache(
+  dest: string,
+  fetcher: Fetchers,
+  config: Config,
+): Promise<FetchedMetadata> {
   const {hash, package: pkg} = await config.readPackageMetadata(dest);
   await fetcher.setupMirrorFromCache();
   return {
@@ -27,7 +31,13 @@ async function fetchOne(ref: PackageReference, config: Config): Promise<FetchedM
   // Mock metedata for symlinked dependencies
   if (remote.type === 'link') {
     const mockPkg: Manifest = {_uid: '', name: '', version: '0.0.0'};
-    return Promise.resolve({resolved: null, hash: '', dest, package: mockPkg, cached: false});
+    return Promise.resolve({
+      resolved: null,
+      hash: '',
+      dest,
+      package: mockPkg,
+      cached: false,
+    });
   }
 
   const Fetcher = fetchers[remote.type];
@@ -58,7 +68,10 @@ async function fetchOne(ref: PackageReference, config: Config): Promise<FetchedM
   }
 }
 
-async function maybeFetchOne(ref: PackageReference, config: Config): Promise<?FetchedMetadata> {
+async function maybeFetchOne(
+  ref: PackageReference,
+  config: Config,
+): Promise<?FetchedMetadata> {
   try {
     return await fetchOne(ref, config);
   } catch (err) {
@@ -82,7 +95,12 @@ export function fetch(pkgs: Array<Manifest>, config: Config): Promise<Array<Mani
     const otherPkg = pkgsPerDest.get(dest);
     if (otherPkg) {
       config.reporter.warn(
-        config.reporter.lang('multiplePackagesCantUnpackInSameDestination', ref.patterns, dest, otherPkg.patterns),
+        config.reporter.lang(
+          'multiplePackagesCantUnpackInSameDestination',
+          ref.patterns,
+          dest,
+          otherPkg.patterns,
+        ),
       );
       return false;
     }
