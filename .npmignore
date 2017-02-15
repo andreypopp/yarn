@@ -31,3 +31,4 @@
 *.nupkg
 Dockerfile
 end_to_end_tests
+/opam-packages-conversion/

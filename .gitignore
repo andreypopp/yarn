@@ -22,3 +22,6 @@ test/fixtures/**/.fbkpm
 .idea
 .yarn-meta
 /packages/lockfile/index.js
+/__tests__/fixtures/request-cache/
+/opam-packages-conversion/output/
+/opam-packages/
