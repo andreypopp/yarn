@@ -96,8 +96,7 @@
   },
   "repository": "yarnpkg/yarn",
   "bin": {
-    "yarn": "./bin/yarn.js",
-    "yarnpkg": "./bin/yarn.js"
+    "esy": "./bin/esy"
   },
   "scripts": {
     "build": "gulp build",
