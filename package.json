@@ -15,6 +15,8 @@
     "commander": "^2.9.0",
     "death": "^1.0.0",
     "debug": "^2.2.0",
+    "decompress-zip": "^0.3.0",
+    "defaults": "^1.0.3",
     "detect-indent": "^5.0.0",
     "dnscache": "^1.0.1",
     "eslint-plugin-jest": "^20.0.3",
