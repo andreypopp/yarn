@@ -2,12 +2,13 @@
  * @flow
  */
 
-let childProcess = require('child_process');
-
+import loudRejection from 'loud-rejection';
+import userHome from 'user-home';
+import * as path from 'path';
 import chalk from 'chalk';
-const loudRejection = require('loud-rejection');
-const PackageEnvironment = require('../PackageEnvironment');
-const Sandbox = require('../Sandbox');
+import * as Env from '../environment';
+import * as Config from '../build-config';
+import * as Sandbox from '../build-sandbox';
 
 /**
  * Each package can configure exportedEnvVars with:
@@ -134,19 +135,25 @@ const Sandbox = require('../Sandbox');
  *  true/false flag and it doesn't take into account scope.
  */
 
-function formatError(message: string) {
-  return `${chalk.red('ERROR')} ${message}`;
+function formatError(message: string, stack?: string) {
+  let result = `${chalk.red('ERROR')} ${message}`;
+  if (stack != null) {
+    result += `\n${stack}`;
+  }
+  return result;
 }
 
-function error(message: string) {
-  console.log(formatError(message));
+function error(error: Error | string) {
+  const message = String(error.message ? error.message : error);
+  const stack = error.stack ? String(error.stack) : undefined;
+  console.log(formatError(message, stack));
   process.exit(1);
 }
 
 async function getValidSandbox(directory) {
   const sandbox = await Sandbox.fromDirectory(directory);
-  if (sandbox.packageInfo.errors.length > 0) {
-    sandbox.packageInfo.errors.forEach(error => {
+  if (sandbox.root.errors.length > 0) {
+    sandbox.root.errors.forEach(error => {
       console.log(formatError(error.message));
     });
     process.exit(1);
@@ -154,36 +161,40 @@ async function getValidSandbox(directory) {
   return sandbox;
 }
 
+// TODO: Need to change this to climb to closest package.json.
+const sandboxPath = process.cwd();
+const storePath = process.env.ESY__STORE || path.join(userHome, '.esy', 'store');
+const actualArgs = process.argv.slice(2);
+
 const builtInCommands = {
-  "build-eject": async function(curDir, ...args) {
-    let buildEject = require('../buildEjectCommand');
-    const sandbox = await getValidSandbox(curDir);
-    buildEject(sandbox, ...args);
+  // eslint-disable-next-line object-shorthand
+  'build-eject': async function(sandboxPath) {
+    const buildEject = require('../builders/makefile-builder');
+    const sandbox = await getValidSandbox(sandboxPath);
+    buildEject.renderToMakefile(
+      sandbox,
+      path.join(sandboxPath, '_esy', 'build-eject'),
+    );
   },
 };
 
-// TODO: Need to change this to climb to closest package.json.
-const curDir = process.cwd();
-const actualArgs = process.argv.slice(2);
-
 async function main() {
-
   if (actualArgs.length === 0) {
-    const sandbox = await getValidSandbox(curDir);
-    // It's just a status command. Print the command that would be
+    // TODO: It's just a status command. Print the command that would be
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
-    let envForThisPackageScripts = PackageEnvironment.calculateEnvironment(
-      sandbox,
-      sandbox.packageInfo,
-      {useLooseEnvironment: true}
-    );
-    console.log(PackageEnvironment.printEnvironment(envForThisPackageScripts));
+    const sandbox = await getValidSandbox(sandboxPath);
+    const config = Config.createConfig({storePath, sandboxPath});
+    // Sandbox env is more strict than we want it to be at runtime, filter out
+    // $SHELL and $PATH overrides.
+    const env = sandbox.env.filter(v => v.name !== 'SHELL' && v !== 'PATH');
+    const envForThisPackageScripts = Env.calculateEnvironment(config, sandbox.root, env);
+    console.log(Env.printEnvironment(envForThisPackageScripts));
   } else {
-    let builtInCommandName = actualArgs[0];
-    let builtInCommand = builtInCommands[builtInCommandName];
+    const builtInCommandName = actualArgs[0];
+    const builtInCommand = builtInCommands[builtInCommandName];
     if (builtInCommand) {
-      builtInCommand(curDir, ...process.argv.slice(3));
+      await builtInCommand(sandboxPath, ...process.argv.slice(3));
     } else {
       console.error(`unknown command: ${builtInCommandName}`);
     }
@@ -191,5 +202,4 @@ async function main() {
 }
 
 main().catch(error);
-
 loudRejection();
