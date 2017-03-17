@@ -7,6 +7,7 @@
 <PROJECT_ROOT>/node_modules/graphql.*
 <PROJECT_ROOT>/node_modules/y18n/test/.*
 <PROJECT_ROOT>/updates/.*
+<PROJECT_ROOT>/bin/EsyYarnCache-.*
 
 [include]
 
