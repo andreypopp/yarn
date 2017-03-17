@@ -117,21 +117,21 @@ builtInYarn() {
 printHelp() {
   cat <<EOF
   Usage: $0 <command> [--help] [--version]
-  
-  install               Installs package.json packages, but with the ability 
+
+  install               Installs package.json packages, but with the ability
                         to bridge to other non-npm based package managers.
 
-  build                 Builds everything that needs to be built, caches 
-                        results. Builds according to each package's "esy" 
-                        entry in package.json. Before building each package, 
+  build                 Builds everything that needs to be built, caches
+                        results. Builds according to each package's "esy"
+                        entry in package.json. Before building each package,
                         the environment is scrubbed clean then created according
                         to dependencies.
-  
-  build-shell           Drops into a shell with environment matching your 
+
+  build-shell           Drops into a shell with environment matching your
                         package's build environment.
 
-  shell                 The same as esy build-shell, but creates a "relaxed" 
-                        environment - meaning it also inherits your existing 
+  shell                 The same as esy build-shell, but creates a "relaxed"
+                        environment - meaning it also inherits your existing
                         shell.
 
   build-eject           Creates node_modules/.cache/esy/Makefile, which is what
@@ -139,7 +139,7 @@ printHelp() {
 
   <command>             Executes <command> as if you had executed it inside of
                         esy shell.
-                        
+
 EOF
 }
 
@@ -154,7 +154,7 @@ execute_any_command() {
 
   source "$ENV_PATH"
   # Checks if command ($1) is present available
-  command -v $1 >/dev/null 2>&1 || { 
+  command -v $1 >/dev/null 2>&1 || {
   echo >&2 "$1 command is not installed.";
   exit 1;
   }
@@ -166,12 +166,15 @@ then
   printHelp
 elif [ $# -eq 1 ]; then
   case $1 in
-    build|build-shell|clean)
+    build-shell|clean)
       builtInEject
       make -j -s -f "$EJECT_PATH/Makefile" "$1"
       ;;
     build-eject)
       builtInEject
+      ;;
+    build)
+      builtIn build
       ;;
     shell)
       ensureEnvEjected

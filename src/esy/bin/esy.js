@@ -161,20 +161,24 @@ async function getValidSandbox(directory) {
   return sandbox;
 }
 
+const actualArgs = process.argv.slice(2);
 // TODO: Need to change this to climb to closest package.json.
 const sandboxPath = process.cwd();
 const storePath = process.env.ESY__STORE || path.join(userHome, '.esy', 'store');
-const actualArgs = process.argv.slice(2);
+const config = Config.createConfig({storePath, sandboxPath});
 
 const builtInCommands = {
   // eslint-disable-next-line object-shorthand
   'build-eject': async function(sandboxPath) {
     const buildEject = require('../builders/makefile-builder');
     const sandbox = await getValidSandbox(sandboxPath);
-    buildEject.renderToMakefile(
-      sandbox,
-      path.join(sandboxPath, '_esy', 'build-eject'),
-    );
+    buildEject.renderToMakefile(sandbox, path.join(sandboxPath, '_esy', 'build-eject'));
+  },
+  // eslint-disable-next-line object-shorthand
+  build: async function(sandboxPath) {
+    const builder = require('../builders/simple-builder');
+    const sandbox = await getValidSandbox(sandboxPath);
+    await builder.build(sandbox, config);
   },
 };
 
@@ -184,7 +188,6 @@ async function main() {
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
     const sandbox = await getValidSandbox(sandboxPath);
-    const config = Config.createConfig({storePath, sandboxPath});
     // Sandbox env is more strict than we want it to be at runtime, filter out
     // $SHELL and $PATH overrides.
     const env = sandbox.env.filter(v => v.name !== 'SHELL' && v !== 'PATH');

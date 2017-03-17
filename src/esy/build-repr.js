@@ -3,7 +3,9 @@
  */
 
 export type EnvironmentVar = {
-  name: string, value: ?string, };
+  name: string,
+  value: ?string,
+};
 export type Environment = EnvironmentVar[];
 
 export type EnvironmentVarExport = {
@@ -84,6 +86,11 @@ export type BuildConfig = {
   sandboxPath: string,
 
   /**
+   * Generate path where sources of the builds are located.
+   */
+  getSourcePath: (build: Build, ...segments: string[]) => string,
+
+  /**
    * Generate path from where the build executes.
    */
   getRootPath: (build: Build, ...segments: string[]) => string,
@@ -122,7 +129,7 @@ export type BuildSandbox = {
 /**
  * Process which accepts build and a corresponding config and produces a build.
  */
-export type Builder = (Build, BuildConfig) => Promise<void>;
+export type Builder = (BuildSandbox, BuildConfig) => Promise<void>;
 
 /**
  * BFS for build dep graph.
@@ -139,6 +146,21 @@ export function traverse(build: Build, f: (Build) => void) {
     seen.add(cur.id);
     queue.push(...cur.dependencies);
   }
+}
+
+export function traverseDeepFirst(build: Build, f: (Build) => void) {
+  const seen = new Set();
+  function traverse(build) {
+    if (seen.has(build.id)) {
+      return;
+    }
+    seen.add(build.id);
+    for (const dep of build.dependencies) {
+      traverse(dep);
+    }
+    f(build);
+  }
+  traverse(build);
 }
 
 /**
