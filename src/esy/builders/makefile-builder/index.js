@@ -376,7 +376,7 @@ function emitFile(
   }
 }
 
-function renderEnv(groups: Env.Environment): string {
+export function renderEnv(groups: Env.Environment): string {
   const env = flattenArray(groups.map(group => group.envVars));
   return (
     env
