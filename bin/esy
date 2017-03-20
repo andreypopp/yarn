@@ -114,29 +114,100 @@ builtInYarn() {
 	node $SCRIPTDIR/yarn.js $@ --cache-folder $ESY__YARN_CACHE_DIR
 }
 
-if [ "$1" == "build" ] || [ "$1" == "build-shell" ] || [ "$1" == "clean" ]; then
-  builtInEject
-  make -j -s -f "$EJECT_PATH/Makefile" "$1"
+printHelp() {
+  cat <<EOF
+  Usage: $0 <command> [--help] [--version]
+  
+  install               Installs package.json packages, but with the ability 
+                        to bridge to other non-npm based package managers.
 
-elif [ "$1" == "build-eject" ]; then
-  builtInEject
+  build                 Builds everything that needs to be built, caches 
+                        results. Builds according to each package's "esy" 
+                        entry in package.json. Before building each package, 
+                        the environment is scrubbed clean then created according
+                        to dependencies.
+  
+  build-shell           Drops into a shell with environment matching your 
+                        package's build environment.
 
-elif [ "$1" == "shell" ]; then
+  shell                 The same as esy build-shell, but creates a "relaxed" 
+                        environment - meaning it also inherits your existing 
+                        shell.
+
+  build-eject           Creates node_modules/.cache/esy/Makefile, which is what
+                        esy build normally runs.
+
+  <command>             Executes <command> as if you had executed it inside of
+                        esy shell.
+                        
+EOF
+}
+
+printVersion() {
+	cat <<EOF
+esy version $ESY__VERSION.
+EOF
+}
+
+execute_any_command() {
   ensureEnvEjected
+
   source "$ENV_PATH"
-  $SHELL
+  # Checks if command ($1) is present available
+  command -v $1 >/dev/null 2>&1 || { 
+  echo >&2 "$1 command is not installed.";
+  exit 1;
+  }
+  exec "$@"
+}
 
-elif [ "$1" == "install" ] || [ "$1" == "add" ]; then
-  builtInYarn $@
-
-else
-
+if [ $# -eq 0 ]
+then
   ensureEnvEjected
-
-  if [ "$1" != "" ]; then
-    source "$ENV_PATH"
-    exec "$@"
-  else
-    cat "$ENV_PATH"
-  fi
+  cat "$ENV_PATH"
+elif [ $# -eq 1 ]; then
+  case $1 in
+    build|build-shell|clean)
+      builtInEject
+      make -j -s -f "$EJECT_PATH/Makefile" "$1"
+      ;;
+    build-eject)
+      builtInEject
+      ;;
+    shell)
+      ensureEnvEjected
+      source "$ENV_PATH"
+      $SHELL
+      ;;
+    install|add)
+      builtInYarn "$@"
+      ;;
+    --version|-v)
+      printVersion
+      ;;
+    --help|-h)
+      printHelp
+      ;;
+    -*)
+      echo Unknown option "$1" >&2
+      exit 1
+      ;;
+    *)
+      execute_any_command "$@"
+      break
+  esac
+else
+  case $1 in
+    add)
+      builtInYarn "$@"
+      ;;
+    -*)
+      echo Unknown option "$1" >&2
+      exit 1
+      ;;
+    *)
+      execute_any_command "$@"
+      break
+  esac
 fi
+
