@@ -168,12 +168,13 @@ export function traverseDeepFirst(build: Build, f: (Build) => void) {
  */
 export function collectTransitiveDependencies(build: Build): Build[] {
   const dependencies = [];
-  traverse(build, cur => {
+  traverseDeepFirst(build, cur => {
     // Skip the root build
     if (cur !== build) {
       dependencies.push(cur);
     }
   });
+  dependencies.reverse();
   return dependencies;
 }
 
