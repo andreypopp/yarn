@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calculate() build with (dep with (dep with local export) with local export) 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "dep__var",
+      Object {
+        "exported": true,
+        "name": "dep__var",
+        "value": "hello",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with (dep with local export) 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "dep__var",
+      Object {
+        "exported": true,
+        "name": "dep__var",
+        "value": "hello",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with (dep with local export) with global export referencing dep built-in 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "APP",
+      Object {
+        "exported": true,
+        "name": "APP",
+        "value": "hello, dep",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with (dep with local export) with global export referencing dep local export 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "dep__var",
+      Object {
+        "exported": true,
+        "name": "dep__var",
+        "value": "hello",
+      },
+    ],
+    Array [
+      "APP",
+      Object {
+        "exported": true,
+        "name": "APP",
+        "value": "hello, world",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with (dep with local export) with local export referencing dep built-in 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "app__var",
+      Object {
+        "exported": true,
+        "name": "app__var",
+        "value": "hello, dep",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with (dep with local export) with local export referencing dep local export 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "dep__var",
+      Object {
+        "exported": true,
+        "name": "dep__var",
+        "value": "hello",
+      },
+    ],
+    Array [
+      "app_var",
+      Object {
+        "exported": true,
+        "name": "app_var",
+        "value": "hello, world",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with global export referencing built-in (cur-version) 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "APP",
+      Object {
+        "exported": true,
+        "name": "APP",
+        "value": "hello, app",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with global export referencing built-in 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "APP",
+      Object {
+        "exported": true,
+        "name": "APP",
+        "value": "hello, app",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with global exports 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "APP",
+      Object {
+        "exported": true,
+        "name": "APP",
+        "value": "hello",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with local exports 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "app__var",
+      Object {
+        "exported": true,
+        "name": "app__var",
+        "value": "hello",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() build with no exports 1`] = `
+Object {
+  "env": Array [],
+}
+`;
+
+exports[`calculate() concatenating global exports (same level exports + package itself) 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "CAML_LD_LIBRARY_PATH",
+      Object {
+        "exported": true,
+        "name": "CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() concatenating global exports (same level exports) 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "CAML_LD_LIBRARY_PATH",
+      Object {
+        "exported": true,
+        "name": "CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`calculate() concatenating global exports 1`] = `
+Object {
+  "env": Array [
+    Array [
+      "CAML_LD_LIBRARY_PATH",
+      Object {
+        "exported": true,
+        "name": "CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+      },
+    ],
+  ],
+}
+`;
