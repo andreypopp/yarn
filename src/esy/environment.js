@@ -8,7 +8,8 @@ import os from 'os';
 import pathIsInside from 'path-is-inside';
 import outdent from 'outdent';
 
-import {normalizePackageName} from './util';
+import type {Build, BuildConfig} from './build-repr';
+import {normalizePackageName, filterMap, mergeIntoMap} from './util';
 import * as BuildRepr from './build-repr';
 
 export type EnvironmentVar = {
@@ -330,7 +331,9 @@ export function calculateEnvironment(
   globalSeenVars = {};
 
   function setUpBuiltinVariables(envConfigState: EnvironmentConfigState) {
-    let sandboxExportedEnvVars: {[name: string]: BuildRepr.EnvironmentVarExport} = {
+    let sandboxExportedEnvVars: {
+      [name: string]: BuildRepr.EnvironmentVarExport,
+    } = {
       esy__sandbox: {
         val: config.sandboxPath,
         exclusive: true,
@@ -492,7 +495,220 @@ export function printEnvironment(groups: Environment) {
     .join(EOL);
 }
 
-/**
- * TODO: Cache this result on disk in a .reasonLoadEnvCache so that we don't
- * have to repeat this process.
- */
+export type ScopeItem = {
+  name: string,
+  value: string,
+  exported: boolean,
+  build?: BuildRepr.Build,
+};
+
+export type Scope = Map<string, ScopeItem>;
+export type Env = Scope;
+
+export function calculate(
+  config: BuildConfig,
+  rootBuild: Build,
+  _initialEnv?: Env = new Map(),
+): {env: Env} {
+  function entry(
+    {
+      name,
+      value,
+      build,
+      exported = false,
+    }: {name: string, value: string, build?: Build, exported?: boolean},
+  ) {
+    return [name, {name, value, build, exported}];
+  }
+  function values(...values) {
+    return new Map(values.map(entry));
+  }
+  function getBuiltInScope(build: Build, currentlyBuilding?: boolean): Env {
+    const prefix = currentlyBuilding ? 'cur' : normalizePackageName(build.name);
+    const getInstallPath = currentlyBuilding
+      ? config.getInstallPath
+      : config.getFinalInstallPath;
+    return values(
+      {
+        name: `${prefix}__name`,
+        value: build.name,
+        build,
+      },
+      {
+        name: `${prefix}__version`,
+        value: build.version,
+        build,
+      },
+      {
+        name: `${prefix}__root`,
+        value: currentlyBuilding && build.mutatesSourcePath
+          ? config.getBuildPath(build)
+          : config.getRootPath(build),
+        build,
+      },
+      {
+        name: `${prefix}__depends`,
+        value: build.dependencies.map(dep => dep.name).join(' '),
+        build,
+      },
+      {name: `${prefix}__target_dir`, value: config.getBuildPath(build), build},
+      {
+        name: `${prefix}__install`,
+        value: getInstallPath(build),
+        build,
+      },
+      {
+        name: `${prefix}__bin`,
+        value: getInstallPath(build, 'bin'),
+        build,
+      },
+      {
+        name: `${prefix}__sbin`,
+        value: getInstallPath(build, 'sbin'),
+        build,
+      },
+      {
+        name: `${prefix}__lib`,
+        value: getInstallPath(build, 'lib'),
+        build,
+      },
+      {
+        name: `${prefix}__man`,
+        value: getInstallPath(build, 'man'),
+        build,
+      },
+      {
+        name: `${prefix}__doc`,
+        value: getInstallPath(build, 'doc'),
+        build,
+      },
+      {
+        name: `${prefix}__stublibs`,
+        value: getInstallPath(build, 'stublibs'),
+        build,
+      },
+      {
+        name: `${prefix}__toplevel`,
+        value: getInstallPath(build, 'toplevel'),
+        build,
+      },
+      {
+        name: `${prefix}__share`,
+        value: getInstallPath(build, 'share'),
+        build,
+      },
+      {
+        name: `${prefix}__etc`,
+        value: getInstallPath(build, 'etc'),
+        build,
+      },
+    );
+  }
+
+  function getGlobalScope(dependencies): Env {
+    return dependencies.reduce(
+      (scope, dep) => {
+        const scopeUpdate = new Map();
+        for (const item of dep.globalScope.values()) {
+          const nextItem = {
+            ...item,
+            value: renderWithScope(item.value, [scope]).rendered,
+          };
+          scopeUpdate.set(item.name, nextItem);
+        }
+        mergeIntoMap(scope, scopeUpdate);
+        return scope;
+      },
+      new Map(),
+    );
+  }
+
+  function getEvalScope(build, directDependencies) {
+    const currentlyBuilding = rootBuild.id === build.id;
+
+    // built-ins like $pkgname__name, $pkgname__version and so on...
+    const builtInScope = getBuiltInScope(build);
+    if (currentlyBuilding) {
+      mergeIntoMap(builtInScope, getBuiltInScope(build, true));
+    }
+
+    // scope in which exports are going to be evaled
+    const evalScope: Env = new Map();
+    for (const dep of directDependencies) {
+      mergeIntoMap(evalScope, getBuiltInScope(dep.build));
+      mergeIntoMap(evalScope, dep.localScope);
+    }
+    mergeIntoMap(evalScope, builtInScope);
+    return evalScope;
+  }
+
+  const res = BuildRepr.topologicalFold(
+    rootBuild,
+    (directDependencies, allDependencies, build) => {
+      // scope which is used to eval exported variables
+      const evalScope = getEvalScope(build, directDependencies);
+      // global env vars exported from a build
+      const globalScope: Env = new Map();
+      // local env vars exported from a build
+      const localScope = new Map();
+      for (const name in build.exportedEnv) {
+        const envConfig = build.exportedEnv[name];
+        const value = renderWithScope(envConfig.val, [evalScope]).rendered;
+        const item = {name, value, exported: true};
+        if (envConfig.scope === 'global') {
+          globalScope.set(name, item);
+        } else {
+          localScope.set(name, item);
+        }
+      }
+      return {
+        localScope,
+        globalScope,
+
+        build,
+        directDependencies,
+        allDependencies,
+      };
+    },
+  );
+
+  const env = new Map();
+  for (const dep of res.directDependencies) {
+    mergeIntoMap(env, dep.localScope);
+  }
+  mergeIntoMap(env, res.localScope);
+  const globalScope = getGlobalScope(res.allDependencies);
+  mergeIntoMap(env, globalScope);
+
+  const evalScope = getEvalScope(res.build, res.directDependencies);
+  mergeIntoMap(evalScope, globalScope);
+
+  for (const item of res.globalScope.values()) {
+    env.set(item.name, {
+      ...item,
+      value: renderWithScope(item.value, [evalScope]).rendered,
+    });
+  }
+
+  return {env};
+}
+
+const FIND_VAR_RE = /\$([a-zA-Z0-9_]+)/g;
+
+export function renderWithScope<T: {value: string}>(
+  value: string,
+  scopeChain: Array<Map<string, T>>,
+  _config?: {allowUnknownReferences?: boolean} = {},
+): {rendered: string} {
+  const rendered = value.replace(FIND_VAR_RE, (_, name) => {
+    for (let i = 0; i < scopeChain.length; i++) {
+      const value = scopeChain[i].get(name);
+      if (value == null) {
+        continue;
+      }
+      return value.value;
+    }
+    return `\$${name}`;
+  });
+  return {rendered};
+}

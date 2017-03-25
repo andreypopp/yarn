@@ -187,17 +187,22 @@ export function collectTransitiveDependencies(build: Build): Build[] {
  * Note that value is computed only once per build (even if it happen to be
  * depended on if a few places) and then memoized.
  */
-export function topologicalFold<V>(build: Build, f: (V[], Build) => V): V {
+export function topologicalFold<V>(
+  build: Build,
+  f: (directDependencies: V[], allDependencies: V[], currentBuild: Build) => V,
+): V {
   return topologicalFoldImpl(build, f, new Map(), value => value);
 }
 
 function topologicalFoldImpl<V>(
   build: Build,
-  f: (V[], Build) => V,
+  f: (V[], V[], Build) => V,
   memoized: Map<string, V>,
   onBuild: (V, Build) => *,
 ): V {
-  const depValues = [];
+  const directDependencies = [];
+  const allDependencies = [];
+  const seen = new Set();
   const toVisit = new Set(build.dependencies.map(dep => dep.id));
   for (let i = 0; i < build.dependencies.length; i++) {
     const dep = build.dependencies[i];
@@ -206,14 +211,18 @@ function topologicalFoldImpl<V>(
       if (value == null) {
         value = topologicalFoldImpl(dep, f, memoized, (value, dep) => {
           if (toVisit.delete(dep.id)) {
-            depValues.push(value);
+            directDependencies.push(value);
           }
+          if (!seen.has(dep.id)) {
+            allDependencies.push(value);
+          }
+          seen.add(dep.id);
           return onBuild(value, dep);
         });
         memoized.set(dep.id, value);
       }
-      depValues.push(value);
+      directDependencies.push(value);
     }
   }
-  return onBuild(f(depValues, build), build);
+  return onBuild(f(directDependencies, allDependencies, build), build);
 }

@@ -71,3 +71,28 @@ export function normalizePackageName(name: string): string {
       .replace(/\-/g, '_')
   );
 }
+
+export function filterMap<K, V>(map: Map<K, V>, filter: (V, K) => boolean): Map<K, V> {
+  const res: Map<K, V> = new Map();
+  for (const [k, v] of map.entries()) {
+    if (filter(v, k)) {
+      res.set(k, v);
+    }
+  }
+  return res;
+}
+
+export function mergeIntoMap<K, V>(
+  src: Map<K, V>,
+  from: Map<K, V>,
+  merge?: (prev: V, override: V, name: K) => V,
+) {
+  for (const [k, v] of from.entries()) {
+    const prev = src.get(k);
+    if (prev != null && merge) {
+      src.set(k, merge(prev, v, k));
+    } else {
+      src.set(k, v);
+    }
+  }
+}
