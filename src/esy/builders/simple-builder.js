@@ -20,7 +20,16 @@ const BUILD_DIRS = ['_esy'];
 
 const NUM_CPUS = os.cpus().length;
 
-export const build: BuildRepr.Builder = async (sandbox, config) => {
+type BuildStateChange =
+  | {state: 'success', timeEllapsed: number}
+  | {state: 'failure', error: Error}
+  | {state: 'in-progress'};
+
+export const build = async (
+  sandbox: BuildRepr.BuildSandbox,
+  config: BuildRepr.BuildConfig,
+  onBuildStatus: (build: BuildRepr.Build, status: BuildStateChange) => *,
+) => {
   await Promise.all([
     initStore(config.storePath),
     initStore(path.join(config.sandboxPath, '_esy', 'store')),
@@ -29,10 +38,31 @@ export const build: BuildRepr.Builder = async (sandbox, config) => {
   const buildQueue = new PromiseQueue({concurrency: NUM_CPUS});
   const buildInProgress = new Map();
 
-  function performBuildMemoized(build) {
+  async function isBuildComplete(build) {
+    return build.shouldBePersisted &&
+      (await fs.exists(config.getFinalInstallPath(build)));
+  }
+
+  async function performBuildMemoized(build) {
     let inProgress = buildInProgress.get(build.id);
     if (inProgress == null) {
-      inProgress = buildQueue.add(() => performBuild(build, config, sandbox));
+      if (await isBuildComplete(build)) {
+        inProgress = Promise.resolve();
+      } else {
+        inProgress = buildQueue.add(async () => {
+          onBuildStatus(build, {state: 'in-progress'});
+          const startTime = Date.now();
+          try {
+            await performBuild(build, config, sandbox);
+          } catch (error) {
+            onBuildStatus(build, {state: 'in-progress', error});
+            throw error;
+          }
+          const endTime = Date.now();
+          const timeEllapsed = endTime - startTime;
+          onBuildStatus(build, {state: 'success', timeEllapsed});
+        });
+      }
       buildInProgress.set(build.id, inProgress);
     }
     return inProgress;
@@ -58,11 +88,6 @@ async function performBuild(
   const buildPath = config.getBuildPath(build);
 
   const log = createLogger(`esy:simple-builder:${build.name}`);
-
-  if (build.shouldBePersisted && (await fs.exists(config.getFinalInstallPath(build)))) {
-    // that means build already cached in store
-    return;
-  }
 
   log('starting build');
 

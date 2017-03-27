@@ -31,6 +31,7 @@
     "node-gyp": "^3.2.1",
     "npm-hooks": "https://github.com/jordwalke/npm-hooks.git#1.0.0-clobber",
     "object-path": "^0.11.2",
+    "observatory": "^1.0.0",
     "outdent": "^0.3.0",
     "p-queue": "^1.0.0",
     "path-is-inside": "^1.0.2",
