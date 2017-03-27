@@ -5,6 +5,7 @@
 import createLogger from 'debug';
 import outdent from 'outdent';
 import * as path from 'path';
+import * as os from 'os';
 import rimraf from 'rimraf';
 import PromiseQueue from 'p-queue';
 import {promisify} from '../../util/promise';
@@ -17,16 +18,32 @@ import {renderEnv} from './makefile-builder';
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
 
+const NUM_CPUS = os.cpus().length;
+
 export const build: BuildRepr.Builder = async (sandbox, config) => {
-  let buildInProgress = Promise.resolve();
+  await Promise.all([
+    initStore(config.storePath),
+    initStore(path.join(config.sandboxPath, '_esy', 'store')),
+  ]);
 
-  await initStore(config.storePath);
-  await initStore(path.join(config.sandboxPath, '_esy', 'store'));
+  const buildQueue = new PromiseQueue({concurrency: NUM_CPUS});
+  const buildInProgress = new Map();
 
-  // TODO: this shold be done in parallel
-  BuildRepr.traverseDeepFirst(sandbox.root, build => {
-    buildInProgress = buildInProgress.then(() => performBuild(build, config, sandbox));
-  });
+  function performBuildMemoized(build) {
+    let inProgress = buildInProgress.get(build.id);
+    if (inProgress == null) {
+      inProgress = buildQueue.add(() => performBuild(build, config, sandbox));
+      buildInProgress.set(build.id, inProgress);
+    }
+    return inProgress;
+  }
+
+  await BuildRepr.topologicalFold(
+    sandbox.root,
+    (directDependencies, allDependencies, build) =>
+      Promise.all(directDependencies).then(() => performBuildMemoized(build)),
+  );
+
   await buildInProgress;
 };
 
