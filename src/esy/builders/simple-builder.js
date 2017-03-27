@@ -104,8 +104,6 @@ async function performBuild(
     for (let i = 0; i < commandList.length; i++) {
       log(`executing: ${commandList[i]}`);
       // TODO: add sandboxing
-      // TODO: use exec without shell so we can build without /bin/bash present.
-      // That requires we do var expansion and not rely on shell.
       const command = Env.renderWithScope(commandList[i], scope).rendered;
       await child.exec(command, {
         cwd: rootPath,
