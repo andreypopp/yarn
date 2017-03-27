@@ -191,8 +191,8 @@ async function main() {
     // Sandbox env is more strict than we want it to be at runtime, filter out
     // $SHELL and $PATH overrides.
     const env = sandbox.env.filter(v => v.name !== 'SHELL' && v !== 'PATH');
-    const envForThisPackageScripts = Env.calculateEnvironment(config, sandbox.root, env);
-    console.log(Env.printEnvironment(envForThisPackageScripts));
+    const envForThisPackageScripts = Env.calculate(config, sandbox.root, env);
+    console.log(Env.printEnvironment(envForThisPackageScripts.env));
   } else {
     const builtInCommandName = actualArgs[0];
     const builtInCommand = builtInCommands[builtInCommandName];

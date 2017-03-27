@@ -9,7 +9,7 @@ import pathIsInside from 'path-is-inside';
 import outdent from 'outdent';
 
 import type {Build, BuildConfig} from './build-repr';
-import {normalizePackageName, filterMap, mergeIntoMap} from './util';
+import {normalizePackageName, mergeIntoMap} from './util';
 import * as BuildRepr from './build-repr';
 
 export type EnvironmentVar = {
@@ -100,19 +100,15 @@ function getScopes(config) {
  * Validates env vars that were configured in package.json as opposed to
  * automatically created.
  */
-const validatePackageJsonExportedEnvVar = (
-  envVar,
-  config,
-  inPackageName,
-  envVarConfigPrefix,
-) => {
+function validatePackageJsonExportedEnvVar(build: Build, envVar, config): Array<string> {
+  const envVarConfigPrefix = normalizePackageName(build.name);
   const beginsWithPackagePrefix = envVar.indexOf(envVarConfigPrefix) === 0;
   const ret = [];
   if (config.scopes !== undefined) {
     ret.push(
       outdent`
         ${envVar} has a field 'scopes' (plural). You probably meant 'scope'.
-        The owner of ${inPackageName} likely made a mistake.
+        The owner of ${build.name} likely made a mistake.
       `,
     );
   }
@@ -123,7 +119,7 @@ const validatePackageJsonExportedEnvVar = (
         /* eslint-disable max-len */
         ret.push(
           outdent`
-            It looks like ${envVar} is trying to be configured as a package scoped variable, but it has the wrong capitalization. It should begin with ${envVarConfigPrefix}.  The owner of ${inPackageName} likely made a mistake.
+            It looks like ${envVar} is trying to be configured as a package scoped variable, but it has the wrong capitalization. It should begin with ${envVarConfigPrefix}.  The owner of ${build.name} likely made a mistake.
           `,
         );
         /* eslint-enable max-len */
@@ -132,7 +128,7 @@ const validatePackageJsonExportedEnvVar = (
         ret.push(
           outdent`
             Environment variable ${envVar}  doesn't begin with ${envVarConfigPrefix} but it is not marked as 'global'. You should either prefix variables with ${envVarConfigPrefix} or make them global.
-            The author of ${inPackageName} likely made a mistake
+            The author of ${build.name} likely made a mistake
           `,
         );
         /* eslint-enable max-len */
@@ -144,14 +140,14 @@ const validatePackageJsonExportedEnvVar = (
       /* eslint-disable max-len */
       ret.push(
         outdent`
-          ${envVar} looks like it's trying to step on another package because it has a double underscore - which is how we express namespaced env vars. The package owner for ${inPackageName} likely made a mistake
+          ${envVar} looks like it's trying to step on another package because it has a double underscore - which is how we express namespaced env vars. The package owner for ${build.name} likely made a mistake
         `,
       );
       /* eslint-enable max-len */
     }
   }
   return ret;
-};
+}
 
 function builtInsPerPackage(
   config: BuildRepr.BuildConfig,
@@ -274,12 +270,7 @@ function computeEnvVarsForPackage(config: BuildRepr.BuildConfig, build: BuildRep
 
   for (const envVar in build.exportedEnv) {
     nextErrors = nextErrors.concat(
-      validatePackageJsonExportedEnvVar(
-        envVar,
-        build.exportedEnv[envVar],
-        build.name,
-        normalizePackageName(build.name),
-      ),
+      validatePackageJsonExportedEnvVar(build, envVar, build.exportedEnv[envVar]),
     );
   }
 
@@ -458,39 +449,35 @@ export function calculateEnvironment(
   return ret;
 }
 
-export function printEnvironment(groups: Environment) {
-  return groups
+export function printEnvironment(env: Env) {
+  const groupsByBuild = new Map();
+
+  for (const item of env.values()) {
+    const key = item.build != null ? item.build.id : 'Esy Sandbox';
+    const header = item.build != null
+      ? `${item.build.name}@${item.build.version} ${item.build.sourcePath}`
+      : 'Esy Sandbox';
+    let group = groupsByBuild.get(key);
+    if (group == null) {
+      group = {header, env: []};
+      groupsByBuild.set(key, group);
+    }
+    group.env.push(item);
+  }
+
+  return Array.from(groupsByBuild.values())
     .map(group => {
-      const headerLines = [
-        '',
-        '# ' +
-          group.packageName +
-          (group.packageVersion ? '@' + group.packageVersion : '') +
-          ' ' +
-          group.packageJsonPath,
-      ];
-      let renderingBuiltInsForGroup = false;
-      const errorLines = group.errors.map(err => {
-        return '# [ERROR] ' + err;
+      const headerLines = [`# ${group.header}`];
+      // TODO: add error rendering here
+      // const errorLines = group.errors.map(err => {
+      //   return '# [ERROR] ' + err;
+      // });
+      const envVarLines = group.env.map(item => {
+        // TODO: escape " in values
+        const exportLine = `export ${item.name}="${item.value}"`;
+        return exportLine;
       });
-      const envVarLines = group.envVars
-        .map(envVar => {
-          if (envVar.value == null) {
-            return null;
-          }
-          const exportLine = `export ${envVar.name}="${envVar.value}"`;
-          if (!renderingBuiltInsForGroup && envVar.automaticDefault) {
-            renderingBuiltInsForGroup = true;
-            return ['# [BuiltIns]', exportLine].join(EOL);
-          } else if (renderingBuiltInsForGroup && !envVar.automaticDefault) {
-            renderingBuiltInsForGroup = false;
-            return ['# [Custom Variables]', exportLine].join(EOL);
-          } else {
-            return exportLine;
-          }
-        })
-        .filter(envVar => envVar != null);
-      return headerLines.concat(errorLines).concat(envVarLines).join(EOL);
+      return headerLines.concat(envVarLines).join(EOL);
     })
     .join(EOL);
 }
@@ -499,36 +486,46 @@ export type ScopeItem = {
   name: string,
   value: string,
   exported: boolean,
+  builtIn: boolean,
+  exclusive: boolean,
   build?: BuildRepr.Build,
 };
 
 export type Scope = Map<string, ScopeItem>;
 export type Env = Scope;
+export type BuildEnv = {env: Env, scope: Scope};
 
 export function calculate(
   config: BuildConfig,
   rootBuild: Build,
-  _initialEnv?: Env = new Map(),
-): {env: Env} {
-  function entry(
+  initialEnv?: Array<{name: string, value: string}> = [],
+): BuildEnv {
+  function builtInEntry(
     {
       name,
       value,
       build,
+      exclusive = true,
       exported = false,
-    }: {name: string, value: string, build?: Build, exported?: boolean},
+    }: {
+      name: string,
+      value: string,
+      build?: Build,
+      exclusive?: boolean,
+      exported?: boolean,
+    },
   ) {
-    return [name, {name, value, build, exported}];
+    return [name, {name, value, build, builtIn: true, exclusive, exported}];
   }
-  function values(...values) {
-    return new Map(values.map(entry));
+  function builtInEntries(...values) {
+    return new Map(values.map(builtInEntry));
   }
   function getBuiltInScope(build: Build, currentlyBuilding?: boolean): Env {
     const prefix = currentlyBuilding ? 'cur' : normalizePackageName(build.name);
     const getInstallPath = currentlyBuilding
       ? config.getInstallPath
       : config.getFinalInstallPath;
-    return values(
+    return builtInEntries(
       {
         name: `${prefix}__name`,
         value: build.name,
@@ -551,7 +548,11 @@ export function calculate(
         value: build.dependencies.map(dep => dep.name).join(' '),
         build,
       },
-      {name: `${prefix}__target_dir`, value: config.getBuildPath(build), build},
+      {
+        name: `${prefix}__target_dir`,
+        value: config.getBuildPath(build),
+        build,
+      },
       {
         name: `${prefix}__install`,
         value: getInstallPath(build),
@@ -605,40 +606,13 @@ export function calculate(
     );
   }
 
-  function getGlobalScope(dependencies): Env {
-    return dependencies.reduce(
-      (scope, dep) => {
-        const scopeUpdate = new Map();
-        for (const item of dep.globalScope.values()) {
-          const nextItem = {
-            ...item,
-            value: renderWithScope(item.value, [scope]).rendered,
-          };
-          scopeUpdate.set(item.name, nextItem);
-        }
-        mergeIntoMap(scope, scopeUpdate);
-        return scope;
-      },
-      new Map(),
-    );
-  }
-
-  function getEvalScope(build, directDependencies) {
-    const currentlyBuilding = rootBuild.id === build.id;
-
-    // built-ins like $pkgname__name, $pkgname__version and so on...
-    const builtInScope = getBuiltInScope(build);
-    if (currentlyBuilding) {
-      mergeIntoMap(builtInScope, getBuiltInScope(build, true));
-    }
-
-    // scope in which exports are going to be evaled
+  function getEvalScope(build, directDependencies): Env {
     const evalScope: Env = new Map();
     for (const dep of directDependencies) {
       mergeIntoMap(evalScope, getBuiltInScope(dep.build));
       mergeIntoMap(evalScope, dep.localScope);
     }
-    mergeIntoMap(evalScope, builtInScope);
+    mergeIntoMap(evalScope, getBuiltInScope(build));
     return evalScope;
   }
 
@@ -646,15 +620,22 @@ export function calculate(
     rootBuild,
     (directDependencies, allDependencies, build) => {
       // scope which is used to eval exported variables
-      const evalScope = getEvalScope(build, directDependencies);
+      const evalScope: Env = getEvalScope(build, directDependencies);
       // global env vars exported from a build
       const globalScope: Env = new Map();
       // local env vars exported from a build
-      const localScope = new Map();
+      const localScope: Env = new Map();
       for (const name in build.exportedEnv) {
         const envConfig = build.exportedEnv[name];
-        const value = renderWithScope(envConfig.val, [evalScope]).rendered;
-        const item = {name, value, exported: true};
+        const value = renderWithScope(envConfig.val, evalScope).rendered;
+        const item = {
+          name,
+          value,
+          build,
+          builtIn: false,
+          exported: true,
+          exclusive: Boolean(envConfig.exclusive),
+        };
         if (envConfig.scope === 'global') {
           globalScope.set(name, item);
         } else {
@@ -672,43 +653,95 @@ export function calculate(
     },
   );
 
+  function evalIntoEnv<V: {name: string, value: string}>(
+    scope: Env,
+    items: Array<V> | $Iterator<V, *, *>,
+  ) {
+    const update = new Map();
+    for (const item of items) {
+      const nextItem = {
+        exported: true,
+        exclusive: false,
+        builtIn: false,
+        ...item,
+        value: renderWithScope(item.value, scope).rendered,
+      };
+      update.set(item.name, nextItem);
+    }
+    mergeIntoMap(scope, update);
+  }
+
+  function mergeScopes(scopes): Env {
+    return scopes.reduce(
+      (scope, currentScope) => {
+        evalIntoEnv(scope, currentScope.values());
+        return scope;
+      },
+      new Map(),
+    );
+  }
+
   const env = new Map();
+
+  evalIntoEnv(env, initialEnv);
+
+  evalIntoEnv(env, [
+    {
+      name: 'OCAMLFIND_CONF',
+      value: config.getBuildPath(rootBuild, '_esy', 'findlib.conf'),
+      exported: true,
+    },
+    {
+      name: 'PATH',
+      value: res.allDependencies
+        .map(dep => config.getFinalInstallPath(dep.build, 'bin'))
+        .concat('$PATH')
+        .join(':'),
+      exported: true,
+    },
+    {
+      name: 'MAN_PATH',
+      value: res.allDependencies
+        .map(dep => config.getFinalInstallPath(dep.build, 'man'))
+        .concat('$MAN_PATH')
+        .join(':'),
+      exported: true,
+    },
+  ]);
+
+  // $cur__name, $cur__version and so on...
+  mergeIntoMap(env, getBuiltInScope(rootBuild, true));
+
+  // direct deps' local scopes
   for (const dep of res.directDependencies) {
     mergeIntoMap(env, dep.localScope);
   }
+  // build's own local scope
   mergeIntoMap(env, res.localScope);
-  const globalScope = getGlobalScope(res.allDependencies);
-  mergeIntoMap(env, globalScope);
+  // all deps' global scopes merged
+  mergeIntoMap(
+    env,
+    mergeScopes(res.allDependencies.map(dep => dep.globalScope).concat(res.globalScope)),
+  );
 
-  const evalScope = getEvalScope(res.build, res.directDependencies);
-  mergeIntoMap(evalScope, globalScope);
+  const scope = getEvalScope(rootBuild, res.directDependencies);
 
-  for (const item of res.globalScope.values()) {
-    env.set(item.name, {
-      ...item,
-      value: renderWithScope(item.value, [evalScope]).rendered,
-    });
-  }
-
-  return {env};
+  return {env, scope};
 }
 
 const FIND_VAR_RE = /\$([a-zA-Z0-9_]+)/g;
 
 export function renderWithScope<T: {value: string}>(
   value: string,
-  scopeChain: Array<Map<string, T>>,
-  _config?: {allowUnknownReferences?: boolean} = {},
+  scope: Map<string, T>,
 ): {rendered: string} {
   const rendered = value.replace(FIND_VAR_RE, (_, name) => {
-    for (let i = 0; i < scopeChain.length; i++) {
-      const value = scopeChain[i].get(name);
-      if (value == null) {
-        continue;
-      }
+    const value = scope.get(name);
+    if (value == null) {
+      return `\$${name}`;
+    } else {
       return value.value;
     }
-    return `\$${name}`;
   });
   return {rendered};
 }
