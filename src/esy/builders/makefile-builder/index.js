@@ -12,7 +12,7 @@ import * as Env from '../../environment';
 import * as BuildRepr from '../../build-repr';
 import * as Config from '../../build-config';
 import * as Makefile from '../../Makefile';
-import {flattenArray, normalizePackageName} from '../../util';
+import {normalizePackageName} from '../../util';
 
 const log = createLogger('esy:makefile-builder');
 const CWD = process.cwd();
@@ -183,10 +183,12 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
       emitFile(outputPath, {filename: packagePath.concat(filename), contents});
     }
 
+    const {env, scope} = Env.calculate(buildConfig, build, sandbox.env);
+
     // Emit env
     emitBuildFile({
       filename: 'eject-env',
-      contents: renderEnv(Env.calculateEnvironment(buildConfig, build, sandbox.env)),
+      contents: renderEnv(env),
     });
 
     // Emit findlib.conf.in
@@ -270,7 +272,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
           esy_build__eject: `$(ESY_EJECT__ROOT)/${packagePath.join('/')}`,
           esy_build__type: build.mutatesSourcePath ? 'in-source' : 'out-of-source',
           esy_build__key: build.id,
-          esy_build__command: renderBuildCommand(build) || 'true',
+          esy_build__command: renderBuildCommand(build, scope) || 'true',
           esy_build__source_root: path.join(buildConfig.sandboxPath, build.sourcePath),
           esy_build__install: buildConfig.getFinalInstallPath(build),
         },
@@ -376,20 +378,15 @@ function emitFile(
   }
 }
 
-export function renderEnv(groups: Env.Environment): string {
-  const env = flattenArray(groups.map(group => group.envVars));
-  return (
-    env
-      .filter(env => env.value != null)
-      // $FlowFixMe: make sure env.value is refined above
-      .map(env => `export ${env.name}="${env.value}";`)
-      .join('\n')
-  );
+export function renderEnv(env: Env.Env): string {
+  return Array.from(env.values())
+    .map(env => `export ${env.name}="${env.value}";`)
+    .join('\n');
 }
 
-function renderBuildCommand(build: BuildRepr.Build): ?string {
+function renderBuildCommand(build: BuildRepr.Build, scope: Env.Scope): ?string {
   if (build.command == null) {
     return null;
   }
-  return build.command.join(' && ');
+  return Env.renderWithScope(build.command.join(' && '), scope).rendered;
 }

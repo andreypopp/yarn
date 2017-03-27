@@ -4,8 +4,209 @@ exports[`calculate() build with (dep with (dep with local export) with local exp
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/dep-of-dep/bin:<storePath>/_install/dep/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/dep-of-dep/man:<storePath>/_install/dep/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "dep",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "dep__var",
       Object {
+        "build": Build { id: "dep" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "dep__var",
         "value": "hello",
@@ -19,8 +220,209 @@ exports[`calculate() build with (dep with local export) 1`] = `
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/dep/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/dep/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "dep",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "dep__var",
       Object {
+        "build": Build { id: "dep" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "dep__var",
         "value": "hello",
@@ -34,8 +436,209 @@ exports[`calculate() build with (dep with local export) with global export refer
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/dep/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/dep/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "dep",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "APP",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "APP",
         "value": "hello, dep",
@@ -49,8 +652,209 @@ exports[`calculate() build with (dep with local export) with global export refer
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/dep/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/dep/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "dep",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "dep__var",
       Object {
+        "build": Build { id: "dep" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "dep__var",
         "value": "hello",
@@ -59,6 +863,9 @@ Object {
     Array [
       "APP",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "APP",
         "value": "hello, world",
@@ -72,8 +879,209 @@ exports[`calculate() build with (dep with local export) with local export refere
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/dep/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/dep/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "dep",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "app__var",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "app__var",
         "value": "hello, dep",
@@ -87,8 +1095,209 @@ exports[`calculate() build with (dep with local export) with local export refere
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/dep/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/dep/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "dep",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "dep__var",
       Object {
+        "build": Build { id: "dep" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "dep__var",
         "value": "hello",
@@ -97,6 +1306,9 @@ Object {
     Array [
       "app_var",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "app_var",
         "value": "hello, world",
@@ -110,11 +1322,212 @@ exports[`calculate() build with global export referencing built-in (cur-version)
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "APP",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "APP",
-        "value": "hello, app",
+        "value": "hello, $cur__name",
       },
     ],
   ],
@@ -125,8 +1538,209 @@ exports[`calculate() build with global export referencing built-in 1`] = `
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "APP",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "APP",
         "value": "hello, app",
@@ -140,8 +1754,209 @@ exports[`calculate() build with global exports 1`] = `
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "APP",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "APP",
         "value": "hello",
@@ -155,8 +1970,209 @@ exports[`calculate() build with local exports 1`] = `
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "app__var",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "app__var",
         "value": "hello",
@@ -168,7 +2184,206 @@ Object {
 
 exports[`calculate() build with no exports 1`] = `
 Object {
-  "env": Array [],
+  "env": Array [
+    Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+  ],
 }
 `;
 
@@ -176,8 +2391,209 @@ exports[`calculate() concatenating global exports (same level exports + package 
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/ocaml/bin:<storePath>/_install/ocamlfind/bin:<storePath>/_install/lwt/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/ocaml/man:<storePath>/_install/ocamlfind/man:<storePath>/_install/lwt/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "ocamlfind lwt",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "CAML_LD_LIBRARY_PATH",
       Object {
+        "build": Build { id: "app" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
         "value": "<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
@@ -191,8 +2607,209 @@ exports[`calculate() concatenating global exports (same level exports) 1`] = `
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/ocaml/bin:<storePath>/_install/ocamlfind/bin:<storePath>/_install/lwt/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/ocaml/man:<storePath>/_install/ocamlfind/man:<storePath>/_install/lwt/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "ocamlfind lwt",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "CAML_LD_LIBRARY_PATH",
       Object {
+        "build": Build { id: "lwt" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
         "value": "<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
@@ -206,8 +2823,209 @@ exports[`calculate() concatenating global exports 1`] = `
 Object {
   "env": Array [
     Array [
+      "OCAMLFIND_CONF",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_CONF",
+        "value": "<storePath>/_build/app/_esy/findlib.conf",
+      },
+    ],
+    Array [
+      "PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "PATH",
+        "value": "<storePath>/_install/ocaml/bin:<storePath>/_install/ocamlfind/bin:$PATH",
+      },
+    ],
+    Array [
+      "MAN_PATH",
+      Object {
+        "build": undefined,
+        "builtIn": true,
+        "exclusive": true,
+        "exported": true,
+        "name": "MAN_PATH",
+        "value": "<storePath>/_install/ocaml/man:<storePath>/_install/ocamlfind/man:$MAN_PATH",
+      },
+    ],
+    Array [
+      "cur__name",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__name",
+        "value": "app",
+      },
+    ],
+    Array [
+      "cur__version",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__version",
+        "value": "0.1.0",
+      },
+    ],
+    Array [
+      "cur__root",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__root",
+        "value": "<sandboxPath>/app",
+      },
+    ],
+    Array [
+      "cur__depends",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__depends",
+        "value": "ocamlfind ocaml",
+      },
+    ],
+    Array [
+      "cur__target_dir",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__target_dir",
+        "value": "<storePath>/_build/app",
+      },
+    ],
+    Array [
+      "cur__install",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__install",
+        "value": "<storePath>/_insttmp/app",
+      },
+    ],
+    Array [
+      "cur__bin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__bin",
+        "value": "<storePath>/_insttmp/app/bin",
+      },
+    ],
+    Array [
+      "cur__sbin",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__sbin",
+        "value": "<storePath>/_insttmp/app/sbin",
+      },
+    ],
+    Array [
+      "cur__lib",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__lib",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "cur__man",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__man",
+        "value": "<storePath>/_insttmp/app/man",
+      },
+    ],
+    Array [
+      "cur__doc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__doc",
+        "value": "<storePath>/_insttmp/app/doc",
+      },
+    ],
+    Array [
+      "cur__stublibs",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__stublibs",
+        "value": "<storePath>/_insttmp/app/stublibs",
+      },
+    ],
+    Array [
+      "cur__toplevel",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__toplevel",
+        "value": "<storePath>/_insttmp/app/toplevel",
+      },
+    ],
+    Array [
+      "cur__share",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__share",
+        "value": "<storePath>/_insttmp/app/share",
+      },
+    ],
+    Array [
+      "cur__etc",
+      Object {
+        "build": Build { id: "app" },
+        "builtIn": true,
+        "exclusive": true,
+        "exported": false,
+        "name": "cur__etc",
+        "value": "<storePath>/_insttmp/app/etc",
+      },
+    ],
+    Array [
       "CAML_LD_LIBRARY_PATH",
       Object {
+        "build": Build { id: "ocamlfind" },
+        "builtIn": false,
+        "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
         "value": "<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
@@ -215,4 +3033,28 @@ Object {
     ],
   ],
 }
+`;
+
+exports[`printEnvironment() printing environment 1`] = `
+"# Esy Sandbox
+export OCAMLFIND_CONF=\\"<storePath>/_build/app/_esy/findlib.conf\\"
+export PATH=\\"<storePath>/_install/ocaml/bin:<storePath>/_install/ocamlfind/bin:<storePath>/_install/lwt/bin:$PATH\\"
+export MAN_PATH=\\"<storePath>/_install/ocaml/man:<storePath>/_install/ocamlfind/man:<storePath>/_install/lwt/man:$MAN_PATH\\"
+# app@0.1.0 app
+export cur__name=\\"app\\"
+export cur__version=\\"0.1.0\\"
+export cur__root=\\"<sandboxPath>/app\\"
+export cur__depends=\\"ocamlfind lwt\\"
+export cur__target_dir=\\"<storePath>/_build/app\\"
+export cur__install=\\"<storePath>/_insttmp/app\\"
+export cur__bin=\\"<storePath>/_insttmp/app/bin\\"
+export cur__sbin=\\"<storePath>/_insttmp/app/sbin\\"
+export cur__lib=\\"<storePath>/_insttmp/app/lib\\"
+export cur__man=\\"<storePath>/_insttmp/app/man\\"
+export cur__doc=\\"<storePath>/_insttmp/app/doc\\"
+export cur__stublibs=\\"<storePath>/_insttmp/app/stublibs\\"
+export cur__toplevel=\\"<storePath>/_insttmp/app/toplevel\\"
+export cur__share=\\"<storePath>/_insttmp/app/share\\"
+export cur__etc=\\"<storePath>/_insttmp/app/etc\\"
+export CAML_LD_LIBRARY_PATH=\\"<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH\\""
 `;
