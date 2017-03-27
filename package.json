@@ -32,6 +32,7 @@
     "npm-hooks": "https://github.com/jordwalke/npm-hooks.git#1.0.0-clobber",
     "object-path": "^0.11.2",
     "outdent": "^0.3.0",
+    "p-queue": "^1.0.0",
     "path-is-inside": "^1.0.2",
     "prettier": "^0.22.0",
     "proper-lockfile": "^2.0.0",
