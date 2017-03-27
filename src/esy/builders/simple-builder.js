@@ -65,7 +65,12 @@ async function performBuild(
     });
   }
 
-  const env = Env.calculateEnvironment(config, build, sandbox.env);
+  const {env, scope} = Env.calculate(config, build, sandbox.env);
+
+  const envForExec = {};
+  for (const item of env.values()) {
+    envForExec[item.name] = item.value;
+  }
 
   log('placing _esy/env');
   const envPath = path.join(buildPath, '_esy', 'env');
@@ -79,19 +84,16 @@ async function performBuild(
   );
 
   if (build.command != null) {
-    for (let i = 0; i < build.command.length; i++) {
-      log(`executing: ${build.command[i]}`);
+    const commandList = build.command;
+    for (let i = 0; i < commandList.length; i++) {
+      log(`executing: ${commandList[i]}`);
       // TODO: add sandboxing
       // TODO: use exec without shell so we can build without /bin/bash present.
       // That requires we do var expansion and not rely on shell.
-      const command = outdent`
-        source ${envPath};
-        ${build.command[i]}
-      `;
+      const command = Env.renderWithScope(commandList[i], scope).rendered;
       await child.exec(command, {
         cwd: rootPath,
-        env,
-        shell: '/bin/bash',
+        env: envForExec,
         maxBuffer: Infinity,
       });
     }
@@ -106,15 +108,19 @@ async function performBuild(
     files
       .map(file => {
         return async () => {
-          log(`checking ${file.relative}`);
           if (!(await fs.stat(file.absolute)).isFile()) {
             return;
           }
           const content = await fs.readFileBuffer(file.absolute);
-          const offset = content.indexOf(origPath);
-          if (offset > -1) {
+          let offset = content.indexOf(origPath);
+          let needRewrite = false;
+          while (offset > -1) {
             log(`rewrite ${file.relative}`);
+            needRewrite = true;
             content.write(destPath, offset);
+            offset = content.indexOf(origPath);
+          }
+          if (needRewrite) {
             fs.writeFile(file.absolute, content);
           }
         };
@@ -122,6 +128,7 @@ async function performBuild(
       .forEach(task => {
         rewriteInProgress = rewriteInProgress.then(() => task());
       });
+    await rewriteInProgress;
   }
 
   log('finalizing build');
