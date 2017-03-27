@@ -6,6 +6,7 @@ import createLogger from 'debug';
 import outdent from 'outdent';
 import * as path from 'path';
 import rimraf from 'rimraf';
+import PromiseQueue from 'p-queue';
 import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
 import * as child from '../../util/child';
@@ -35,6 +36,8 @@ async function performBuild(
   sandbox: BuildRepr.BuildSandbox,
 ): Promise<void> {
   const rootPath = config.getRootPath(build);
+  const installPath = config.getInstallPath(build);
+  const finalInstallPath = config.getFinalInstallPath(build);
   const buildPath = config.getBuildPath(build);
 
   const log = createLogger(`esy:simple-builder:${build.name}`);
@@ -46,11 +49,7 @@ async function performBuild(
 
   log('starting build');
 
-  await Promise.all([
-    rmtree(config.getFinalInstallPath(build)),
-    rmtree(config.getInstallPath(build)),
-    rmtree(config.getBuildPath(build)),
-  ]);
+  await Promise.all([rmtree(finalInstallPath), rmtree(installPath), rmtree(buildPath)]);
 
   await Promise.all([
     ...BUILD_DIRS.map(p => fs.mkdirp(config.getBuildPath(build, p))),
@@ -98,43 +97,18 @@ async function performBuild(
       });
     }
 
-    log('rewriting build artefacts');
+    log('rewriting paths in build artefacts');
+    const rewriteQueue = new PromiseQueue({concurrency: 20});
     const files = await fs.walk(config.getInstallPath(build));
-    const origPath = config.getInstallPath(build);
-    const destPath = config.getFinalInstallPath(build);
-    // TODO: this should be parallel but I feel like w/ unlimited concurrency it blows up on
-    // some files for some reason
-    let rewriteInProgress = Promise.resolve();
-    files
-      .map(file => {
-        return async () => {
-          if (!(await fs.stat(file.absolute)).isFile()) {
-            return;
-          }
-          const content = await fs.readFileBuffer(file.absolute);
-          let offset = content.indexOf(origPath);
-          let needRewrite = false;
-          while (offset > -1) {
-            log(`rewrite ${file.relative}`);
-            needRewrite = true;
-            content.write(destPath, offset);
-            offset = content.indexOf(origPath);
-          }
-          if (needRewrite) {
-            fs.writeFile(file.absolute, content);
-          }
-        };
-      })
-      .forEach(task => {
-        rewriteInProgress = rewriteInProgress.then(() => task());
-      });
-    await rewriteInProgress;
+    await Promise.all(
+      files.map(file =>
+        rewriteQueue.add(() =>
+          rewritePathInFile(file.absolute, installPath, finalInstallPath))),
+    );
   }
 
   log('finalizing build');
-  await fs.rename(config.getInstallPath(build), config.getFinalInstallPath(build));
-
-  return;
+  await fs.rename(installPath, finalInstallPath);
 }
 
 const rmtree = promisify(rimraf);
@@ -151,6 +125,23 @@ async function rsync(params: {from: string, to: string, exclude?: string[]}) {
     });
   }
   await child.spawn('rsync', args);
+}
+
+async function rewritePathInFile(filename, origPath, destPath) {
+  const stat = await fs.stat(filename);
+  if (!stat.isFile()) {
+    return;
+  }
+  const content = await fs.readFileBuffer(filename);
+  let offset = content.indexOf(origPath);
+  const needRewrite = offset > -1;
+  while (offset > -1) {
+    content.write(destPath, offset);
+    offset = content.indexOf(origPath);
+  }
+  if (needRewrite) {
+    await fs.writeFile(filename, content);
+  }
 }
 
 async function initStore(storePath) {
