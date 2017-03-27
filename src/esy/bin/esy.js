@@ -6,6 +6,7 @@ import loudRejection from 'loud-rejection';
 import userHome from 'user-home';
 import * as path from 'path';
 import chalk from 'chalk';
+import {settings as configureObservatory} from 'observatory';
 import * as Env from '../environment';
 import * as Config from '../build-config';
 import * as Sandbox from '../build-sandbox';
@@ -176,9 +177,30 @@ const builtInCommands = {
   },
   // eslint-disable-next-line object-shorthand
   build: async function(sandboxPath) {
+    const observatory = configureObservatory({
+      prefix: chalk.green('  → '),
+    });
+    const loggingHandlers = new Map();
+    function getReporterFor(build) {
+      let handler = loggingHandlers.get(build.id);
+      if (handler == null) {
+        handler = observatory.add(build.name);
+        loggingHandlers.set(build.id, handler);
+      }
+      return handler;
+    }
+
     const builder = require('../builders/simple-builder');
     const sandbox = await getValidSandbox(sandboxPath);
-    await builder.build(sandbox, config);
+    await builder.build(sandbox, config, (build, status) => {
+      if (status.state === 'in-progress') {
+        getReporterFor(build).status('building...');
+      } else if (status.state === 'success') {
+        getReporterFor(build).done('BUILT').details(`in ${status.timeEllapsed / 1000}s`);
+      } else if (status.state === 'success') {
+        getReporterFor(build).fail('FAILED');
+      }
+    });
   },
 };
 
