@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-// @flow
+// @noflow
 require('../lib/esy/bin/esybuild');
