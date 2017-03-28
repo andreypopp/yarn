@@ -61,7 +61,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
     // ESY_EJECT__STORE is the directory where build artifacts should be stored.
     {
       type: 'raw',
-      value: 'ESY_EJECT__STORE ?= $(HOME)/.esy',
+      value: 'ESY_EJECT__STORE ?= $(HOME)/.esy/store',
     },
 
     // ESY_EJECT__SANDBOX is the sandbox directory, the directory where the root

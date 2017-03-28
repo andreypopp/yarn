@@ -41,7 +41,7 @@ if [ -z "${ESY__SANDBOX+x}" ]; then
   export ESY__SANDBOX="$PWD"
 fi
 if [ -z "${ESY__STORE+x}" ]; then
-  export ESY__STORE="$HOME/.esy"
+  export ESY__STORE="$HOME/.esy/store"
 fi
 if [ -z "${ESY__LOCAL_STORE+x}" ]; then
   export ESY__LOCAL_STORE="$ESY__SANDBOX/_esy/store"
