@@ -24,15 +24,17 @@ const PATHS_TO_IGNORE = ['_build', '_install', 'node_modules'];
 
 const NUM_CPUS = os.cpus().length;
 
-type BuildStateChange =
-  | {state: 'success', timeEllapsed: number}
-  | {state: 'failure', error: Error}
-  | {state: 'in-progress'};
+type SuccessBuildState = {state: 'success', timeEllapsed: ?number, cached: boolean};
+type FailureBuildState = {state: 'failure', error: Error};
+type InProgressBuildState = {state: 'in-progress'};
+
+export type BuildState = SuccessBuildState | FailureBuildState | InProgressBuildState;
+export type FinalBuildState = SuccessBuildState | FailureBuildState;
 
 export const build = async (
   sandbox: BuildRepr.BuildSandbox,
   config: BuildRepr.BuildConfig,
-  onBuildStatus: (build: BuildRepr.Build, status: BuildStateChange) => *,
+  onBuildStatus: (build: BuildRepr.Build, status: BuildState) => *,
 ) => {
   await Promise.all([
     initStore(config.storePath),
@@ -51,7 +53,11 @@ export const build = async (
     let inProgress = buildInProgress.get(build.id);
     if (inProgress == null) {
       if (await isBuildComplete(build)) {
-        inProgress = Promise.resolve();
+        inProgress = Promise.resolve({
+          state: 'success',
+          timeEllapsed: null,
+          cached: true,
+        });
       } else {
         inProgress = buildQueue.add(async () => {
           onBuildStatus(build, {state: 'in-progress'});
@@ -59,12 +65,15 @@ export const build = async (
           try {
             await performBuild(build, config, sandbox);
           } catch (error) {
-            onBuildStatus(build, {state: 'in-progress', error});
-            throw error;
+            const state = {state: 'failure', error};
+            onBuildStatus(build, state);
+            return state;
           }
           const endTime = Date.now();
           const timeEllapsed = endTime - startTime;
-          onBuildStatus(build, {state: 'success', timeEllapsed});
+          const state = {state: 'success', timeEllapsed, cached: false};
+          onBuildStatus(build, state);
+          return state;
         });
       }
       buildInProgress.set(build.id, inProgress);
@@ -75,7 +84,13 @@ export const build = async (
   await BuildRepr.topologicalFold(
     sandbox.root,
     (directDependencies, allDependencies, build) =>
-      Promise.all(directDependencies).then(() => performBuildMemoized(build)),
+      Promise.all(directDependencies).then(states => {
+        if (states.some(state => state.state === 'failure')) {
+          return {state: 'failure', error: new Error('dependencies are not built')};
+        } else {
+          return performBuildMemoized(build);
+        }
+      }),
   );
 
   await buildInProgress;
