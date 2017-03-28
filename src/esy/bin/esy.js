@@ -173,7 +173,10 @@ const builtInCommands = {
   'build-eject': async function(sandboxPath) {
     const buildEject = require('../builders/makefile-builder');
     const sandbox = await getValidSandbox(sandboxPath);
-    buildEject.renderToMakefile(sandbox, path.join(sandboxPath, '_esy', 'build-eject'));
+    buildEject.renderToMakefile(
+      sandbox,
+      path.join(sandboxPath, 'node_modules', '.cache', '_esy', 'build-eject'),
+    );
   },
   // eslint-disable-next-line object-shorthand
   build: async function(sandboxPath) {

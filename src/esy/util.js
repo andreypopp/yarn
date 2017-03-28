@@ -4,6 +4,7 @@
 
 import * as crypto from 'crypto';
 import resolveBase from 'resolve';
+import * as stream from 'stream';
 import * as fs from '../util/fs';
 
 export function mapObject<S: *, F: (*) => *>(obj: S, f: F): $ObjMap<S, F> {
@@ -95,4 +96,32 @@ export function mergeIntoMap<K, V>(
       src.set(k, v);
     }
   }
+}
+
+export function interleaveStreams(...sources: stream.Readable[]): stream.Readable {
+  const output = new stream.PassThrough();
+  let streamActiveNumber = sources.length;
+  for (const source of sources) {
+    source.on('error', err => output.emit(err));
+    source.once('end', () => {
+      streamActiveNumber -= 1;
+      if (streamActiveNumber === 0) {
+        output.emit('end');
+      }
+    });
+    source.pipe(output, {end: false});
+  }
+  return output;
+}
+
+export function endWritableStream(s: stream.Writable): Promise<void> {
+  return new Promise((resolve, reject) => {
+    s.end('', 'ascii', err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    });
+  });
 }

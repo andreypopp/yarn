@@ -44,11 +44,11 @@ if [ -z "${ESY__STORE+x}" ]; then
   export ESY__STORE="$HOME/.esy/store"
 fi
 if [ -z "${ESY__LOCAL_STORE+x}" ]; then
-  export ESY__LOCAL_STORE="$ESY__SANDBOX/_esy/store"
+  export ESY__LOCAL_STORE="$ESY__SANDBOX/node_modules/.cache/_esy/store"
 fi
 
-EJECT_PATH="$ESY__SANDBOX/_esy/build-eject"
-ENV_PATH="$ESY__SANDBOX/_esy/command-env"
+EJECT_PATH="$ESY__SANDBOX/node_modules/.cache/_esy/build-eject"
+ENV_PATH="$ESY__SANDBOX/node_modules/.cache/_esy/command-env"
 
 if [ -d "$ESY__SANDBOX/node_modules" ]; then
   DEPENDENCIES_PACKAGE_JSON=`find $ESY__SANDBOX/node_modules -name 'package.json'`

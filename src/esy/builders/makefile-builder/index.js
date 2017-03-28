@@ -99,9 +99,9 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
         '$(ESY_EJECT__STORE)/_install',
         '$(ESY_EJECT__STORE)/_build',
         '$(ESY_EJECT__STORE)/_insttmp',
-        '$(ESY_EJECT__SANDBOX)/_esy/store/_install',
-        '$(ESY_EJECT__SANDBOX)/_esy/store/_insttmp',
-        '$(ESY_EJECT__SANDBOX)/_esy/store/_build',
+        '$(ESY_EJECT__SANDBOX)/node_modules/.cache/_esy/store/_install',
+        '$(ESY_EJECT__SANDBOX)/node_modules/.cache/_esy/store/_insttmp',
+        '$(ESY_EJECT__SANDBOX)/node_modules/.cache/_esy/store/_build',
       ].join(' '),
       command: 'mkdir -p $(@)',
     },
@@ -113,9 +113,9 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
         '$(ESY_EJECT__STORE)/_install',
         '$(ESY_EJECT__STORE)/_build',
         '$(ESY_EJECT__STORE)/_insttmp',
-        '$(ESY_EJECT__SANDBOX)/_esy/store/_install',
-        '$(ESY_EJECT__SANDBOX)/_esy/store/_insttmp',
-        '$(ESY_EJECT__SANDBOX)/_esy/store/_build',
+        '$(ESY_EJECT__SANDBOX)/node_modules/.cache/_esy/store/_install',
+        '$(ESY_EJECT__SANDBOX)/node_modules/.cache/_esy/store/_insttmp',
+        '$(ESY_EJECT__SANDBOX)/node_modules/.cache/_esy/store/_build',
       ],
     },
     {
@@ -233,6 +233,16 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
           (subpath "/"))
 
         (allow file-write*
+          ; cur__root
+          ; We don't really need to write into cur__root but some build systems
+          ; can put .merlin files there so we allow that.
+          (subpath "${buildConfig.getRootPath(build)}"))
+
+        (deny file-write*
+          (subpath "${buildConfig.getRootPath(build, 'node_modules')}")
+        )
+
+        (allow file-write*
           (literal "/dev/null")
 
           (subpath "$TMPDIR_GLOBAL")
@@ -250,9 +260,6 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
           (subpath "${buildConfig.getInstallPath(build)}")
         )
 
-        (deny file-write*
-          (subpath "${buildConfig.getRootPath(build, 'node_modules')}")
-        )
       `,
     });
 
