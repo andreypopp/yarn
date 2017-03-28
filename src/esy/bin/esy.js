@@ -3,6 +3,7 @@
  */
 
 import loudRejection from 'loud-rejection';
+import outdent from 'outdent';
 import userHome from 'user-home';
 import * as path from 'path';
 import chalk from 'chalk';
@@ -195,15 +196,32 @@ const builtInCommands = {
 
     const builder = require('../builders/simple-builder');
     const sandbox = await getValidSandbox(sandboxPath);
+    const failures = [];
     await builder.build(sandbox, config, (build, status) => {
       if (status.state === 'in-progress') {
         getReporterFor(build).status('building...');
       } else if (status.state === 'success') {
-        getReporterFor(build).done('BUILT').details(`in ${status.timeEllapsed / 1000}s`);
-      } else if (status.state === 'success') {
+        const {timeEllapsed} = status;
+        if (timeEllapsed !== null) {
+          getReporterFor(build).done('BUILT').details(`in ${timeEllapsed / 1000}s`);
+        } else {
+          getReporterFor(build).done('BUILT').details(`cached`);
+        }
+      } else if (status.state === 'failure') {
+        failures.push({build, error: status.error});
         getReporterFor(build).fail('FAILED');
       }
     });
+    for (const failure of failures) {
+      console.log(
+        outdent`
+
+        ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
+          ${failure.error.logFilename}
+
+        `,
+      );
+    }
   },
 };
 
