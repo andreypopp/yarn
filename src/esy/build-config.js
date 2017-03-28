@@ -12,7 +12,13 @@ export function createConfig(
   },
 ): BuildRepr.BuildConfig {
   const {storePath, sandboxPath} = params;
-  const sandboxLocalStorePath = path.join(sandboxPath, '_esy', 'store');
+  const sandboxLocalStorePath = path.join(
+    sandboxPath,
+    'node_modules',
+    '.cache',
+    '_esy',
+    'store',
+  );
   const genPath = (build: BuildRepr.Build, tree: string, segments: string[]) => {
     if (build.shouldBePersisted) {
       return path.join(storePath, tree, build.id, ...segments);

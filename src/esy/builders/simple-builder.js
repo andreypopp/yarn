@@ -4,21 +4,23 @@
 
 import createLogger from 'debug';
 import outdent from 'outdent';
+import * as child from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
+import * as nodefs from 'fs';
+import {copy} from 'fs-extra';
 import rimraf from 'rimraf';
 import PromiseQueue from 'p-queue';
-import copyDir from 'copy-dir';
 import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
-import * as child from '../../util/child';
 import * as Env from '../environment';
 import * as BuildRepr from '../build-repr';
 import {renderEnv} from './makefile-builder';
+import {endWritableStream, interleaveStreams} from '../util';
 
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
-const PATHS_TO_IGNORE = ['_esy', '_build', '_install', 'node_modules'];
+const PATHS_TO_IGNORE = ['_build', '_install', 'node_modules'];
 
 const NUM_CPUS = os.cpus().length;
 
@@ -34,7 +36,7 @@ export const build = async (
 ) => {
   await Promise.all([
     initStore(config.storePath),
-    initStore(path.join(config.sandboxPath, '_esy', 'store')),
+    initStore(path.join(config.sandboxPath, 'node_modules', '.cache', '_esy', 'store')),
   ]);
 
   const buildQueue = new PromiseQueue({concurrency: NUM_CPUS});
@@ -130,16 +132,28 @@ async function performBuild(
 
   if (build.command != null) {
     const commandList = build.command;
+    const logFilename = config.getBuildPath(build, '_esy', 'log');
+    const logStream = nodefs.createWriteStream(logFilename);
     for (let i = 0; i < commandList.length; i++) {
       log(`executing: ${commandList[i]}`);
       // TODO: add sandboxing
       const command = Env.renderWithScope(commandList[i], scope).rendered;
-      await child.exec(command, {
+      const execution = await exec(command, {
         cwd: rootPath,
         env: envForExec,
         maxBuffer: Infinity,
       });
+      // TODO: we need line-buffering here possibly?
+      interleaveStreams(
+        execution.process.stdout,
+        execution.process.stderr,
+      ).pipe(logStream, {end: false});
+      const {code} = await execution.exit;
+      if (code !== 0) {
+        throw new BuildError(build, logFilename);
+      }
     }
+    await endWritableStream(logStream);
 
     log('rewriting paths in build artefacts');
     const rewriteQueue = new PromiseQueue({concurrency: 20});
@@ -156,11 +170,11 @@ async function performBuild(
 }
 
 const rmtree = promisify(rimraf);
-const cptree = promisify(copyDir);
+const cptree = promisify(copy);
 
 async function copyTree(params: {from: string, to: string, exclude?: string[]}) {
-  await cptree(params.from, params.to, (stat, filename, _basename) => {
-    return !(params.exclude && params.exclude.includes(filename));
+  await cptree(params.from, params.to, {
+    filter: filename => !(params.exclude && params.exclude.includes(filename)),
   });
 }
 
@@ -179,6 +193,14 @@ async function rewritePathInFile(filename, origPath, destPath) {
   if (needRewrite) {
     await fs.writeFile(filename, content);
   }
+}
+
+function exec(...args) {
+  const process = child.exec(...args);
+  const exit = new Promise(resolve => {
+    process.on('exit', (code, signal) => resolve({code, signal}));
+  });
+  return {process, exit};
 }
 
 async function initStore(storePath) {
@@ -206,4 +228,15 @@ function renderFindlibConf(build: BuildRepr.Build, config: BuildRepr.BuildConfig
     ocamllex = "ocamllex.opt"
     ocamlopt = "ocamlopt.opt"
   `;
+}
+
+class BuildError extends Error {
+  logFilename: string;
+  build: BuildRepr.Build;
+
+  constructor(build: BuildRepr.Build, logFilename: string) {
+    super(`Build failed: ${build.name}`);
+    this.build = build;
+    this.logFilename = logFilename;
+  }
 }
