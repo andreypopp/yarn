@@ -202,7 +202,7 @@ const builtInCommands = {
         getReporterFor(build).status('building...');
       } else if (status.state === 'success') {
         const {timeEllapsed} = status;
-        if (timeEllapsed !== null) {
+        if (timeEllapsed != null) {
           getReporterFor(build).done('BUILT').details(`in ${timeEllapsed / 1000}s`);
         } else {
           getReporterFor(build).done('BUILT').details(`cached`);
@@ -213,14 +213,27 @@ const builtInCommands = {
       }
     });
     for (const failure of failures) {
-      console.log(
-        outdent`
+      const {error} = failure;
+      if (error.logFilename) {
+        const {logFilename} = (error: any);
+        console.log(
+          outdent`
 
         ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
-          ${failure.error.logFilename}
+          ${logFilename}
 
         `,
-      );
+        );
+      } else {
+        console.log(
+          outdent`
+
+        ${chalk.red('FAILED')} ${failure.build.name}:
+          ${failure.error}
+
+        `,
+        );
+      }
     }
   },
 };
