@@ -18,6 +18,7 @@ import {renderEnv} from './makefile-builder';
 
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
+const PATHS_TO_IGNORE = ['_esy', '_build', '_install', 'node_modules'];
 
 const NUM_CPUS = os.cpus().length;
 
@@ -104,7 +105,7 @@ async function performBuild(
     await copyTree({
       from: path.join(config.sandboxPath, build.sourcePath),
       to: config.getBuildPath(build),
-      exclude: ['node_modules', '_esy', '_build', '_install'].map(p =>
+      exclude: PATHS_TO_IGNORE.map(p =>
         path.join(config.sandboxPath, build.sourcePath, p)),
     });
   }
