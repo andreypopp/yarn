@@ -8,6 +8,7 @@ import * as path from 'path';
 import * as os from 'os';
 import rimraf from 'rimraf';
 import PromiseQueue from 'p-queue';
+import copyDir from 'copy-dir';
 import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
 import * as child from '../../util/child';
@@ -100,9 +101,11 @@ async function performBuild(
 
   if (build.mutatesSourcePath) {
     log('build mutates source directory, rsyncing sources to $cur__target_dir');
-    await rsync({
+    await copyTree({
       from: path.join(config.sandboxPath, build.sourcePath),
       to: config.getBuildPath(build),
+      exclude: ['node_modules', '_esy', '_build', '_install'].map(p =>
+        path.join(config.sandboxPath, build.sourcePath, p)),
     });
   }
 
@@ -152,19 +155,12 @@ async function performBuild(
 }
 
 const rmtree = promisify(rimraf);
+const cptree = promisify(copyDir);
 
-async function rsync(params: {from: string, to: string, exclude?: string[]}) {
-  let from = params.from;
-  if (from[from.length - 1] != '/') {
-    from += '/';
-  }
-  const args = ['--archive', from, params.to];
-  if (params.exclude) {
-    params.exclude.forEach(pattern => {
-      args.push('--exclude', pattern);
-    });
-  }
-  await child.spawn('rsync', args);
+async function copyTree(params: {from: string, to: string, exclude?: string[]}) {
+  await cptree(params.from, params.to, (stat, filename, _basename) => {
+    return !(params.exclude && params.exclude.includes(filename));
+  });
 }
 
 async function rewritePathInFile(filename, origPath, destPath) {
