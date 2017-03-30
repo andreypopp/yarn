@@ -94,7 +94,7 @@ builtInEject () {
 
 ensureEnvEjected () {
   if [ `needRebuildTarget "$ENV_PATH"` == "true" ]; then
-    EJECTED_ENV=`node $SCRIPTDIR/esy.js 2>&1`
+    EJECTED_ENV=`node $SCRIPTDIR/esy.js`
     if [ $? -ne 0 ]; then
       echo "Failed to get environment:"
       printf "%s\n" "$EJECTED_ENV" >&2
