@@ -725,7 +725,9 @@ export function calculate(
     mergeScopes(res.allDependencies.map(dep => dep.globalScope).concat(res.globalScope)),
   );
 
-  const scope = getEvalScope(rootBuild, res.directDependencies);
+  const scope: Scope = new Map();
+  mergeIntoMap(scope, getEvalScope(rootBuild, res.directDependencies));
+  mergeIntoMap(scope, env);
 
   return {env, scope};
 }
