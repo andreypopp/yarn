@@ -3,7 +3,12 @@
  */
 
 import type {Build} from '../build-repr';
-import {renderWithScope, calculate, printEnvironment} from '../environment';
+import {
+  expandWithScope,
+  renderWithScope,
+  calculate,
+  printEnvironment,
+} from '../environment';
 import * as Config from '../build-config';
 
 function build({name, exportedEnv, dependencies}): Build {
@@ -60,7 +65,7 @@ const config = Config.createConfig({
 });
 
 describe('renderWithScope()', function() {
-  test('simple replacement', function() {
+  test('simple replacement: $var syntax', function() {
     const scope = new Map([['name', {value: 'World'}]]);
     expect(renderWithScope('Hello, $name!', scope)).toEqual({
       rendered: 'Hello, World!',
@@ -78,6 +83,43 @@ describe('renderWithScope()', function() {
     const scope = new Map([]);
     expect(renderWithScope('Hello, $unknown!', scope)).toEqual({
       rendered: 'Hello, $unknown!',
+    });
+  });
+});
+
+describe('expandWithScope()', function() {
+  test('simple replacement: $var syntax', function() {
+    const scope = new Map([['name', {value: 'World'}]]);
+    expect(expandWithScope('Hello, $name!', scope)).toEqual({
+      rendered: 'Hello, World!',
+    });
+  });
+
+  test('simple replacement: ${var} syntax', function() {
+    const scope = new Map([['name', {value: 'World'}]]);
+    expect(expandWithScope('Hello, ${name}!', scope)).toEqual({
+      rendered: 'Hello, World!',
+    });
+  });
+
+  test('multiple replacements', function() {
+    const scope = new Map([['name', {value: 'World'}]]);
+    expect(expandWithScope('Hello, $name + $name!', scope)).toEqual({
+      rendered: 'Hello, World + World!',
+    });
+  });
+
+  test('missing in scope', function() {
+    const scope = new Map([]);
+    expect(expandWithScope('Hello, $unknown!', scope)).toEqual({
+      rendered: 'Hello, !',
+    });
+  });
+
+  test('expansion with fallback to default value', function() {
+    const scope = new Map([]);
+    expect(expandWithScope('Hello, ${unknown:-Me}!', scope)).toEqual({
+      rendered: 'Hello, Me!',
     });
   });
 });

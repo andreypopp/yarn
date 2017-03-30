@@ -152,7 +152,7 @@ async function performBuild(
     for (let i = 0; i < commandList.length; i++) {
       log(`executing: ${commandList[i]}`);
       // TODO: add sandboxing
-      const command = Env.renderWithScope(commandList[i], scope).rendered;
+      const command = Env.expandWithScope(commandList[i], scope).rendered;
       const execution = await exec(command, {
         cwd: rootPath,
         env: envForExec,

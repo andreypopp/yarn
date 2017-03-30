@@ -7,6 +7,7 @@ import * as fs from 'fs';
 import os from 'os';
 import pathIsInside from 'path-is-inside';
 import outdent from 'outdent';
+import {substituteVariables} from 'var-expansion';
 
 import type {Build, BuildConfig} from './build-repr';
 import {normalizePackageName, mergeIntoMap} from './util';
@@ -744,4 +745,17 @@ export function renderWithScope<T: {value: string}>(
     }
   });
   return {rendered};
+}
+
+export function expandWithScope<T: {value: string}>(
+  value: string,
+  scope: Map<string, T>,
+): {rendered: string} {
+  const {value: rendered} = substituteVariables(value, {
+    env: name => {
+      const item = scope.get(name);
+      return item != null ? item.value : undefined;
+    },
+  });
+  return {rendered: rendered != null ? rendered : value};
 }
