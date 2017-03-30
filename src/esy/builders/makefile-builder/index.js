@@ -395,5 +395,5 @@ function renderBuildCommand(build: BuildRepr.Build, scope: Env.Scope): ?string {
   if (build.command == null) {
     return null;
   }
-  return Env.renderWithScope(build.command.join(' && '), scope).rendered;
+  return Env.expandWithScope(build.command.join(' && '), scope).rendered;
 }
