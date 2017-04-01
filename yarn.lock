@@ -1885,6 +1885,10 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
+"fastreplacestring@git+https://github.com/IwanKaramazow/FastReplaceString.git#0.0.1":
+  version "0.0.1"
+  resolved "git+https://github.com/IwanKaramazow/FastReplaceString.git#a0854c82ce1723993c3f8c5f6a2ad08a74b049d7"
+
 fb-watchman@^1.8.0:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.2.tgz#a24cf47827f82d38fb59a69ad70b76e3b6ae7383"
@@ -3724,6 +3728,7 @@ normalize-url@^1.9.1:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+<<<<<<< HEAD
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -3733,6 +3738,19 @@ npm-run-path@^2.0.0:
 npmlog@^4.0.2:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-4.1.0.tgz#dc59bee85f64f00ed424efb2af0783df25d1c0b5"
+||||||| merged common ancestors
+"npmlog@0 || 1 || 2 || 3 || 4", npmlog@^4.0.1:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-4.0.2.tgz#d03950e0e78ce1527ba26d2a7592e9348ac3e75f"
+=======
+"npm-hooks@https://github.com/jordwalke/npm-hooks.git#1.0.0-clobber":
+  version "1.0.0"
+  resolved "https://github.com/jordwalke/npm-hooks.git#30957670319f359c8a48358d4d3a4d7ccc5d19ea"
+
+"npmlog@0 || 1 || 2 || 3 || 4", npmlog@^4.0.1:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-4.0.2.tgz#d03950e0e78ce1527ba26d2a7592e9348ac3e75f"
+>>>>>>> Link to IwanKaramazow/FastReplaceString tag 0.0.1
   dependencies:
     are-we-there-yet "~1.1.2"
     console-control-strings "~1.1.0"
