@@ -15,7 +15,9 @@ const outdent = require('outdent');
 const {flattenArray} = require('../Utility');
 
 const RUNTIME = fs.readFileSync(require.resolve('./runtime.sh'), 'utf8');
-const fastReplaceString = fs.readFileSync(require.resolve('../../../node_modules/.bin/fastreplacestring'));
+const fastReplaceStringSrc = fs.readFileSync(
+    require.resolve('../../../node_modules/fastreplacestring/fastreplacestring.c'),
+  'utf8');
 
 
 const {
@@ -190,9 +192,22 @@ function buildEjectCommand(
     },
     {
       type: 'rule',
+      target: '$(ESY__EJECT_ROOT)/bin/fastreplacestring',
+      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring.c'],
+      shell: '/bin/bash',
+      command: 'gcc -o $(@) -x c $(<) 2> /dev/null',
+    },
+    {
+      type: 'rule',
       target: 'esy-root',
       phony: true,
       dependencies: ['$(ESY__EJECT_ROOT)/bin/realpath'],
+    },
+    {
+      type: 'rule',
+      target: 'esy-root',
+      phony: true,
+      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring'],
     },
   ];
 
@@ -420,13 +435,12 @@ function buildEjectCommand(
 
   emitFile({
     filename: ['bin', 'runtime.sh'],
-    contents: RUNTIME
+    contents: RUNTIME,
   });
 
   emitFile({
-    filename: ['bin', 'fastreplacestring'],
-    contents: fastReplaceString,
-    executable: true,
+    filename: ['bin', 'fastreplacestring.c'],
+    contents: fastReplaceStringSrc,
   });
 
   emitFile({
