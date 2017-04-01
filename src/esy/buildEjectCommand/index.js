@@ -16,8 +16,11 @@ const {flattenArray} = require('../Utility');
 
 const RUNTIME = fs.readFileSync(require.resolve('./runtime.sh'), 'utf8');
 const fastReplaceStringSrc = fs.readFileSync(
-    require.resolve('../../../node_modules/fastreplacestring/fastreplacestring.c'),
-  'utf8');
+  require.resolve(
+    '../../../node_modules/fastreplacestring/fastreplacestring.c',
+  ),
+  'utf8',
+);
 
 
 const {
