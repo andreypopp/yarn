@@ -1724,6 +1724,10 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
+"fastreplacestring@git+https://github.com/IwanKaramazow/FastReplaceString.git#0.0.1":
+  version "0.0.1"
+  resolved "git+https://github.com/IwanKaramazow/FastReplaceString.git#a0854c82ce1723993c3f8c5f6a2ad08a74b049d7"
+
 fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.2.tgz#a24cf47827f82d38fb59a69ad70b76e3b6ae7383"
@@ -3473,6 +3477,10 @@ normalize-package-data@^2.3.2:
 normalize-path@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.0.1.tgz#47886ac1662760d4261b7d979d241709d3ce3f7a"
+
+"npm-hooks@https://github.com/jordwalke/npm-hooks.git#1.0.0-clobber":
+  version "1.0.0"
+  resolved "https://github.com/jordwalke/npm-hooks.git#30957670319f359c8a48358d4d3a4d7ccc5d19ea"
 
 "npmlog@0 || 1 || 2 || 3 || 4", npmlog@^4.0.1:
   version "4.0.2"
