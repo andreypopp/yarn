@@ -9,6 +9,7 @@
 // $FlowFixMe: fix me
 process.noDeprecation = true;
 
+import * as fs from 'fs';
 import loudRejection from 'loud-rejection';
 import outdent from 'outdent';
 import userHome from 'user-home';
@@ -223,14 +224,26 @@ const builtInCommands = {
       const {error} = failure;
       if (error.logFilename) {
         const {logFilename} = (error: any);
-        console.log(
-          outdent`
+        if (!failure.build.shouldBePersisted) {
+          const logContents = fs.readFileSync(logFilename, 'utf8');
+          console.log(
+            outdent`
 
-        ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
-          ${logFilename}
+            ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
 
-        `,
-        );
+            ${chalk.red(indent(logContents, '  '))}
+            `,
+          );
+        } else {
+          console.log(
+            outdent`
+
+            ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
+              ${logFilename}
+
+            `,
+          );
+        }
       } else {
         console.log(
           outdent`
@@ -244,6 +257,10 @@ const builtInCommands = {
     }
   },
 };
+
+function indent(string, indent) {
+  return string.split('\n').map(line => indent + line).join('\n');
+}
 
 async function main() {
   if (actualArgs.length === 0) {
