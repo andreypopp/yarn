@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {Build} from '../build-repr';
+import type {BuildSpec} from '../build-repr';
 import {
   expandWithScope,
   renderWithScope,
@@ -11,7 +11,7 @@ import {
 } from '../environment';
 import * as Config from '../build-config';
 
-function build({name, exportedEnv, dependencies}): Build {
+function build({name, exportedEnv, dependencies}): BuildSpec {
   return {
     id: name,
     name,

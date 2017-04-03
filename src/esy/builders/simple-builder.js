@@ -2,6 +2,8 @@
  * @flow
  */
 
+import type {BuildSpec, BuildConfig, BuildSandbox} from '../build-repr';
+
 import createLogger from 'debug';
 import outdent from 'outdent';
 import * as child from 'child_process';
@@ -34,7 +36,7 @@ export type FinalBuildState = SuccessBuildState | FailureBuildState;
 export const build = async (
   sandbox: BuildRepr.BuildSandbox,
   config: BuildRepr.BuildConfig,
-  onBuildStatus: (build: BuildRepr.Build, status: BuildState) => *,
+  onBuildStatus: (build: BuildSpec, status: BuildState) => *,
 ) => {
   await Promise.all([
     initStore(config.storePath),
@@ -97,9 +99,9 @@ export const build = async (
 };
 
 async function performBuild(
-  build: BuildRepr.Build,
-  config: BuildRepr.BuildConfig,
-  sandbox: BuildRepr.BuildSandbox,
+  build: BuildSpec,
+  config: BuildConfig,
+  sandbox: BuildSandbox,
 ): Promise<void> {
   const rootPath = config.getRootPath(build);
   const installPath = config.getInstallPath(build);
@@ -235,7 +237,7 @@ async function initStore(storePath) {
   );
 }
 
-function renderFindlibConf(build: BuildRepr.Build, config: BuildRepr.BuildConfig) {
+function renderFindlibConf(build: BuildSpec, config: BuildConfig) {
   const allDependencies = BuildRepr.collectTransitiveDependencies(build);
   const findLibDestination = config.getInstallPath(build, 'lib');
   // Note that some packages can query themselves via ocamlfind during its
@@ -258,9 +260,9 @@ function renderFindlibConf(build: BuildRepr.Build, config: BuildRepr.BuildConfig
 
 class BuildError extends Error {
   logFilename: string;
-  build: BuildRepr.Build;
+  build: BuildSpec;
 
-  constructor(build: BuildRepr.Build, logFilename: string) {
+  constructor(build: BuildSpec, logFilename: string) {
     super(`Build failed: ${build.name}`);
     this.build = build;
     this.logFilename = logFilename;

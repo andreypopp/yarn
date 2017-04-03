@@ -2,6 +2,8 @@
  * @flow
  */
 
+import type {BuildSpec} from './build-repr';
+
 import * as crypto from 'crypto';
 import * as path from 'path';
 import outdent from 'outdent';
@@ -47,7 +49,7 @@ type SandboxCrawlContext = {
   crawlBuild: (
     packageJsonPath: string,
     context: SandboxCrawlContext,
-  ) => Promise<BuildRepr.Build>,
+  ) => Promise<BuildSpec>,
   resolve: (moduleName: string, baseDirectory: string) => Promise<string>,
 };
 
@@ -67,9 +69,9 @@ export async function fromDirectory(
     return resolution;
   }
 
-  const buildCache: Map<string, Promise<BuildRepr.Build>> = new Map();
+  const buildCache: Map<string, Promise<BuildSpec>> = new Map();
 
-  function crawlBuildCached(baseDirectory, context): Promise<BuildRepr.Build> {
+  function crawlBuildCached(baseDirectory, context): Promise<BuildSpec> {
     let build = buildCache.get(baseDirectory);
     if (build == null) {
       build = crawlBuild(baseDirectory, context);
@@ -98,7 +100,7 @@ async function crawlDependencies(
   baseDir: string,
   dependencySpecs: string[],
   context: SandboxCrawlContext,
-): Promise<{dependencies: BuildRepr.Build[], errors: Array<{message: string}>}> {
+): Promise<{dependencies: BuildSpec[], errors: Array<{message: string}>}> {
   const dependencies = [];
   const errors = [];
   const missingPackages = [];
@@ -139,7 +141,7 @@ async function crawlDependencies(
 async function crawlBuild(
   packageJsonPath: string,
   context: SandboxCrawlContext,
-): Promise<BuildRepr.Build> {
+): Promise<BuildSpec> {
   const sourcePath = path.dirname(packageJsonPath);
   const packageJson = await readPackageJson(packageJsonPath);
   const isRootBuild = context.sandboxPath === sourcePath;
@@ -227,7 +229,7 @@ function calculateBuildId(
   env: BuildRepr.Environment,
   packageJson: PackageJson,
   source: string,
-  dependencies: BuildRepr.Build[],
+  dependencies: BuildSpec[],
 ): string {
   const {name, version, esy} = packageJson;
   const h = hash({
