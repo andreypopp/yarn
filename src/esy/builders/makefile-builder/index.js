@@ -10,6 +10,7 @@ import {sync as mkdirp} from 'mkdirp';
 import createLogger from 'debug';
 import outdent from 'outdent';
 
+import * as Graph from '../../graph';
 import * as Env from '../../environment';
 import * as BuildRepr from '../../build-repr';
 import * as Config from '../../build-config';
@@ -194,7 +195,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
     });
 
     // Emit findlib.conf.in
-    const allDependencies = BuildRepr.collectTransitiveDependencies(build);
+    const allDependencies = Graph.collectTransitiveDependencies(build);
     const findLibDestination = buildConfig.getInstallPath(build, 'lib');
     // Note that some packages can query themselves via ocamlfind during its
     // own build, this is why we include `findLibDestination` in the path too.
@@ -312,7 +313,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
 
   // Emit build artefacts for packages
   log('process dependency graph');
-  BuildRepr.traverse(sandbox.root, visitBuild);
+  Graph.traverse(sandbox.root, visitBuild);
 
   // Now emit all build-wise artefacts
   log('build environment');
