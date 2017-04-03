@@ -64,7 +64,7 @@ export function collectTransitiveDependencies<N: Node<*>>(node: N): N[] {
  * in topological order and a node itself.
  *
  * Note that value is computed only once per node (even if it happen to be
- * depended on if a few places) and then memoized.
+ * depended on in several places) and then memoized.
  */
 export function topologicalFold<N: Node<*>, V>(
   node: N,
@@ -77,31 +77,30 @@ function topologicalFoldImpl<N: Node<*>, V>(
   node: N,
   f: (V[], V[], N) => V,
   memoized: Map<string, V>,
-  onNode: (V, N) => *,
+  onNode: (V, N) => V,
 ): V {
-  const directDependencies = [];
-  const allDependencies = [];
-  const seen = new Set();
-  const toVisit = new Set(node.dependencies.map(dep => dep.id));
-  for (let i = 0; i < node.dependencies.length; i++) {
-    const dep = node.dependencies[i];
-    if (toVisit.delete(dep.id)) {
-      let value = memoized.get(dep.id);
-      if (value == null) {
-        value = topologicalFoldImpl(dep, f, memoized, (value, dep) => {
-          if (toVisit.delete(dep.id)) {
-            directDependencies.push(value);
-          }
-          if (!seen.has(dep.id)) {
-            allDependencies.push(value);
-          }
-          seen.add(dep.id);
-          return onNode(value, dep);
-        });
-        memoized.set(dep.id, value);
-      }
-      directDependencies.push(value);
+  const cached = memoized.get(node.id);
+  if (cached != null) {
+    return onNode(cached, node);
+  } else {
+    const directDependencies = [];
+    const allDependencies = [];
+    const seen = new Set();
+    const need = new Set(node.dependencies.map(dep => dep.id));
+    for (const dep of node.dependencies) {
+      topologicalFoldImpl(dep, f, memoized, (value, node) => {
+        if (!seen.has(node.id)) {
+          allDependencies.push(value);
+          seen.add(node.id);
+        }
+        if (need.delete(node.id)) {
+          directDependencies.push(value);
+        }
+        return onNode(value, node);
+      });
     }
+    const value = f(directDependencies, allDependencies, node);
+    memoized.set(node.id, value);
+    return onNode(value, node);
   }
-  return onNode(f(directDependencies, allDependencies, node), node);
 }
