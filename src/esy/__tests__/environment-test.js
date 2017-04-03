@@ -30,7 +30,7 @@ const ocaml = build({
   name: 'ocaml',
   exportedEnv: {
     CAML_LD_LIBRARY_PATH: {
-      val: '$ocaml__lib/ocaml:$CAML_LD_LIBRARY_PATH',
+      val: '$ocaml__lib/ocaml',
       scope: 'global',
     },
   },

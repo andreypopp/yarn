@@ -7664,7 +7664,7 @@ Object {
         "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
-        "value": "<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml",
       },
     ],
   ],
@@ -8367,7 +8367,7 @@ Object {
         "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
-        "value": "<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml",
       },
     ],
   ],
@@ -8580,7 +8580,7 @@ Object {
         "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
-        "value": "<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml",
       },
     ],
   ],
@@ -9283,7 +9283,7 @@ Object {
         "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
-        "value": "<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml",
       },
     ],
   ],
@@ -9496,7 +9496,7 @@ Object {
         "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
-        "value": "<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml",
       },
     ],
   ],
@@ -10199,7 +10199,7 @@ Object {
         "exclusive": false,
         "exported": true,
         "name": "CAML_LD_LIBRARY_PATH",
-        "value": "<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH",
+        "value": "<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml",
       },
     ],
   ],
@@ -10227,5 +10227,5 @@ export cur__stublibs=\\"<storePath>/_insttmp/app/stublibs\\"
 export cur__toplevel=\\"<storePath>/_insttmp/app/toplevel\\"
 export cur__share=\\"<storePath>/_insttmp/app/share\\"
 export cur__etc=\\"<storePath>/_insttmp/app/etc\\"
-export CAML_LD_LIBRARY_PATH=\\"<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml:$CAML_LD_LIBRARY_PATH\\""
+export CAML_LD_LIBRARY_PATH=\\"<storePath>/_install/app/lib:<storePath>/_install/lwt/lib/ocaml:<storePath>/_install/ocamlfind/lib/ocaml:<storePath>/_install/ocaml/lib/ocaml\\""
 `;
