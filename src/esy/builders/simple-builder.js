@@ -182,6 +182,17 @@ async function performBuild(
 
   log('finalizing build');
   await fs.rename(installPath, finalInstallPath);
+
+  if (build === sandbox.root) {
+    await fs.symlink(
+      finalInstallPath,
+      path.join(config.sandboxPath, build.sourcePath, '_install'),
+    );
+    await fs.symlink(
+      buildPath,
+      path.join(config.sandboxPath, build.sourcePath, '_build'),
+    );
+  }
 }
 
 const rmtree = promisify(rimraf);
