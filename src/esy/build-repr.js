@@ -18,7 +18,7 @@ export type EnvironmentVarExport = {
 /**
  * Describes build.
  */
-export type Build = {
+export type BuildSpec = {
   /** Unique identifier */
   id: string,
 
@@ -63,7 +63,7 @@ export type Build = {
    * Set of dependencies which must be build/installed before this build can
    * happen
    */
-  dependencies: Build[],
+  dependencies: BuildSpec[],
 
   /**
    * A list of errors found in build definitions.
@@ -88,22 +88,22 @@ export type BuildConfig = {
   /**
    * Generate path where sources of the builds are located.
    */
-  getSourcePath: (build: Build, ...segments: string[]) => string,
+  getSourcePath: (build: BuildSpec, ...segments: string[]) => string,
 
   /**
    * Generate path from where the build executes.
    */
-  getRootPath: (build: Build, ...segments: string[]) => string,
+  getRootPath: (build: BuildSpec, ...segments: string[]) => string,
 
   /**
    * Generate path where build artefacts should be placed.
    */
-  getBuildPath: (build: Build, ...segments: string[]) => string,
+  getBuildPath: (build: BuildSpec, ...segments: string[]) => string,
 
   /**
    * Generate path where installation artefacts should be placed.
    */
-  getInstallPath: (build: Build, ...segments: string[]) => string,
+  getInstallPath: (build: BuildSpec, ...segments: string[]) => string,
 
   /**
    * Generate path where finalized installation artefacts should be placed.
@@ -112,7 +112,7 @@ export type BuildConfig = {
    * do atomic installs (possible by buiilding in one location and then mv'ing
    * to another, final location).
    */
-  getFinalInstallPath: (build: Build, ...segments: string[]) => string,
+  getFinalInstallPath: (build: BuildSpec, ...segments: string[]) => string,
 };
 
 /**
@@ -123,7 +123,7 @@ export type BuildConfig = {
  */
 export type BuildSandbox = {
   env: Environment,
-  root: Build,
+  root: BuildSpec,
 };
 
 /**
@@ -134,7 +134,7 @@ export type Builder = (BuildSandbox, BuildConfig) => Promise<void>;
 /**
  * BFS for build dep graph.
  */
-export function traverse(build: Build, f: (Build) => void) {
+export function traverse(build: BuildSpec, f: (BuildSpec) => void) {
   const seen = new Set();
   const queue = [build];
   while (queue.length > 0) {
@@ -148,7 +148,7 @@ export function traverse(build: Build, f: (Build) => void) {
   }
 }
 
-export function traverseDeepFirst(build: Build, f: (Build) => void) {
+export function traverseDeepFirst(build: BuildSpec, f: (BuildSpec) => void) {
   const seen = new Set();
   function traverse(build) {
     if (seen.has(build.id)) {
@@ -166,7 +166,7 @@ export function traverseDeepFirst(build: Build, f: (Build) => void) {
 /**
  * Collect all transitive dependendencies for a `build`.
  */
-export function collectTransitiveDependencies(build: Build): Build[] {
+export function collectTransitiveDependencies(build: BuildSpec): BuildSpec[] {
   const dependencies = [];
   traverseDeepFirst(build, cur => {
     // Skip the root build
@@ -188,17 +188,17 @@ export function collectTransitiveDependencies(build: Build): Build[] {
  * depended on if a few places) and then memoized.
  */
 export function topologicalFold<V>(
-  build: Build,
-  f: (directDependencies: V[], allDependencies: V[], currentBuild: Build) => V,
+  build: BuildSpec,
+  f: (directDependencies: V[], allDependencies: V[], currentBuild: BuildSpec) => V,
 ): V {
   return topologicalFoldImpl(build, f, new Map(), value => value);
 }
 
 function topologicalFoldImpl<V>(
-  build: Build,
-  f: (V[], V[], Build) => V,
+  build: BuildSpec,
+  f: (V[], V[], BuildSpec) => V,
   memoized: Map<string, V>,
-  onBuild: (V, Build) => *,
+  onBuild: (V, BuildSpec) => *,
 ): V {
   const directDependencies = [];
   const allDependencies = [];

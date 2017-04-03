@@ -9,7 +9,7 @@ import pathIsInside from 'path-is-inside';
 import outdent from 'outdent';
 import {substituteVariables} from 'var-expansion';
 
-import type {Build, BuildConfig} from './build-repr';
+import type {BuildSpec, BuildConfig} from './build-repr';
 import {normalizePackageName, mergeIntoMap} from './util';
 import * as BuildRepr from './build-repr';
 
@@ -101,7 +101,11 @@ function getScopes(config) {
  * Validates env vars that were configured in package.json as opposed to
  * automatically created.
  */
-function validatePackageJsonExportedEnvVar(build: Build, envVar, config): Array<string> {
+function validatePackageJsonExportedEnvVar(
+  build: BuildSpec,
+  envVar,
+  config,
+): Array<string> {
   const envVarConfigPrefix = normalizePackageName(build.name);
   const beginsWithPackagePrefix = envVar.indexOf(envVarConfigPrefix) === 0;
   const ret = [];
@@ -151,8 +155,8 @@ function validatePackageJsonExportedEnvVar(build: Build, envVar, config): Array<
 }
 
 function builtInsPerPackage(
-  config: BuildRepr.BuildConfig,
-  build: BuildRepr.Build,
+  config: BuildConfig,
+  build: BuildSpec,
   currentlyBuilding: boolean,
 ) {
   const prefix = currentlyBuilding ? 'cur' : normalizePackageName(build.name);
@@ -254,7 +258,7 @@ function addEnvConfigForPackage(
   };
 }
 
-function computeEnvVarsForPackage(config: BuildRepr.BuildConfig, build: BuildRepr.Build) {
+function computeEnvVarsForPackage(config: BuildConfig, build: BuildSpec) {
   const errors = [];
   const autoExportedEnvVarsForPackage = builtInsPerPackage(config, build, false);
 
@@ -310,8 +314,8 @@ function computeEnvVarsForPackage(config: BuildRepr.BuildConfig, build: BuildRep
  * variable setup in terms of a hypothetical root.
  */
 export function calculateEnvironment(
-  config: BuildRepr.BuildConfig,
-  build: BuildRepr.Build,
+  config: BuildConfig,
+  build: BuildSpec,
   globalEnv: BuildRepr.Environment,
 ): Environment {
   /**
@@ -489,7 +493,7 @@ export type ScopeItem = {
   exported: boolean,
   builtIn: boolean,
   exclusive: boolean,
-  build?: BuildRepr.Build,
+  build?: BuildSpec,
 };
 
 export type Scope = Map<string, ScopeItem>;
@@ -498,7 +502,7 @@ export type BuildEnv = {env: Env, scope: Scope};
 
 export function calculate(
   config: BuildConfig,
-  rootBuild: Build,
+  rootBuild: BuildSpec,
   initialEnv?: Array<{name: string, value: string}> = [],
 ): BuildEnv {
   function builtInEntry(
@@ -511,7 +515,7 @@ export function calculate(
     }: {
       name: string,
       value: string,
-      build?: Build,
+      build?: BuildSpec,
       exclusive?: boolean,
       exported?: boolean,
     },
@@ -521,7 +525,7 @@ export function calculate(
   function builtInEntries(...values) {
     return new Map(values.map(builtInEntry));
   }
-  function getBuiltInScope(build: Build, currentlyBuilding?: boolean): Env {
+  function getBuiltInScope(build: BuildSpec, currentlyBuilding?: boolean): Env {
     const prefix = currentlyBuilding ? 'cur' : normalizePackageName(build.name);
     const getInstallPath = currentlyBuilding
       ? config.getInstallPath

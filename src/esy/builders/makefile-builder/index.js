@@ -2,6 +2,8 @@
  * @flow
  */
 
+import type {BuildSpec} from '../../build-repr';
+
 import * as path from 'path';
 import * as fs from 'fs';
 import {sync as mkdirp} from 'mkdirp';
@@ -148,7 +150,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
   }
 
   function createBuildRule(
-    build: BuildRepr.Build,
+    build: BuildSpec,
     rule: {target: string, command: string, withBuildEnv?: boolean},
   ): Makefile.MakeItem {
     const command = [];
@@ -174,7 +176,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
     };
   }
 
-  function visitBuild(build: BuildRepr.Build) {
+  function visitBuild(build: BuildSpec) {
     log(`visit ${build.name}`);
 
     const packagePath = build.sourcePath.split(path.sep).filter(Boolean);
@@ -391,7 +393,7 @@ export function renderEnv(env: Env.Env): string {
     .join('\n');
 }
 
-function renderBuildCommand(build: BuildRepr.Build, scope: Env.Scope): ?string {
+function renderBuildCommand(build: BuildSpec, scope: Env.Scope): ?string {
   if (build.command == null) {
     return null;
   }
