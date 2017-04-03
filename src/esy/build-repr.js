@@ -72,6 +72,17 @@ export type BuildSpec = {
 };
 
 /**
+ * A concrete build task with command list and env ready for execution.
+ */
+export type BuildTask = {
+  id: string,
+  command: string[],
+  env: Map<string, {value: string}>,
+  dependencies: BuildTask[],
+  spec: BuildSpec,
+};
+
+/**
  * Build configuration.
  */
 export type BuildConfig = {
@@ -130,99 +141,3 @@ export type BuildSandbox = {
  * Process which accepts build and a corresponding config and produces a build.
  */
 export type Builder = (BuildSandbox, BuildConfig) => Promise<void>;
-
-/**
- * BFS for build dep graph.
- */
-export function traverse(build: BuildSpec, f: (BuildSpec) => void) {
-  const seen = new Set();
-  const queue = [build];
-  while (queue.length > 0) {
-    const cur = queue.shift();
-    if (seen.has(cur.id)) {
-      continue;
-    }
-    f(cur);
-    seen.add(cur.id);
-    queue.push(...cur.dependencies);
-  }
-}
-
-export function traverseDeepFirst(build: BuildSpec, f: (BuildSpec) => void) {
-  const seen = new Set();
-  function traverse(build) {
-    if (seen.has(build.id)) {
-      return;
-    }
-    seen.add(build.id);
-    for (const dep of build.dependencies) {
-      traverse(dep);
-    }
-    f(build);
-  }
-  traverse(build);
-}
-
-/**
- * Collect all transitive dependendencies for a `build`.
- */
-export function collectTransitiveDependencies(build: BuildSpec): BuildSpec[] {
-  const dependencies = [];
-  traverseDeepFirst(build, cur => {
-    // Skip the root build
-    if (cur !== build) {
-      dependencies.push(cur);
-    }
-  });
-  dependencies.reverse();
-  return dependencies;
-}
-
-/**
- * Topological fold build dependency graph to a value `V`.
- *
- * The fold function is called with a list of values computed for dependencies
- * in topological order and a build itself.
- *
- * Note that value is computed only once per build (even if it happen to be
- * depended on if a few places) and then memoized.
- */
-export function topologicalFold<V>(
-  build: BuildSpec,
-  f: (directDependencies: V[], allDependencies: V[], currentBuild: BuildSpec) => V,
-): V {
-  return topologicalFoldImpl(build, f, new Map(), value => value);
-}
-
-function topologicalFoldImpl<V>(
-  build: BuildSpec,
-  f: (V[], V[], BuildSpec) => V,
-  memoized: Map<string, V>,
-  onBuild: (V, BuildSpec) => *,
-): V {
-  const directDependencies = [];
-  const allDependencies = [];
-  const seen = new Set();
-  const toVisit = new Set(build.dependencies.map(dep => dep.id));
-  for (let i = 0; i < build.dependencies.length; i++) {
-    const dep = build.dependencies[i];
-    if (toVisit.delete(dep.id)) {
-      let value = memoized.get(dep.id);
-      if (value == null) {
-        value = topologicalFoldImpl(dep, f, memoized, (value, dep) => {
-          if (toVisit.delete(dep.id)) {
-            directDependencies.push(value);
-          }
-          if (!seen.has(dep.id)) {
-            allDependencies.push(value);
-          }
-          seen.add(dep.id);
-          return onBuild(value, dep);
-        });
-        memoized.set(dep.id, value);
-      }
-      directDependencies.push(value);
-    }
-  }
-  return onBuild(f(directDependencies, allDependencies, build), build);
-}

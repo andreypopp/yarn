@@ -15,6 +15,7 @@ import rimraf from 'rimraf';
 import PromiseQueue from 'p-queue';
 import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
+import * as Graph from '../graph';
 import * as Env from '../environment';
 import * as BuildRepr from '../build-repr';
 import {renderEnv} from './makefile-builder';
@@ -83,7 +84,7 @@ export const build = async (
     return inProgress;
   }
 
-  await BuildRepr.topologicalFold(
+  await Graph.topologicalFold(
     sandbox.root,
     (directDependencies, allDependencies, build) =>
       Promise.all(directDependencies).then(states => {
@@ -238,7 +239,7 @@ async function initStore(storePath) {
 }
 
 function renderFindlibConf(build: BuildSpec, config: BuildConfig) {
-  const allDependencies = BuildRepr.collectTransitiveDependencies(build);
+  const allDependencies = Graph.collectTransitiveDependencies(build);
   const findLibDestination = config.getInstallPath(build, 'lib');
   // Note that some packages can query themselves via ocamlfind during its
   // own build, this is why we include `findLibDestination` in the path too.

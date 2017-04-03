@@ -12,6 +12,7 @@ import {substituteVariables} from 'var-expansion';
 import type {BuildSpec, BuildConfig} from './build-repr';
 import {normalizePackageName, mergeIntoMap} from './util';
 import * as BuildRepr from './build-repr';
+import * as Graph from './graph';
 
 export type EnvironmentVar = {
   name: string,
@@ -357,7 +358,7 @@ export function calculateEnvironment(
       },
     };
 
-    const dependencies = BuildRepr.collectTransitiveDependencies(build);
+    const dependencies = Graph.collectTransitiveDependencies(build);
     if (dependencies.length > 0) {
       const depPath = dependencies
         .map(dep => config.getFinalInstallPath(dep, 'bin'))
@@ -437,7 +438,7 @@ export function calculateEnvironment(
         errors,
       },
     ];
-    BuildRepr.traverse(build, computeEnvVarsForPackage.bind(null, config));
+    Graph.traverse(build, computeEnvVarsForPackage.bind(null, config));
   } catch (err) {
     if (err.code === 'ENOENT') {
       console.error('Fail to find package.json!: ' + err.message);
@@ -621,7 +622,7 @@ export function calculate(
     return evalScope;
   }
 
-  const res = BuildRepr.topologicalFold(
+  const res = Graph.topologicalFold(
     rootBuild,
     (directDependencies, allDependencies, build) => {
       // scope which is used to eval exported variables
