@@ -82,7 +82,8 @@ export type BuildSpec = {
 export type BuildTask = {
   id: string,
   command: ?Array<{command: string, renderedCommand: string}>,
-  env: Map<string, {name: string, value: string} & *>,
+  env: Map<string, EnvironmentVar>,
+  scope: Map<string, EnvironmentVar>,
   dependencies: Map<string, BuildTask>,
   spec: BuildSpec,
 };
