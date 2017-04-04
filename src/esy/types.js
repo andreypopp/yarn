@@ -98,6 +98,11 @@ export type BuildConfig = {
   storePath: string,
 
   /**
+   * Path to the local store used for a build.
+   */
+  localStorePath: string,
+
+  /**
    * Path to a sandbox root.
    */
   sandboxPath: string,

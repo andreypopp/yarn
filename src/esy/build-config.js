@@ -12,7 +12,7 @@ export function createConfig(
   },
 ): BuildConfig {
   const {storePath, sandboxPath} = params;
-  const sandboxLocalStorePath = path.join(
+  const localStorePath = path.join(
     sandboxPath,
     'node_modules',
     '.cache',
@@ -23,13 +23,14 @@ export function createConfig(
     if (build.shouldBePersisted) {
       return path.join(storePath, tree, build.id, ...segments);
     } else {
-      return path.join(sandboxLocalStorePath, tree, build.id, ...segments);
+      return path.join(localStorePath, tree, build.id, ...segments);
     }
   };
 
   const buildConfig: BuildConfig = {
-    storePath,
     sandboxPath,
+    storePath,
+    localStorePath,
     getSourcePath: (build: BuildSpec, ...segments) => {
       return path.join(buildConfig.sandboxPath, build.sourcePath, ...segments);
     },
