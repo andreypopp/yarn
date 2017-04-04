@@ -45,10 +45,7 @@ export const build = async (
   config: BuildConfig,
   onTaskStatus: (task: BuildTask, status: BuildTaskStatus) => *,
 ) => {
-  await Promise.all([
-    initStore(config.storePath),
-    initStore(path.join(config.sandboxPath, 'node_modules', '.cache', '_esy', 'store')),
-  ]);
+  await Promise.all([initStore(config.storePath), initStore(config.localStorePath)]);
 
   const buildQueue = new PromiseQueue({concurrency: NUM_CPUS});
   const taskInProgress = new Map();
