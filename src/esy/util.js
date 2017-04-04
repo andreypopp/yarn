@@ -83,6 +83,14 @@ export function filterMap<K, V>(map: Map<K, V>, filter: (V, K) => boolean): Map<
   return res;
 }
 
+export function mapValuesMap<K, V, V2>(map: Map<K, V>, mapper: (V, K) => V2): Map<K, V2> {
+  const res: Map<K, V2> = new Map();
+  for (const [k, v] of map.entries()) {
+    res.set(k, mapper(v, k));
+  }
+  return res;
+}
+
 export function mergeIntoMap<K, V>(
   src: Map<K, V>,
   from: Map<K, V>,

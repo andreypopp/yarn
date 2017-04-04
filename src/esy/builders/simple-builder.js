@@ -87,7 +87,7 @@ export const build = async (
   }
 
   await Graph.topologicalFold(task, (directDependencies, allDependencies, task) =>
-    Promise.all(directDependencies).then(states => {
+    Promise.all(directDependencies.values()).then(states => {
       if (states.some(state => state.state === 'failure')) {
         return {state: 'failure', error: new Error('dependencies are not built')};
       } else {

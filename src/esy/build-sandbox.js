@@ -103,8 +103,8 @@ async function crawlDependencies(
   baseDir: string,
   dependencySpecs: string[],
   context: SandboxCrawlContext,
-): Promise<{dependencies: BuildSpec[], errors: Array<{message: string}>}> {
-  const dependencies = [];
+): Promise<{dependencies: Map<string, BuildSpec>, errors: Array<{message: string}>}> {
+  const dependencies = new Map();
   const errors = [];
   const missingPackages = [];
 
@@ -129,7 +129,7 @@ async function crawlDependencies(
     const build = await context.crawlBuild(dependencyPackageJsonPath, context);
 
     errors.push(...build.errors);
-    dependencies.push(build);
+    dependencies.set(build.id, build);
   }
 
   if (missingPackages.length > 0) {
@@ -268,7 +268,7 @@ function calculateBuildId(
   env: BuildEnvironment,
   packageJson: PackageJson,
   source: string,
-  dependencies: BuildSpec[],
+  dependencies: Map<string, BuildSpec>,
 ): string {
   const {name, version, esy} = packageJson;
   const h = hash({
@@ -279,7 +279,7 @@ function calculateBuildId(
       version,
       esy,
     },
-    dependencies: dependencies.map(dep => dep.id),
+    dependencies: Array.from(dependencies.values(), dep => dep.id),
   });
   if (process.env.ESY__TEST) {
     return `${normalizePackageName(name)}-${version || '0.0.0'}`;
