@@ -5,8 +5,13 @@
 export type EnvironmentVar = {
   name: string,
   value: string,
+  exported: boolean,
+  builtIn: boolean,
+  exclusive: boolean,
+  spec?: BuildSpec,
 };
-export type Environment = EnvironmentVar[];
+
+export type BuildEnvironment = Map<string, EnvironmentVar>;
 
 export type EnvironmentVarExport = {
   val: string,
@@ -76,8 +81,8 @@ export type BuildSpec = {
  */
 export type BuildTask = {
   id: string,
-  command: string[],
-  env: Map<string, {value: string}>,
+  command: ?Array<{command: string, renderedCommand: string}>,
+  env: Map<string, {name: string, value: string} & *>,
   dependencies: BuildTask[],
   spec: BuildSpec,
 };
@@ -133,11 +138,6 @@ export type BuildConfig = {
  * identities a made dependent on a global env of the sandbox.
  */
 export type BuildSandbox = {
-  env: Environment,
+  env: BuildEnvironment,
   root: BuildSpec,
 };
-
-/**
- * Process which accepts build and a corresponding config and produces a build.
- */
-export type Builder = (BuildSandbox, BuildConfig) => Promise<void>;

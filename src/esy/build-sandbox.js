@@ -2,21 +2,26 @@
  * @flow
  */
 
-import type {BuildSpec} from './build-repr';
+import type {
+  BuildSpec,
+  BuildSandbox,
+  BuildEnvironment,
+  EnvironmentVarExport,
+} from './types';
 
 import * as crypto from 'crypto';
 import * as path from 'path';
 import outdent from 'outdent';
 
 import * as fs from '../util/fs';
-import * as BuildRepr from './build-repr';
 import {resolveToRealpath, normalizePackageName} from './util';
+import * as Env from './environment';
 
 export type EsyConfig = {
   build: ?string,
   buildsInSource: boolean,
   exportedEnv: {
-    [name: string]: BuildRepr.EnvironmentVarExport,
+    [name: string]: EnvironmentVarExport,
   },
 };
 
@@ -43,7 +48,7 @@ export type PackageJsonVersionSpec = {
 };
 
 type SandboxCrawlContext = {
-  env: BuildRepr.Environment,
+  env: BuildEnvironment,
   sandboxPath: string,
   dependencyTrace: Array<string>,
   crawlBuild: (
@@ -53,9 +58,7 @@ type SandboxCrawlContext = {
   resolve: (moduleName: string, baseDirectory: string) => Promise<string>,
 };
 
-export async function fromDirectory(
-  sandboxPath: string,
-): Promise<BuildRepr.BuildSandbox> {
+export async function fromDirectory(sandboxPath: string): Promise<BuildSandbox> {
   // Caching module resolution actually speed ups sandbox crawling a lot.
   const resolutionCache: Map<string, Promise<string>> = new Map();
 
@@ -186,22 +189,58 @@ async function crawlBuild(
   };
 }
 
-function getEnvironment() {
+function getEnvironment(): BuildEnvironment {
   const platform = process.env.ESY__TEST ? 'platform' : process.platform;
   const architecture = process.env.ESY__TEST ? 'architecture' : process.arch;
-  return [
-    {name: 'PATH', value: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'},
-    {name: 'SHELL', value: 'env -i /bin/bash --norc --noprofile'},
+  return Env.fromEntries([
+    {
+      name: 'PATH',
+      value: '$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin',
+      exclusive: false,
+      builtIn: true,
+      exported: true,
+    },
+    {
+      name: 'SHELL',
+      value: 'env -i /bin/bash --norc --noprofile',
+      exclusive: false,
+      builtIn: true,
+      exported: true,
+    },
 
     // platform and architecture of the host machine
-    {name: 'esy__platform', value: platform},
-    {name: 'esy__architecture', value: architecture},
+    {
+      name: 'esy__platform',
+      value: platform,
+      exclusive: true,
+      builtIn: true,
+      exported: true,
+    },
+    {
+      name: 'esy__architecture',
+      value: architecture,
+      exclusive: true,
+      builtIn: true,
+      exported: true,
+    },
 
     // platform and architecture of the target machine, so that we can do cross
     // compilation
-    {name: 'esy__target_platform', value: platform},
-    {name: 'esy__target_architecture', value: architecture},
-  ];
+    {
+      name: 'esy__target_platform',
+      value: platform,
+      exclusive: true,
+      builtIn: true,
+      exported: true,
+    },
+    {
+      name: 'esy__target_architecture',
+      value: architecture,
+      exclusive: true,
+      builtIn: true,
+      exported: true,
+    },
+  ]);
 }
 
 async function readPackageJson(filename): Promise<PackageJson> {
@@ -226,7 +265,7 @@ async function readPackageJson(filename): Promise<PackageJson> {
 }
 
 function calculateBuildId(
-  env: BuildRepr.Environment,
+  env: BuildEnvironment,
   packageJson: PackageJson,
   source: string,
   dependencies: BuildSpec[],

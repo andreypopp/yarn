@@ -2,10 +2,9 @@
  * @flow
  */
 
-import type {BuildSpec, BuildConfig, BuildSandbox} from '../build-repr';
+import type {BuildTask, BuildConfig, BuildSandbox} from '../types';
 
 import createLogger from 'debug';
-import outdent from 'outdent';
 import * as child from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
@@ -13,13 +12,13 @@ import * as nodefs from 'fs';
 import {copy} from 'fs-extra';
 import rimraf from 'rimraf';
 import PromiseQueue from 'p-queue';
+
 import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
+
 import * as Graph from '../graph';
-import * as Env from '../environment';
-import * as BuildRepr from '../build-repr';
-import {renderEnv} from './makefile-builder';
 import {endWritableStream, interleaveStreams} from '../util';
+import {renderEnv, renderFindlibConf} from './util';
 
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
@@ -31,13 +30,17 @@ type SuccessBuildState = {state: 'success', timeEllapsed: ?number, cached: boole
 type FailureBuildState = {state: 'failure', error: Error};
 type InProgressBuildState = {state: 'in-progress'};
 
-export type BuildState = SuccessBuildState | FailureBuildState | InProgressBuildState;
+export type BuildTaskStatus =
+  | SuccessBuildState
+  | FailureBuildState
+  | InProgressBuildState;
 export type FinalBuildState = SuccessBuildState | FailureBuildState;
 
 export const build = async (
-  sandbox: BuildRepr.BuildSandbox,
-  config: BuildRepr.BuildConfig,
-  onBuildStatus: (build: BuildSpec, status: BuildState) => *,
+  task: BuildTask,
+  sandbox: BuildSandbox,
+  config: BuildConfig,
+  onTaskStatus: (task: BuildTask, status: BuildTaskStatus) => *,
 ) => {
   await Promise.all([
     initStore(config.storePath),
@@ -45,17 +48,16 @@ export const build = async (
   ]);
 
   const buildQueue = new PromiseQueue({concurrency: NUM_CPUS});
-  const buildInProgress = new Map();
+  const taskInProgress = new Map();
 
-  async function isBuildComplete(build) {
-    return build.shouldBePersisted &&
-      (await fs.exists(config.getFinalInstallPath(build)));
+  async function isSpecExistsInStore(spec) {
+    return spec.shouldBePersisted && (await fs.exists(config.getFinalInstallPath(spec)));
   }
 
-  async function performBuildMemoized(build) {
-    let inProgress = buildInProgress.get(build.id);
+  async function performBuildMemoized(task: BuildTask) {
+    let inProgress = taskInProgress.get(task.id);
     if (inProgress == null) {
-      if (await isBuildComplete(build)) {
+      if (await isSpecExistsInStore(task.spec)) {
         inProgress = Promise.resolve({
           state: 'success',
           timeEllapsed: null,
@@ -63,100 +65,95 @@ export const build = async (
         });
       } else {
         inProgress = buildQueue.add(async () => {
-          onBuildStatus(build, {state: 'in-progress'});
+          onTaskStatus(task, {state: 'in-progress'});
           const startTime = Date.now();
           try {
-            await performBuild(build, config, sandbox);
+            await performBuild(task, config, sandbox);
           } catch (error) {
             const state = {state: 'failure', error};
-            onBuildStatus(build, state);
+            onTaskStatus(task, state);
             return state;
           }
           const endTime = Date.now();
           const timeEllapsed = endTime - startTime;
           const state = {state: 'success', timeEllapsed, cached: false};
-          onBuildStatus(build, state);
+          onTaskStatus(task, state);
           return state;
         });
       }
-      buildInProgress.set(build.id, inProgress);
+      taskInProgress.set(task.id, inProgress);
     }
     return inProgress;
   }
 
-  await Graph.topologicalFold(
-    sandbox.root,
-    (directDependencies, allDependencies, build) =>
-      Promise.all(directDependencies).then(states => {
-        if (states.some(state => state.state === 'failure')) {
-          return {state: 'failure', error: new Error('dependencies are not built')};
-        } else {
-          return performBuildMemoized(build);
-        }
-      }),
-  );
-
-  await buildInProgress;
+  await Graph.topologicalFold(task, (directDependencies, allDependencies, task) =>
+    Promise.all(directDependencies).then(states => {
+      if (states.some(state => state.state === 'failure')) {
+        return {state: 'failure', error: new Error('dependencies are not built')};
+      } else {
+        return performBuildMemoized(task);
+      }
+    }));
 };
 
 async function performBuild(
-  build: BuildSpec,
+  task: BuildTask,
   config: BuildConfig,
   sandbox: BuildSandbox,
 ): Promise<void> {
-  const rootPath = config.getRootPath(build);
-  const installPath = config.getInstallPath(build);
-  const finalInstallPath = config.getFinalInstallPath(build);
-  const buildPath = config.getBuildPath(build);
+  const rootPath = config.getRootPath(task.spec);
+  const installPath = config.getInstallPath(task.spec);
+  const finalInstallPath = config.getFinalInstallPath(task.spec);
+  const buildPath = config.getBuildPath(task.spec);
 
-  const log = createLogger(`esy:simple-builder:${build.name}`);
+  const log = createLogger(`esy:simple-builder:${task.spec.name}`);
 
   log('starting build');
 
+  log('removing prev destination directories (if exist)');
   await Promise.all([rmtree(finalInstallPath), rmtree(installPath), rmtree(buildPath)]);
 
+  log('creating destination directories');
   await Promise.all([
-    ...BUILD_DIRS.map(p => fs.mkdirp(config.getBuildPath(build, p))),
-    ...INSTALL_DIRS.map(p => fs.mkdirp(config.getInstallPath(build, p))),
+    ...BUILD_DIRS.map(p => fs.mkdirp(config.getBuildPath(task.spec, p))),
+    ...INSTALL_DIRS.map(p => fs.mkdirp(config.getInstallPath(task.spec, p))),
   ]);
 
-  if (build.mutatesSourcePath) {
+  if (task.spec.mutatesSourcePath) {
     log('build mutates source directory, rsyncing sources to $cur__target_dir');
     await copyTree({
-      from: path.join(config.sandboxPath, build.sourcePath),
-      to: config.getBuildPath(build),
+      from: path.join(config.sandboxPath, task.spec.sourcePath),
+      to: config.getBuildPath(task.spec),
       exclude: PATHS_TO_IGNORE.map(p =>
-        path.join(config.sandboxPath, build.sourcePath, p)),
+        path.join(config.sandboxPath, task.spec.sourcePath, p)),
     });
   }
 
-  const {env, scope} = Env.calculate(config, build, sandbox.env);
-
   const envForExec = {};
-  for (const item of env.values()) {
+  for (const item of task.env.values()) {
     envForExec[item.name] = item.value;
   }
 
   log('placing _esy/env');
   const envPath = path.join(buildPath, '_esy', 'env');
-  await fs.writeFile(envPath, renderEnv(env), 'utf8');
+  await fs.writeFile(envPath, renderEnv(task.env), 'utf8');
 
   log('placing _esy/findlib.conf');
   await fs.writeFile(
     path.join(buildPath, '_esy', 'findlib.conf'),
-    renderFindlibConf(build, config),
+    renderFindlibConf(task.spec, config),
     'utf8',
   );
 
-  if (build.command != null) {
-    const commandList = build.command;
-    const logFilename = config.getBuildPath(build, '_esy', 'log');
+  if (task.command != null) {
+    const commandList = task.command;
+    const logFilename = config.getBuildPath(task.spec, '_esy', 'log');
     const logStream = nodefs.createWriteStream(logFilename);
     for (let i = 0; i < commandList.length; i++) {
-      log(`executing: ${commandList[i]}`);
+      const {command, renderedCommand} = commandList[i];
+      log(`executing: ${command}`);
       // TODO: add sandboxing
-      const command = Env.expandWithScope(commandList[i], scope).rendered;
-      const execution = await exec(command, {
+      const execution = await exec(renderedCommand, {
         cwd: rootPath,
         env: envForExec,
         maxBuffer: Infinity,
@@ -168,14 +165,14 @@ async function performBuild(
       ).pipe(logStream, {end: false});
       const {code} = await execution.exit;
       if (code !== 0) {
-        throw new BuildError(build, logFilename);
+        throw new BuildTaskError(task, logFilename);
       }
     }
     await endWritableStream(logStream);
 
     log('rewriting paths in build artefacts');
     const rewriteQueue = new PromiseQueue({concurrency: 20});
-    const files = await fs.walk(config.getInstallPath(build));
+    const files = await fs.walk(config.getInstallPath(task.spec));
     await Promise.all(
       files.map(file =>
         rewriteQueue.add(() =>
@@ -186,14 +183,14 @@ async function performBuild(
   log('finalizing build');
   await fs.rename(installPath, finalInstallPath);
 
-  if (build === sandbox.root) {
+  if (task.spec === sandbox.root) {
     await fs.symlink(
       finalInstallPath,
-      path.join(config.sandboxPath, build.sourcePath, '_install'),
+      path.join(config.sandboxPath, task.spec.sourcePath, '_install'),
     );
     await fs.symlink(
       buildPath,
-      path.join(config.sandboxPath, build.sourcePath, '_build'),
+      path.join(config.sandboxPath, task.spec.sourcePath, '_build'),
     );
   }
 }
@@ -238,34 +235,13 @@ async function initStore(storePath) {
   );
 }
 
-function renderFindlibConf(build: BuildSpec, config: BuildConfig) {
-  const allDependencies = Graph.collectTransitiveDependencies(build);
-  const findLibDestination = config.getInstallPath(build, 'lib');
-  // Note that some packages can query themselves via ocamlfind during its
-  // own build, this is why we include `findLibDestination` in the path too.
-  const findLibPath = allDependencies
-    .map(dep => config.getFinalInstallPath(dep, 'lib'))
-    .concat(findLibDestination)
-    .join(':');
-  return outdent`
-    path = "${findLibPath}"
-    destdir = "${findLibDestination}"
-    ldconf = "ignore"
-    ocamlc = "ocamlc.opt"
-    ocamldep = "ocamldep.opt"
-    ocamldoc = "ocamldoc.opt"
-    ocamllex = "ocamllex.opt"
-    ocamlopt = "ocamlopt.opt"
-  `;
-}
-
-class BuildError extends Error {
+class BuildTaskError extends Error {
   logFilename: string;
-  build: BuildSpec;
+  task: BuildTask;
 
-  constructor(build: BuildSpec, logFilename: string) {
-    super(`Build failed: ${build.name}`);
-    this.build = build;
+  constructor(task: BuildTask, logFilename: string) {
+    super(`Build failed: ${task.spec.name}`);
+    this.task = task;
     this.logFilename = logFilename;
   }
 }
