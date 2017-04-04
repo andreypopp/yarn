@@ -606,7 +606,7 @@ function getEvalScope(spec: BuildSpec, dependencies, config): BuildEnvironment {
 export function fromBuildSpec(
   rootBuild: BuildSpec,
   config: BuildConfig,
-  sandboxEnv: BuildEnvironment,
+  sandboxEnv?: BuildEnvironment = new Map(),
 ): BuildTask {
   const {
     task,
@@ -715,6 +715,7 @@ export function fromBuildSpec(
       spec,
       command,
       env,
+      scope,
       dependencies: mapValuesMap(computation.dependencies, dep => dep.task),
     };
   }
