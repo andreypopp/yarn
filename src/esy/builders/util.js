@@ -4,7 +4,12 @@
 
 import type {BuildSpec, BuildConfig, BuildEnvironment} from '../types';
 
+import * as child from 'child_process';
 import outdent from 'outdent';
+import {copy} from 'fs-extra';
+import rimraf from 'rimraf';
+import {promisify} from '../../util/promise';
+import * as fs from '../../util/fs';
 import * as Graph from '../graph';
 
 export function renderFindlibConf(build: BuildSpec, config: BuildConfig): string {
@@ -28,8 +33,110 @@ export function renderFindlibConf(build: BuildSpec, config: BuildConfig): string
   `;
 }
 
+type ConfigSpec = {
+  allowFileWrite?: string[],
+  denyFileWrite?: string[],
+};
+
+export function renderSandboxSbConfig(
+  spec: BuildSpec,
+  config: BuildConfig,
+  sandboxSpec?: ConfigSpec = {},
+): string {
+  const subpathList = pathList =>
+    pathList ? pathList.map(path => `(subpath "${path}")`).join(' ') : '';
+
+  // TODO: Right now the only thing this sandbox configuration does is it
+  // disallows writing into locations other than $cur__root,
+  // $cur__target_dir and $cur__install. We should implement proper out of
+  // source builds and also disallow $cur__root.
+  // TODO: Try to use (deny default) and pick a set of rules for builds to
+  // proceed (it chokes on xcodebuild for now if we disable reading "/" and
+  // networking).
+  return outdent`
+    (version 1.0)
+    (allow default)
+
+    (deny file-write*
+      (subpath "/"))
+
+    (allow file-write*
+      ; cur__root
+      ; We don't really need to write into cur__root but some build systems
+      ; can put .merlin files there so we allow that.
+      (subpath "${config.getRootPath(spec)}"))
+
+    (deny file-write*
+      (subpath "${config.getRootPath(spec, 'node_modules')}")
+
+      ${subpathList(sandboxSpec.denyFileWrite)}
+    )
+
+    (allow file-write*
+      (literal "/dev/null")
+
+      ; cur__root
+      ; We don't really need to write into cur__root but some build systems
+      ; can put .merlin files there so we allow that.
+      (subpath "${config.getRootPath(spec)}")
+
+      ; cur__target_dir
+      (subpath "${config.getBuildPath(spec)}")
+
+      ; cur__install
+      (subpath "${config.getInstallPath(spec)}")
+
+      ${subpathList(sandboxSpec.allowFileWrite)}
+    )
+
+  `;
+}
+
 export function renderEnv(env: BuildEnvironment): string {
   return Array.from(env.values())
     .map(env => `export ${env.name}="${env.value}";`)
     .join('\n');
+}
+
+export async function rewritePathInFile(
+  filename: string,
+  origPath: string,
+  destPath: string,
+) {
+  const stat = await fs.stat(filename);
+  if (!stat.isFile()) {
+    return;
+  }
+  const content = await fs.readFileBuffer(filename);
+  let offset = content.indexOf(origPath);
+  const needRewrite = offset > -1;
+  while (offset > -1) {
+    content.write(destPath, offset);
+    offset = content.indexOf(origPath);
+  }
+  if (needRewrite) {
+    await fs.writeFile(filename, content);
+  }
+}
+
+export function exec(
+  ...args: *
+): {process: child.ChildProcess, exit: Promise<{code: number, signal: string}>} {
+  const process = child.exec(...args);
+  const exit = new Promise(resolve => {
+    process.on('exit', (code, signal) => resolve({code, signal}));
+  });
+  return {process, exit};
+}
+
+export const rmTree = promisify(rimraf);
+
+const _copyTree = promisify(copy);
+
+export async function copyTree(
+  params: {from: string, to: string, exclude?: string[]},
+): Promise<void> {
+  await _copyTree(params.from, params.to, {
+    filter: filename => !(params.exclude && params.exclude.includes(filename)),
+  });
 }

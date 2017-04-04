@@ -21,7 +21,7 @@ import * as Config from '../../build-config';
 import * as Task from '../../build-task';
 import * as Makefile from '../../Makefile';
 import {normalizePackageName} from '../../util';
-import {renderEnv} from '../util';
+import {renderEnv, renderFindlibConf, renderSandboxSbConfig} from '../util';
 
 const log = createLogger('esy:makefile-builder');
 const CWD = process.cwd();
@@ -200,75 +200,17 @@ export function renderToMakefile(sandbox: BuildSandbox, outputPath: string) {
     });
 
     // Emit findlib.conf.in
-    const allDependencies = Graph.collectTransitiveDependencies(task);
-    const findLibDestination = buildConfig.getInstallPath(task.spec, 'lib');
-    // Note that some packages can query themselves via ocamlfind during its
-    // own build, this is why we include `findLibDestination` in the path too.
-    const findLibPath = allDependencies
-      .map(dep => buildConfig.getFinalInstallPath(dep.spec, 'lib'))
-      .concat(findLibDestination)
-      .join(':');
-
     emitBuildFile({
       filename: 'findlib.conf.in',
-      contents: outdent`
-        path = "${findLibPath}"
-        destdir = "${findLibDestination}"
-        ldconf = "ignore"
-        ocamlc = "ocamlc.opt"
-        ocamldep = "ocamldep.opt"
-        ocamldoc = "ocamldoc.opt"
-        ocamllex = "ocamllex.opt"
-        ocamlopt = "ocamlopt.opt"
-      `,
+      contents: renderFindlibConf(task.spec, buildConfig),
     });
 
     // Generate macOS sandbox configuration (sandbox-exec command)
-    // TODO: Right now the only thing this sandbox configuration does is it
-    // disallows writing into locations other than $cur__root,
-    // $cur__target_dir and $cur__install. We should implement proper out of
-    // source builds and also disallow $cur__root.
-    // TODO: Try to use (deny default) and pick a set of rules for builds to
-    // proceed (it chokes on xcodebuild for now if we disable reading "/" and
-    // networking).
     emitBuildFile({
       filename: 'sandbox.sb.in',
-      contents: outdent`
-        (version 1.0)
-        (allow default)
-
-        (deny file-write*
-          (subpath "/"))
-
-        (allow file-write*
-          ; cur__root
-          ; We don't really need to write into cur__root but some build systems
-          ; can put .merlin files there so we allow that.
-          (subpath "${buildConfig.getRootPath(task.spec)}"))
-
-        (deny file-write*
-          (subpath "${buildConfig.getRootPath(task.spec, 'node_modules')}")
-        )
-
-        (allow file-write*
-          (literal "/dev/null")
-
-          (subpath "$TMPDIR_GLOBAL")
-          (subpath "$TMPDIR")
-
-          ; cur__root
-          ; We don't really need to write into cur__root but some build systems
-          ; can put .merlin files there so we allow that.
-          (subpath "${buildConfig.getRootPath(task.spec)}")
-
-          ; cur__target_dir
-          (subpath "${buildConfig.getBuildPath(task.spec)}")
-
-          ; cur__install
-          (subpath "${buildConfig.getInstallPath(task.spec)}")
-        )
-
-      `,
+      contents: renderSandboxSbConfig(task.spec, buildConfig, {
+        allowFileWrite: ['$TMPDIR', '$TMPDIR_GLOBAL'],
+      }),
     });
 
     ruleSet.push({
