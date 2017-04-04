@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {BuildSpec} from '../build-repr';
+import type {BuildSpec} from '../types';
 import {
   expandWithScope,
   renderWithScope,

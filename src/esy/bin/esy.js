@@ -9,6 +9,8 @@
 // $FlowFixMe: fix me
 process.noDeprecation = true;
 
+import type {BuildTask} from '../types';
+
 import * as fs from 'fs';
 import loudRejection from 'loud-rejection';
 import outdent from 'outdent';
@@ -17,6 +19,7 @@ import * as path from 'path';
 import chalk from 'chalk';
 import {settings as configureObservatory} from 'observatory';
 import * as Env from '../environment';
+import * as Task from '../build-task';
 import * as Config from '../build-config';
 import * as Sandbox from '../build-sandbox';
 
@@ -177,85 +180,90 @@ const sandboxPath = process.cwd();
 const storePath = process.env.ESY__STORE || path.join(userHome, '.esy', 'store');
 const config = Config.createConfig({storePath, sandboxPath});
 
-const builtInCommands = {
-  // eslint-disable-next-line object-shorthand
-  'build-eject': async function(sandboxPath) {
-    const buildEject = require('../builders/makefile-builder');
-    const sandbox = await getValidSandbox(sandboxPath);
-    buildEject.renderToMakefile(
-      sandbox,
-      path.join(sandboxPath, 'node_modules', '.cache', '_esy', 'build-eject'),
-    );
-  },
-  // eslint-disable-next-line object-shorthand
-  build: async function(sandboxPath) {
-    const observatory = configureObservatory({
-      prefix: chalk.green('  → '),
-    });
-    const loggingHandlers = new Map();
-    function getReporterFor(build) {
-      let handler = loggingHandlers.get(build.id);
-      if (handler == null) {
-        handler = observatory.add(build.name);
-        loggingHandlers.set(build.id, handler);
-      }
-      return handler;
+async function buildCommand(sandboxPath) {
+  const builder = require('../builders/simple-builder');
+
+  const observatory = configureObservatory({
+    prefix: chalk.green('  → '),
+  });
+
+  const loggingHandlers = new Map();
+  function getReporterFor(task) {
+    let handler = loggingHandlers.get(task.id);
+    if (handler == null) {
+      handler = observatory.add(task.spec.name);
+      loggingHandlers.set(task.id, handler);
     }
+    return handler;
+  }
 
-    const builder = require('../builders/simple-builder');
-    const sandbox = await getValidSandbox(sandboxPath);
-    const failures = [];
-    await builder.build(sandbox, config, (build, status) => {
-      if (status.state === 'in-progress') {
-        getReporterFor(build).status('building...');
-      } else if (status.state === 'success') {
-        const {timeEllapsed} = status;
-        if (timeEllapsed != null) {
-          getReporterFor(build).done('BUILT').details(`in ${timeEllapsed / 1000}s`);
-        } else {
-          getReporterFor(build).done('BUILT').details(`cached`);
-        }
-      } else if (status.state === 'failure') {
-        failures.push({build, error: status.error});
-        getReporterFor(build).fail('FAILED');
+  const sandbox = await getValidSandbox(sandboxPath);
+  const task: BuildTask = Task.fromBuildSandbox(sandbox, config);
+  const failures = [];
+  await builder.build(task, sandbox, config, (task, status) => {
+    if (status.state === 'in-progress') {
+      getReporterFor(task).status('building...');
+    } else if (status.state === 'success') {
+      const {timeEllapsed} = status;
+      if (timeEllapsed != null) {
+        getReporterFor(task).done('BUILT').details(`in ${timeEllapsed / 1000}s`);
+      } else {
+        getReporterFor(task).done('BUILT').details(`cached`);
       }
-    });
-    for (const failure of failures) {
-      const {error} = failure;
-      if (error.logFilename) {
-        const {logFilename} = (error: any);
-        if (!failure.build.shouldBePersisted) {
-          const logContents = fs.readFileSync(logFilename, 'utf8');
-          console.log(
-            outdent`
+    } else if (status.state === 'failure') {
+      failures.push({task, error: status.error});
+      getReporterFor(task).fail('FAILED');
+    }
+  });
+  for (const failure of failures) {
+    const {error} = failure;
+    if (error.logFilename) {
+      const {logFilename} = (error: any);
+      if (!failure.task.spec.shouldBePersisted) {
+        const logContents = fs.readFileSync(logFilename, 'utf8');
+        console.log(
+          outdent`
 
-            ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
+            ${chalk.red('FAILED')} ${failure.task.spec.name}, see log for details:
 
             ${chalk.red(indent(logContents, '  '))}
             `,
-          );
-        } else {
-          console.log(
-            outdent`
-
-            ${chalk.red('FAILED')} ${failure.build.name}, see log for details:
-              ${logFilename}
-
-            `,
-          );
-        }
+        );
       } else {
         console.log(
           outdent`
 
-        ${chalk.red('FAILED')} ${failure.build.name}:
+            ${chalk.red('FAILED')} ${failure.task.spec.name}, see log for details:
+              ${logFilename}
+
+            `,
+        );
+      }
+    } else {
+      console.log(
+        outdent`
+
+        ${chalk.red('FAILED')} ${failure.task.spec.name}:
           ${failure.error}
 
         `,
-        );
-      }
+      );
     }
-  },
+  }
+}
+
+async function buildEjectCommand(sandboxPath) {
+  const buildEject = require('../builders/makefile-builder');
+  const sandbox = await getValidSandbox(sandboxPath);
+  buildEject.renderToMakefile(
+    sandbox,
+    path.join(sandboxPath, 'node_modules', '.cache', '_esy', 'build-eject'),
+  );
+}
+
+const builtInCommands = {
+  'build-eject': buildEjectCommand,
+  build: buildCommand,
 };
 
 function indent(string, indent) {
@@ -268,11 +276,10 @@ async function main() {
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
     const sandbox = await getValidSandbox(sandboxPath);
-    // Sandbox env is more strict than we want it to be at runtime, filter out
-    // $SHELL and $PATH overrides.
-    const env = sandbox.env.filter(v => v.name !== 'SHELL' && v !== 'PATH');
-    const envForThisPackageScripts = Env.calculate(config, sandbox.root, env);
-    console.log(Env.printEnvironment(envForThisPackageScripts.env));
+    // TODO: Sandbox env is more strict than we want it to be at runtime, filter
+    // out $SHELL and $PATH overrides.
+    const task = Task.fromBuildSandbox(sandbox, config);
+    console.log(Env.printEnvironment(task.env));
   } else {
     const builtInCommandName = actualArgs[0];
     const builtInCommand = builtInCommands[builtInCommandName];

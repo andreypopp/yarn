@@ -2,7 +2,13 @@
  * @flow
  */
 
-import type {BuildSpec} from '../../build-repr';
+import type {
+  BuildSpec,
+  BuildTask,
+  BuildConfig,
+  BuildSandbox,
+  BuildEnvironment,
+} from '../../types';
 
 import * as path from 'path';
 import * as fs from 'fs';
@@ -11,11 +17,11 @@ import createLogger from 'debug';
 import outdent from 'outdent';
 
 import * as Graph from '../../graph';
-import * as Env from '../../environment';
-import * as BuildRepr from '../../build-repr';
 import * as Config from '../../build-config';
+import * as Task from '../../build-task';
 import * as Makefile from '../../Makefile';
 import {normalizePackageName} from '../../util';
+import {renderEnv} from '../util';
 
 const log = createLogger('esy:makefile-builder');
 const CWD = process.cwd();
@@ -38,7 +44,7 @@ const fastReplaceStringSrc = fs.readFileSync(
  * That means that build env is generated in a way which can be configured later
  * with `$ESY_EJECT__SANDBOX` and `$ESY__STORE` environment variables.
  */
-export const buildConfig: BuildRepr.BuildConfig = Config.createConfig({
+export const buildConfig: BuildConfig = Config.createConfig({
   storePath: STORE_PATH,
   sandboxPath: SANDBOX_PATH,
 });
@@ -46,7 +52,7 @@ export const buildConfig: BuildRepr.BuildConfig = Config.createConfig({
 /**
  * Render `build` as Makefile (+ related files) into the supplied `outputPath`.
  */
-export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: string) {
+export function renderToMakefile(sandbox: BuildSandbox, outputPath: string) {
   log(`eject build environment into <ejectRootDir>=./${path.relative(CWD, outputPath)}`);
   const ruleSet: Makefile.MakeItem[] = [
     {
@@ -177,30 +183,28 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
     };
   }
 
-  function visitBuild(build: BuildSpec) {
-    log(`visit ${build.name}`);
+  function visitTask(task: BuildTask) {
+    log(`visit ${task.spec.name}`);
 
-    const packagePath = build.sourcePath.split(path.sep).filter(Boolean);
+    const packagePath = task.spec.sourcePath.split(path.sep).filter(Boolean);
 
     function emitBuildFile({filename, contents}) {
       emitFile(outputPath, {filename: packagePath.concat(filename), contents});
     }
 
-    const {env, scope} = Env.calculate(buildConfig, build, sandbox.env);
-
     // Emit env
     emitBuildFile({
       filename: 'eject-env',
-      contents: renderEnv(env),
+      contents: renderEnv(task.env),
     });
 
     // Emit findlib.conf.in
-    const allDependencies = Graph.collectTransitiveDependencies(build);
-    const findLibDestination = buildConfig.getInstallPath(build, 'lib');
+    const allDependencies = Graph.collectTransitiveDependencies(task);
+    const findLibDestination = buildConfig.getInstallPath(task.spec, 'lib');
     // Note that some packages can query themselves via ocamlfind during its
     // own build, this is why we include `findLibDestination` in the path too.
     const findLibPath = allDependencies
-      .map(dep => buildConfig.getFinalInstallPath(dep, 'lib'))
+      .map(dep => buildConfig.getFinalInstallPath(dep.spec, 'lib'))
       .concat(findLibDestination)
       .join(':');
 
@@ -239,10 +243,10 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
           ; cur__root
           ; We don't really need to write into cur__root but some build systems
           ; can put .merlin files there so we allow that.
-          (subpath "${buildConfig.getRootPath(build)}"))
+          (subpath "${buildConfig.getRootPath(task.spec)}"))
 
         (deny file-write*
-          (subpath "${buildConfig.getRootPath(build, 'node_modules')}")
+          (subpath "${buildConfig.getRootPath(task.spec, 'node_modules')}")
         )
 
         (allow file-write*
@@ -254,13 +258,13 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
           ; cur__root
           ; We don't really need to write into cur__root but some build systems
           ; can put .merlin files there so we allow that.
-          (subpath "${buildConfig.getRootPath(build)}")
+          (subpath "${buildConfig.getRootPath(task.spec)}")
 
           ; cur__target_dir
-          (subpath "${buildConfig.getBuildPath(build)}")
+          (subpath "${buildConfig.getBuildPath(task.spec)}")
 
           ; cur__install
-          (subpath "${buildConfig.getInstallPath(build)}")
+          (subpath "${buildConfig.getInstallPath(task.spec)}")
         )
 
       `,
@@ -268,7 +272,7 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
 
     ruleSet.push({
       type: 'define',
-      name: `shell_env_for__${normalizePackageName(build.name)}`,
+      name: `shell_env_for__${normalizePackageName(task.spec.name)}`,
       value: [
         {
           CI: process.env.CI ? process.env.CI : null,
@@ -280,31 +284,34 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
         `source $(ESY_EJECT__ROOT)/${packagePath.join('/')}/eject-env`,
         {
           esy_build__eject: `$(ESY_EJECT__ROOT)/${packagePath.join('/')}`,
-          esy_build__type: build.mutatesSourcePath ? 'in-source' : 'out-of-source',
-          esy_build__key: build.id,
-          esy_build__command: renderBuildCommand(build, scope) || 'true',
-          esy_build__source_root: path.join(buildConfig.sandboxPath, build.sourcePath),
-          esy_build__install: buildConfig.getFinalInstallPath(build),
+          esy_build__type: task.spec.mutatesSourcePath ? 'in-source' : 'out-of-source',
+          esy_build__key: task.id,
+          esy_build__command: renderBuildTaskCommand(task) || 'true',
+          esy_build__source_root: path.join(
+            buildConfig.sandboxPath,
+            task.spec.sourcePath,
+          ),
+          esy_build__install: buildConfig.getFinalInstallPath(task.spec),
         },
       ],
     });
 
     ruleSet.push(
-      createBuildRule(build, {
+      createBuildRule(task.spec, {
         target: 'build',
         command: 'esy-build',
         withBuildEnv: true,
       }),
     );
     ruleSet.push(
-      createBuildRule(build, {
+      createBuildRule(task.spec, {
         target: 'shell',
         command: 'esy-shell',
         withBuildEnv: true,
       }),
     );
     ruleSet.push(
-      createBuildRule(build, {
+      createBuildRule(task.spec, {
         target: 'clean',
         command: 'esy-clean',
       }),
@@ -313,7 +320,8 @@ export function renderToMakefile(sandbox: BuildRepr.BuildSandbox, outputPath: st
 
   // Emit build artefacts for packages
   log('process dependency graph');
-  Graph.traverse(sandbox.root, visitBuild);
+  const rootTask = Task.fromBuildSandbox(sandbox, buildConfig);
+  Graph.traverse(rootTask, visitTask);
 
   // Now emit all build-wise artefacts
   log('build environment');
@@ -388,15 +396,9 @@ function emitFile(
   }
 }
 
-export function renderEnv(env: Env.Env): string {
-  return Array.from(env.values())
-    .map(env => `export ${env.name}="${env.value}";`)
-    .join('\n');
-}
-
-function renderBuildCommand(build: BuildSpec, scope: Env.Scope): ?string {
-  if (build.command == null) {
+function renderBuildTaskCommand(task: BuildTask): ?string {
+  if (task.command == null) {
     return null;
   }
-  return Env.expandWithScope(build.command.join(' && '), scope).rendered;
+  return task.command.map(c => c.renderedCommand).join(' && ');
 }

@@ -2,7 +2,7 @@
  * @flow
  */
 
-import type {BuildSpec, BuildConfig} from './build-repr';
+import type {BuildSpec, BuildConfig} from './types';
 import * as path from 'path';
 
 export function createConfig(
