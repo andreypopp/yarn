@@ -5,20 +5,23 @@
 import type {BuildTask, BuildConfig, BuildSandbox} from '../types';
 
 import createLogger from 'debug';
-import * as child from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
 import * as nodefs from 'fs';
-import {copy} from 'fs-extra';
-import rimraf from 'rimraf';
 import PromiseQueue from 'p-queue';
 
-import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
 
 import * as Graph from '../graph';
 import {endWritableStream, interleaveStreams} from '../util';
-import {renderEnv, renderFindlibConf} from './util';
+import {
+  renderEnv,
+  renderFindlibConf,
+  rewritePathInFile,
+  exec,
+  copyTree,
+  rmTree,
+} from './util';
 
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
@@ -111,7 +114,7 @@ async function performBuild(
   log('starting build');
 
   log('removing prev destination directories (if exist)');
-  await Promise.all([rmtree(finalInstallPath), rmtree(installPath), rmtree(buildPath)]);
+  await Promise.all([rmTree(finalInstallPath), rmTree(installPath), rmTree(buildPath)]);
 
   log('creating destination directories');
   await Promise.all([
@@ -193,40 +196,6 @@ async function performBuild(
       path.join(config.sandboxPath, task.spec.sourcePath, '_build'),
     );
   }
-}
-
-const rmtree = promisify(rimraf);
-const cptree = promisify(copy);
-
-async function copyTree(params: {from: string, to: string, exclude?: string[]}) {
-  await cptree(params.from, params.to, {
-    filter: filename => !(params.exclude && params.exclude.includes(filename)),
-  });
-}
-
-async function rewritePathInFile(filename, origPath, destPath) {
-  const stat = await fs.stat(filename);
-  if (!stat.isFile()) {
-    return;
-  }
-  const content = await fs.readFileBuffer(filename);
-  let offset = content.indexOf(origPath);
-  const needRewrite = offset > -1;
-  while (offset > -1) {
-    content.write(destPath, offset);
-    offset = content.indexOf(origPath);
-  }
-  if (needRewrite) {
-    await fs.writeFile(filename, content);
-  }
-}
-
-function exec(...args) {
-  const process = child.exec(...args);
-  const exit = new Promise(resolve => {
-    process.on('exit', (code, signal) => resolve({code, signal}));
-  });
-  return {process, exit};
 }
 
 async function initStore(storePath) {
