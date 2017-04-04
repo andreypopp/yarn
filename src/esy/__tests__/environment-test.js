@@ -11,7 +11,11 @@ import {
 } from '../environment';
 import * as Config from '../build-config';
 
-function build({name, exportedEnv, dependencies}): BuildSpec {
+function build({name, exportedEnv, dependencies: dependenciesArray}): BuildSpec {
+  const dependencies = new Map();
+  for (const item of dependenciesArray) {
+    dependencies.set(item.id, item);
+  }
   return {
     id: name,
     name,

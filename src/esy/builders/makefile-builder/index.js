@@ -176,7 +176,8 @@ export function renderToMakefile(sandbox: BuildSandbox, outputPath: string) {
       dependencies: [
         'esy-store',
         'esy-root',
-        ...build.dependencies.map(dep => createBuildRuleName(dep, 'build')),
+        ...Array.from(build.dependencies.values()).map(dep =>
+          createBuildRuleName(dep, 'build')),
       ],
       phony: true,
       command,

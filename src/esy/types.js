@@ -68,7 +68,7 @@ export type BuildSpec = {
    * Set of dependencies which must be build/installed before this build can
    * happen
    */
-  dependencies: BuildSpec[],
+  dependencies: Map<string, BuildSpec>,
 
   /**
    * A list of errors found in build definitions.
@@ -83,7 +83,7 @@ export type BuildTask = {
   id: string,
   command: ?Array<{command: string, renderedCommand: string}>,
   env: Map<string, {name: string, value: string} & *>,
-  dependencies: BuildTask[],
+  dependencies: Map<string, BuildTask>,
   spec: BuildSpec,
 };
 

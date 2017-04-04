@@ -4,7 +4,7 @@
 
 type Node<N: Node<*>> = {
   id: string,
-  dependencies: N[],
+  dependencies: Map<string, N>,
 };
 
 /**
@@ -20,7 +20,7 @@ export function traverse<N: Node<*>>(node: N, f: (N) => void) {
     }
     f(cur);
     seen.add(cur.id);
-    queue.push(...cur.dependencies);
+    queue.push(...cur.dependencies.values());
   }
 }
 
@@ -34,7 +34,7 @@ export function traverseDeepFirst<N: Node<*>>(node: N, f: (N) => void) {
       return;
     }
     seen.add(node.id);
-    for (const dep of node.dependencies) {
+    for (const dep of node.dependencies.values()) {
       traverse(dep);
     }
     f(node);
@@ -68,14 +68,18 @@ export function collectTransitiveDependencies<N: Node<*>>(node: N): N[] {
  */
 export function topologicalFold<N: Node<*>, V>(
   node: N,
-  f: (directDependencies: V[], allDependencies: V[], currentNode: N) => V,
+  f: (
+    directDependencies: Map<string, V>,
+    allDependencies: Map<string, V>,
+    currentNode: N,
+  ) => V,
 ): V {
   return topologicalFoldImpl(node, f, new Map(), value => value);
 }
 
 function topologicalFoldImpl<N: Node<*>, V>(
   node: N,
-  f: (V[], V[], N) => V,
+  f: (Map<string, V>, Map<string, V>, N) => V,
   memoized: Map<string, V>,
   onNode: (V, N) => V,
 ): V {
@@ -83,18 +87,16 @@ function topologicalFoldImpl<N: Node<*>, V>(
   if (cached != null) {
     return onNode(cached, node);
   } else {
-    const directDependencies = [];
-    const allDependencies = [];
-    const seen = new Set();
-    const need = new Set(node.dependencies.map(dep => dep.id));
-    for (const dep of node.dependencies) {
+    const directDependencies = new Map();
+    const allDependencies = new Map();
+    const need = new Set(node.dependencies.keys());
+    for (const dep of node.dependencies.values()) {
       topologicalFoldImpl(dep, f, memoized, (value, node) => {
-        if (!seen.has(node.id)) {
-          allDependencies.push(value);
-          seen.add(node.id);
+        if (!allDependencies.has(node.id)) {
+          allDependencies.set(node.id, value);
         }
-        if (need.delete(node.id)) {
-          directDependencies.push(value);
+        if (need.delete(node.id) && !directDependencies.has(node.id)) {
+          directDependencies.set(node.id, value);
         }
         return onNode(value, node);
       });

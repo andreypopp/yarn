@@ -17,7 +17,7 @@ import pathIsInside from 'path-is-inside';
 import outdent from 'outdent';
 import {substituteVariables} from 'var-expansion';
 
-import {normalizePackageName, mergeIntoMap} from './util';
+import {normalizePackageName, mergeIntoMap, mapValuesMap} from './util';
 import * as Graph from './graph';
 import * as Env from './environment';
 
@@ -181,7 +181,9 @@ function builtInsPerPackage(
         ? config.getBuildPath(build)
         : config.getRootPath(build),
     ),
-    [`${prefix}__depends`]: builtIn(build.dependencies.map(dep => dep.name).join(' ')),
+    [`${prefix}__depends`]: builtIn(
+      Array.from(build.dependencies.values(), dep => dep.name).join(' '),
+    ),
     [`${prefix}__target_dir`]: builtIn(config.getBuildPath(build)),
     [`${prefix}__install`]: builtIn(
       currentlyBuilding
@@ -511,7 +513,7 @@ function getBuiltInScope(
     },
     {
       name: `${prefix}__depends`,
-      value: spec.dependencies.map(dep => dep.name).join(' '),
+      value: Array.from(spec.dependencies.values(), dep => dep.name).join(' '),
       spec,
     },
     {
@@ -591,9 +593,9 @@ function evalIntoEnv<V: {name: string, value: string}>(
   return scope;
 }
 
-function getEvalScope(spec, dependencies, config): BuildEnvironment {
+function getEvalScope(spec: BuildSpec, dependencies, config): BuildEnvironment {
   const evalScope = new Map();
-  for (const dep of dependencies) {
+  for (const dep of dependencies.values()) {
     mergeIntoMap(evalScope, getBuiltInScope(dep.spec, config));
     mergeIntoMap(evalScope, dep.computation.localScope);
   }
@@ -659,7 +661,7 @@ export function fromBuildSpec(
       },
       {
         name: 'PATH',
-        value: computation.allDependencies
+        value: Array.from(computation.allDependencies.values())
           .map(dep => config.getFinalInstallPath(dep.spec, 'bin'))
           .concat('$PATH')
           .join(':'),
@@ -667,7 +669,7 @@ export function fromBuildSpec(
       },
       {
         name: 'MAN_PATH',
-        value: computation.allDependencies
+        value: Array.from(computation.allDependencies.values())
           .map(dep => config.getFinalInstallPath(dep.spec, 'man'))
           .concat('$MAN_PATH')
           .join(':'),
@@ -679,7 +681,7 @@ export function fromBuildSpec(
     mergeIntoMap(env, getBuiltInScope(spec, config, true));
 
     // direct deps' local scopes
-    for (const dep of computation.dependencies) {
+    for (const dep of computation.dependencies.values()) {
       mergeIntoMap(env, dep.computation.localScope);
     }
     // build's own local scope
@@ -688,7 +690,7 @@ export function fromBuildSpec(
     mergeIntoMap(
       env,
       Env.merge(
-        computation.allDependencies
+        Array.from(computation.allDependencies.values())
           .map(dep => dep.computation.globalScope)
           .concat(computation.globalScope),
         evalIntoEnv,
@@ -713,7 +715,7 @@ export function fromBuildSpec(
       spec,
       command,
       env,
-      dependencies: computation.dependencies.map(dep => dep.task),
+      dependencies: mapValuesMap(computation.dependencies, dep => dep.task),
     };
   }
 
