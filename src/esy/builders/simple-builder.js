@@ -11,6 +11,7 @@ import * as nodefs from 'fs';
 import PromiseQueue from 'p-queue';
 
 import * as fs from '../../util/fs';
+import {calculateMtimeChecksum} from '../lib/fs';
 
 import * as Graph from '../graph';
 import {endWritableStream, interleaveStreams} from '../util';
@@ -26,6 +27,7 @@ import {
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
 const PATHS_TO_IGNORE = ['_build', '_install', 'node_modules'];
+const IGNORE_FOR_CHECKSUM = ['node_modules', '_build', '_install', '_esy'];
 
 const NUM_CPUS = os.cpus().length;
 
@@ -50,40 +52,78 @@ export const build = async (
   const buildQueue = new PromiseQueue({concurrency: NUM_CPUS});
   const taskInProgress = new Map();
 
-  async function isSpecExistsInStore(spec) {
-    return spec.shouldBePersisted && (await fs.exists(config.getFinalInstallPath(spec)));
+  function isSpecExistsInStore(spec) {
+    return fs.exists(config.getFinalInstallPath(spec));
+  }
+
+  async function calculateSourceChecksum(spec) {
+    const ignoreForChecksum = new Set(
+      IGNORE_FOR_CHECKSUM.map(s => config.getSourcePath(spec, s)),
+    );
+    return await calculateMtimeChecksum(config.getSourcePath(spec), {
+      ignore: name => ignoreForChecksum.has(name),
+    });
+  }
+
+  async function readSourceChecksum(spec) {
+    const checksumFilename = config.getBuildPath(spec, '_esy', 'checksum');
+    return (await fs.exists(checksumFilename))
+      ? (await fs.readFile(checksumFilename)).trim()
+      : null;
+  }
+
+  async function writeStoreChecksum(spec, checksum) {
+    const checksumFilename = config.getBuildPath(spec, '_esy', 'checksum');
+    await fs.writeFile(checksumFilename, checksum.trim());
   }
 
   async function performBuildMemoized(task: BuildTask) {
+    const {spec} = task;
+    const cachedSuccessStatus = {
+      state: 'success',
+      timeEllapsed: null,
+      cached: true,
+    };
     let inProgress = taskInProgress.get(task.id);
     if (inProgress == null) {
-      if (await isSpecExistsInStore(task.spec)) {
-        inProgress = Promise.resolve({
-          state: 'success',
-          timeEllapsed: null,
-          cached: true,
-        });
+      const isInStore = await isSpecExistsInStore(spec);
+      if (spec.shouldBePersisted && isInStore) {
+        inProgress = Promise.resolve(cachedSuccessStatus);
+      } else if (!spec.shouldBePersisted) {
+        const currentChecksum = await calculateSourceChecksum(spec);
+        if (isInStore && (await readSourceChecksum(spec)) === currentChecksum) {
+          inProgress = Promise.resolve(cachedSuccessStatus);
+        } else {
+          inProgress = performBuildWithStatusReport(task).then(async result => {
+            await writeStoreChecksum(spec, currentChecksum);
+            return result;
+          });
+        }
       } else {
-        inProgress = buildQueue.add(async () => {
-          onTaskStatus(task, {state: 'in-progress'});
-          const startTime = Date.now();
-          try {
-            await performBuild(task, config, sandbox);
-          } catch (error) {
-            const state = {state: 'failure', error};
-            onTaskStatus(task, state);
-            return state;
-          }
-          const endTime = Date.now();
-          const timeEllapsed = endTime - startTime;
-          const state = {state: 'success', timeEllapsed, cached: false};
-          onTaskStatus(task, state);
-          return state;
-        });
+        inProgress = performBuildWithStatusReport(task);
       }
       taskInProgress.set(task.id, inProgress);
     }
     return inProgress;
+  }
+
+  function performBuildWithStatusReport(task) {
+    return buildQueue.add(async () => {
+      onTaskStatus(task, {state: 'in-progress'});
+      const startTime = Date.now();
+      try {
+        await performBuild(task, config, sandbox);
+      } catch (error) {
+        const state = {state: 'failure', error};
+        onTaskStatus(task, state);
+        return state;
+      }
+      const endTime = Date.now();
+      const timeEllapsed = endTime - startTime;
+      const state = {state: 'success', timeEllapsed, cached: false};
+      onTaskStatus(task, state);
+      return state;
+    });
   }
 
   await Graph.topologicalFold(task, (directDependencies, allDependencies, task) =>

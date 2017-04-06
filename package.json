@@ -50,7 +50,8 @@
     "tar-stream": "^1.5.2",
     "user-home": "^2.0.0",
     "validate-npm-package-license": "^3.0.1",
-    "var-expansion": "^0.1.0"
+    "var-expansion": "^0.1.0",
+    "walkdir": "^0.0.11"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
