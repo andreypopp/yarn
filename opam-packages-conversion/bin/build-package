@@ -42,7 +42,7 @@ def build_package_version_from_git_repo(repo_dir, orig_ref):
         return subprocess.check_output(cmd % args, cwd=repo_dir, shell=True)
 
     package_json = read_package_json(repo_dir)
-    patch = capture('git diff %s.. | filterdiff -p 1 --clean -x package.json -x .gitignore', orig_ref)
+    patch = capture('git diff %s | filterdiff -p 1 --clean -x package.json -x .gitignore', orig_ref)
     package_json.setdefault('opam', {})['patch'] = patch
     pkg_versions = {package_json['version']: package_json}
     package_name = package_json['name']
