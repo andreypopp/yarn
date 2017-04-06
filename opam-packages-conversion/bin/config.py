@@ -22,7 +22,7 @@ OPAM_PACKAGES_BLACKLIST = {
     }
 
 ESY_EXTRA_DEP = {
-    "camomile": { 
+    "camomile": {
         "@opam-alpha/cppo"  : "*",
         "@opam-alpha/camlp4": "*",
     },
@@ -92,6 +92,13 @@ OVERRIDE = {
     },
     'ocamlbuild': {
         'build': 'true',
+    },
+    'merlin': {
+        'exportedEnv': {
+            'opam_alpha__slash__merlin__vim_rtp': {
+                'val': '$opam_alpha__slash__merlin__install/share/merlin/vim'
+            }
+        }
     },
     'cppo': {
         'build': [
