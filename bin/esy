@@ -178,8 +178,7 @@ elif [ $# -eq 1 ]; then
       ;;
     shell)
       ensureEnvEjected
-      source "$ENV_PATH"
-      $SHELL
+      ENV="$ENV_PATH" PS1="esy % " sh
       ;;
     install|add)
       builtInYarn "$@"

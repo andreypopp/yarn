@@ -276,9 +276,10 @@ async function main() {
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
     const sandbox = await getValidSandbox(sandboxPath);
-    // TODO: Sandbox env is more strict than we want it to be at runtime, filter
-    // out $SHELL and $PATH overrides.
     const task = Task.fromBuildSandbox(sandbox, config);
+    // Sandbox env is more strict than we want it to be at runtime, filter
+    // out $SHELL overrides.
+    task.env.delete('SHELL');
     console.log(Env.printEnvironment(task.env));
   } else {
     const builtInCommandName = actualArgs[0];
