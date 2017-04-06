@@ -88,10 +88,12 @@ export const build = async (
     if (inProgress == null) {
       const isInStore = await isSpecExistsInStore(spec);
       if (spec.shouldBePersisted && isInStore) {
+        onTaskStatus(task, cachedSuccessStatus);
         inProgress = Promise.resolve(cachedSuccessStatus);
       } else if (!spec.shouldBePersisted) {
         const currentChecksum = await calculateSourceChecksum(spec);
         if (isInStore && (await readSourceChecksum(spec)) === currentChecksum) {
+          onTaskStatus(task, cachedSuccessStatus);
           inProgress = Promise.resolve(cachedSuccessStatus);
         } else {
           inProgress = performBuildWithStatusReport(task).then(async result => {
