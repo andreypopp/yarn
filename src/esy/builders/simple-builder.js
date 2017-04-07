@@ -63,7 +63,8 @@ export const build = async (
     const ignoreForChecksum = new Set(
       IGNORE_FOR_CHECKSUM.map(s => config.getSourcePath(spec, s)),
     );
-    return await calculateMtimeChecksum(config.getSourcePath(spec), {
+    const sourcePath = await fs.realpath(config.getSourcePath(spec));
+    return await calculateMtimeChecksum(sourcePath, {
       ignore: name => ignoreForChecksum.has(name),
     });
   }
