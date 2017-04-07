@@ -14,7 +14,7 @@ import * as path from 'path';
 import outdent from 'outdent';
 
 import * as fs from '../util/fs';
-import {resolveToRealpath, normalizePackageName} from './util';
+import {resolve, normalizePackageName} from './util';
 import * as Env from './environment';
 
 export type EsyConfig = {
@@ -66,7 +66,7 @@ export async function fromDirectory(sandboxPath: string): Promise<BuildSandbox> 
     const key = `${baseDir}__${packageName}`;
     let resolution = resolutionCache.get(key);
     if (resolution == null) {
-      resolution = resolveToRealpath(packageName, baseDir);
+      resolution = resolve(packageName, baseDir);
       resolutionCache.set(key, resolution);
     }
     return resolution;
