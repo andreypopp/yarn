@@ -229,7 +229,7 @@ def generate_package_json(name, version, directory):
                         newCMDs.append(builtInVars.get(subCMD, subCMD))
             build.append(" ".join(newCMDs))
     #       finalCMD += " && " + " ".join(newCMDs)
-        build.append("(opam-installer --prefix=$cur__install || true)")
+        build.append("sh -c '(opam-installer --prefix=$cur__install || true)'")
         return [unescapeBuiltinVariables(cmd) for cmd in build]
 
     def scoped(name):

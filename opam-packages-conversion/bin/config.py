@@ -50,8 +50,8 @@ OPAM_DEPOPT_BLACKLIST = {
 GH_USER = os.environ.get('GH_USER', '')
 GH_TOKEN = os.environ.get('GH_TOKEN', '')
 
-cleanup = '(make clean || true)'
-opam_install = '(opam-installer --prefix=$cur__install || true)'
+cleanup = "sh -c '(make clean || true)'"
+opam_install = "sh -c '(opam-installer --prefix=$cur__install || true)'"
 
 drop_beta_from_version = lambda version: version.replace('-beta', '')
 
