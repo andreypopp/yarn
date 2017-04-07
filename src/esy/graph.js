@@ -80,29 +80,32 @@ export function topologicalFold<N: Node<*>, V>(
 function topologicalFoldImpl<N: Node<*>, V>(
   node: N,
   f: (Map<string, V>, Map<string, V>, N) => V,
-  memoized: Map<string, V>,
-  onNode: (V, N) => V,
+  memoized: Map<string, {value: V, allDependencies: Map<string, V>}>,
+  onNode: (V, string) => V,
 ): V {
   const cached = memoized.get(node.id);
   if (cached != null) {
-    return onNode(cached, node);
+    for (const [id, value] of cached.allDependencies.entries()) {
+      onNode(value, id);
+    }
+    return onNode(cached.value, node.id);
   } else {
     const directDependencies = new Map();
     const allDependencies = new Map();
     const need = new Set(node.dependencies.keys());
     for (const dep of node.dependencies.values()) {
-      topologicalFoldImpl(dep, f, memoized, (value, node) => {
-        if (!allDependencies.has(node.id)) {
-          allDependencies.set(node.id, value);
+      topologicalFoldImpl(dep, f, memoized, (value, id) => {
+        if (!allDependencies.has(id)) {
+          allDependencies.set(id, value);
         }
-        if (need.delete(node.id) && !directDependencies.has(node.id)) {
-          directDependencies.set(node.id, value);
+        if (need.delete(id) && !directDependencies.has(id)) {
+          directDependencies.set(id, value);
         }
-        return onNode(value, node);
+        return onNode(value, id);
       });
     }
     const value = f(directDependencies, allDependencies, node);
-    memoized.set(node.id, value);
-    return onNode(value, node);
+    memoized.set(node.id, {value, allDependencies});
+    return onNode(value, node.id);
   }
 }
