@@ -208,7 +208,7 @@ async function buildCommand(sandboxPath) {
       if (timeEllapsed != null) {
         getReporterFor(task).done('BUILT').details(`in ${timeEllapsed / 1000}s`);
       } else if (!task.spec.shouldBePersisted) {
-        getReporterFor(task).done('BUILT').details(`no source change detected`);
+        getReporterFor(task).done('OK').details(`unchanged`);
       }
     } else if (status.state === 'failure') {
       failures.push({task, error: status.error});
