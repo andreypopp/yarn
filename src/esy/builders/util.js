@@ -40,8 +40,8 @@ export function renderFindlibConf(
 }
 
 type ConfigSpec = {
-  allowFileWrite?: string[],
-  denyFileWrite?: string[],
+  allowFileWrite?: Array<?string>,
+  denyFileWrite?: Array<?string>,
 };
 
 export function renderSandboxSbConfig(
@@ -50,7 +50,7 @@ export function renderSandboxSbConfig(
   sandboxSpec?: ConfigSpec = {},
 ): string {
   const subpathList = pathList =>
-    pathList ? pathList.map(path => `(subpath "${path}")`).join(' ') : '';
+    pathList ? pathList.filter(Boolean).map(path => `(subpath "${path}")`).join(' ') : '';
 
   // TODO: Right now the only thing this sandbox configuration does is it
   // disallows writing into locations other than $cur__root,
@@ -67,26 +67,15 @@ export function renderSandboxSbConfig(
       (subpath "/"))
 
     (allow file-write*
-      ; cur__root
-      ; We don't really need to write into cur__root but some build systems
-      ; can put .merlin files there so we allow that.
-      (subpath "${config.getRootPath(spec)}"))
-
-    (deny file-write*
-      (subpath "${config.getRootPath(spec)}")
-
-      ${subpathList(sandboxSpec.denyFileWrite)}
-    )
-
-    (allow file-write*
       (literal "/dev/null")
 
-      ; cur__target_dir
+      ; $cur__target_dir
       (subpath "${config.getBuildPath(spec)}")
 
-      ; cur__install
+      ; $cur__install
       (subpath "${config.getInstallPath(spec)}")
 
+      ; config.allowFileWrite
       ${subpathList(sandboxSpec.allowFileWrite)}
     )
 

@@ -18,6 +18,7 @@ import {endWritableStream, interleaveStreams} from '../util';
 import {
   renderEnv,
   renderFindlibConf,
+  renderSandboxSbConfig,
   rewritePathInFile,
   exec,
   copyTree,
@@ -214,6 +215,19 @@ async function performBuild(
     'utf8',
   );
 
+  log('placing _esy/sandbox.conf');
+  const darwinSandboxConfig = path.join(buildPath, '_esy', 'sandbox.sb');
+  const tempDirs = await Promise.all(
+    ['/tmp', process.env.TMPDIR].filter(Boolean).map(p => fs.realpath(p)),
+  );
+  await fs.writeFile(
+    darwinSandboxConfig,
+    renderSandboxSbConfig(task.spec, config, {
+      allowFileWrite: tempDirs,
+    }),
+    'utf8',
+  );
+
   if (task.command != null) {
     const commandList = task.command;
     const logFilename = config.getBuildPath(task.spec, '_esy', 'log');
@@ -221,8 +235,11 @@ async function performBuild(
     for (let i = 0; i < commandList.length; i++) {
       const {command, renderedCommand} = commandList[i];
       log(`executing: ${command}`);
-      // TODO: add sandboxing
-      const execution = await exec(renderedCommand, {
+      let sandboxedCommand = renderedCommand;
+      if (process.platform === 'darwin') {
+        sandboxedCommand = `sandbox-exec -f ${darwinSandboxConfig} -- ${renderedCommand}`;
+      }
+      const execution = await exec(sandboxedCommand, {
         cwd: rootPath,
         env: envForExec,
         maxBuffer: Infinity,
