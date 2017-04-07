@@ -73,18 +73,13 @@ export function renderSandboxSbConfig(
       (subpath "${config.getRootPath(spec)}"))
 
     (deny file-write*
-      (subpath "${config.getRootPath(spec, 'node_modules')}")
+      (subpath "${config.getRootPath(spec)}")
 
       ${subpathList(sandboxSpec.denyFileWrite)}
     )
 
     (allow file-write*
       (literal "/dev/null")
-
-      ; cur__root
-      ; We don't really need to write into cur__root but some build systems
-      ; can put .merlin files there so we allow that.
-      (subpath "${config.getRootPath(spec)}")
 
       ; cur__target_dir
       (subpath "${config.getBuildPath(spec)}")
