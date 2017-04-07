@@ -31,21 +31,23 @@ const IGNORE_FOR_CHECKSUM = ['node_modules', '_build', '_install', '_esy'];
 
 const NUM_CPUS = os.cpus().length;
 
-type SuccessBuildState = {state: 'success', timeEllapsed: ?number, cached: boolean};
+type SuccessBuildState = {
+  state: 'success',
+  timeEllapsed: ?number,
+  cached: boolean,
+  forced: boolean,
+};
 type FailureBuildState = {state: 'failure', error: Error};
 type InProgressBuildState = {state: 'in-progress'};
 
-export type BuildTaskStatus =
-  | SuccessBuildState
-  | FailureBuildState
-  | InProgressBuildState;
+export type BuildTaskState = SuccessBuildState | FailureBuildState | InProgressBuildState;
 export type FinalBuildState = SuccessBuildState | FailureBuildState;
 
 export const build = async (
   task: BuildTask,
   sandbox: BuildSandbox,
   config: BuildConfig,
-  onTaskStatus: (task: BuildTask, status: BuildTaskStatus) => *,
+  onTaskStatus: (task: BuildTask, status: BuildTaskState) => *,
 ) => {
   await Promise.all([initStore(config.storePath), initStore(config.localStorePath)]);
 
@@ -77,39 +79,56 @@ export const build = async (
     await fs.writeFile(checksumFilename, checksum.trim());
   }
 
-  async function performBuildMemoized(task: BuildTask) {
+  async function performBuildMemoized(
+    task: BuildTask,
+    forced = false,
+  ): Promise<FinalBuildState> {
     const {spec} = task;
     const cachedSuccessStatus = {
       state: 'success',
       timeEllapsed: null,
       cached: true,
+      forced: false,
     };
     let inProgress = taskInProgress.get(task.id);
     if (inProgress == null) {
-      const isInStore = await isSpecExistsInStore(spec);
-      if (spec.shouldBePersisted && isInStore) {
-        onTaskStatus(task, cachedSuccessStatus);
-        inProgress = Promise.resolve(cachedSuccessStatus);
-      } else if (!spec.shouldBePersisted) {
-        const currentChecksum = await calculateSourceChecksum(spec);
-        if (isInStore && (await readSourceChecksum(spec)) === currentChecksum) {
-          onTaskStatus(task, cachedSuccessStatus);
-          inProgress = Promise.resolve(cachedSuccessStatus);
+      // if build task is forced (for example by one of the deps updated)
+      if (forced) {
+        if (task.spec.shouldBePersisted) {
+          inProgress = performBuildWithStatusReport(task, true);
         } else {
-          inProgress = performBuildWithStatusReport(task).then(async result => {
+          inProgress = performBuildWithStatusReport(task, true).then(async result => {
+            const currentChecksum = await calculateSourceChecksum(spec);
             await writeStoreChecksum(spec, currentChecksum);
             return result;
           });
         }
       } else {
-        inProgress = performBuildWithStatusReport(task);
+        const isInStore = await isSpecExistsInStore(spec);
+        if (spec.shouldBePersisted && isInStore) {
+          onTaskStatus(task, cachedSuccessStatus);
+          inProgress = Promise.resolve(cachedSuccessStatus);
+        } else if (!spec.shouldBePersisted) {
+          const currentChecksum = await calculateSourceChecksum(spec);
+          if (isInStore && (await readSourceChecksum(spec)) === currentChecksum) {
+            onTaskStatus(task, cachedSuccessStatus);
+            inProgress = Promise.resolve(cachedSuccessStatus);
+          } else {
+            inProgress = performBuildWithStatusReport(task, true).then(async result => {
+              await writeStoreChecksum(spec, currentChecksum);
+              return result;
+            });
+          }
+        } else {
+          inProgress = performBuildWithStatusReport(task);
+        }
       }
       taskInProgress.set(task.id, inProgress);
     }
     return inProgress;
   }
 
-  function performBuildWithStatusReport(task) {
+  function performBuildWithStatusReport(task, forced = false): Promise<FinalBuildState> {
     return buildQueue.add(async () => {
       onTaskStatus(task, {state: 'in-progress'});
       const startTime = Date.now();
@@ -122,20 +141,28 @@ export const build = async (
       }
       const endTime = Date.now();
       const timeEllapsed = endTime - startTime;
-      const state = {state: 'success', timeEllapsed, cached: false};
+      const state = {state: 'success', timeEllapsed, cached: false, forced};
       onTaskStatus(task, state);
       return state;
     });
   }
 
-  await Graph.topologicalFold(task, (directDependencies, allDependencies, task) =>
-    Promise.all(directDependencies.values()).then(states => {
-      if (states.some(state => state.state === 'failure')) {
-        return {state: 'failure', error: new Error('dependencies are not built')};
-      } else {
-        return performBuildMemoized(task);
-      }
-    }));
+  await Graph.topologicalFold(
+    task,
+    (directDependencies: Map<string, Promise<FinalBuildState>>, allDependencies, task) =>
+      Promise.all(directDependencies.values()).then(states => {
+        if (states.some(state => state.state === 'failure')) {
+          return Promise.resolve({
+            state: 'failure',
+            error: new Error('dependencies are not built'),
+          });
+        } else if (states.some(state => state.state === 'success' && state.forced)) {
+          return performBuildMemoized(task, true);
+        } else {
+          return performBuildMemoized(task);
+        }
+      }),
+  );
 };
 
 async function performBuild(
