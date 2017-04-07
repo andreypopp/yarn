@@ -12,9 +12,15 @@ import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
 import * as Graph from '../graph';
 
-export function renderFindlibConf(build: BuildSpec, config: BuildConfig): string {
+export function renderFindlibConf(
+  build: BuildSpec,
+  config: BuildConfig,
+  options: {currentlyBuilding: boolean},
+): string {
   const allDependencies = Graph.collectTransitiveDependencies(build);
-  const findLibDestination = config.getInstallPath(build, 'lib');
+  const findLibDestination = options.currentlyBuilding
+    ? config.getInstallPath(build, 'lib')
+    : config.getFinalInstallPath(build, 'lib');
   // Note that some packages can query themselves via ocamlfind during its
   // own build, this is why we include `findLibDestination` in the path too.
   const findLibPath = allDependencies

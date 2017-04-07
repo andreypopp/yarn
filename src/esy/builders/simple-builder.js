@@ -183,7 +183,7 @@ async function performBuild(
   log('placing _esy/findlib.conf');
   await fs.writeFile(
     path.join(buildPath, '_esy', 'findlib.conf'),
-    renderFindlibConf(task.spec, config),
+    renderFindlibConf(task.spec, config, {currentlyBuilding: true}),
     'utf8',
   );
 
@@ -223,6 +223,15 @@ async function performBuild(
   }
 
   log('finalizing build');
+
+  // findlib.conf is also used in shell so we override it after the build with
+  // the correct rewritten paths
+  await fs.writeFile(
+    path.join(buildPath, '_esy', 'findlib.conf'),
+    renderFindlibConf(task.spec, config, {currentlyBuilding: false}),
+    'utf8',
+  );
+
   await fs.rename(installPath, finalInstallPath);
 
   if (task.spec === sandbox.root) {

@@ -202,7 +202,7 @@ export function renderToMakefile(sandbox: BuildSandbox, outputPath: string) {
     // Emit findlib.conf.in
     emitBuildFile({
       filename: 'findlib.conf.in',
-      contents: renderFindlibConf(task.spec, buildConfig),
+      contents: renderFindlibConf(task.spec, buildConfig, {currentlyBuilding: true}),
     });
 
     // Generate macOS sandbox configuration (sandbox-exec command)
