@@ -42,7 +42,6 @@ _esy-prepare-build-env () {
   fi
 
   mkdir -p $cur__target_dir/_esy
-  $ESY_EJECT__ROOT/bin/render-env $esy_build__eject/findlib.conf.in $cur__target_dir/_esy/findlib.conf
   $ESY_EJECT__ROOT/bin/render-env $esy_build__eject/sandbox.sb.in $cur__target_dir/_esy/sandbox.sb
 
 }

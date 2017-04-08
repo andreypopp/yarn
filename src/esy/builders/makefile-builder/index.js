@@ -2,13 +2,7 @@
  * @flow
  */
 
-import type {
-  BuildSpec,
-  BuildTask,
-  BuildConfig,
-  BuildSandbox,
-  BuildEnvironment,
-} from '../../types';
+import type {BuildSpec, BuildTask, BuildConfig, BuildSandbox} from '../../types';
 
 import * as path from 'path';
 import * as fs from 'fs';
@@ -21,7 +15,7 @@ import * as Config from '../../build-config';
 import * as Task from '../../build-task';
 import * as Makefile from '../../Makefile';
 import {normalizePackageName} from '../../util';
-import {renderEnv, renderFindlibConf, renderSandboxSbConfig} from '../util';
+import {renderEnv, renderSandboxSbConfig} from '../util';
 
 const log = createLogger('esy:makefile-builder');
 const CWD = process.cwd();
@@ -197,12 +191,6 @@ export function renderToMakefile(sandbox: BuildSandbox, outputPath: string) {
     emitBuildFile({
       filename: 'eject-env',
       contents: renderEnv(task.env),
-    });
-
-    // Emit findlib.conf.in
-    emitBuildFile({
-      filename: 'findlib.conf.in',
-      contents: renderFindlibConf(task.spec, buildConfig, {currentlyBuilding: true}),
     });
 
     // Generate macOS sandbox configuration (sandbox-exec command)

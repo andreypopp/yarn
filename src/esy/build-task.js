@@ -641,6 +641,7 @@ export function fromBuildSpec(
       }
     }
     const computation = {
+      spec,
       localScope,
       globalScope,
       dependencies,
@@ -652,10 +653,33 @@ export function fromBuildSpec(
   function createTask(spec, computation): BuildTask {
     const env = new Map();
 
+    const ocamlfindDest = config.getInstallPath(spec, 'lib');
+    const ocamlpath = Array.from(computation.allDependencies.values())
+      .map(dep => config.getFinalInstallPath(dep.spec, 'lib'))
+      .join(':');
+
     evalIntoEnv(env, [
       {
-        name: 'OCAMLFIND_CONF',
-        value: config.getBuildPath(spec, '_esy', 'findlib.conf'),
+        name: 'OCAMLPATH',
+        value: ocamlpath,
+        exported: true,
+        exclusive: true,
+      },
+      {
+        name: 'OCAMLFIND_DESTDIR',
+        value: ocamlfindDest,
+        exported: true,
+        exclusive: true,
+      },
+      {
+        name: 'OCAMLFIND_LDCONF',
+        value: 'ignore',
+        exported: true,
+        exclusive: true,
+      },
+      {
+        name: 'OCAMLFIND_COMMANDS',
+        value: 'ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt',
         exported: true,
         exclusive: true,
       },
