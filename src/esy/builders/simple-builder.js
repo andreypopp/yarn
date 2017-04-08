@@ -189,6 +189,13 @@ async function performBuild(
     ...INSTALL_DIRS.map(p => fs.mkdirp(config.getInstallPath(task.spec, p))),
   ]);
 
+  if (task.spec === sandbox.root) {
+    await fs.symlink(
+      buildPath,
+      path.join(config.sandboxPath, task.spec.sourcePath, '_build'),
+    );
+  }
+
   if (task.spec.mutatesSourcePath) {
     log('build mutates source directory, rsyncing sources to $cur__target_dir');
     await copyTree({
@@ -267,10 +274,6 @@ async function performBuild(
     await fs.symlink(
       finalInstallPath,
       path.join(config.sandboxPath, task.spec.sourcePath, '_install'),
-    );
-    await fs.symlink(
-      buildPath,
-      path.join(config.sandboxPath, task.spec.sourcePath, '_build'),
     );
   }
 }
