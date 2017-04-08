@@ -17,7 +17,6 @@ import * as Graph from '../graph';
 import {endWritableStream, interleaveStreams} from '../util';
 import {
   renderEnv,
-  renderFindlibConf,
   renderSandboxSbConfig,
   rewritePathInFile,
   exec,
@@ -209,13 +208,6 @@ async function performBuild(
   const envPath = path.join(buildPath, '_esy', 'env');
   await fs.writeFile(envPath, renderEnv(task.env), 'utf8');
 
-  log('placing _esy/findlib.conf');
-  await fs.writeFile(
-    path.join(buildPath, '_esy', 'findlib.conf'),
-    renderFindlibConf(task.spec, config, {currentlyBuilding: true}),
-    'utf8',
-  );
-
   log('placing _esy/sandbox.conf');
   const darwinSandboxConfig = path.join(buildPath, '_esy', 'sandbox.sb');
   const tempDirs = await Promise.all(
@@ -268,14 +260,6 @@ async function performBuild(
   }
 
   log('finalizing build');
-
-  // findlib.conf is also used in shell so we override it after the build with
-  // the correct rewritten paths
-  await fs.writeFile(
-    path.join(buildPath, '_esy', 'findlib.conf'),
-    renderFindlibConf(task.spec, config, {currentlyBuilding: false}),
-    'utf8',
-  );
 
   await fs.rename(installPath, finalInstallPath);
 

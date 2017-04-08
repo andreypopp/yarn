@@ -4,13 +4,43 @@ exports[`calculating env build with (dep with (dep with local export) with local
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep-of-dep/lib:<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -553,13 +583,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep-of-dep/lib:<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -755,13 +815,43 @@ exports[`calculating env build with (dep with local export) 1`] = `
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -1304,13 +1394,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -1506,13 +1626,43 @@ exports[`calculating env build with (dep with local export) with global export r
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -2044,13 +2194,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -2257,13 +2437,43 @@ exports[`calculating env build with (dep with local export) with global export r
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -2817,13 +3027,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -3030,13 +3270,43 @@ exports[`calculating env build with (dep with local export) with local export re
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -3568,13 +3838,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -3781,13 +4081,43 @@ exports[`calculating env build with (dep with local export) with local export re
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -4341,13 +4671,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/dep/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -4554,13 +4914,43 @@ exports[`calculating env build with global export referencing built-in (cur-vers
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -4927,13 +5317,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -5140,13 +5560,43 @@ exports[`calculating env build with global export referencing built-in 1`] = `
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -5513,13 +5963,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -5726,13 +6206,43 @@ exports[`calculating env build with global exports 1`] = `
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -6099,13 +6609,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -6312,13 +6852,43 @@ exports[`calculating env build with local exports 1`] = `
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -6685,13 +7255,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -6898,13 +7498,43 @@ exports[`calculating env build with no exports 1`] = `
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -7260,13 +7890,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -7462,13 +8122,43 @@ exports[`calculating env concatenating global exports (same level exports + pack
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/ocaml/lib:<storePath>/_install/ocamlfind/lib:<storePath>/_install/lwt/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -8165,13 +8855,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/ocaml/lib:<storePath>/_install/ocamlfind/lib:<storePath>/_install/lwt/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -8378,13 +9098,43 @@ exports[`calculating env concatenating global exports (same level exports) 1`] =
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/ocaml/lib:<storePath>/_install/ocamlfind/lib:<storePath>/_install/lwt/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -9081,13 +9831,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/ocaml/lib:<storePath>/_install/ocamlfind/lib:<storePath>/_install/lwt/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -9294,13 +10074,43 @@ exports[`calculating env concatenating global exports 1`] = `
 Object {
   "env": Array [
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/ocaml/lib:<storePath>/_install/ocamlfind/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [
@@ -9997,13 +10807,43 @@ Object {
       },
     ],
     Array [
-      "OCAMLFIND_CONF",
+      "OCAMLPATH",
       Object {
         "builtIn": false,
         "exclusive": true,
         "exported": true,
-        "name": "OCAMLFIND_CONF",
-        "value": "<storePath>/_build/app/_esy/findlib.conf",
+        "name": "OCAMLPATH",
+        "value": "<storePath>/_install/ocaml/lib:<storePath>/_install/ocamlfind/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_DESTDIR",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_DESTDIR",
+        "value": "<storePath>/_insttmp/app/lib",
+      },
+    ],
+    Array [
+      "OCAMLFIND_LDCONF",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_LDCONF",
+        "value": "ignore",
+      },
+    ],
+    Array [
+      "OCAMLFIND_COMMANDS",
+      Object {
+        "builtIn": false,
+        "exclusive": true,
+        "exported": true,
+        "name": "OCAMLFIND_COMMANDS",
+        "value": "ocamlc=ocamlc.opt ocamldep=ocamldep.opt ocamldoc=ocamldoc.opt ocamllex=ocamllex.opt ocamlopt=ocamlopt.opt",
       },
     ],
     Array [

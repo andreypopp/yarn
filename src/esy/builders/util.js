@@ -10,34 +10,6 @@ import {copy} from 'fs-extra';
 import rimraf from 'rimraf';
 import {promisify} from '../../util/promise';
 import * as fs from '../../util/fs';
-import * as Graph from '../graph';
-
-export function renderFindlibConf(
-  build: BuildSpec,
-  config: BuildConfig,
-  options: {currentlyBuilding: boolean},
-): string {
-  const allDependencies = Graph.collectTransitiveDependencies(build);
-  const findLibDestination = options.currentlyBuilding
-    ? config.getInstallPath(build, 'lib')
-    : config.getFinalInstallPath(build, 'lib');
-  // Note that some packages can query themselves via ocamlfind during its
-  // own build, this is why we include `findLibDestination` in the path too.
-  const findLibPath = allDependencies
-    .map(dep => config.getFinalInstallPath(dep, 'lib'))
-    .concat(findLibDestination)
-    .join(':');
-  return outdent`
-    path = "${findLibPath}"
-    destdir = "${findLibDestination}"
-    ldconf = "ignore"
-    ocamlc = "ocamlc.opt"
-    ocamldep = "ocamldep.opt"
-    ocamldoc = "ocamldoc.opt"
-    ocamllex = "ocamllex.opt"
-    ocamlopt = "ocamlopt.opt"
-  `;
-}
 
 type ConfigSpec = {
   allowFileWrite?: Array<?string>,
