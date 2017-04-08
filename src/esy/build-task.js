@@ -612,7 +612,7 @@ export function fromBuildSpec(
     task,
   } = Graph.topologicalFold(rootBuild, (dependencies, allDependencies, spec) => {
     const computation = createComputation(spec, dependencies, allDependencies);
-    const task = createTask(spec, computation);
+    const task = createTask(computation);
     return {spec, computation, task};
   });
 
@@ -650,10 +650,10 @@ export function fromBuildSpec(
     return computation;
   }
 
-  function createTask(spec, computation): BuildTask {
+  function createTask(computation): BuildTask {
     const env = new Map();
 
-    const ocamlfindDest = config.getInstallPath(spec, 'lib');
+    const ocamlfindDest = config.getInstallPath(computation.spec, 'lib');
     const ocamlpath = Array.from(computation.allDependencies.values())
       .map(dep => config.getFinalInstallPath(dep.spec, 'lib'))
       .join(':');
@@ -702,7 +702,7 @@ export function fromBuildSpec(
     ]);
 
     // $cur__name, $cur__version and so on...
-    mergeIntoMap(env, getBuiltInScope(spec, config, true));
+    mergeIntoMap(env, getBuiltInScope(computation.spec, config, true));
 
     // direct deps' local scopes
     for (const dep of computation.dependencies.values()) {
@@ -724,19 +724,19 @@ export function fromBuildSpec(
     evalIntoEnv(env, Array.from(sandboxEnv.values()));
 
     const scope = new Map();
-    mergeIntoMap(scope, getEvalScope(spec, computation.dependencies, config));
+    mergeIntoMap(scope, getEvalScope(computation.spec, computation.dependencies, config));
     mergeIntoMap(scope, env);
 
-    const command = spec.command != null
-      ? spec.command.map(command => ({
+    const command = computation.spec.command != null
+      ? computation.spec.command.map(command => ({
           command,
           renderedCommand: expandWithScope(command, scope).rendered,
         }))
-      : spec.command;
+      : computation.spec.command;
 
     return {
-      id: spec.id,
-      spec,
+      id: computation.spec.id,
+      spec: computation.spec,
       command,
       env,
       scope,
