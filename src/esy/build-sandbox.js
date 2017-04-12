@@ -51,6 +51,7 @@ type SandboxCrawlContext = {
   env: BuildEnvironment,
   sandboxPath: string,
   dependencyTrace: Array<string>,
+  seenBuildSpecByName: Map<string, BuildSpec>,
   crawlBuild: (
     packageJsonPath: string,
     context: SandboxCrawlContext,
@@ -90,6 +91,7 @@ export async function fromDirectory(sandboxPath: string): Promise<BuildSandbox> 
     sandboxPath,
     resolve: resolveCached,
     crawlBuild: crawlBuildCached,
+    seenBuildSpecByName: new Map(),
     dependencyTrace: [],
   };
 
@@ -170,11 +172,20 @@ async function crawlBuild(
     dependencyTrace: context.dependencyTrace.concat(packageJson.name),
   });
 
+  const nextErrors = [...errors];
   const isInstalled = packageJson._resolved != null;
   const source = packageJson._resolved || `local:${await fs.realpath(sourcePath)}`;
+  const nextSourcePath = path.relative(context.sandboxPath, sourcePath);
   const id = calculateBuildId(context.env, packageJson, source, dependencies);
 
-  return {
+  const maybeDuplicateSpec = context.seenBuildSpecByName.get(packageJson.name);
+  if (maybeDuplicateSpec != null) {
+    nextErrors.push({
+      message: `Found multiple instances of "${packageJson.name}" package: ${nextSourcePath} and ${maybeDuplicateSpec.sourcePath}`,
+    });
+  }
+
+  const spec = {
     id,
     name: packageJson.name,
     version: packageJson.version,
@@ -182,11 +193,15 @@ async function crawlBuild(
     command,
     shouldBePersisted: !(isRootBuild || !isInstalled),
     mutatesSourcePath: !!packageJson.esy.buildsInSource,
-    sourcePath: path.relative(context.sandboxPath, sourcePath),
+    sourcePath: nextSourcePath,
     packageJson,
     dependencies,
-    errors,
+    errors: nextErrors,
   };
+
+  context.seenBuildSpecByName.set(spec.name, spec);
+
+  return spec;
 }
 
 function getEnvironment(): BuildEnvironment {
@@ -338,7 +353,7 @@ function objectToDependencySpecs(...objs) {
 
 function formatCircularDependenciesError(dependency, context) {
   return outdent`
-    Circular dependency "${dependency} detected
+    Circular dependency "${dependency}" found
       At ${context.dependencyTrace.join(' -> ')}
   `;
 }
