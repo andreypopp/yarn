@@ -358,8 +358,8 @@ errors that might be causing the package conversion failure.
 
 When  debugging esy build — do the following:
 
-1. `esy build-eject` creates `node_modules/.cache/esy/Makefile`
-2. `make -f ./node_modules/.cache/esy/Makefile PKG_NAME.shell` will put you in a build env shell
+1. `esy build-eject` creates `/node_modules/.cache/_esy/build-eject/Makefile`
+2. `make -f ./node_modules/.cache/_esy/build-eject/Makefile PKG_NAME.shell` will put you in a build env shell
 3. Try to run commands specified in `package.json's` esy build config and see what goes wrong.
 
 If the package is a converted opam package, you might want to inspect the
