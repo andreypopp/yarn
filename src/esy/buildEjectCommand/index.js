@@ -442,7 +442,7 @@ function buildEjectCommand(
   });
 
   emitFile({
-    filename: ['bin', 'fastreplacestring.c'],
+    filename: ['bin', 'fastreplacestring.cpp'],
     contents: fastReplaceStringSrc,
   });
 
