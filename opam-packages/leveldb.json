@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "1.0.3": {
+      "version": "1.0.3", 
+      "opam": {
+        "url": "https://github.com/mfp/ocaml-leveldb/archive/ocaml-leveldb-1.0.3.tar.gz", 
+        "checksum": "68ce7bda83d28cd14bf817355e9781af", 
+        "files": [
+          {
+            "content": "diff --git a/src/OMakefile b/src/OMakefile\nindex 142a0df..3f3a166 100644\n--- a/src/OMakefile\n+++ b/src/OMakefile\n@@ -11,7 +11,7 @@ section\n     leveldb.cma leveldb.cmxa leveldb.a libcamlleveldb.a dllcamlleveldb.so: \\\n             leveldb_stubs.o levelDB.cmo levelDB.cmx\n         ocamlmklib \\\n-            -oc camlleveldb -o leveldb -lsnappy -lleveldb -lstdc++ -lm \\\n+            -oc camlleveldb -o leveldb -lsnappy -lleveldb -lstdc++ -lsnappy -lm \\\n             leveldb_stubs.o levelDB.cmo levelDB.cmx\n \n .DEFAULT: leveldb.cma leveldb.cmxa\n", 
+            "name": "fix_snappy_link_issue.patch"
+          }, 
+          {
+            "content": "diff --git a/OMakefile b/OMakefile\nindex 7ede325..900feb2 100644\n--- a/OMakefile\n+++ b/OMakefile\n@@ -1,5 +1,5 @@\n \n-OCAMLFLAGS = -w +a-4-6-9-27-28-30..99 -warn-error +a-4-6-9-18-27-28-30..99 -annot -thread\n+OCAMLFLAGS = -w +a-4-6-9-27-28-30..99 -warn-error +a-3-6-9-18-27-28-30..99 -annot -thread\n OCAMLOPTFLAGS += -inline 100\n \n HAS_NATDYNLINK = false\n", 
+            "name": "warn_error.patch"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "omake -j9", 
+          "omake install prefix=$cur__install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "leveldb_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "leveldb_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "leveldb_version": {
+            "scope": "global", 
+            "val": "1.0.3"
+          }
+        }
+      }, 
+      "dependencies": {
+        "@opam-alpha/omake": "*", 
+        "@opam-alpha/ounit": "*", 
+        "@opam-alpha/conf-leveldb": "*", 
+        "@opam-alpha/ocamlfind": "*", 
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/leveldb"
+    }
+  }
+}

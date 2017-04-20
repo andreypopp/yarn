@@ -1,0 +1,90 @@
+{
+  "versions": {
+    "0.5.1": {
+      "version": "0.5.1", 
+      "opam": {
+        "url": "https://github.com/Incubaid/baardskeerder/tarball/0.5.1", 
+        "checksum": "aaa1703be8f109391fc6e9a6a8324f2f", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -exc cd src && make", 
+          "sh -exc cd src && make install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "baardskeerder_version": {
+            "scope": "global", 
+            "val": "0.5.1"
+          }, 
+          "baardskeerder_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "baardskeerder_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "@opam-alpha/ounit": "< 2.0.0", 
+        "@opam-alpha/quickcheck": "*", 
+        "@opam-alpha/ocamlfind": "*", 
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/lwt": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "< 4.01.0"
+      }, 
+      "name": "@opam-alpha/baardskeerder"
+    }, 
+    "0.5.2": {
+      "version": "0.5.2", 
+      "opam": {
+        "url": "https://github.com/Incubaid/baardskeerder/archive/0.5.2.tar.gz", 
+        "checksum": "281bd713b823b517b84bb0c88ce8c56d", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -exc cd src && make", 
+          "sh -exc cd src && make install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "baardskeerder_version": {
+            "scope": "global", 
+            "val": "0.5.2"
+          }, 
+          "baardskeerder_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "baardskeerder_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "@opam-alpha/ounit": "*", 
+        "@opam-alpha/quickcheck": "*", 
+        "@opam-alpha/ocamlfind": "*", 
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/lwt": ">= 2.4.3", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "< 4.02.0"
+      }, 
+      "name": "@opam-alpha/baardskeerder"
+    }
+  }
+}

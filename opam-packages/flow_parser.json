@@ -1,0 +1,43 @@
+{
+  "versions": {
+    "0.38.0": {
+      "version": "0.38.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.38.0.tar.gz", 
+        "checksum": "aeccb250256697c4598fb23c1c3b6af3", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.38.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }
+  }
+}
