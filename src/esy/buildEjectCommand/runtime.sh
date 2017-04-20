@@ -86,7 +86,7 @@ _esy-perform-build () {
     exit 1
   else
     for filename in `find $cur__install -type f`; do
-      $ESY__EJECT_ROOT/bin/fastreplacestring "$filename" "$cur__install" "$esy_build__install"
+      $ESY__EJECT_ROOT/bin/fastreplacestring.exe "$filename" "$cur__install" "$esy_build__install"
     done
     mv $cur__install $esy_build__install
     echo -e "${FG_GREEN} $CIRCLE_FILLED $cur__name: build complete${FG_RESET}"

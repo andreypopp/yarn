@@ -17,7 +17,7 @@ const {flattenArray} = require('../Utility');
 const RUNTIME = fs.readFileSync(require.resolve('./runtime.sh'), 'utf8');
 const fastReplaceStringSrc = fs.readFileSync(
   require.resolve(
-    'fastreplacestring/fastreplacestring.c',
+    'fastreplacestring/fastreplacestring.cpp',
   ),
   'utf8',
 );
@@ -195,10 +195,10 @@ function buildEjectCommand(
     },
     {
       type: 'rule',
-      target: '$(ESY__EJECT_ROOT)/bin/fastreplacestring',
-      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring.c'],
+      target: '$(ESY__EJECT_ROOT)/bin/fastreplacestring.exe',
+      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring.cpp'],
       shell: '/bin/bash',
-      command: 'gcc -o $(@) -x c $(<) 2> /dev/null',
+      command: 'g++ -Ofast -o $(@) -x c $(<) 2> /dev/null',
     },
     {
       type: 'rule',
@@ -210,7 +210,7 @@ function buildEjectCommand(
       type: 'rule',
       target: 'esy-root',
       phony: true,
-      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring'],
+      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring.exe'],
     },
   ];
 
