@@ -309,6 +309,7 @@ To make changes to `esy` and test them locally, check out and build the `esy` re
     git clone git://github.com/reasonml/esy.git
     cd esy
     npm install
+    which filterdiff || echo "You do not have filterdiff installed. Your build will fail! See README"
     git submodule init
     git submodule update
     make convert-opam-packages
@@ -324,6 +325,7 @@ On a clean branch off of `origin/master`, run
 
     # npm install if needed.
     npm install
+    which filterdiff || echo "You do not have filterdiff installed. Your build will fail! See README"
     git submodule init
     git submodule update
     # Substitute your version number below
