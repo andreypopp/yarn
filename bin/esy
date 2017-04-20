@@ -163,8 +163,7 @@ execute_any_command() {
 
 if [ $# -eq 0 ]
 then
-  ensureEnvEjected
-  cat "$ENV_PATH"
+  printHelp
 elif [ $# -eq 1 ]; then
   case $1 in
     build|build-shell|clean)
@@ -187,6 +186,10 @@ elif [ $# -eq 1 ]; then
       ;;
     --help|-h)
       printHelp
+      ;;
+    dump-env)
+      ensureEnvEjected
+      cat "$ENV_PATH"
       ;;
     -*)
       echo Unknown option "$1" >&2
