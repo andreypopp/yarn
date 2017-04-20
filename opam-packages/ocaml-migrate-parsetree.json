@@ -1,0 +1,86 @@
+{
+  "versions": {
+    "0.6.0": {
+      "version": "0.6.0", 
+      "opam": {
+        "url": "https://github.com/let-def/ocaml-migrate-parsetree/archive/v0.6.tar.gz", 
+        "checksum": "f615fe49e82202ba9e93a42ef5bba17a", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "jbuilder build --only-packages ocaml-migrate-parsetree --root . -j 4 @install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "ocaml_migrate_parsetree_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_migrate_parsetree_version": {
+            "scope": "global", 
+            "val": "0.6.0"
+          }, 
+          "ocaml_migrate_parsetree_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "@opam-alpha/result": "*", 
+        "@opam-alpha/jbuilder": ">= 1.0.0", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.0"
+      }, 
+      "name": "@opam-alpha/ocaml-migrate-parsetree"
+    }, 
+    "0.7.0": {
+      "version": "0.7.0", 
+      "opam": {
+        "url": "https://github.com/let-def/ocaml-migrate-parsetree/archive/v0.7.tar.gz", 
+        "checksum": "070f7877d615ea2a9530be554e6e2756", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "jbuilder build --only-packages ocaml-migrate-parsetree --root . -j 4 @install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "ocaml_migrate_parsetree_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_migrate_parsetree_version": {
+            "scope": "global", 
+            "val": "0.7.0"
+          }, 
+          "ocaml_migrate_parsetree_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "@opam-alpha/result": "*", 
+        "@opam-alpha/jbuilder": ">= 1.0.0", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.0"
+      }, 
+      "name": "@opam-alpha/ocaml-migrate-parsetree"
+    }
+  }
+}

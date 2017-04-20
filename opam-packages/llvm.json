@@ -1,0 +1,301 @@
+{
+  "versions": {
+    "3.4.0": {
+      "version": "3.4.0", 
+      "opam": {
+        "url": "http://llvm.org/releases/3.4/llvm-3.4.src.tar.gz", 
+        "checksum": "46ed668a1ce38985120dbf6344cf6116", 
+        "files": [
+          {
+            "content": "#!/bin/sh\n\ncmd=$1\nversion=$2\nmake=$3\nprefix=$4\nlibdir=$5\n\nexecute() {\n    echo \"Executing: $@\"\n    \"$@\"\n}\n\ncommon_configure() {\n    execute ./configure CC=gcc CXX=g++ --disable-compiler-version-checks --prefix=\"$prefix\" --disable-doxygen --disable-docs --enable-static \"$@\" --with-ocaml-libdir=\"$libdir/llvm\"\n}\n\nconfigure() {\n    case `uname -s` in\n        Darwin)\n            common_configure --disable-shared || exit 1;;\n        *)\n            common_configure --enable-shared || exit 1;;\n    esac\n}\n\nif [ $cmd = \"uninstall\" ]; then\n    configure\n    \"$make\" -C bindings/ocaml -k uninstall || exit 1\n    rm -rf \"$libdir/llvm\"\n    exit 0\nelif [ $cmd != \"install\" ]; then\n    echo \"Fatal error: Do not recognize the command\"\n    exit 1\nfi\n\nbrew_llvm_config=/usr/local/Cellar/llvm/${version}*/bin/llvm-config\nif ! stat -t $brew_llvm_config\nthen\n    brew_llvm_config=\nfi\n\nversion_sans_dot=$(echo $version | tr -d .)\nfor config in llvm-config-$version llvm-config$version_sans_dot llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    case `\"$config\" --version` in\n        $version|$version.*)\n            configure\n            \"$make\" -C bindings/ocaml build SYSTEM_LLVM_CONFIG=\"$config\" || exit 1\n            \"$make\" -C bindings/ocaml install SYSTEM_LLVM_CONFIG=\"$config\" || exit 1\n            cp \"$libdir/llvm/META.llvm\" \"$libdir/llvm/META\" || exit 1\n            exit 0;;\n        *)\n            continue;;\n    esac\ndone\n\necho \"Error: LLVM $version is not installed.\"\nexit 1\n", 
+            "name": "compile.sh"
+          }, 
+          {
+            "content": "diff --git a/bindings/ocaml/Makefile b/bindings/ocaml/Makefile\nindex b0e1f09..8472451 100644\n--- a/bindings/ocaml/Makefile\n+++ b/bindings/ocaml/Makefile\n@@ -17,4 +17,9 @@ ocamldoc:\n \t\t$(MAKE) -C $$i ocamldoc; \\\n \tdone\n \n+build:\n+\t$(Verb) for i in $(DIRS) ; do \\\n+\t\t$(MAKE) -C $$i all-local; \\\n+\tdone\n+\n include $(LEVEL)/Makefile.common\n", 
+            "name": "makefile+build.patch"
+          }, 
+          {
+            "content": "diff --git a/bindings/ocaml/Makefile.ocaml b/bindings/ocaml/Makefile.ocaml\nindex 1b964ee..70df397 100644\n--- a/bindings/ocaml/Makefile.ocaml\n+++ b/bindings/ocaml/Makefile.ocaml\n@@ -29,6 +29,11 @@ endif\n \n include $(LEVEL)/Makefile.common\n \n+ifdef SYSTEM_LLVM_CONFIG\n+LLVM_CONFIG = $(SYSTEM_LLVM_CONFIG)\n+LLVMLibsOptions += $(shell $(LLVM_CONFIG) --ldflags)\n+endif\n+\n # Intentionally ignore PROJ_prefix here. We want the ocaml stdlib. However, the\n # user can override this with OCAML_LIBDIR or configure --with-ocaml-libdir=.\n PROJ_libocamldir := $(DESTDIR)$(OCAML_LIBDIR)\n@@ -143,7 +148,11 @@ endif\n #   The .cmo files are the only intermediates; all others are to be installed.\n OutputsCMI := $(ObjectsCMI:$(ObjDir)/%.cmi=$(OcamlDir)/%.cmi)\n OutputsCMX := $(ObjectsCMX:$(ObjDir)/%.cmx=$(OcamlDir)/%.cmx)\n+ifdef SYSTEM_LLVM_CONFIG\n+OutputLibs := $(UsedLibNames:%=$(shell $(LLVM_CONFIG) --libdir)/%)\n+else\n OutputLibs := $(UsedLibNames:%=$(OcamlDir)/%)\n+endif\n \n ifdef LIBRARYNAME\n LibraryA   := $(OcamlDir)/lib$(LIBRARYNAME).a\n", 
+            "name": "makefile+system.patch"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh ./compile.sh install 3.4 make $cur__install $cur__lib", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "llvm_version": {
+            "scope": "global", 
+            "val": "3.4.0"
+          }, 
+          "llvm_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "llvm_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/llvm"
+    }, 
+    "3.5.0": {
+      "version": "3.5.0", 
+      "opam": {
+        "url": "http://llvm.org/releases/3.5.0/llvm-3.5.0.src.tar.xz", 
+        "checksum": "d6987305a1a0e58e128c1374cd3b8fef", 
+        "files": [
+          {
+            "content": "#!/bin/sh\n\ncmd=$1\nversion=$2\nmake=$3\nprefix=$4\nlibdir=$5\n\nexecute() {\n    echo \"Executing: $@\"\n    \"$@\"\n}\n\ncommon_configure() {\n    execute ./configure CC=gcc CXX=g++ --disable-compiler-version-checks --prefix=\"$prefix\" --disable-doxygen --disable-docs --enable-static \"$@\" --with-ocaml-libdir=\"$libdir/llvm\"\n}\n\nconfigure() {\n    case `uname -s` in\n        Darwin)\n            common_configure --disable-shared || exit 1;;\n        *)\n            common_configure --enable-shared || exit 1;;\n    esac\n}\n\nif [ $cmd = \"uninstall\" ]; then\n    configure\n    \"$make\" -C bindings/ocaml -k uninstall || exit 1\n    rm -rf \"$libdir/llvm\"\n    exit 0\nelif [ $cmd != \"install\" ]; then\n    echo \"Fatal error: Do not recognize the command\"\n    exit 1\nfi\n\nbrew_llvm_config=/usr/local/Cellar/llvm/${version}*/bin/llvm-config\nif ! stat -t $brew_llvm_config\nthen\n    brew_llvm_config=\nfi\n\nversion_sans_dot=$(echo $version | tr -d .)\nfor config in llvm-config-$version llvm-config$version_sans_dot llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    case `\"$config\" --version` in\n        $version|$version.*)\n            configure\n            \"$make\" -C bindings/ocaml build SYSTEM_LLVM_CONFIG=\"$config\" || exit 1\n            \"$make\" -C bindings/ocaml install SYSTEM_LLVM_CONFIG=\"$config\" || exit 1\n            cp \"$libdir/llvm/META.llvm\" \"$libdir/llvm/META\" || exit 1\n            exit 0;;\n        *)\n            continue;;\n    esac\ndone\n\necho \"Error: LLVM $version is not installed.\"\nexit 1\n", 
+            "name": "compile.sh"
+          }, 
+          {
+            "content": "diff --git a/bindings/ocaml/Makefile b/bindings/ocaml/Makefile\nindex b0e1f09..8472451 100644\n--- a/bindings/ocaml/Makefile\n+++ b/bindings/ocaml/Makefile\n@@ -17,4 +17,9 @@ ocamldoc:\n \t\t$(MAKE) -C $$i ocamldoc; \\\n \tdone\n \n+build:\n+\t$(Verb) for i in $(DIRS) ; do \\\n+\t\t$(MAKE) -C $$i all-local; \\\n+\tdone\n+\n include $(LEVEL)/Makefile.common\n", 
+            "name": "makefile+build.patch"
+          }, 
+          {
+            "content": "diff --git a/bindings/ocaml/Makefile.ocaml b/bindings/ocaml/Makefile.ocaml\nindex 1b964ee..70df397 100644\n--- a/bindings/ocaml/Makefile.ocaml\n+++ b/bindings/ocaml/Makefile.ocaml\n@@ -29,6 +29,11 @@ endif\n \n include $(LEVEL)/Makefile.common\n \n+ifdef SYSTEM_LLVM_CONFIG\n+LLVM_CONFIG = $(SYSTEM_LLVM_CONFIG)\n+LLVMLibsOptions += $(shell $(LLVM_CONFIG) --ldflags)\n+endif\n+\n # Intentionally ignore PROJ_prefix here. We want the ocaml stdlib. However, the\n # user can override this with OCAML_LIBDIR or configure --with-ocaml-libdir=.\n PROJ_libocamldir := $(DESTDIR)$(OCAML_LIBDIR)\n@@ -143,7 +148,11 @@ endif\n #   The .cmo files are the only intermediates; all others are to be installed.\n OutputsCMI := $(ObjectsCMI:$(ObjDir)/%.cmi=$(OcamlDir)/%.cmi)\n OutputsCMX := $(ObjectsCMX:$(ObjDir)/%.cmx=$(OcamlDir)/%.cmx)\n+ifdef SYSTEM_LLVM_CONFIG\n+OutputLibs := $(UsedLibNames:%=$(shell $(LLVM_CONFIG) --libdir)/%)\n+else\n OutputLibs := $(UsedLibNames:%=$(OcamlDir)/%)\n+endif\n \n ifdef LIBRARYNAME\n LibraryA   := $(OcamlDir)/lib$(LIBRARYNAME).a\n", 
+            "name": "makefile+system.patch"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh ./compile.sh install 3.5 make $cur__install $cur__lib", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "llvm_version": {
+            "scope": "global", 
+            "val": "3.5.0"
+          }, 
+          "llvm_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "llvm_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/llvm"
+    }, 
+    "3.6.0": {
+      "version": "3.6.0", 
+      "opam": {
+        "url": "http://llvm.org/releases/3.6.0/llvm-3.6.0.src.tar.xz", 
+        "checksum": "f1e14e949f8df3047c59816c55278cec", 
+        "files": [
+          {
+            "content": "#!/bin/bash -ex\n\nversion=$1\nmake=$2\nprefix=$3\nlibdir=$4\n\ncommon_configure() {\n    ./configure CC=gcc CXX=g++ --disable-compiler-version-checks --prefix=\"$prefix\" \\\n        --disable-doxygen --disable-docs --with-ocaml-libdir=\"$libdir/llvm\" \\\n        --enable-static \"$@\"\n}\n\nconfigure() {\n    case `uname -s` in\n        Darwin)\n            common_configure --disable-shared;;\n        *)\n            common_configure --enable-shared;;\n    esac\n}\n\nbrew_llvm_config=/usr/local/Cellar/llvm/${version}*/bin/llvm-config\nif ! stat -t $brew_llvm_config; then\n    brew_llvm_config=\nfi\n\nshopt -s nullglob\n\nversion_sans_dot=$(echo $version | tr -d .)\nfor config in llvm-config-$version llvm-config$version_sans_dot llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    case `$config --version` in\n        $version|$version.*)\n            configure\n            $make -C bindings/ocaml all SYSTEM_LLVM_CONFIG=$config\n            $make -C bindings/ocaml install SYSTEM_LLVM_CONFIG=$config\n            mv \"$libdir/llvm/META.llvm\" \"$libdir/llvm/META\"\n            for stublib in $libdir/llvm/dll*.so; do\n                mv \"$stublib\" \"$libdir/stublibs/\"\n                echo llvm >\"$libdir/stublibs/$(basename $stublib).owner\"\n            done\n            exit 0;;\n        *)\n            continue;;\n    esac\ndone\n\necho \"Error: LLVM $version is not installed.\"\nexit 1\n", 
+            "name": "install.sh"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "bash -ex ./install.sh version make $cur__install $cur__lib", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "llvm_version": {
+            "scope": "global", 
+            "val": "3.6.0"
+          }, 
+          "llvm_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "llvm_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ounit": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin", 
+        "@opam-alpha/ctypes": ">= 0.3.4 < 0.4.0"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.00.0"
+      }, 
+      "name": "@opam-alpha/llvm"
+    }, 
+    "3.9.0": {
+      "version": "3.9.0", 
+      "opam": {
+        "url": "http://llvm.org/releases/3.9.0/llvm-3.9.0.src.tar.xz", 
+        "checksum": "f2093e98060532449eb7d2fcfd0bc6c6", 
+        "files": [
+          {
+            "content": "#!/bin/bash -ex\n\nversion=$1\nlibdir=$2\n\nbrew_llvm_config=/usr/local/Cellar/llvm/${version}*/bin/llvm-config\nif ! stat -t $brew_llvm_config; then\n    brew_llvm_config=\nfi\n\nshopt -s nullglob\n\nversion_sans_dot=$(echo $version | tr -d .)\nfor llvm_config in llvm-config-$version llvm-config$version_sans_dot llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    case `$llvm_config --version` in\n        $version|$version.*)\n            case `$llvm_config --shared-mode` in\n                \"shared\")\n                    patch -p1 < link.patch;;\n                \"static\")\n                    ;;\n                *)\n                    echo \"Error: '$llvm_config' should have returned either shared or static\"\n                    exit 1;;\n            esac\n            mkdir build\n            cd build\n            cmake -DLLVM_OCAML_OUT_OF_TREE=TRUE -DLLVM_OCAML_INSTALL_PATH=\"$libdir\" ..\n            exit 0;;\n        *)\n            continue;;\n    esac\ndone\n\necho \"Error: LLVM $version is not installed.\"\nexit 1\n", 
+            "name": "build.sh"
+          }, 
+          {
+            "content": "diff --git a/cmake/modules/AddOCaml.cmake b/cmake/modules/AddOCaml.cmake\nindex e3dd1d8..4bcd475 100644\n--- a/cmake/modules/AddOCaml.cmake\n+++ b/cmake/modules/AddOCaml.cmake\n@@ -170,9 +170,13 @@ function(add_ocaml_library name)\n     add_dependencies(\"ocaml_${name}\" \"ocaml_${ocaml_dep}\")\n   endforeach()\n \n-  foreach( llvm_lib ${llvm_libs} )\n-    add_dependencies(\"ocaml_${name}\" \"${llvm_lib}\")\n-  endforeach()\n+  if( NOT LLVM_OCAML_OUT_OF_TREE )\n+    foreach( llvm_lib ${llvm_libs} )\n+      add_dependencies(\"ocaml_${name}\" \"${llvm_lib}\")\n+    endforeach()\n+  endif()\n+\n+  add_dependencies(\"ocaml_all\" \"ocaml_${name}\")\n \n   set(install_files)\n   set(install_shlibs)\n@@ -205,3 +209,5 @@ function(add_ocaml_library name)\n       VERBATIM)\n   endforeach()\n endfunction()\n+\n+add_custom_target(\"ocaml_all\")\n", 
+            "name": "cmake.patch"
+          }, 
+          {
+            "content": "Index: bindings/ocaml/backends/CMakeLists.txt\n===================================================================\n--- bindings/ocaml/backends/CMakeLists.txt\n+++ bindings/ocaml/backends/CMakeLists.txt\n@@ -23,5 +23,5 @@\n     \"${LLVM_LIBRARY_DIR}/ocaml/META.llvm_${TARGET}\")\n \n   install(FILES \"${LLVM_LIBRARY_DIR}/ocaml/META.llvm_${TARGET}\"\n-          DESTINATION lib/ocaml)\n+          DESTINATION \"${LLVM_OCAML_INSTALL_PATH}\")\n endforeach()\nIndex: bindings/ocaml/backends/META.llvm_backend.in\n===================================================================\n--- bindings/ocaml/backends/META.llvm_backend.in\n+++ bindings/ocaml/backends/META.llvm_backend.in\n@@ -4,4 +4,4 @@\n requires = \"llvm\"\n archive(byte) = \"llvm_@TARGET@.cma\"\n archive(native) = \"llvm_@TARGET@.cmxa\"\n-directory = \".\"\n+directory = \"llvm\"\nIndex: bindings/ocaml/llvm/CMakeLists.txt\n===================================================================\n--- bindings/ocaml/llvm/CMakeLists.txt\n+++ bindings/ocaml/llvm/CMakeLists.txt\n@@ -8,4 +8,4 @@\n   \"${LLVM_LIBRARY_DIR}/ocaml/META.llvm\")\n \n install(FILES \"${LLVM_LIBRARY_DIR}/ocaml/META.llvm\"\n-        DESTINATION lib/ocaml)\n+        DESTINATION \"${LLVM_OCAML_INSTALL_PATH}\")\nIndex: bindings/ocaml/llvm/META.llvm.in\n===================================================================\n--- bindings/ocaml/llvm/META.llvm.in\n+++ bindings/ocaml/llvm/META.llvm.in\n@@ -3,7 +3,7 @@\n description = \"LLVM OCaml bindings\"\n archive(byte) = \"llvm.cma\"\n archive(native) = \"llvm.cmxa\"\n-directory = \".\"\n+directory = \"llvm\"\n \n package \"analysis\" (\n     requires = \"llvm\"\nIndex: cmake/config-ix.cmake\n===================================================================\n--- cmake/config-ix.cmake\n+++ cmake/config-ix.cmake\n@@ -576,6 +576,9 @@\n         message(STATUS \"OCaml bindings enabled.\")\n         find_ocamlfind_package(oUnit VERSION 2 OPTIONAL)\n         set(LLVM_BINDINGS \"${LLVM_BINDINGS} ocaml\")\n+\n+        set(LLVM_OCAML_INSTALL_PATH \"${OCAML_STDLIB_PATH}\" CACHE STRING\n+            \"Install directory for LLVM OCaml packages\")\n       else()\n         message(STATUS \"OCaml bindings disabled, need ctypes >=0.4.\")\n       endif()\nIndex: cmake/modules/AddOCaml.cmake\n===================================================================\n--- cmake/modules/AddOCaml.cmake\n+++ cmake/modules/AddOCaml.cmake\n@@ -193,12 +193,12 @@\n   endforeach()\n \n   install(FILES ${install_files}\n-          DESTINATION lib/ocaml)\n+          DESTINATION \"${LLVM_OCAML_INSTALL_PATH}/llvm\")\n   install(FILES ${install_shlibs}\n           PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE\n                       GROUP_READ GROUP_EXECUTE\n                       WORLD_READ WORLD_EXECUTE\n-          DESTINATION lib/ocaml)\n+          DESTINATION \"${LLVM_OCAML_INSTALL_PATH}/llvm\")\n \n   foreach( install_file ${install_files} ${install_shlibs} )\n     get_filename_component(filename \"${install_file}\" NAME)\n", 
+            "name": "D24354.diff"
+          }, 
+          {
+            "content": "diff --git a/cmake/modules/AddOCaml.cmake b/cmake/modules/AddOCaml.cmake\nindex e3dd1d8..eb3c4a2 100644\n--- a/cmake/modules/AddOCaml.cmake\n+++ b/cmake/modules/AddOCaml.cmake\n@@ -68,7 +68,7 @@ function(add_ocaml_library name)\n \n   explicit_map_components_to_libraries(llvm_libs ${ARG_LLVM})\n   foreach( llvm_lib ${llvm_libs} )\n-    list(APPEND ocaml_flags \"-l${llvm_lib}\" )\n+    list(APPEND ocaml_flags \"-lLLVM-3.9\" )\n   endforeach()\n \n   get_property(system_libs TARGET LLVMSupport PROPERTY LLVM_SYSTEM_LIBS)\n", 
+            "name": "link.patch"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "bash -ex ./build.sh version $cur__lib", 
+          "make -C build ocaml_all", 
+          "make -C build/bindings/ocaml install/fast", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "llvm_version": {
+            "scope": "global", 
+            "val": "3.9.0"
+          }, 
+          "llvm_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "llvm_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "@opam-alpha/ounit": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin", 
+        "@opam-alpha/ctypes": ">= 0.4.0"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.00.0"
+      }, 
+      "name": "@opam-alpha/llvm"
+    }, 
+    "3.7.0": {
+      "version": "3.7.0", 
+      "opam": {
+        "url": "http://llvm.org/releases/3.7.0/llvm-3.7.0.src.tar.xz", 
+        "checksum": "b98b9495e5655a672d6cb83e1a180f8e", 
+        "files": [
+          {
+            "content": "#!/bin/bash -ex\n\nversion=$1\nmake=$2\nprefix=$3\nlibdir=$4\n\ncommon_configure() {\n    ../configure CC=gcc CXX=g++ --disable-compiler-version-checks --prefix=\"$prefix\" \\\n        --disable-doxygen --disable-docs --with-ocaml-libdir=\"$libdir/llvm\" \\\n        --enable-static \"$@\"\n}\n\nconfigure() {\n    case `uname -s` in\n        Darwin)\n            common_configure --disable-shared;;\n        *)\n            common_configure --enable-shared;;\n    esac\n}\n\nbrew_llvm_config=/usr/local/Cellar/llvm/${version}*/bin/llvm-config\nif ! stat -t $brew_llvm_config; then\n    brew_llvm_config=\nfi\n\nshopt -s nullglob\n\nversion_sans_dot=$(echo $version | tr -d .)\nfor config in llvm-config-$version llvm-config$version_sans_dot llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    case `$config --version` in\n        $version|$version.*)\n            mkdir build\n            cd build\n            configure\n            $make -C bindings all SYSTEM_LLVM_CONFIG=$config\n            $make -C bindings install SYSTEM_LLVM_CONFIG=$config\n            mv \"$libdir/llvm/META.llvm\" \"$libdir/llvm/META\"\n            for stublib in $libdir/llvm/dll*.so; do\n                mv \"$stublib\" \"$libdir/stublibs/\"\n                echo llvm >\"$libdir/stublibs/$(basename $stublib).owner\"\n            done\n            exit 0;;\n        *)\n            continue;;\n    esac\ndone\n\necho \"Error: LLVM $version is not installed.\"\nexit 1\n", 
+            "name": "install.sh"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "bash -ex ./install.sh version make $cur__install $cur__lib", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "llvm_version": {
+            "scope": "global", 
+            "val": "3.7.0"
+          }, 
+          "llvm_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "llvm_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ounit": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin", 
+        "@opam-alpha/ctypes": ">= 0.4.0"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.00.0"
+      }, 
+      "name": "@opam-alpha/llvm"
+    }, 
+    "3.8.0": {
+      "version": "3.8.0", 
+      "opam": {
+        "url": "http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz", 
+        "checksum": "07a7a74f3c6bd65de4702bf941b511a0", 
+        "files": [
+          {
+            "content": "#!/bin/bash -ex\n\nversion=$1\nmake=$2\nprefix=$3\nlibdir=$4\n\ncommon_configure() {\n    ../configure CC=gcc CXX=g++ --disable-compiler-version-checks --prefix=\"$prefix\" \\\n        --disable-doxygen --disable-docs --with-ocaml-libdir=\"$libdir/llvm\" \\\n        --enable-static \"$@\"\n}\n\nconfigure() {\n    case `uname -s` in\n        Darwin)\n            common_configure --disable-shared;;\n        *)\n            common_configure --enable-shared;;\n    esac\n}\n\nbrew_llvm_config=/usr/local/Cellar/llvm/${version}*/bin/llvm-config\nif ! stat -t $brew_llvm_config; then\n    brew_llvm_config=\nfi\n\nshopt -s nullglob\n\nversion_sans_dot=$(echo $version | tr -d .)\nfor config in llvm-config-$version llvm-config$version_sans_dot llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    case `$config --version` in\n        $version|$version.*)\n            mkdir build\n            cd build\n            configure\n            $make -C bindings all SYSTEM_LLVM_CONFIG=$config\n            $make -C bindings install SYSTEM_LLVM_CONFIG=$config\n            mv \"$libdir/llvm/META.llvm\" \"$libdir/llvm/META\"\n            for stublib in $libdir/llvm/dll*.so; do\n                mv \"$stublib\" \"$libdir/stublibs/\"\n                echo llvm >\"$libdir/stublibs/$(basename $stublib).owner\"\n            done\n            exit 0;;\n        *)\n            continue;;\n    esac\ndone\n\necho \"Error: LLVM $version is not installed.\"\nexit 1\n", 
+            "name": "install.sh"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "bash -ex ./install.sh version make $cur__install $cur__lib", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "llvm_version": {
+            "scope": "global", 
+            "val": "3.8.0"
+          }, 
+          "llvm_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "llvm_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ounit": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin", 
+        "@opam-alpha/ctypes": ">= 0.4.0"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.00.0"
+      }, 
+      "name": "@opam-alpha/llvm"
+    }
+  }
+}

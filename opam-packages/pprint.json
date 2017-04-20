@@ -1,0 +1,164 @@
+{
+  "versions": {
+    "20130324.0.0": {
+      "version": "20130324.0.0", 
+      "opam": {
+        "url": "http://pauillac.inria.fr/~fpottier/pprint/pprint-20130324.tar.gz", 
+        "checksum": "4bc8cbd0bc6b7afdaf52034e6af9bedb", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -exc cd src && make", 
+          "sh -exc cd src && make install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "pprint_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "pprint_version": {
+            "scope": "global", 
+            "val": "20130324.0.0"
+          }, 
+          "pprint_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/pprint"
+    }, 
+    "20130131.0.0": {
+      "version": "20130131.0.0", 
+      "opam": {
+        "url": "http://gallium.inria.fr/~fpottier/pprint/pprint-20130131.tar.gz", 
+        "checksum": "1ada812cb734cb5bdb75e405f843449b", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -exc cd src && make", 
+          "sh -exc cd src && make install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "pprint_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "pprint_version": {
+            "scope": "global", 
+            "val": "20130131.0.0"
+          }, 
+          "pprint_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/pprint"
+    }, 
+    "20140313.0.0": {
+      "version": "20140313.0.0", 
+      "opam": {
+        "url": "http://gallium.inria.fr/~fpottier/pprint/pprint-20140313.tar.gz", 
+        "checksum": "8e78014fa609d76bc963be58b2427526", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make -C src", 
+          "make -C src install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "pprint_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "pprint_version": {
+            "scope": "global", 
+            "val": "20140313.0.0"
+          }, 
+          "pprint_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/pprint"
+    }, 
+    "20140424.0.0": {
+      "version": "20140424.0.0", 
+      "opam": {
+        "url": "http://gallium.inria.fr/~fpottier/pprint/pprint-20140424.tar.gz", 
+        "checksum": "52e20eae82fb397efc6c5d011fe01503", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make -C src", 
+          "make -C src install", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "pprint_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "pprint_version": {
+            "scope": "global", 
+            "val": "20140424.0.0"
+          }, 
+          "pprint_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.2.3"
+      }, 
+      "name": "@opam-alpha/pprint"
+    }
+  }
+}
