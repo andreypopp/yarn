@@ -1885,9 +1885,9 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-"fastreplacestring@git+https://github.com/IwanKaramazow/FastReplaceString.git#0.0.2":
-  version "0.0.1"
-  resolved "git+https://github.com/IwanKaramazow/FastReplaceString.git#3cf6b8f6d2745eb080b8a6d50765b624b6ac7c65"
+"fastreplacestring@git+https://github.com/IwanKaramazow/FastReplaceString.git#0.0.3":
+  version "0.0.3"
+  resolved "git+https://github.com/IwanKaramazow/FastReplaceString.git#d3580df7399783fe359ca148c47010f6ec4c0cb7"
 
 fb-watchman@^1.8.0:
   version "1.9.2"
