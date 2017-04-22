@@ -198,7 +198,7 @@ function buildEjectCommand(
       target: '$(ESY__EJECT_ROOT)/bin/fastreplacestring.exe',
       dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring.cpp'],
       shell: '/bin/bash',
-      command: 'g++ -Ofast -o $(@) -x c++ $(<) 2> /dev/null',
+      command: 'g++ -Ofast -o $(@) $(<) 2> /dev/null',
     },
     {
       type: 'rule',
