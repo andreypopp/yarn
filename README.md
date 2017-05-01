@@ -40,7 +40,7 @@
 
 ```
 npm uninstall -g esy
-npm install -g "git://github.com/reasonml/esy.git#beta-v0.0.2"
+npm install -g "git://github.com/reasonml/esy.git#beta-v0.0.3"
 ```
 
 For a more bleeding edge experience use `beta-v-bleeding`.
