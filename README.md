@@ -78,7 +78,7 @@ that `esy build-eject` always matches the behavior of `esy build`.
 
 ```
 # Make sure esy is installed
-npm install -g "git://github.com/reasonml/esy.git#beta-v0.0.2"
+npm install -g "git://github.com/reasonml/esy.git#beta-v0.0.3"
 
 # Clone the example esy project
 git clone git@github.com:esy-ocaml/esy-ocaml-project.git
@@ -329,13 +329,13 @@ On a clean branch off of `origin/master`, run
     git submodule init
     git submodule update
     # Substitute your version number below
-    make beta-release VERSION=0.0.2
+    make beta-release VERSION=0.0.3
 
 Then follow the instructions for pushing a tagged release to github.
 
 Once pushed, other people can install that tagged release globally like this:
 
-    npm install -g git://github.com/reasonml/esy.git#beta-v0.0.2
+    npm install -g git://github.com/reasonml/esy.git#beta-v0.0.3
 
 #### Supporting More OPAM packages
 
