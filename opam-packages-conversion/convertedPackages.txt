@@ -211,7 +211,7 @@ base-no-ppx base
 base-ocamlbuild base
 base-threads base
 base-unix base
-base 0.1.alpha1
+base v0.9.0 v0.9.1 v0.9.2
 base58 0.1.2
 base64 1.0.0 1.1.0 2.0.0 2.1.2
 batsh 0.0.1 0.0.2 0.0.3 0.0.4 0.0.5 0.0.6
