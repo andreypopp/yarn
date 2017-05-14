@@ -428,7 +428,8 @@ function calculateEnvironment(
       },
     };
 
-    let dependencies = collectTransitiveDependencies(packageInfo);
+    let dependencies = collectTransitiveDependencies(packageInfo)
+      .filter(({ esy }) => !esy.__noEsyConfigPresent);
     if (dependencies.length > 0) {
       let depPath = dependencies
         .map(dep => targetPath(sandbox, dep, '_install', 'bin'))
