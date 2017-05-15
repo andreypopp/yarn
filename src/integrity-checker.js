@@ -121,13 +121,17 @@ export default class InstallationIntegrityChecker {
    * Get the list of the directories that contain our modules (there might be multiple such folders b/c of workspaces).
    */
 
-  _getModulesFolders({workspaceLayout}: {workspaceLayout: ?WorkspaceLayout} = {}): Array<string> {
+  _getModulesFolders(
+    {workspaceLayout}: {workspaceLayout: ?WorkspaceLayout} = {},
+  ): Array<string> {
     const locations = [];
 
     if (this.config.modulesFolder) {
       locations.push(this.config.modulesFolder);
     } else {
-      locations.push(path.join(this.config.lockfileFolder, constants.NODE_MODULES_FOLDER));
+      locations.push(
+        path.join(this.config.lockfileFolder, constants.NODE_MODULES_FOLDER),
+      );
     }
 
     if (workspaceLayout) {
@@ -146,7 +150,9 @@ export default class InstallationIntegrityChecker {
   /**
    * Get a list of the files that are located inside our module folders.
    */
-  async _getIntegrityListing({workspaceLayout}: {workspaceLayout: ?WorkspaceLayout} = {}): Promise<Array<string>> {
+  async _getIntegrityListing(
+    {workspaceLayout}: {workspaceLayout: ?WorkspaceLayout} = {},
+  ): Promise<Array<string>> {
     const files = [];
 
     const recurse = async dir => {
@@ -253,7 +259,9 @@ export default class InstallationIntegrityChecker {
 
     for (const modulesFolder of this._getModulesFolders({workspaceLayout})) {
       if (await fs.exists(modulesFolder)) {
-        result.modulesFolders.push(path.relative(this.config.lockfileFolder, modulesFolder));
+        result.modulesFolders.push(
+          path.relative(this.config.lockfileFolder, modulesFolder),
+        );
       }
     }
 
@@ -367,10 +375,20 @@ export default class InstallationIntegrityChecker {
       };
     }
 
-    const actual = await this._generateIntegrityFile(lockfile, patterns, flags, workspaceLayout);
+    const actual = await this._generateIntegrityFile(
+      lockfile,
+      patterns,
+      flags,
+      workspaceLayout,
+    );
 
     const expected = await this._getIntegrityFile(loc.locationPath);
-    let integrityMatches = this._compareIntegrityFiles(actual, expected, flags.checkFiles, workspaceLayout);
+    let integrityMatches = this._compareIntegrityFiles(
+      actual,
+      expected,
+      flags.checkFiles,
+      workspaceLayout,
+    );
 
     if (integrityMatches === 'OK') {
       invariant(expected, "The integrity shouldn't pass without integrity file");
@@ -419,7 +437,13 @@ export default class InstallationIntegrityChecker {
     workspaceLayout: ?WorkspaceLayout,
     artifacts: InstallArtifacts,
   ): Promise<void> {
-    const integrityFile = await this._generateIntegrityFile(lockfile, patterns, flags, workspaceLayout, artifacts);
+    const integrityFile = await this._generateIntegrityFile(
+      lockfile,
+      patterns,
+      flags,
+      workspaceLayout,
+      artifacts,
+    );
 
     const loc = await this._getIntegrityFileLocation();
     invariant(loc.locationPath, 'expected integrity hash location');
