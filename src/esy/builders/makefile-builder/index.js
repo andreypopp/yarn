@@ -130,8 +130,8 @@ export function renderToMakefile(sandbox: BuildSandbox, outputPath: string) {
     },
     {
       type: 'rule',
-      target: '$(ESY__EJECT_ROOT)/bin/fastreplacestring.exe',
-      dependencies: ['$(ESY__EJECT_ROOT)/bin/fastreplacestring.cpp'],
+      target: '$(ESY_EJECT__ROOT)/bin/fastreplacestring.exe',
+      dependencies: ['$(ESY_EJECT__ROOT)/bin/fastreplacestring.cpp'],
       shell: '/bin/bash',
       command: 'g++ -Ofast -o $(@) $(<) 2> /dev/null',
     },
