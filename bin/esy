@@ -118,8 +118,7 @@ printHelp() {
   cat <<EOF
   Usage: $0 <command> [--help] [--version]
 
-  install               Installs package.json packages, but with the ability
-                        to bridge to other non-npm based package managers.
+  install               Installs packages declared in package.json.
 
   build                 Builds everything that needs to be built, caches
                         results. Builds according to each package's "esy"
@@ -134,8 +133,9 @@ printHelp() {
                         environment - meaning it also inherits your existing
                         shell.
 
-  build-eject           Creates node_modules/.cache/esy/Makefile, which is what
-                        esy build normally runs.
+  build-eject           Creates node_modules/.cache/esy/build-eject/Makefile,
+                        which is later can be used for building without the NodeJS
+                        runtime.
 
   <command>             Executes <command> as if you had executed it inside of
                         esy shell.
