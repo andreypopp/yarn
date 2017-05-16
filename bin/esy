@@ -145,7 +145,7 @@ EOF
 
 printVersion() {
 	cat <<EOF
-esy version $ESY__VERSION.
+$ESY__VERSION.
 EOF
 }
 
