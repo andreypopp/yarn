@@ -181,6 +181,7 @@ async function crawlBuild(
   const maybeDuplicateSpec = context.seenBuildSpecByName.get(packageJson.name);
   if (maybeDuplicateSpec != null) {
     nextErrors.push({
+      // eslint-disable-next-line max-len
       message: `Found multiple instances of "${packageJson.name}" package: ${nextSourcePath} and ${maybeDuplicateSpec.sourcePath}`,
     });
   }
@@ -205,8 +206,6 @@ async function crawlBuild(
 }
 
 function getEnvironment(): BuildEnvironment {
-  const platform = process.env.ESY__TEST ? 'platform' : process.platform;
-  const architecture = process.env.ESY__TEST ? 'architecture' : process.arch;
   return Env.fromEntries([
     {
       name: 'PATH',
@@ -219,39 +218,6 @@ function getEnvironment(): BuildEnvironment {
       name: 'SHELL',
       value: 'env -i /bin/bash --norc --noprofile',
       exclusive: false,
-      builtIn: true,
-      exported: true,
-    },
-
-    // platform and architecture of the host machine
-    {
-      name: 'esy__platform',
-      value: platform,
-      exclusive: true,
-      builtIn: true,
-      exported: true,
-    },
-    {
-      name: 'esy__architecture',
-      value: architecture,
-      exclusive: true,
-      builtIn: true,
-      exported: true,
-    },
-
-    // platform and architecture of the target machine, so that we can do cross
-    // compilation
-    {
-      name: 'esy__target_platform',
-      value: platform,
-      exclusive: true,
-      builtIn: true,
-      exported: true,
-    },
-    {
-      name: 'esy__target_architecture',
-      value: architecture,
-      exclusive: true,
       builtIn: true,
       exported: true,
     },

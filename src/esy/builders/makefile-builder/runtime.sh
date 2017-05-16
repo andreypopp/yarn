@@ -11,11 +11,14 @@ FG_GREEN='\033[0;32m'
 FG_WHITE='\033[1;37m'
 FG_RESET='\033[0m'
 
+# Configure sandbox mechanism
 ESY__SANDBOX_COMMAND=""
-
-if [[ "$esy__platform" == "darwin" ]]; then
-  ESY__SANDBOX_COMMAND="sandbox-exec -f $cur__target_dir/_esy/sandbox.sb"
-fi
+case $(uname) in
+  Darwin*) ESY__SANDBOX_COMMAND="sandbox-exec -f $cur__target_dir/_esy/sandbox.sb";;
+  Linux*);;
+  MSYS*);;
+  *);;
+esac
 
 _esy-prepare-build-env () {
 
