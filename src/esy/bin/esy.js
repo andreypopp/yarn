@@ -2,12 +2,26 @@
  * @flow
  */
 
-let childProcess = require('child_process');
+// TODO: This is a hack, we need to find a way to solve that more elegantly. But
+// for not this is required as we redirected stderr to stdout and those
+// possible deprecation warnings can really hurt and make things difficult to
+// debug.
+// $FlowFixMe: fix me
+process.noDeprecation = true;
 
+import type {BuildTask} from '../types';
+
+import * as fs from 'fs';
+import loudRejection from 'loud-rejection';
+import outdent from 'outdent';
+import userHome from 'user-home';
+import * as path from 'path';
 import chalk from 'chalk';
-const loudRejection = require('loud-rejection');
-const PackageEnvironment = require('../PackageEnvironment');
-const Sandbox = require('../Sandbox');
+import {settings as configureObservatory} from 'observatory';
+import * as Env from '../environment';
+import * as Task from '../build-task';
+import * as Config from '../build-config';
+import * as Sandbox from '../build-sandbox';
 
 /**
  * Each package can configure exportedEnvVars with:
@@ -134,19 +148,25 @@ const Sandbox = require('../Sandbox');
  *  true/false flag and it doesn't take into account scope.
  */
 
-function formatError(message: string) {
-  return `${chalk.red('ERROR')} ${message}`;
+function formatError(message: string, stack?: string) {
+  let result = `${chalk.red('ERROR')} ${message}`;
+  if (stack != null) {
+    result += `\n${stack}`;
+  }
+  return result;
 }
 
-function error(message: string) {
-  console.log(formatError(message));
+function error(error: Error | string) {
+  const message = String(error.message ? error.message : error);
+  const stack = error.stack ? String(error.stack) : undefined;
+  console.log(formatError(message, stack));
   process.exit(1);
 }
 
 async function getValidSandbox(directory) {
   const sandbox = await Sandbox.fromDirectory(directory);
-  if (sandbox.packageInfo.errors.length > 0) {
-    sandbox.packageInfo.errors.forEach(error => {
+  if (sandbox.root.errors.length > 0) {
+    sandbox.root.errors.forEach(error => {
       console.log(formatError(error.message));
     });
     process.exit(1);
@@ -154,36 +174,118 @@ async function getValidSandbox(directory) {
   return sandbox;
 }
 
+const actualArgs = process.argv.slice(2);
+// TODO: Need to change this to climb to closest package.json.
+const sandboxPath = process.cwd();
+const storePath = process.env.ESY__STORE || path.join(userHome, '.esy', 'store');
+const config = Config.createConfig({storePath, sandboxPath});
+
+async function buildCommand(sandboxPath) {
+  const builder = require('../builders/simple-builder');
+
+  const observatory = configureObservatory({
+    prefix: chalk.green('  → '),
+  });
+
+  const loggingHandlers = new Map();
+  function getReporterFor(task) {
+    let handler = loggingHandlers.get(task.id);
+    if (handler == null) {
+      handler = observatory.add(task.spec.name);
+      loggingHandlers.set(task.id, handler);
+    }
+    return handler;
+  }
+
+  const sandbox = await getValidSandbox(sandboxPath);
+  const task: BuildTask = Task.fromBuildSandbox(sandbox, config);
+  const failures = [];
+  await builder.build(task, sandbox, config, (task, status) => {
+    if (status.state === 'in-progress') {
+      getReporterFor(task).status('building...');
+    } else if (status.state === 'success') {
+      const {timeEllapsed} = status;
+      if (timeEllapsed != null) {
+        getReporterFor(task).done('BUILT').details(`in ${timeEllapsed / 1000}s`);
+      } else if (!task.spec.shouldBePersisted) {
+        getReporterFor(task).done('BUILT').details(`unchanged`);
+      }
+    } else if (status.state === 'failure') {
+      failures.push({task, error: status.error});
+      getReporterFor(task).fail('FAILED');
+    }
+  });
+  for (const failure of failures) {
+    const {error} = failure;
+    if (error.logFilename) {
+      const {logFilename} = (error: any);
+      if (!failure.task.spec.shouldBePersisted) {
+        const logContents = fs.readFileSync(logFilename, 'utf8');
+        console.log(
+          outdent`
+
+            ${chalk.red('FAILED')} ${failure.task.spec.name}, see log for details:
+
+            ${chalk.red(indent(logContents, '  '))}
+            `,
+        );
+      } else {
+        console.log(
+          outdent`
+
+            ${chalk.red('FAILED')} ${failure.task.spec.name}, see log for details:
+              ${logFilename}
+
+            `,
+        );
+      }
+    } else {
+      console.log(
+        outdent`
+
+        ${chalk.red('FAILED')} ${failure.task.spec.name}:
+          ${failure.error}
+
+        `,
+      );
+    }
+  }
+}
+
+async function buildEjectCommand(sandboxPath) {
+  const buildEject = require('../builders/makefile-builder');
+  const sandbox = await getValidSandbox(sandboxPath);
+  buildEject.renderToMakefile(
+    sandbox,
+    path.join(sandboxPath, 'node_modules', '.cache', '_esy', 'build-eject'),
+  );
+}
+
 const builtInCommands = {
-  "build-eject": async function(curDir, ...args) {
-    let buildEject = require('../buildEjectCommand');
-    const sandbox = await getValidSandbox(curDir);
-    buildEject(sandbox, ...args);
-  },
+  'build-eject': buildEjectCommand,
+  build: buildCommand,
 };
 
-// TODO: Need to change this to climb to closest package.json.
-const curDir = process.cwd();
-const actualArgs = process.argv.slice(2);
+function indent(string, indent) {
+  return string.split('\n').map(line => indent + line).join('\n');
+}
 
 async function main() {
-
   if (actualArgs.length === 0) {
-    const sandbox = await getValidSandbox(curDir);
-    // It's just a status command. Print the command that would be
+    // TODO: It's just a status command. Print the command that would be
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
-    let envForThisPackageScripts = PackageEnvironment.calculateEnvironment(
-      sandbox,
-      sandbox.packageInfo,
-      {useLooseEnvironment: true}
-    );
-    console.log(PackageEnvironment.printEnvironment(envForThisPackageScripts));
+    const sandbox = await getValidSandbox(sandboxPath);
+    const task = Task.fromBuildSandbox(sandbox, config);
+    // Sandbox env is more strict than we want it to be at runtime, filter
+    // out $SHELL overrides.
+    task.env.delete('SHELL');
+    console.log(Env.printEnvironment(task.env));
   } else {
-    let builtInCommandName = actualArgs[0];
-    let builtInCommand = builtInCommands[builtInCommandName];
+    const builtInCommandName = actualArgs[0];
+    const builtInCommand = builtInCommands[builtInCommandName];
     if (builtInCommand) {
-      builtInCommand(curDir, ...process.argv.slice(3));
+      await builtInCommand(sandboxPath, ...process.argv.slice(3));
     } else {
       console.error(`unknown command: ${builtInCommandName}`);
     }
@@ -191,5 +293,4 @@ async function main() {
 }
 
 main().catch(error);
-
 loudRejection();

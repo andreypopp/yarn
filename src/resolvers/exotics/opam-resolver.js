@@ -11,7 +11,7 @@ import * as fs from '../../util/fs.js';
 export type OpamManifestCollection = {
   versions: {
     [name: string]: OpamManifest,
-  }
+  },
 };
 
 type File = {
@@ -25,7 +25,7 @@ export type OpamManifest = Manifest & {
     files?: Array<File>,
     checksum?: string,
     patch?: string,
-  }
+  },
 };
 
 const OPAM_METADATA_STORE = path.join(__dirname, '..', '..', '..', 'opam-packages');
@@ -33,7 +33,6 @@ const OPAM_METADATA_STORE = path.join(__dirname, '..', '..', '..', 'opam-package
 const OPAM_SCOPE = 'opam-alpha';
 
 export default class OpamResolver extends ExoticResolver {
-
   constructor(request: PackageRequest, fragment: string) {
     super(request, fragment);
 
@@ -63,7 +62,11 @@ export default class OpamResolver extends ExoticResolver {
       return shrunk;
     }
 
-    const manifest = await lookupOpamPackageManifest(this.name, this.version, this.config);
+    const manifest = await lookupOpamPackageManifest(
+      this.name,
+      this.version,
+      this.config,
+    );
     const reference = `${manifest.name}@${manifest.version}`;
 
     manifest._remote = {
@@ -106,7 +109,7 @@ export async function lookupOpamPackageManifest(
   const version = await config.resolveConstraints(versions, versionRange);
   if (version == null) {
     // TODO: figure out how to report error
-    throw new Error(`No compatible version found: ${versionRange}`);
+    throw new Error(`No compatible version found: ${name}@${versionRange}`);
   }
   const packageJson = packageCollection.versions[version];
   packageJson._uid = packageJson.opam.checksum || packageJson.version;
