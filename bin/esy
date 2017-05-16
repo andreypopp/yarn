@@ -126,12 +126,14 @@ printHelp() {
                         the environment is scrubbed clean then created according
                         to dependencies.
 
-  build-shell           Drops into a shell with environment matching your
-                        package's build environment.
-
   shell                 The same as esy build-shell, but creates a "relaxed"
                         environment - meaning it also inherits your existing
                         shell.
+
+  print-env             Prints esy environment on stdout.
+
+  build-shell           Drops into a shell with environment matching your
+                        package's build environment.
 
   build-eject           Creates node_modules/.cache/esy/build-eject/Makefile,
                         which is later can be used for building without the NodeJS
@@ -179,6 +181,10 @@ elif [ $# -eq 1 ]; then
     shell)
       ensureEnvEjected
       ENV="$ENV_PATH" PS1="esy % " sh
+      ;;
+    print-env)
+      ensureEnvEjected
+      cat "$ENV_PATH"
       ;;
     install|add)
       builtInYarn "$@"
