@@ -9,7 +9,7 @@
 // $FlowFixMe: fix me
 process.noDeprecation = true;
 
-import type {BuildTask} from '../types';
+import type {BuildSandbox, BuildSpec, BuildTask} from '../types';
 
 import * as fs from 'fs';
 import loudRejection from 'loud-rejection';
@@ -163,8 +163,8 @@ function error(error: Error | string) {
   process.exit(1);
 }
 
-async function getValidSandbox(directory) {
-  const sandbox = await Sandbox.fromDirectory(directory);
+async function getBuildSandbox(sandboxPath): Promise<BuildSandbox> {
+  const sandbox = await Sandbox.fromDirectory(sandboxPath);
   if (sandbox.root.errors.length > 0) {
     sandbox.root.errors.forEach(error => {
       console.log(formatError(error.message));
@@ -172,6 +172,24 @@ async function getValidSandbox(directory) {
     process.exit(1);
   }
   return sandbox;
+}
+
+async function getShellSandbox(sandboxPath): Promise<BuildSandbox> {
+  const {root, ...rest} = await getBuildSandbox(sandboxPath);
+  const shell: BuildSpec = {
+    id: '__SHELL__',
+    version: '1.0.0',
+    name: '__SHELL__',
+    dependencies: new Map(),
+    sourcePath: sandboxPath,
+    shouldBePersisted: false,
+    mutatesSourcePath: false,
+    exportedEnv: {},
+    errors: [],
+    command: null,
+  };
+  shell.dependencies.set(root.id, root);
+  return {...rest, root: shell};
 }
 
 const actualArgs = process.argv.slice(2);
@@ -197,7 +215,7 @@ async function buildCommand(sandboxPath) {
     return handler;
   }
 
-  const sandbox = await getValidSandbox(sandboxPath);
+  const sandbox = await getBuildSandbox(sandboxPath);
   const task: BuildTask = Task.fromBuildSandbox(sandbox, config);
   const failures = [];
   await builder.build(task, sandbox, config, (task, status) => {
@@ -254,7 +272,7 @@ async function buildCommand(sandboxPath) {
 
 async function buildEjectCommand(sandboxPath) {
   const buildEject = require('../builders/makefile-builder');
-  const sandbox = await getValidSandbox(sandboxPath);
+  const sandbox = await getBuildSandbox(sandboxPath);
   buildEject.renderToMakefile(
     sandbox,
     path.join(sandboxPath, 'node_modules', '.cache', '_esy', 'build-eject'),
@@ -275,7 +293,7 @@ async function main() {
     // TODO: It's just a status command. Print the command that would be
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
-    const sandbox = await getValidSandbox(sandboxPath);
+    const sandbox = await getShellSandbox(sandboxPath);
     const task = Task.fromBuildSandbox(sandbox, config);
     // Sandbox env is more strict than we want it to be at runtime, filter
     // out $SHELL overrides.
