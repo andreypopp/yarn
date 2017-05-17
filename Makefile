@@ -1,4 +1,13 @@
+define FILTERDIFF_MANUAL
+You do not have 'filterdiff' installed:\\n\
+- macOS: brew install patchutils\\n\
+- Linux: apt-get install patchutils
+endef
+
 bootstrap:
+	@echo '*** Initializing submodules'
+	@git submodule init
+	@git submodule update
 	@echo '*** Bootstrapping esy-install'
 	@yarn
 	@echo '*** Bootstrapping esy-core'
@@ -10,10 +19,14 @@ build:
 	@echo '*** Building esy-core'
 	@(cd esy && $(MAKE) build)
 
-convert-opam-packages:
+convert-opam-packages: check-filterdiff
 	@$(MAKE) -C opam-packages-conversion/ convert || true # some conversions fail now
 	@rm -rf opam-packages/
 	@mv opam-packages-conversion/output opam-packages
+
+check-filterdiff:
+	@which filterdiff > /dev/null \
+		|| (echo "$(FILTERDIFF_MANUAL)" && exit 1)
 
 check-version:
 ifndef VERSION
