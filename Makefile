@@ -1,12 +1,19 @@
-build build-dist build-chocolatey build-win-installer test-only check-lockfile watch lint release-branch:
-	@npm run $(@)
+bootstrap:
+	@echo '*** Bootstrapping esy-install'
+	@yarn
+	@echo '*** Bootstrapping esy-core'
+	@(cd esy && yarn)
+
+build:
+	@echo '*** Building esy-install'
+	@npm run build
+	@echo '*** Building esy-core'
+	@(cd esy && $(MAKE) build)
 
 convert-opam-packages:
 	@$(MAKE) -C opam-packages-conversion/ convert || true # some conversions fail now
 	@rm -rf opam-packages/
 	@mv opam-packages-conversion/output opam-packages
-
-prepare-release: build
 
 check-version:
 ifndef VERSION
@@ -14,9 +21,6 @@ ifndef VERSION
 endif
 
 # Beta releases to Github
-# - We *don't* rewriteDependencies
-# - We *don't* push a copy of node_modules
-# - We *do* require all source files be preprocessed by babel and put into lib/
 beta-release: check-version convert-opam-packages build
 	@# Program "fails" if unstaged changes.
 	@echo "Preparing beta release beta-$(VERSION)"
@@ -49,19 +53,3 @@ beta-release: check-version convert-opam-packages build
 	@echo "4. Switch back to another branch (git checkout -b ANOTHERBRANCH origin/master)"
 	@echo ""
 	@echo "> Note: If you are pushing an update to an existing tag, you might need to add -f to the push command."
-
-release: convert-opam-packages build
-	@rm -rf .tmp
-	@mkdir .tmp
-	@mv node_modules/ .tmp/node_modules
-	@npm install --production --ignore-scripts
-	@mv node_modules lib/node_modules;
-	@cp package.json .tmp/package.json
-	@node ./scripts/rewriteDependencies.js
-	@npm publish --access public
-	@cp .tmp/package.json package.json
-	@mv .tmp/node_modules node_modules
-	@rm -rf lib
-
-# Once you've ran convert-opam-packages, if you change the JS code, rerun make build
-# and then you can use ~/path/to/esy/bin/esy as the binary.

@@ -32,3 +32,7 @@
 Dockerfile
 end_to_end_tests
 /opam-packages-conversion/
+/esy/node_modules
+/esy/src
+/esy/coverage
+/esy/flow-typed
