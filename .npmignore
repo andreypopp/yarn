@@ -30,3 +30,7 @@
 *.msi
 *.nupkg
 /opam-packages-conversion/
+/esy/node_modules
+/esy/src
+/esy/coverage
+/esy/flow-typed
