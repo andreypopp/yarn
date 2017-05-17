@@ -1,0 +1,44 @@
+{
+  "versions": {
+    "0.0.9": {
+      "version": "0.0.9", 
+      "opam": {
+        "url": "https://github.com/facebookincubator/immutable-re/archive/0.0.9.tar.gz", 
+        "checksum": "19acbf43156b6ff8197449702d68cf8b", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make build", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "immutable_version": {
+            "scope": "global", 
+            "val": "0.0.9"
+          }, 
+          "immutable_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "immutable_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/reason": ">= 1.13.3", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin", 
+        "@opam-alpha/topkg": ">= 0.8.1 < 0.9.0"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.0 < 4.05.0"
+      }, 
+      "name": "@opam-alpha/immutable"
+    }
+  }
+}

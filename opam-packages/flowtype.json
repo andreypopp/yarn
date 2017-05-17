@@ -1,0 +1,47 @@
+{
+  "versions": {
+    "0.38.0": {
+      "version": "0.38.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.38.0.tar.gz", 
+        "checksum": "aeccb250256697c4598fb23c1c3b6af3", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "(opam-installer --prefix=$cur__install || true)"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.38.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }
+  }
+}
