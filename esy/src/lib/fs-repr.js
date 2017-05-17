@@ -4,7 +4,7 @@
 
 import invariant from 'invariant';
 import * as path from 'path';
-import * as fs from '../../util/fs';
+import * as fs from './fs';
 
 export type FileNode = {
   type: 'file',
@@ -72,12 +72,12 @@ export async function write(rootDirname: string, nodes: Node[]): Promise<void> {
 }
 
 export async function read(rootDirname: string): Promise<Node[]> {
-  async function crawlFile(pathname: string, name: string): Promise<FileNode> {
-    return {
+  function crawlFile(pathname: string, name: string): Promise<FileNode> {
+    return Promise.resolve({
       type: 'file',
       name,
       content: null,
-    };
+    });
   }
 
   async function crawlLink(pathname: string, name: string): Promise<LinkNode> {

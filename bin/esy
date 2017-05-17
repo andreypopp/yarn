@@ -83,7 +83,7 @@ needRebuildTarget () {
 
 builtInEject () {
   if [ `needRebuildTarget "$EJECT_PATH/Makefile"` == "true" ]; then
-    EJECT_LOG=`node $SCRIPTDIR/esy.js build-eject "$EJECT_PATH" 2>&1`
+    EJECT_LOG=`node $SCRIPTDIR/../esy/bin/esy.js build-eject "$EJECT_PATH" 2>&1`
     if [ $? -ne 0 ]; then
       echo "Failed to prepare build environment:"
       printf "%s\n" "$EJECT_LOG" >&2
@@ -94,7 +94,7 @@ builtInEject () {
 
 ensureEnvEjected () {
   if [ `needRebuildTarget "$ENV_PATH"` == "true" ]; then
-    EJECTED_ENV=`node $SCRIPTDIR/esy.js 2>&1`
+    EJECTED_ENV=`node $SCRIPTDIR/../esy/bin/esy.js 2>&1`
     if [ $? -ne 0 ]; then
       echo "Failed to get environment:"
       printf "%s\n" "$EJECTED_ENV" >&2
@@ -107,7 +107,7 @@ ensureEnvEjected () {
 }
 
 builtIn() {
-	node $SCRIPTDIR/esy.js $@
+	node $SCRIPTDIR/../esy/bin/esy.js $@
 }
 
 builtInYarn() {

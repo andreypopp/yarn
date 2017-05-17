@@ -194,21 +194,19 @@ export function fromBuildSpec(
   return task;
 }
 
-function builtInEntry(
-  {
-    name,
-    value,
-    spec,
-    exclusive = true,
-    exported = false,
-  }: {
-    name: string,
-    value: string,
-    spec?: BuildSpec,
-    exclusive?: boolean,
-    exported?: boolean,
-  },
-) {
+function builtInEntry({
+  name,
+  value,
+  spec,
+  exclusive = true,
+  exported = false,
+}: {
+  name: string,
+  value: string,
+  spec?: BuildSpec,
+  exclusive?: boolean,
+  exported?: boolean,
+}) {
   return [name, {name, value, spec, builtIn: true, exclusive, exported}];
 }
 
