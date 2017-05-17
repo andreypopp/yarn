@@ -2,7 +2,7 @@
  * @flow
  */
 
-import * as fs from '../../util/fs';
+import * as fs from '../lib/fs';
 import * as FSRepr from '../lib/fs-repr';
 import {fromDirectory} from '../build-sandbox';
 
@@ -18,7 +18,7 @@ describe('build-sandbox', function() {
   let directoriesToCleanup = [];
 
   async function prepareSandbox(nodes: FSRepr.Node[]): Promise<string> {
-    const tempdir = await fs.makeTempDir('esy-test-sandbox');
+    const tempdir = await fs.mkdtemp('esy-test-sandbox');
     directoriesToCleanup.push(tempdir);
     await FSRepr.write(tempdir, nodes);
     return tempdir;
@@ -30,7 +30,9 @@ describe('build-sandbox', function() {
 
   afterEach(async function() {
     for (const dirname of directoriesToCleanup) {
-      await fs.unlink(dirname);
+      try {
+        await fs.unlink(dirname);
+      } catch (_err) {}
     }
   });
 

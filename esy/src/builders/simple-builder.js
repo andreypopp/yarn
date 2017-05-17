@@ -8,21 +8,13 @@ import createLogger from 'debug';
 import * as path from 'path';
 import * as os from 'os';
 import * as nodefs from 'fs';
-import PromiseQueue from 'p-queue';
 
-import * as fs from '../../util/fs';
-import {calculateMtimeChecksum} from '../lib/fs';
+import {PromiseQueue} from '../lib/Promise';
+import * as fs from '../lib/fs';
 
 import * as Graph from '../graph';
 import {endWritableStream, interleaveStreams} from '../util';
-import {
-  renderEnv,
-  renderSandboxSbConfig,
-  rewritePathInFile,
-  exec,
-  copyTree,
-  rmTree,
-} from './util';
+import {renderEnv, renderSandboxSbConfig, rewritePathInFile, exec} from './util';
 
 const INSTALL_DIRS = ['lib', 'bin', 'sbin', 'man', 'doc', 'share', 'stublibs', 'etc'];
 const BUILD_DIRS = ['_esy'];
@@ -63,7 +55,7 @@ export const build = async (
       IGNORE_FOR_CHECKSUM.map(s => config.getSourcePath(spec, s)),
     );
     const sourcePath = await fs.realpath(config.getSourcePath(spec));
-    return await calculateMtimeChecksum(sourcePath, {
+    return await fs.calculateMtimeChecksum(sourcePath, {
       ignore: name => ignoreForChecksum.has(name),
     });
   }
@@ -181,7 +173,11 @@ async function performBuild(
   log('starting build');
 
   log('removing prev destination directories (if exist)');
-  await Promise.all([rmTree(finalInstallPath), rmTree(installPath), rmTree(buildPath)]);
+  await Promise.all([
+    fs.rmdir(finalInstallPath),
+    fs.rmdir(installPath),
+    fs.rmdir(buildPath),
+  ]);
 
   log('creating destination directories');
   await Promise.all([
@@ -198,12 +194,15 @@ async function performBuild(
 
   if (task.spec.mutatesSourcePath) {
     log('build mutates source directory, rsyncing sources to $cur__target_dir');
-    await copyTree({
-      from: path.join(config.sandboxPath, task.spec.sourcePath),
-      to: config.getBuildPath(task.spec),
-      exclude: PATHS_TO_IGNORE.map(p =>
-        path.join(config.sandboxPath, task.spec.sourcePath, p)),
-    });
+    await fs.copydir(
+      path.join(config.sandboxPath, task.spec.sourcePath),
+      config.getBuildPath(task.spec),
+      {
+        exclude: PATHS_TO_IGNORE.map(p =>
+          path.join(config.sandboxPath, task.spec.sourcePath, p),
+        ),
+      },
+    );
   }
 
   const envForExec = {};
@@ -262,7 +261,9 @@ async function performBuild(
     await Promise.all(
       files.map(file =>
         rewriteQueue.add(() =>
-          rewritePathInFile(file.absolute, installPath, finalInstallPath))),
+          rewritePathInFile(file.absolute, installPath, finalInstallPath),
+        ),
+      ),
     );
   }
 

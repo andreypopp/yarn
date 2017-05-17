@@ -5,11 +5,8 @@
 import type {BuildSpec, BuildConfig, BuildEnvironment} from '../types';
 
 import * as child from 'child_process';
+import * as fs from '../lib/fs';
 import outdent from 'outdent';
-import {copy} from 'fs-extra';
-import rimraf from 'rimraf';
-import {promisify} from '../../util/promise';
-import * as fs from '../../util/fs';
 
 type ConfigSpec = {
   allowFileWrite?: Array<?string>,
@@ -89,16 +86,4 @@ export function exec(
     process.on('exit', (code, signal) => resolve({code, signal}));
   });
   return {process, exit};
-}
-
-export const rmTree = promisify(rimraf);
-
-const _copyTree = promisify(copy);
-
-export async function copyTree(
-  params: {from: string, to: string, exclude?: string[]},
-): Promise<void> {
-  await _copyTree(params.from, params.to, {
-    filter: filename => !(params.exclude && params.exclude.includes(filename)),
-  });
 }
