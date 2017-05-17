@@ -7,21 +7,27 @@ import path from 'path';
 import http from 'http';
 import {SecurityError} from '../errors.js';
 import type {OpamManifest} from '../resolvers/exotics/opam-resolver';
-import {parseOpamResolution, lookupOpamPackageManifest} from '../resolvers/exotics/opam-resolver';
+import {
+  parseOpamResolution,
+  lookupOpamPackageManifest,
+} from '../resolvers/exotics/opam-resolver';
 import BaseFetcher from '../fetchers/base-fetcher.js';
 import * as constants from '../constants.js';
 import * as fs from '../util/fs.js';
 import * as child from '../util/child.js';
 import * as nodeFs from 'fs';
-import * as nodeCrypto from 'crypto';
+const nodeCrypto = require('crypto');
 import DecompressZip from 'decompress-zip';
 
 export default class OpamFetcher extends BaseFetcher {
-
   async _fetch(): Promise<FetchedOverride> {
     const {dest} = this;
     const resolution = parseOpamResolution(this.reference);
-    const manifest = await lookupOpamPackageManifest(resolution.name, resolution.version, this.config);
+    const manifest = await lookupOpamPackageManifest(
+      resolution.name,
+      resolution.version,
+      this.config,
+    );
     let hash = this.hash || '';
 
     if (manifest.opam.url != null) {
@@ -37,8 +43,8 @@ export default class OpamFetcher extends BaseFetcher {
     // put extra files
     const {files} = manifest.opam;
     if (files) {
-      await Promise.all(files.map((file) =>
-        fs.writeFile(path.join(dest, file.name), file.content, 'utf8')),
+      await Promise.all(
+        files.map(file => fs.writeFile(path.join(dest, file.name), file.content, 'utf8')),
       );
     }
 
@@ -60,19 +66,21 @@ export default class OpamFetcher extends BaseFetcher {
     return registry.request(manifest.opam.url, {
       headers: {
         'Accept-Encoding': 'gzip',
-        'Accept': 'application/octet-stream',
+        Accept: 'application/octet-stream',
       },
       buffer: true,
       process: (req, resolve, reject) => {
         const {reporter} = this.config;
 
-        const handleRequestError = (res) => {
+        const handleRequestError = res => {
           if (res.statusCode >= 400) {
             // $FlowFixMe
             const statusDescription = http.STATUS_CODES[res.statusCode];
-            reject(new Error(
-              reporter.lang('requestFailed', `${res.statusCode} ${statusDescription}`),
-            ));
+            reject(
+              new Error(
+                reporter.lang('requestFailed', `${res.statusCode} ${statusDescription}`),
+              ),
+            );
           }
         };
 
@@ -81,7 +89,6 @@ export default class OpamFetcher extends BaseFetcher {
       },
     });
   }
-
 }
 
 function writeValidatedStream(stream, filename, md5checksum = null): Promise<string> {
@@ -89,22 +96,24 @@ function writeValidatedStream(stream, filename, md5checksum = null): Promise<str
   return new Promise((resolve, reject) => {
     const out = nodeFs.createWriteStream(filename);
     stream
-      .on('data', (chunk) => {
+      .on('data', chunk => {
         if (md5checksum != null) {
           hasher.update(chunk);
         }
       })
       .pipe(out)
-      .on('error', (err) => {
+      .on('error', err => {
         reject(err);
       })
       .on('finish', () => {
         const actualChecksum = hasher.digest('hex');
         if (md5checksum != null) {
           if (actualChecksum !== md5checksum) {
-            reject(new SecurityError(
-              `Incorrect md5sum (expected ${md5checksum}, got ${actualChecksum})`,
-            ));
+            reject(
+              new SecurityError(
+                `Incorrect md5sum (expected ${md5checksum}, got ${actualChecksum})`,
+              ),
+            );
             return;
           }
         }
@@ -138,7 +147,7 @@ function extractZipIntoDirectory(filename, dest, options): Promise<void> {
   let seenError = false;
   return new Promise((resolve, reject) => {
     const unzipper = new DecompressZip(filename);
-    unzipper.on('error', (err) => {
+    unzipper.on('error', err => {
       if (!seenError) {
         seenError = true;
         reject(err);
