@@ -302,22 +302,55 @@ npm run test
 
 #### Developing
 
-When developing `esy` (or cloning the repo to use locally), you must have `filterdiff` installed (which you can obtain via `brew install patchutils`).
+When developing `esy` (or cloning the repo to use locally), you must have
+`filterdiff` installed (which you can obtain via `brew install patchutils`).
 
-To make changes to `esy` and test them locally, check out and build the `esy` repo as such:
+To make changes to `esy` and test them locally:
 
-    git clone git://github.com/reasonml/esy.git
-    cd esy
-    npm install
-    which filterdiff || echo "You do not have filterdiff installed. Your build will fail! See README"
-    git submodule init
-    git submodule update
-    make convert-opam-packages
-    make build # also `make watch` for watching for source changes in `src/`
+    % git clone git://github.com/reasonml/esy.git
+    % cd esy
+    % make bootstrap
+    % make convert-opam-packages
 
-Then you may "point" to that built version of esy by simply referencing its path.
+##### Developing: esy install
 
-    /path/to/esy/.bin/esy build
+The repo is a fork of yarn package manager, the fork has changes to allow
+installing opam packages via `@opam/` npm scope. If you need to work on this
+functionality you need to follow yarn's dev workflow:
+
+    % npm run watch
+
+The command above rebuilds `esy install` command when source changes.
+
+##### Developing: esy core
+
+The esy core source tree is inside `esy/` subdirectory.
+
+    % cd esy
+
+Run:
+
+    % make
+
+to see the description of development workflow.
+
+#### Developing: opam packages
+
+- Make sure you've ran `git submodule init` and `git submodule update`.
+- Add the OPAM package name and versions to
+  ./opam-packages-conversion/convertedPackages.txt
+- If the package/version was recently added to `OPAM`, you should `cd` into
+  `opam-packages-conversion/opam-repository`, `git fetch --all`, and then `git
+  checkout origin/master` to make sure you've got the latest OPAM universe that
+  you will convert from. `cd` back into the `esy` project root, and then `git
+  status` will show git changes for you to commit.
+- Make a new commit with all the above changes.
+- Push the update to `esy` `master`.
+- Clone a *fresh* new clone of `esy` (so that the submodules initialize
+  correctly), then publish a new beta release as described next.
+
+If an opam package fails to convert, inspect the output and fix any python
+errors that might be causing the package conversion failure.
 
 #### Pushing a Beta Release
 
@@ -336,25 +369,6 @@ Then follow the instructions for pushing a tagged release to github.
 Once pushed, other people can install that tagged release globally like this:
 
     npm install -g git://github.com/reasonml/esy.git#beta-v0.0.3
-
-#### Supporting More OPAM packages
-
-- Make sure you've ran `git submodule init` and `git submodule update`.
-- Add the OPAM package name and versions to
-  ./opam-packages-conversion/convertedPackages.txt
-- If the package/version was recently added to `OPAM`, you should `cd` into
-  `opam-packages-conversion/opam-repository`, `git fetch --all`, and then `git
-  checkout origin/master` to make sure you've got the latest OPAM universe that
-  you will convert from. `cd` back into the `esy` project root, and then `git
-  status` will show git changes for you to commit.
-- Make a new commit with all the above changes.
-- Push the update to `esy` `master`.
-- Clone a *fresh* new clone of `esy` (so that the submodules initialize
-  correctly), then publish a new beta release as described next.
-
-If an opam package fails to convert, inspect the output and fix any python
-errors that might be causing the package conversion failure.
-
 
 #### Debugging Failed `esy build`
 
