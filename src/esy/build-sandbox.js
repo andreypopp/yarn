@@ -9,12 +9,11 @@ import type {
   EnvironmentVarExport,
 } from './types';
 
-import * as crypto from 'crypto';
 import * as path from 'path';
 import outdent from 'outdent';
 
 import * as fs from '../util/fs';
-import {resolve, normalizePackageName} from './util';
+import {computeHash, resolve, normalizePackageName} from './util';
 import * as Env from './environment';
 
 export type EsyConfig = {
@@ -284,9 +283,7 @@ function hash(value: mixed) {
   } else if (value === undefined) {
     return hash('undefined');
   } else {
-    const hasher = crypto.createHash('sha1');
-    hasher.update(JSON.stringify(value));
-    return hasher.digest('hex');
+    return computeHash(JSON.stringify(value));
   }
 }
 

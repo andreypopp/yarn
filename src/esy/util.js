@@ -2,7 +2,8 @@
  * @flow
  */
 
-import * as crypto from 'crypto';
+// Using ES "import" syntax triggers deprecation warnings in Node
+const crypto = require('crypto');
 import resolveBase from 'resolve';
 import * as stream from 'stream';
 import * as fs from '../util/fs';
@@ -19,8 +20,8 @@ export function flattenArray<T>(arrayOfArrays: Array<Array<T>>): Array<T> {
   return [].concat(...arrayOfArrays);
 }
 
-export function hash(str: string): string {
-  const hash = crypto.createHash('sha1');
+export function computeHash(str: string, algo: string = 'sha1'): string {
+  const hash = crypto.createHash(algo);
   hash.update(str);
   return hash.digest('hex');
 }
