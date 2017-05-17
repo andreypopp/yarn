@@ -334,6 +334,9 @@ Run:
 
 to see the description of development workflow.
 
+**NOTE:** When adding an npm dependency you need to run `yarn add <pkg name>`
+for both `esy-install` and `esy-core` packages.
+
 #### Developing: opam packages
 
 - Make sure you've ran `git submodule init` and `git submodule update`.
