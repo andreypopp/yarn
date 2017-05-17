@@ -6,8 +6,8 @@ import type {BuildSpec} from '../types';
 import {expandWithScope, renderWithScope, fromBuildSpec} from '../build-task';
 import * as Config from '../build-config';
 
-function calculate(config, spec) {
-  const {env, scope} = fromBuildSpec(spec, config);
+function calculate(config, spec, params) {
+  const {env, scope} = fromBuildSpec(spec, config, params);
   return {env, scope};
 }
 
@@ -336,5 +336,22 @@ describe('calculating env', function() {
       dependencies: [ocamlfind, lwt],
     });
     expect(calculate(config, app)).toMatchSnapshot();
+  });
+
+  test('exposing own $cur__bin in $PATH', function() {
+    const dep = build({
+      name: 'dep',
+      exportedEnv: {
+        dep__var: {val: 'hello'},
+      },
+      dependencies: [],
+    });
+    const app = build({
+      name: 'app',
+      exportedEnv: {},
+      dependencies: [dep],
+    });
+    const PATH = calculate(config, app, {exposeOwnPath: true}).env.get('PATH');
+    expect(PATH).toMatchSnapshot();
   });
 });

@@ -16,13 +16,18 @@ import {normalizePackageName, mergeIntoMap, mapValuesMap} from './util';
 import * as Graph from './graph';
 import * as Env from './environment';
 
+type BuildTaskParams = {
+  env?: BuildEnvironment,
+  exposeOwnPath?: boolean,
+};
+
 /**
  * Produce a task graph from a build spec graph.
  */
 export function fromBuildSpec(
   rootBuild: BuildSpec,
   config: BuildConfig,
-  sandboxEnv?: BuildEnvironment = new Map(),
+  params?: BuildTaskParams,
 ): BuildTask {
   const {
     task,
@@ -118,6 +123,22 @@ export function fromBuildSpec(
       },
     ]);
 
+    if (scopes.spec === rootBuild) {
+      // Check if we want to expose $cur__bin in $PATH
+      if (params != null && params.exposeOwnPath) {
+        evalIntoEnv(env, [
+          {
+            name: 'PATH',
+            value: `${config.getFinalInstallPath(rootBuild, 'bin')}:$PATH`,
+          },
+          {
+            name: 'MAN_PATH',
+            value: `${config.getFinalInstallPath(rootBuild, 'man')}:$MAN_PATH`,
+          },
+        ]);
+      }
+    }
+
     const errors = [];
 
     // $cur__name, $cur__version and so on...
@@ -140,7 +161,9 @@ export function fromBuildSpec(
       ),
     );
 
-    evalIntoEnv(env, Array.from(sandboxEnv.values()));
+    if (params != null && params.env != null) {
+      evalIntoEnv(env, Array.from(params.env.values()));
+    }
 
     const scope = new Map();
     mergeIntoMap(scope, getEvalScope(scopes.spec, scopes.dependencies, config));
@@ -342,6 +365,17 @@ export function expandWithScope<T: {value: string}>(
   return {rendered: rendered != null ? rendered : value};
 }
 
-export function fromBuildSandbox(sandbox: BuildSandbox, config: BuildConfig): BuildTask {
-  return fromBuildSpec(sandbox.root, config, sandbox.env);
+export function fromBuildSandbox(
+  sandbox: BuildSandbox,
+  config: BuildConfig,
+  params?: BuildTaskParams,
+): BuildTask {
+  const env = new Map();
+  if (sandbox.env) {
+    mergeIntoMap(env, sandbox.env);
+  }
+  if (params != null && params.env != null) {
+    mergeIntoMap(env, params.env);
+  }
+  return fromBuildSpec(sandbox.root, config, {...params, env});
 }

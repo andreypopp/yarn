@@ -11045,3 +11045,13 @@ Object {
   ],
 }
 `;
+
+exports[`calculating env exposing own $cur__bin in $PATH 1`] = `
+Object {
+  "builtIn": false,
+  "exclusive": false,
+  "exported": true,
+  "name": "PATH",
+  "value": "<storePath>/_install/app/bin:<storePath>/_install/dep/bin:$PATH",
+}
+`;

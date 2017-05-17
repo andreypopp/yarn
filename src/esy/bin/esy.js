@@ -9,7 +9,7 @@
 // $FlowFixMe: fix me
 process.noDeprecation = true;
 
-import type {BuildSandbox, BuildSpec, BuildTask} from '../types';
+import type {BuildSandbox, BuildTask} from '../types';
 
 import * as fs from 'fs';
 import loudRejection from 'loud-rejection';
@@ -174,24 +174,6 @@ async function getBuildSandbox(sandboxPath): Promise<BuildSandbox> {
   return sandbox;
 }
 
-async function getShellSandbox(sandboxPath): Promise<BuildSandbox> {
-  const {root, ...rest} = await getBuildSandbox(sandboxPath);
-  const shell: BuildSpec = {
-    id: '__SHELL__',
-    version: '1.0.0',
-    name: '__SHELL__',
-    dependencies: new Map(),
-    sourcePath: sandboxPath,
-    shouldBePersisted: false,
-    mutatesSourcePath: false,
-    exportedEnv: {},
-    errors: [],
-    command: null,
-  };
-  shell.dependencies.set(root.id, root);
-  return {...rest, root: shell};
-}
-
 const actualArgs = process.argv.slice(2);
 // TODO: Need to change this to climb to closest package.json.
 const sandboxPath = process.cwd();
@@ -293,8 +275,8 @@ async function main() {
     // TODO: It's just a status command. Print the command that would be
     // used to setup the environment along with status of
     // the build processes, staleness, package validity etc.
-    const sandbox = await getShellSandbox(sandboxPath);
-    const task = Task.fromBuildSandbox(sandbox, config);
+    const sandbox = await getBuildSandbox(sandboxPath);
+    const task = Task.fromBuildSandbox(sandbox, config, {exposeOwnPath: true});
     // Sandbox env is more strict than we want it to be at runtime, filter
     // out $SHELL overrides.
     task.env.delete('SHELL');
