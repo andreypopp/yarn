@@ -16,7 +16,7 @@ cppo 1.4.1
 easy-format 1.2.0
 lambda-term 1.9
 lwt 2.5.2 2.7.0
-menhir 20161115
+menhir 20161115 20170418
 merlin 2.5.3 2.5.4
 merlin-extend 0.3
 ocamlbuild 0.9.3
