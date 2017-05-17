@@ -129,6 +129,7 @@ describe('expandWithScope()', function() {
 });
 
 describe('calculating env', function() {
+  // $FlowFixMe: fix jest flow-typed defs
   expect.addSnapshotSerializer({
     test(val) {
       return val.id && val.name && val.dependencies && val.exportedEnv;

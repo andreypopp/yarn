@@ -12,7 +12,7 @@ import type {
 import * as path from 'path';
 import outdent from 'outdent';
 
-import * as fs from '../util/fs';
+import * as fs from './lib/fs';
 import {computeHash, resolve, normalizePackageName} from './util';
 import * as Env from './environment';
 
@@ -163,10 +163,7 @@ async function crawlBuild(
     packageJson.dependencies,
     packageJson.peerDependencies,
   );
-  const {
-    dependencies,
-    errors,
-  } = await crawlDependencies(sourcePath, dependencySpecs, {
+  const {dependencies, errors} = await crawlDependencies(sourcePath, dependencySpecs, {
     ...context,
     dependencyTrace: context.dependencyTrace.concat(packageJson.name),
   });

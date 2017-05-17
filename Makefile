@@ -63,22 +63,5 @@ release: convert-opam-packages build
 	@mv .tmp/node_modules node_modules
 	@rm -rf lib
 
-test-watch:
-	@ESY__TEST=yes jest --watch ./src/esy/__tests__/*-test.js
-
-test:
-	@ESY__TEST=yes jest ./src/esy/__tests__/*-test.js
-
 # Once you've ran convert-opam-packages, if you change the JS code, rerun make build
 # and then you can use ~/path/to/esy/bin/esy as the binary.
-
-clean:
-	@rm -rf lib/
-
-lib/%.js: src/%.js
-	@mkdir -p $(@D)
-	@node_modules/.bin/babel -o $@ $<
-
-lib/%: src/%
-	@mkdir -p $(@D)
-	@cp $< $@

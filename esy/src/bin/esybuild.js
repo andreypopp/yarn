@@ -49,15 +49,15 @@ var isPosix = true;
 
 var postInstallContents;
 if (isPosix) {
-  postInstallContents =  [
+  postInstallContents = [
     '#!/usr/bin/env bash',
     'WAITING_FOR_PACKAGE_POST_INSTALL=' + process.env['npm_package_name'],
     'if [ "$npm_package_name" == "$WAITING_FOR_PACKAGE_POST_INSTALL" ]; then',
     '  esy build',
-    'fi'
+    'fi',
   ].join(os.EOL);
 } else {
-  throw new Exception("non-POSIX systems not yet supported.")
+  throw new Exception('non-POSIX systems not yet supported.');
 }
 
 /**
@@ -83,7 +83,6 @@ if (isPosix) {
  */
 require('npm-hooks').postinstall(postInstallContents, '.', function(err) {
   if (err) {
-    console.log("ERROR INJECTING esy npm hook", err);
+    console.log('ERROR INJECTING esy npm hook', err);
   }
 });
-

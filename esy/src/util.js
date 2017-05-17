@@ -6,7 +6,7 @@
 const crypto = require('crypto');
 import resolveBase from 'resolve';
 import * as stream from 'stream';
-import * as fs from '../util/fs';
+import * as fs from './lib/fs';
 
 export function mapObject<S: *, F: (*) => *>(obj: S, f: F): $ObjMap<S, F> {
   const nextObj = {};
