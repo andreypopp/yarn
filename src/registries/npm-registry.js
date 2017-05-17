@@ -1,5 +1,6 @@
 /* @flow */
 
+import type Reporter from '../reporters/base-reporter.js';
 import type RequestManager from '../util/request-manager.js';
 import type {RegistryRequestOptions, CheckOutdatedReturn} from './base-registry.js';
 import type Config from '../config.js';
@@ -11,8 +12,7 @@ import Registry from './base-registry.js';
 import {addSuffix, removePrefix} from '../util/misc';
 import isRequestToRegistry from './is-request-to-registry.js';
 
-const defaults = require('defaults');
-const userHome = require('user-home');
+const userHome = require('../util/user-home-dir').default;
 const path = require('path');
 const url = require('url');
 const ini = require('ini');
@@ -39,8 +39,8 @@ function getGlobalPrefix(): string {
 }
 
 export default class NpmRegistry extends Registry {
-  constructor(cwd: string, registries: ConfigRegistries, requestManager: RequestManager) {
-    super(cwd, registries, requestManager);
+  constructor(cwd: string, registries: ConfigRegistries, requestManager: RequestManager, reporter: Reporter) {
+    super(cwd, registries, requestManager, reporter);
     this.folder = 'node_modules';
   }
 
@@ -58,7 +58,9 @@ export default class NpmRegistry extends Registry {
       || this.getOption('always-auth')
       || removePrefix(requestUrl, registry)[0] === '@';
 
-    const headers = {};
+    const headers = Object.assign({
+      'Accept': 'application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*',
+    }, opts.headers);
     if (this.token || (alwaysAuth && isRequestToRegistry(requestUrl, registry))) {
       const authorization = this.getAuth(pathname);
       if (authorization) {
@@ -95,7 +97,10 @@ export default class NpmRegistry extends Registry {
     };
   }
 
-  async getPossibleConfigLocations(filename: string): Promise<Array<[boolean, string, string]>> {
+  async getPossibleConfigLocations(
+      filename: string,
+      reporter: Reporter,
+      ): Promise<Array<[boolean, string, string]>> {
     const possibles = [
       [false, path.join(this.cwd, filename)],
       [true, this.config.userconfig || path.join(userHome, filename)],
@@ -110,7 +115,9 @@ export default class NpmRegistry extends Registry {
 
     const actuals = [];
     for (const [isHome, loc] of possibles) {
+      reporter.verbose(reporter.lang('configPossibleFile', loc));
       if (await fs.exists(loc)) {
+        reporter.verbose(reporter.lang('configFileFound', loc));
         actuals.push([
           isHome,
           loc,
@@ -125,7 +132,7 @@ export default class NpmRegistry extends Registry {
     // docs: https://docs.npmjs.com/misc/config
     this.mergeEnv('npm_config_');
 
-    for (const [, loc, file] of await this.getPossibleConfigLocations('.npmrc')) {
+    for (const [, loc, file] of await this.getPossibleConfigLocations('.npmrc', this.reporter)) {
       const config = Registry.normalizeConfig(ini.parse(file));
       for (const key: string in config) {
         config[key] = envReplace(config[key]);
@@ -139,7 +146,7 @@ export default class NpmRegistry extends Registry {
         await fs.mkdirp(mirrorLoc);
       }
 
-      defaults(this.config, config);
+      this.config = Object.assign({}, config, this.config);
     }
   }
 

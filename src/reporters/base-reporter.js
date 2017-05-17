@@ -10,6 +10,7 @@ import type {
   Package,
   ReporterSpinner,
   QuestionOptions,
+  PromptOptions,
 } from './types.js';
 import type {LanguageKeys} from './lang/en.js';
 import type {Formatter} from './format.js';
@@ -18,6 +19,7 @@ import * as languages from './lang/index.js';
 import isCI from 'is-ci';
 
 const util = require('util');
+const EventEmitter = require('events').EventEmitter;
 
 type Language = $Keys<typeof languages>;
 
@@ -29,6 +31,7 @@ export type ReporterOptions = {
   stdin?: Stdin,
   emoji?: boolean,
   noProgress?: boolean,
+  silent?: boolean,
 };
 
 export function stringifyLangArgs(args: Array<any>): Array<string> {
@@ -37,7 +40,10 @@ export function stringifyLangArgs(args: Array<any>): Array<string> {
       return val.inspect();
     } else {
       try {
-        return JSON.stringify(val) || val + '';
+        const str = JSON.stringify(val) || val + '';
+	// should match all "u001b" that follow an odd number of backslashes and convert them to ESC
+	// we do this because the JSON.stringify process has escaped these characters
+        return str.replace(/((?:^|[^\\])(?:\\{2})*)\\u001[bB]/g, '$1\u001b');
       } catch (e) {
         return util.inspect(val);
       }
@@ -52,7 +58,7 @@ export default class BaseReporter {
 
     this.stdout = opts.stdout || process.stdout;
     this.stderr = opts.stderr || process.stderr;
-    this.stdin = opts.stdin || process.stdin;
+    this.stdin = opts.stdin || this._getStandardInput();
     this.emoji = !!opts.emoji;
     this.noProgress = !!opts.noProgress || isCI;
     this.isVerbose = !!opts.verbose;
@@ -74,6 +80,7 @@ export default class BaseReporter {
   emoji: boolean;
   noProgress: boolean;
   isVerbose: boolean;
+  isSilent: boolean;
   format: Formatter;
 
   peakMemoryInterval: ?number;
@@ -109,6 +116,23 @@ export default class BaseReporter {
 
   _verbose(msg: string) {}
   _verboseInspect(val: any) {}
+
+  _getStandardInput(): Stdin {
+    let standardInput;
+
+    // Accessing stdin in a win32 headless process (e.g., Visual Studio) may throw an exception.
+    try {
+      standardInput = process.stdin;
+    } catch (e) {
+      console.warn(e.message);
+      delete process.stdin;
+      // $FlowFixMe: this is valid!
+      process.stdin = new EventEmitter();
+      standardInput = process.stdin;
+    }
+
+    return standardInput;
+  }
 
   initPeakMemoryCounter() {
     this.checkPeakMemory();
@@ -235,5 +259,12 @@ export default class BaseReporter {
   // utility function to disable progress bar
   disableProgress() {
     this.noProgress = true;
+  }
+
+  //
+  prompt<T>(
+    message: string, choices: Array<*>, options?: PromptOptions = {},
+  ): Promise<Array<T>> {
+    return Promise.reject(new Error('Not implemented'));
   }
 }

@@ -20,7 +20,7 @@ async function getCredentials(config: Config, reporter: Reporter): Promise<?{
   }
 
   if (email) {
-    reporter.info(`${reporter.lang('npmUsername')}: ${email}`);
+    reporter.info(`${reporter.lang('npmEmail')}: ${email}`);
   } else {
     email = await reporter.question(reporter.lang('npmEmail'));
     if (!email) {
@@ -101,6 +101,12 @@ export async function getToken(config: Config, reporter: Reporter, name: string 
     throw new MessageError(reporter.lang('incorrectCredentials'));
   }
 }
+
+export function hasWrapper(): boolean {
+  return true;
+}
+
+export function setFlags() {}
 
 export async function run(
  config: Config,

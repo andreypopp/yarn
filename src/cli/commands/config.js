@@ -9,7 +9,7 @@ export function hasWrapper(flags: Object, args: Array<string>): boolean {
   return args[0] !== 'get';
 }
 
-export const {run, setFlags} = buildSubCommands('config', {
+export const {run, setFlags, examples} = buildSubCommands('config', {
   async set(
     config: Config,
     reporter: Reporter,
@@ -19,8 +19,7 @@ export const {run, setFlags} = buildSubCommands('config', {
     if (args.length === 0 || args.length > 2) {
       return false;
     }
-    const key = args[0];
-    const val = args[1] || true;
+    const [key, val = true] = args;
     const yarnConfig = config.registries.yarn;
     await yarnConfig.saveHomeConfig({[key]: val});
     reporter.success(reporter.lang('configSet', key, val));

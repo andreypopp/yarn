@@ -43,7 +43,7 @@ export default class NpmResolver extends RegistryResolver {
     const satisfied = await config.resolveConstraints(Object.keys(body.versions), range);
     if (satisfied) {
       return body.versions[satisfied];
-    } else if (request) {
+    } else if (request && !config.nonInteractive) {
       if (request.resolver && request.resolver.activity) {
         request.resolver.activity.end();
       }
@@ -55,7 +55,7 @@ export default class NpmResolver extends RegistryResolver {
       const response: {[key: string]: ?string} = await inquirer.prompt([{
         name: 'package',
         type: 'list',
-        message: config.reporter.lang('chooseVersionFromList'),
+        message: config.reporter.lang('chooseVersionFromList', body.name),
         choices: Object.keys(body.versions).reverse(),
         pageSize,
       }]);

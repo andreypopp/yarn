@@ -7,6 +7,7 @@ import type {
   ReporterSpinner,
   ReporterSelectOption,
   QuestionOptions,
+  PromptOptions,
 } from '../types.js';
 import type {FormatKeys} from '../format.js';
 import BaseReporter from '../base-reporter.js';
@@ -15,20 +16,24 @@ import Spinner from './spinner-progress.js';
 import {clearLine} from './util.js';
 import {removeSuffix} from '../../util/misc.js';
 import {sortTrees, recurseTree, getFormattedOutput} from './helpers/tree-helper.js';
+import inquirer from 'inquirer';
 
 const {inspect} = require('util');
 const readline = require('readline');
 const chalk = require('chalk');
 const read = require('read');
+const tty = require('tty');
 
 type Row = Array<string>;
+type InquirerResponses<K, T> = {[key: K]: Array<T>};
 
 export default class ConsoleReporter extends BaseReporter {
   constructor(opts: Object) {
     super(opts);
-    this._lastCategorySize = 0;
 
+    this._lastCategorySize = 0;
     this.format = (chalk: any);
+    this.isSilent = !!opts.isSilent;
   }
 
   _lastCategorySize: number;
@@ -46,7 +51,7 @@ export default class ConsoleReporter extends BaseReporter {
   }
 
   _verbose(msg: string) {
-    this._logCategory('verbose', 'grey', msg);
+    this._logCategory('verbose', 'grey', `${process.uptime()} ${msg}`);
   }
 
   _verboseInspect(obj: any) {
@@ -141,6 +146,9 @@ export default class ConsoleReporter extends BaseReporter {
   }
 
   _log(msg: string) {
+    if (this.isSilent) {
+      return;
+    }
     clearLine(this.stdout);
     this.stdout.write(`${msg}\n`);
   }
@@ -199,16 +207,16 @@ export default class ConsoleReporter extends BaseReporter {
   // handles basic tree output to console
   tree(key: string, trees: Trees) {
     //
-    const output = ({name, children, hint, color}, level, end) => {
+    const output = ({name, children, hint, color}, titlePrefix, childrenPrefix) => {
       const formatter = this.format;
-      const out = getFormattedOutput({end, level, hint, color, name, formatter});
+      const out = getFormattedOutput({prefix: titlePrefix, hint, color, name, formatter});
       this.stdout.write(out);
 
       if (children && children.length) {
-        recurseTree(sortTrees(children), level, output);
+        recurseTree(sortTrees(children), childrenPrefix, output);
       }
     };
-    recurseTree(sortTrees(trees), -1, output);
+    recurseTree(sortTrees(trees), '', output);
   }
 
   activitySet(total: number, workers: number): ReporterSpinnerSet {
@@ -375,5 +383,52 @@ export default class ConsoleReporter extends BaseReporter {
     return function() {
       bar.tick();
     };
+  }
+
+  async prompt<T>(
+    message: string, choices: Array<*>, options?: PromptOptions = {},
+  ): Promise<Array<T>> {
+    if (!process.stdout.isTTY) {
+      return Promise.reject(new Error("Can't answer a question unless a user TTY"));
+    }
+
+    let pageSize;
+    if (process.stdout instanceof tty.WriteStream) {
+      pageSize = process.stdout.rows - 2;
+    }
+
+    const rl = readline.createInterface({
+      input: this.stdin,
+      output: this.stdout,
+      terminal: true,
+    });
+
+    // $FlowFixMe: Need to update the type of Inquirer
+    const prompt = inquirer.createPromptModule({
+      input: this.stdin,
+      output: this.stdout,
+    });
+
+    let rejectRef = () => {};
+    const killListener = () => {
+      rejectRef();
+    };
+
+    const handleKillFromInquirer = new Promise((resolve, reject) => {
+      rejectRef = reject;
+    });
+
+    rl.addListener('SIGINT', killListener);
+
+    const {name = 'prompt', type = 'input', validate} = options;
+    const answers: InquirerResponses<string, T> = await Promise.race([
+      prompt([{name, type, message, choices, pageSize, validate}]),
+      handleKillFromInquirer,
+    ]);
+
+    rl.removeListener('SIGINT', killListener);
+    rl.close();
+
+    return answers[name];
   }
 }

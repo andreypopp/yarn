@@ -9,6 +9,7 @@ import {setVersion, setFlags as versionSetFlags} from './version.js';
 import * as fs from '../../util/fs.js';
 import {pack} from './pack.js';
 import {getToken} from './login.js';
+import {has2xxResponse} from '../../util/misc.js';
 
 const invariant = require('invariant');
 const crypto = require('crypto');
@@ -20,6 +21,10 @@ export function setFlags(commander: Object) {
   commander.usage('publish [<tarball>|<folder>] [--tag <tag>] [--access <public|restricted>]');
   commander.option('--access [access]', 'access');
   commander.option('--tag [tag]', 'tag');
+}
+
+export function hasWrapper(): boolean {
+  return true;
 }
 
 async function publish(
@@ -63,6 +68,8 @@ async function publish(
 
   // TODO this might modify package.json, do we need to reload it?
   await config.executeLifecycleScript('prepublish');
+  await config.executeLifecycleScript('prepublishOnly');
+  await config.executeLifecycleScript('prepare');
 
   // create body
   const root = {
@@ -99,7 +106,7 @@ async function publish(
     body: root,
   });
 
-  if (res != null && res.success) {
+  if (res !== null && has2xxResponse(res)) {
     await config.executeLifecycleScript('publish');
     await config.executeLifecycleScript('postpublish');
   } else {

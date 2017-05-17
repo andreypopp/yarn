@@ -27,9 +27,9 @@ export default class PackageFetcher {
 
   async fetchCache(dest: string, fetcher: Fetchers): Promise<FetchedMetadata> {
     const {hash, package: pkg} = await this.config.readPackageMetadata(dest);
+    await fetcher.setupMirrorFromCache();
     return {
       package: pkg,
-      resolved: await fetcher.getResolvedFromCached(hash),
       hash,
       dest,
       cached: true,
@@ -55,7 +55,6 @@ export default class PackageFetcher {
     }
 
     const fetcher = new Fetcher(dest, remote, this.config);
-
     if (await this.config.isValidModuleDest(dest)) {
       return this.fetchCache(dest, fetcher);
     }
@@ -89,7 +88,19 @@ export default class PackageFetcher {
   }
 
   async init(): Promise<void> {
-    const pkgs = this.resolver.getPackageReferences();
+    let pkgs = this.resolver.getPackageReferences();
+    const pkgsPerDest: Map<string, PackageReference> = new Map();
+    pkgs = pkgs.filter((ref) => {
+      const dest = this.config.generateHardModulePath(ref);
+      const otherPkg = pkgsPerDest.get(dest);
+      if (otherPkg) {
+        this.reporter.warn(this.reporter.lang('multiplePackagesCantUnpackInSameDestination',
+          ref.patterns, dest, otherPkg.patterns));
+        return false;
+      }
+      pkgsPerDest.set(dest, ref);
+      return true;
+    });
     const tick = this.reporter.progress(pkgs.length);
 
     await promise.queue(pkgs, async (ref) => {
@@ -103,10 +114,6 @@ export default class PackageFetcher {
         // but only if there was a hash previously as the tarball fetcher does not provide a hash.
         if (ref.remote.hash) {
           ref.remote.hash = res.hash;
-        }
-
-        if (res.resolved) {
-          ref.remote.resolved = res.resolved;
         }
       }
 

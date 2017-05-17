@@ -57,6 +57,12 @@ export type Manifest = {
   name: string,
   version: string,
 
+  author?: {
+    name?: string,
+    email?: string,
+    url?: string
+  },
+
   homepage?: string,
   flat?: boolean,
   license?: string,
@@ -120,19 +126,20 @@ export type Manifest = {
 
   deprecated?: string,
   files?: Array<string>,
+  main?: string,
+
+  workspaces?: Array<string>,
 };
 
 //
 export type FetchedMetadata = {
   package: Manifest,
-  resolved: ?string,
   hash: string,
   dest: string,
   cached: boolean,
 };
 export type FetchedOverride = {
   hash: string,
-  resolved: ?string,
 };
 
 // Used by outdated and upgrade-interactive

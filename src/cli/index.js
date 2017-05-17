@@ -1,17 +1,15 @@
 /* @flow */
 
 import {ConsoleReporter, JSONReporter} from '../reporters/index.js';
-import {sortAlpha} from '../util/misc.js';
 import {registries, registryNames} from '../registries/index.js';
-import * as commands from './commands/index.js';
+import commands from './commands/index.js';
 import * as constants from '../constants.js';
 import * as network from '../util/network.js';
 import {MessageError} from '../errors.js';
-import aliases from './aliases.js';
 import Config from '../config.js';
-import {hyphenate, camelCase} from '../util/misc.js';
+import {getRcArgs} from '../rc.js';
+import {version} from '../util/yarn-version.js';
 
-const chalk = require('chalk');
 const commander = require('commander');
 const fs = require('fs');
 const invariant = require('invariant');
@@ -20,32 +18,18 @@ const loudRejection = require('loud-rejection');
 const net = require('net');
 const onDeath = require('death');
 const path = require('path');
-const pkg = require('../../package.json');
 
 loudRejection();
 
-//
 const startArgs = process.argv.slice(0, 2);
-let args = process.argv.slice(2);
 
 // ignore all arguments after a --
-let endArgs = [];
-for (let i = 0; i < args.length; i++) {
-  const arg = args[i];
-  if (arg === '--') {
-    endArgs = args.slice(i + 1);
-    args = args.slice(0, i);
-  }
-}
-
-// NOTE: Pending resolution of https://github.com/tj/commander.js/issues/346
-// Remove this (and subsequent use in the logic below) after bug is resolved and issue is closed
-const ARGS_THAT_SHARE_NAMES_WITH_OPTIONS = [
-  'version',
-];
+const doubleDashIndex = process.argv.findIndex((element) => element === '--');
+const args = process.argv.slice(2, doubleDashIndex === -1 ? process.argv.length : doubleDashIndex);
+const endArgs = doubleDashIndex === -1 ? [] : process.argv.slice(doubleDashIndex + 1, process.argv.length);
 
 // set global options
-commander.version(pkg.version);
+commander.version(version);
 commander.usage('[command] [flags]');
 commander.option('--verbose', 'output verbose messages on internal operations');
 commander.option('--offline', 'trigger an error if any required dependencies are not available in local cache');
@@ -57,14 +41,17 @@ commander.option('--har', 'save HAR output of network traffic');
 commander.option('--ignore-platform', 'ignore platform checks');
 commander.option('--ignore-engines', 'ignore engines check');
 commander.option('--ignore-optional', 'ignore optional dependencies');
-commander.option('--force', 'ignore all caches');
+commander.option('--force', 'install and build packages even if they were built before, overwrite lockfile');
+commander.option('--skip-integrity-check', 'run install without checking if node_modules is installed');
+commander.option('--check-files', 'install will verify file tree of packages for consistency');
 commander.option('--no-bin-links', "don't generate bin links when setting up packages");
 commander.option('--flat', 'only allow one version of a package');
 commander.option('--prod, --production [prod]', '');
 commander.option('--no-lockfile', "don't read or generate a lockfile");
 commander.option('--pure-lockfile', "don't generate a lockfile");
 commander.option('--frozen-lockfile', "don't generate a lockfile and fail if an update is needed");
-commander.option('--global-folder <path>', '');
+commander.option('--link-duplicates', 'create hardlinks to the repeated modules in node_modules');
+commander.option('--global-folder <path>', 'specify a custom folder to store global packages');
 commander.option(
   '--modules-folder <path>',
   'rather than installing modules into the node_modules folder relative to the cwd, output them here',
@@ -81,6 +68,10 @@ commander.option(
   '--no-emoji',
   'disable emoji in output',
 );
+commander.option(
+  '-s, --silent',
+  'skip Yarn console logs, other types of logs (script output) will be printed',
+);
 commander.option('--proxy <host>', '');
 commander.option('--https-proxy <host>', '');
 commander.option(
@@ -88,141 +79,76 @@ commander.option(
   'disable progress bar',
 );
 commander.option('--network-concurrency <number>', 'maximum number of concurrent network requests', parseInt);
+commander.option('--network-timeout <milliseconds>', 'TCP timeout for network requests', parseInt);
+commander.option('--non-interactive', 'do not show interactive prompts');
+
 
 // get command name
-let commandName: ?string = args.shift() || '';
-let command;
+let commandName: string = args.shift() || 'install';
 
-//
-const getDocsLink = (name) => `https://yarnpkg.com/en/docs/cli/${name || ''}`;
-const getDocsInfo = (name) => 'Visit ' + chalk.bold(getDocsLink(name)) + ' for documentation about this command.';
-
-//
-if (commandName === 'help' || commandName === '--help' || commandName === '-h') {
+if (commandName === '--help' || commandName === '-h') {
   commandName = 'help';
-  if (args.length) {
-    const helpCommand = hyphenate(args[0]);
-    if (commands[helpCommand]) {
-      commander.on('--help', () => console.log('  ' + getDocsInfo(helpCommand) + '\n'));
-    }
-  } else {
-    commander.on('--help', () => {
-      console.log('  Commands:\n');
-      for (const name of Object.keys(commands).sort(sortAlpha)) {
-        if (commands[name].useless) {
-          continue;
-        }
-
-        console.log(`    - ${hyphenate(name)}`);
-      }
-      console.log('\n  Run `' + chalk.bold('yarn help COMMAND') + '` for more information on specific commands.');
-      console.log('  Visit ' + chalk.bold(getDocsLink()) + ' to learn more about Yarn.\n');
-    });
-  }
 }
 
-// if no args or command name looks like a flag then default to `install`
-if (!commandName || commandName[0] === '-') {
-  if (commandName) {
-    args.unshift(commandName);
-  }
+if (args.indexOf('--help') >= 0 || args.indexOf('-h') >= 0) {
+  args.unshift(commandName);
+  commandName = 'help';
+}
+
+// if no args or command name looks like a flag then set default to `install`
+if (commandName[0] === '-') {
+  args.unshift(commandName);
   commandName = 'install';
 }
 
-// aliases: i -> install
-if (commandName && typeof aliases[commandName] === 'string') {
-  const alias = aliases[commandName];
-  command = {
-    run(config: Config, reporter: ConsoleReporter | JSONReporter): Promise<void> {
-      throw new MessageError(`Did you mean \`yarn ${alias}\`?`);
-    },
-  };
+let command;
+if (Object.prototype.hasOwnProperty.call(commands, commandName)) {
+  command = commands[commandName];
 }
 
-//
-if (commandName === 'help' && args.length) {
-  commandName = camelCase(args.shift());
-  args.push('--help');
-}
-
-//
-invariant(commandName, 'Missing command name');
+// if command is not recognized, then set default to `run`
 if (!command) {
-  const camelised = camelCase(commandName);
-  if (camelised) {
-    command = commands[camelised];
-  }
-}
-
-//
-if (command && typeof command.setFlags === 'function') {
-  command.setFlags(commander);
-}
-
-if (commandName === 'help' || args.indexOf('--help') >= 0 || args.indexOf('-h') >= 0) {
-  const examples: Array<string> = (command && command.examples) || [];
-  if (examples.length) {
-    commander.on('--help', () => {
-      console.log('  Examples:\n');
-      for (const example of examples) {
-        console.log(`    $ yarn ${example}`);
-      }
-      console.log();
-    });
-  }
-
-  commander.parse(startArgs.concat(args));
-  commander.help();
-  process.exit(1);
-}
-
-// parse flags
-args.unshift(commandName);
-
-if (ARGS_THAT_SHARE_NAMES_WITH_OPTIONS.indexOf(commandName) >= 0 && args[0] === commandName) {
-  args.shift();
-}
-
-commander.parse(startArgs.concat(args));
-commander.args = commander.args.concat(endArgs);
-
-if (command) {
-  commander.args.shift();
-} else {
+  args.unshift(commandName);
   command = commands.run;
 }
-invariant(command, 'missing command');
+
+command.setFlags(commander);
+commander.parse([
+  ...startArgs,
+  // we use this for https://github.com/tj/commander.js/issues/346, otherwise
+  // it will strip some args that match with any options
+  'this-arg-will-get-stripped-later',
+  ...getRcArgs(commandName),
+  ...args,
+]);
+commander.args = commander.args.concat(endArgs);
+
+// we strip cmd
+console.assert(commander.args.length >= 1);
+console.assert(commander.args[0] === 'this-arg-will-get-stripped-later');
+commander.args.shift();
 
 //
-let Reporter = ConsoleReporter;
-if (commander.json) {
-  Reporter = JSONReporter;
-}
+const Reporter = commander.json ? JSONReporter : ConsoleReporter;
 const reporter = new Reporter({
   emoji: commander.emoji && process.stdout.isTTY && process.platform === 'darwin',
   verbose: commander.verbose,
   noProgress: !commander.progress,
+  isSilent: commander.silent,
 });
+
 reporter.initPeakMemoryCounter();
 
-//
 const config = new Config(reporter);
+const outputWrapper = !commander.json && command.hasWrapper(commander, commander.args);
 
-// print header
-let outputWrapper = true;
-if (typeof command.hasWrapper === 'function') {
-  outputWrapper = command.hasWrapper(commander, commander.args);
-}
-if (commander.json) {
-  outputWrapper = false;
-}
 if (outputWrapper) {
-  reporter.header(commandName, pkg);
+  reporter.header(commandName, {name: 'yarn', version});
 }
 
 if (command.noArguments && commander.args.length) {
   reporter.error(reporter.lang('noArguments'));
-  reporter.info(getDocsInfo(commandName));
+  reporter.info(command.getDocsInfo);
   process.exit(1);
 }
 
@@ -263,7 +189,7 @@ const runEventuallyWithFile = (mutexFilename: ?string, isFirstTime?: boolean): P
           reporter.warn(reporter.lang('waitingInstance'));
         }
         setTimeout(() => {
-          ok(runEventuallyWithFile(mutexFilename, isFirstTime));
+          ok(runEventuallyWithFile(mutexFilename, false));
         }, 200); // do not starve the CPU
       } else {
         onDeath(() => {
@@ -333,7 +259,7 @@ function onUnexpectedError(err: Error) {
   const log = [];
   log.push(`Arguments: ${indent(process.argv.join(' '))}`);
   log.push(`PATH: ${indent(process.env.PATH || 'undefined')}`);
-  log.push(`Yarn version: ${indent(pkg.version)}`);
+  log.push(`Yarn version: ${indent(version)}`);
   log.push(`Node version: ${indent(process.versions.node)}`);
   log.push(`Platform: ${indent(process.platform + ' ' + process.arch)}`);
 
@@ -361,7 +287,9 @@ function onUnexpectedError(err: Error) {
 }
 
 function writeErrorReport(log) : ?string {
-  const errorReportLoc = path.join(config.cwd, 'yarn-error.log');
+  const errorReportLoc = config.enableMetaFolder
+    ? path.join(config.cwd, constants.META_FOLDER, 'yarn-error.log')
+    : path.join(config.cwd, 'yarn-error.log');
 
   try {
     fs.writeFileSync(errorReportLoc, log.join('\n\n') + '\n');
@@ -373,7 +301,6 @@ function writeErrorReport(log) : ?string {
   return errorReportLoc;
 }
 
-//
 config.init({
   binLinks: commander.binLinks,
   modulesFolder: commander.modulesFolder,
@@ -390,9 +317,9 @@ config.init({
   httpProxy: commander.proxy,
   httpsProxy: commander.httpsProxy,
   networkConcurrency: commander.networkConcurrency,
-  commandName,
+  nonInteractive: commander.nonInteractive,
+  commandName: commandName === 'run' ? commander.args[0] : commandName,
 }).then(() => {
-
   // option "no-progress" stored in yarn config
   const noProgressConfig = config.registries.yarn.getOption('no-progress');
 
@@ -403,6 +330,8 @@ config.init({
   const exit = () => {
     process.exit(0);
   };
+  // verbose logs outputs process.uptime() with this line we can sync uptime to absolute time on the computer
+  reporter.verbose(`current time: ${new Date().toISOString()}`);
 
   const mutex: mixed = commander.mutex;
   if (mutex && typeof mutex === 'string') {
@@ -429,11 +358,8 @@ config.init({
     onUnexpectedError(err);
   }
 
-  if (commandName) {
-    const actualCommandForHelp = commands[commandName] ? commandName : aliases[commandName];
-    if (command && actualCommandForHelp) {
-      reporter.info(getDocsInfo(actualCommandForHelp));
-    }
+  if (commands[commandName]) {
+    reporter.info(commands[commandName].getDocsInfo);
   }
 
   process.exit(1);

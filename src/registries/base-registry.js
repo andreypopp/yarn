@@ -1,5 +1,6 @@
 /* @flow */
 
+import type Reporter from '../reporters/base-reporter.js';
 import type RequestManager, {RequestMethods} from '../util/request-manager.js';
 import type Config from '../config.js';
 import type {ConfigRegistries} from './index.js';
@@ -13,6 +14,7 @@ export type RegistryRequestOptions = {
   auth?: Object,
   body?: mixed,
   buffer?: bool,
+  headers?: Object,
   process?: Function
 };
 
@@ -23,7 +25,8 @@ export type CheckOutdatedReturn = Promise<{
 }>;
 
 export default class BaseRegistry {
-  constructor(cwd: string, registries: ConfigRegistries, requestManager: RequestManager) {
+  constructor(cwd: string, registries: ConfigRegistries, requestManager: RequestManager, reporter: Reporter) {
+    this.reporter = reporter;
     this.requestManager = requestManager;
     this.registries = registries;
     this.config = {};
@@ -36,6 +39,8 @@ export default class BaseRegistry {
   // the filename to use for package metadata
   static filename: string;
 
+  //
+  reporter: Reporter
   //
   registries: ConfigRegistries;
 
@@ -119,18 +124,18 @@ export default class BaseRegistry {
 
   mergeEnv(prefix: string) {
     // try environment variables
-    for (let key in process.env) {
-      key = key.toLowerCase();
+    for (const envKey in process.env) {
+      let key = envKey.toLowerCase();
 
       // only accept keys prefixed with the prefix
-      if (key.indexOf(prefix) < 0) {
+      if (key.indexOf(prefix.toLowerCase()) < 0) {
         continue;
       }
 
-      const val = BaseRegistry.normalizeConfigOption(process.env[key]);
+      const val = BaseRegistry.normalizeConfigOption(process.env[envKey]);
 
       // remove config prefix
-      key = removePrefix(key, prefix);
+      key = removePrefix(key, prefix.toLowerCase());
 
       // replace dunders with dots
       key = key.replace(/__/g, '.');

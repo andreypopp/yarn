@@ -5,7 +5,13 @@ import type Config from '../config.js';
 import {MessageError, SpawnError} from '../errors.js';
 import * as constants from '../constants.js';
 import * as child from './child.js';
+import {exists} from './fs.js';
 import {registries} from '../resolvers/index.js';
+import {fixCmdWinSlashes} from './fix-cmd-win-slashes.js';
+import {
+  run as globalRun,
+  getBinFolder as getGlobalBinFolder,
+} from '../cli/commands/global.js';
 
 const path = require('path');
 
@@ -27,9 +33,15 @@ async function makeEnv(stage: string, cwd: string, config: Config): {
 } {
   const env = Object.assign({}, process.env);
 
+  // Merge in the `env` object specified in .yarnrc
+  const customEnv = config.getOption('env');
+  if (customEnv && typeof customEnv === 'object') {
+    Object.assign(env, customEnv);
+  }
+
   env.npm_lifecycle_event = stage;
   env.npm_node_execpath = env.NODE || process.execPath;
-  env.npm_execpath = path.join(__dirname, '..', '..', 'bin', 'yarn.js');
+  env.npm_execpath = env.npm_execpath || process.mainModule.filename;
 
   // Set the env to production for npm compat if production mode.
   // https://github.com/npm/npm/blob/30d75e738b9cb7a6a3f9b50e971adcbe63458ed3/lib/utils/lifecycle.js#L336
@@ -115,8 +127,22 @@ export async function executeLifecycleScript(
   // split up the path
   const pathParts = (env[constants.ENV_PATH_KEY] || '').split(path.delimiter);
 
-  // add node-gyp
-  pathParts.unshift(path.join(__dirname, '..', '..', 'bin', 'node-gyp-bin'));
+  // Include node-gyp version that was bundled with the current Node.js version,
+  // if available.
+  pathParts.unshift(
+    path.join(
+      path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'node-gyp-bin',
+    ),
+  );
+  pathParts.unshift(
+    path.join(
+      path.dirname(process.execPath), '..', 'lib', 'node_modules', 'npm', 'bin', 'node-gyp-bin',
+    ),
+  );
+
+  // Add global bin folder, as some packages depend on a globally-installed
+  // version of node-gyp.
+  pathParts.unshift(getGlobalBinFolder(config, {}));
 
   // add .bin folders to PATH
   for (const registry of Object.keys(registries)) {
@@ -124,6 +150,8 @@ export async function executeLifecycleScript(
     pathParts.unshift(path.join(config.linkFolder, binFolder));
     pathParts.unshift(path.join(cwd, binFolder));
   }
+
+  await checkForGypIfNeeded(config, cmd, pathParts);
 
   // join path back together
   env[constants.ENV_PATH_KEY] = pathParts.join(path.delimiter);
@@ -140,6 +168,9 @@ export async function executeLifecycleScript(
     // s - Strip " quote characters from command.
     // c - Run Command and then terminate
     shFlag = '/d /s /c';
+
+    // handle windows run scripts starting with a relative path
+    cmd = fixCmdWinSlashes(cmd);
 
     // handle quotes properly in windows environments - https://github.com/nodejs/node/issues/5060
     conf.windowsVerbatimArguments = true;
@@ -163,6 +194,57 @@ export async function executeLifecycleScript(
 }
 
 export default executeLifecycleScript;
+
+let checkGypPromise: ?Promise<void> = null;
+/**
+ * Special case: Some packages depend on node-gyp, but don't specify this in
+ * their package.json dependencies. They assume that node-gyp is available
+ * globally. We need to detect this case and show an error message.
+ */
+function checkForGypIfNeeded(
+  config: Config,
+  cmd: string,
+  paths: Array<string>,
+): Promise<void> {
+  if (cmd.substr(0, cmd.indexOf(' ')) !== 'node-gyp') {
+    return Promise.resolve();
+  }
+
+  // Ensure this only runs once, rather than multiple times in parallel.
+  if (!checkGypPromise) {
+    checkGypPromise = _checkForGyp(config, paths);
+  }
+  return checkGypPromise;
+}
+
+async function _checkForGyp(
+  config: Config,
+  paths: Array<string>,
+): Promise<void> {
+  const {reporter} = config;
+
+  // Check every directory in the PATH
+  const allChecks = await Promise.all(
+    paths.map((dir) => exists(path.join(dir, 'node-gyp'))),
+  );
+  if (allChecks.some(Boolean)) {
+    // node-gyp is available somewhere
+    return;
+  }
+
+  reporter.info(reporter.lang('packageRequiresNodeGyp'));
+
+  try {
+    await globalRun(
+      config,
+      reporter,
+      {},
+      ['add', 'node-gyp'],
+    );
+  } catch (e) {
+    throw new MessageError(reporter.lang('nodeGypAutoInstallFailed', e.message));
+  }
+}
 
 export async function execFromManifest(config: Config, commandName: string, cwd: string): Promise<void> {
   const pkg = await config.maybeReadManifest(cwd);

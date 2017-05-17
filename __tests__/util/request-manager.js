@@ -7,6 +7,7 @@ import * as fs from '../../src/util/fs.js';
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
+const net = require('net');
 const https = require('https');
 const path = require('path');
 
@@ -96,6 +97,51 @@ test('RequestManager.request with mutual TLS', async () => {
   expect(body).toBe('ok');
 });
 
+test('RequestManager.execute timeout error with maxRetryAttempts=1', async () => {
+  jest.useRealTimers();
+
+  let counter = 0;
+  const server = net.createServer((c) => {
+    counter += 1;
+    // emulate TCP server that never closes the connection
+  });
+
+  try {
+    server.listen(0);
+    const config = await Config.create({networkTimeout: 50});
+    config.requestManager.setOptions({maxRetryAttempts: 1});
+    const port = server.address().port;
+    await config.requestManager.request({url: `http://localhost:${port}/?nocache`});
+  } catch (err) {
+    expect(err.message).toContain('TIMEDOUT');
+    expect(counter).toEqual(1);
+  } finally {
+    server.close();
+  }
+});
+
+test('RequestManager.execute timeout error with default maxRetryAttempts', async () => {
+  jest.useRealTimers();
+
+  let counter = 0;
+  const server = net.createServer((c) => {
+    counter += 1;
+    // emulate TCP server that never closes the connection
+  });
+
+  try {
+    server.listen(0);
+    const config = await Config.create({networkTimeout: 50});
+    const port = server.address().port;
+    await config.requestManager.request({url: `http://localhost:${port}/?nocache`});
+  } catch (err) {
+    expect(err.message).toContain('TIMEDOUT');
+    expect(counter).toEqual(5);
+  } finally {
+    server.close();
+  }
+});
+
 test('RequestManager.execute Request 403 error', async () => {
   const config = await Config.create({}, new Reporter());
   jest.mock('request', (factory) => (options) => {
@@ -118,7 +164,7 @@ test('RequestManager.request with offlineNoRequests', async () => {
   try {
     await config.requestManager.request({url: `https://localhost:port/?nocache`, headers: {Connection: 'close'}});
   } catch (err) {
-    expect(err.message).toBe('Can\'t make a request in offline mode');
+    expect(err.message).toBe('Can\'t make a request in offline mode ("https://localhost:port/?nocache")');
   }
 });
 

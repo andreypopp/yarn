@@ -24,6 +24,10 @@ export function setFlags(commander: Object) {
   commander.option('--no-git-tag-version', 'no git tag version');
 }
 
+export function hasWrapper(): boolean {
+  return true;
+}
+
 export async function setVersion(
  config: Config,
  reporter: Reporter,
@@ -90,7 +94,9 @@ export async function setVersion(
   invariant(newVersion, 'expected new version');
 
   if (newVersion === pkg.version) {
-    throw new MessageError(reporter.lang('publishSame'));
+    return function(): Promise<void> {
+      return Promise.resolve();
+    };
   }
 
   await runLifecycle('preversion');

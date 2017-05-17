@@ -1,24 +1,30 @@
 /* @flow */
 
-import type {Reporter} from '../../reporters/index.js';
 import type Config from '../../config.js';
 import {MessageError} from '../../errors.js';
-import {Install} from './install.js';
+import InstallationIntegrityChecker from '../../integrity-checker.js';
+import {integrityErrors} from '../../integrity-checker.js';
 import Lockfile from '../../lockfile/wrapper.js';
+import type {Reporter} from '../../reporters/index.js';
 import * as fs from '../../util/fs.js';
+import {Install} from './install.js';
 
 const semver = require('semver');
 const path = require('path');
 
-export const requireLockfile = true;
+export const requireLockfile = false;
 export const noArguments = true;
+
+export function hasWrapper(): boolean {
+  return true;
+}
 
 export function setFlags(commander: Object) {
   commander.option('--integrity');
   commander.option('--verify-tree');
 }
 
-async function verifyTreeCheck(
+export async function verifyTreeCheck(
   config: Config,
   reporter: Reporter,
   flags: Object,
@@ -142,29 +148,24 @@ async function integrityHashCheck(
     reporter.error(reporter.lang(msg, ...vars));
     errCount++;
   }
+  const integrityChecker = new InstallationIntegrityChecker(config);
 
   const lockfile = await Lockfile.fromDirectory(config.cwd);
   const install = new Install(flags, config, reporter, lockfile);
 
   // get patterns that are installed when running `yarn install`
-  const {patterns: rawPatterns} = await install.hydrate(true);
-  const patterns = await install.flatten(rawPatterns);
+  const {patterns} = await install.fetchRequestFromCwd();
 
-  // check if patterns exist in lockfile
-  for (const pattern of patterns) {
-    if (!lockfile.getLocked(pattern)) {
-      reportError('lockfileNotContainPatter', pattern);
-    }
+  const match = await integrityChecker.check(patterns, lockfile.cache, flags);
+  for (const pattern of match.missingPatterns) {
+    reportError('lockfileNotContainPattern', pattern);
   }
-
-  const integrityLoc = await install.getIntegrityHashLocation();
-  if (integrityLoc && await fs.exists(integrityLoc)) {
-    const match = await install.matchesIntegrityHash(patterns);
-    if (match.matches === false) {
-      reportError('integrityHashesDontMatch', match.expected, match.actual);
-    }
-  } else {
-    reportError('noIntegirtyHashFile');
+  if (match.integrityFileMissing) {
+    reportError('noIntegrityFile');
+  }
+  if (match.integrityMatches === false) {
+    reporter.warn(reporter.lang(integrityErrors[match.integrityError]));
+    reportError('integrityCheckFailed');
   }
 
   if (errCount > 0) {
@@ -219,7 +220,7 @@ export async function run(
   // check if patterns exist in lockfile
   for (const pattern of patterns) {
     if (!lockfile.getLocked(pattern)) {
-      reportError('lockfileNotContainPatter', pattern);
+      reportError('lockfileNotContainPattern', pattern);
     }
   }
 

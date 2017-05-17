@@ -12,7 +12,7 @@ export function hasWrapper(flags: Object, args: Array<string>): boolean {
   return args[0] !== 'dir';
 }
 
-export const {run, setFlags} = buildSubCommands('cache', {
+export const {run, setFlags, examples} = buildSubCommands('cache', {
   async ls(
     config: Config,
     reporter: Reporter,
@@ -22,7 +22,7 @@ export const {run, setFlags} = buildSubCommands('cache', {
     async function readCacheMetadata(
       parentDir = config.cacheFolder,
       metadataFile = METADATA_FILENAME,
-    ): Promise<[]> {
+    ): Promise<Array<Array<string>>> {
       const folders = await fs.readdir(parentDir);
       const packagesMetadata = [];
 
@@ -50,8 +50,11 @@ export const {run, setFlags} = buildSubCommands('cache', {
     reporter.table(['Name', 'Version', 'Registry', 'Resolved'], body);
   },
 
-  dir(config: Config) {
-    console.log(config.cacheFolder);
+  dir(
+    config: Config,
+    reporter: Reporter,
+  ) {
+    reporter.log(config.cacheFolder);
   },
 
   async clean(
@@ -60,10 +63,9 @@ export const {run, setFlags} = buildSubCommands('cache', {
     flags: Object,
     args: Array<string>,
   ): Promise<void> {
-    const cacheFolder = config.cacheFolder;
-    if (cacheFolder) {
-      await fs.unlink(cacheFolder);
-      await fs.mkdirp(cacheFolder);
+    if (config.cacheFolder) {
+      await fs.unlink(config._cacheRootFolder);
+      await fs.mkdirp(config.cacheFolder);
       reporter.success(reporter.lang('clearedCache'));
     }
   },

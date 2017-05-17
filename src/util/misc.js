@@ -2,6 +2,10 @@
 
 const _camelCase = require('camelcase');
 
+export function has2xxResponse(res: Object): boolean {
+  return res.responseCode >= 200 && res.responseCode < 300;
+}
+
 export function sortAlpha(a: string, b: string): number {
   // sort alphabetically in a deterministic way
   const shortLen = Math.min(a.length, b.length);
@@ -61,4 +65,16 @@ export function camelCase(str: string): ?string {
   } else {
     return _camelCase(str);
   }
+}
+
+export function compareSortedArrays<T>(array1: Array<T>, array2: Array<T>): boolean {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+  for (let i = 0, len = array1.length; i < len; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    }
+  }
+  return true;
 }

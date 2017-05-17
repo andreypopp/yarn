@@ -3,7 +3,7 @@
 import type {WalkFiles} from './fs.js';
 import {removeSuffix} from './misc.js';
 
-const minimatch = require('minimatch');
+const mm = require('micromatch');
 const path = require('path');
 
 const WHITESPACE_RE = /^\s+$/;
@@ -12,6 +12,7 @@ export type IgnoreFilter = {
   base: string,
   isNegation: boolean,
   regex: RegExp,
+  pattern: string,
 };
 
 export function sortFilter(
@@ -99,7 +100,8 @@ export function matchesFilter(filter: IgnoreFilter, basename: string, loc: strin
   }
   return filter.regex.test(loc) ||
          filter.regex.test(`/${loc}`) ||
-         filter.regex.test(basename);
+         filter.regex.test(basename) ||
+         mm.isMatch(loc, filter.pattern);
 }
 
 export function ignoreLinesToRegex(lines: Array<string>, base: string = '.'): Array<IgnoreFilter> {
@@ -114,7 +116,7 @@ export function ignoreLinesToRegex(lines: Array<string>, base: string = '.'): Ar
       let pattern = line;
       let isNegation = false;
 
-      // hide the fact that it's a negation from minimatch since we'll handle this specifally
+      // hide the fact that it's a negation from minimatch since we'll handle this specifically
       // ourselves
       if (pattern[0] === '!') {
         isNegation = true;
@@ -124,13 +126,14 @@ export function ignoreLinesToRegex(lines: Array<string>, base: string = '.'): Ar
       // remove trailing slash
       pattern = removeSuffix(pattern, '/');
 
-      const regex: ?RegExp = minimatch.makeRe(pattern, {nocase: true});
+      const regex: ?RegExp = mm.makeRe(pattern.trim(), {nocase: true});
 
       if (regex) {
         return {
           base,
           isNegation,
           regex,
+          pattern,
         };
       } else {
         return null;

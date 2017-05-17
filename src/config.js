@@ -21,6 +21,7 @@ const path = require('path');
 
 export type ConfigOptions = {
   cwd?: ?string,
+  _cacheRootFolder?: ?string,
   cacheFolder?: ?string,
   tempFolder?: ?string,
   modulesFolder?: ?string,
@@ -28,6 +29,8 @@ export type ConfigOptions = {
   linkFolder?: ?string,
   offline?: boolean,
   preferOffline?: boolean,
+  pruneOfflineMirror?: boolean,
+  enableMetaFolder?: boolean,
   captureHar?: boolean,
   ignoreScripts?: boolean,
   ignorePlatform?: boolean,
@@ -36,6 +39,9 @@ export type ConfigOptions = {
   production?: boolean,
   binLinks?: boolean,
   networkConcurrency?: number,
+  childConcurrency?: number,
+  networkTimeout?: number,
+  nonInteractive?: boolean,
 
   // Loosely compare semver for invalid cases like "0.01.0"
   looseSemver?: ?boolean,
@@ -83,6 +89,9 @@ export default class Config {
   looseSemver: boolean;
   offline: boolean;
   preferOffline: boolean;
+  pruneOfflineMirror: boolean;
+  enableMetaFolder: boolean;
+  disableLockfileVersions: boolean;
   ignorePlatform: boolean;
   binLinks: boolean;
 
@@ -103,11 +112,19 @@ export default class Config {
 
   networkConcurrency: number;
 
+  childConcurrency: number;
+
+  //
+  networkTimeout: number;
+
   //
   requestManager: RequestManager;
 
   //
   modulesFolder: ?string;
+
+  //
+  _cacheRootFolder: string;
 
   //
   cacheFolder: string;
@@ -122,6 +139,10 @@ export default class Config {
   ignoreScripts: boolean;
 
   production: boolean;
+
+  nonInteractive: boolean;
+
+  workspacesExperimental: boolean;
 
   //
   cwd: string;
@@ -200,7 +221,7 @@ export default class Config {
       const Registry = registries[key];
 
       // instantiate registry
-      const registry = new Registry(this.cwd, this.registries, this.requestManager);
+      const registry = new Registry(this.cwd, this.registries, this.requestManager, this.reporter);
       await registry.init();
 
       this.registries[key] = registry;
@@ -217,6 +238,19 @@ export default class Config {
       constants.NETWORK_CONCURRENCY
     );
 
+    this.childConcurrency = (
+      opts.childConcurrency ||
+      Number(this.getOption('child-concurrency')) ||
+      Number(process.env.CHILD_CONCURRENCY) ||
+      constants.CHILD_CONCURRENCY
+    );
+
+    this.networkTimeout = (
+      opts.networkTimeout ||
+      Number(this.getOption('network-timeout')) ||
+      constants.NETWORK_TIMEOUT
+    );
+
     this.requestManager.setOptions({
       userAgent: String(this.getOption('user-agent')),
       httpProxy: String(opts.httpProxy || this.getOption('proxy') || ''),
@@ -227,10 +261,21 @@ export default class Config {
       cert: String(opts.cert || this.getOption('cert') || ''),
       key: String(opts.key || this.getOption('key') || ''),
       networkConcurrency: this.networkConcurrency,
+      networkTimeout: this.networkTimeout,
     });
+    this._cacheRootFolder = String(
+      opts.cacheFolder ||
+      this.getOption('cache-folder') ||
+      constants.MODULE_CACHE_DIRECTORY,
+    );
+    this.workspacesExperimental = Boolean(this.getOption('workspaces-experimental'));
+
+    this.pruneOfflineMirror = Boolean(this.getOption('yarn-offline-mirror-pruning'));
+    this.enableMetaFolder = Boolean(this.getOption('enable-meta-folder'));
+    this.disableLockfileVersions = Boolean(this.getOption('yarn-disable-lockfile-versions'));
 
     //init & create cacheFolder, tempFolder
-    this.cacheFolder = String(opts.cacheFolder || this.getOption('cache-folder') || constants.MODULE_CACHE_DIRECTORY);
+    this.cacheFolder = path.join(this._cacheRootFolder, 'v' + String(constants.CACHE_VERSION));
     this.tempFolder = opts.tempFolder || path.join(this.cacheFolder, '.tmp');
     await fs.mkdirp(this.cacheFolder);
     await fs.mkdirp(this.tempFolder);
@@ -269,6 +314,8 @@ export default class Config {
 
     this.ignorePlatform = !!opts.ignorePlatform;
     this.ignoreScripts = !!opts.ignoreScripts;
+
+    this.nonInteractive = !!opts.nonInteractive;
 
     this.requestManager.setOptions({
       offline: !!opts.offline && !opts.preferOffline,
@@ -349,6 +396,10 @@ export default class Config {
       }
 
       const registryMirrorPath = registry.config['yarn-offline-mirror'];
+
+      if (registryMirrorPath === false) {
+        return null;
+      }
 
       if (registryMirrorPath == null) {
         continue;

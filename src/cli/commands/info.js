@@ -36,6 +36,12 @@ function clean(object: any): any {
   }
 }
 
+export function setFlags() {}
+
+export function hasWrapper(): boolean {
+  return true;
+}
+
 export async function run(
  config: Config,
  reporter: Reporter,
@@ -57,7 +63,10 @@ export async function run(
   const packageInput = NpmRegistry.escapeName(packageName);
   const {name, version} = parsePackageName(packageInput);
 
-  let result = await config.registries.npm.request(name);
+  // pass application/json Accept to get full metadata for info command
+  let result = await config.registries.npm.request(name, {
+    headers: {'Accept': 'application/json'},
+  });
   if (!result) {
     reporter.error(reporter.lang('infoFail'));
     return;

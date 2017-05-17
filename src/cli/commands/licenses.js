@@ -16,8 +16,8 @@ export function hasWrapper(flags: Object, args: Array<string>): boolean {
 
 async function getManifests(config: Config, flags: Object): Promise<Array<Manifest>> {
   const lockfile = await Lockfile.fromDirectory(config.cwd);
-  const install = new Install({skipIntegrity: true, ...flags}, config, new NoopReporter(), lockfile);
-  await install.hydrate(true);
+  const install = new Install({skipIntegrityCheck: true, ...flags}, config, new NoopReporter(), lockfile);
+  await install.hydrate(true, true);
 
   let manifests = install.resolver.getManifests();
 
@@ -47,7 +47,7 @@ async function getManifests(config: Config, flags: Object): Promise<Array<Manife
   return manifests;
 }
 
-export const {run, setFlags} = buildSubCommands('licenses', {
+export const {run, setFlags, examples} = buildSubCommands('licenses', {
   async ls(
     config: Config,
     reporter: Reporter,
@@ -59,12 +59,16 @@ export const {run, setFlags} = buildSubCommands('licenses', {
     if (flags.json) {
       const body = [];
 
-      for (const {name, version, license, repository, homepage} of manifests) {
+      for (const {name, version, license, repository, homepage, author} of manifests) {
+
         const url = repository ? repository.url : homepage;
-        body.push([name, version, license || 'Unknown', url || 'Unknown']);
+        const vendorUrl = homepage || (author && author.url);
+        const vendorName = (author && author.name);
+        body.push([name, version, license || 'Unknown', url || 'Unknown',
+          vendorUrl || 'Unknown', vendorName || 'Unknown']);
       }
 
-      reporter.table(['Name', 'Version', 'License', 'URL'], body);
+      reporter.table(['Name', 'Version', 'License', 'URL', 'VendorUrl', 'VendorName'], body);
     } else {
       const trees = [];
 

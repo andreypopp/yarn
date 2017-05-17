@@ -33,9 +33,11 @@ const messages = {
   manifestDirectoryNotFound: 'Unable to read $0 directory of module $1',
 
   verboseFileCopy: 'Copying $0 to $1.',
+  verboseFileLink: 'Creating hardlink at $0 to $1.',
   verboseFileSymlink: 'Creating symlink at $0 to $1.',
   verboseFileSkip: 'Skipping copying of file $0 as the file at $1 is the same size ($2) and mtime ($3).',
   verboseFileSkipSymlink: 'Skipping copying of $0 as the file at $1 is the same symlink ($2).',
+  verboseFileSkipHardlink: 'Skipping copying of $0 as the file at $1 is the same hardlink ($2).',
   verboseFileRemoveExtraneous: 'Removing extraneous file $0.',
   verboseFilePhantomExtraneous: "File $0 would be marked as extraneous but has been removed as it's listed as a phantom file.",
   verboseFileFolder: 'Creating directory $0.',
@@ -52,7 +54,7 @@ const messages = {
   couldntFindMatch: "Couldn't find match for $0 in $1 for $2.",
   couldntFindPackageInCache: "Couldn't find any versions for $0 that matches $1 in our cache. Possible versions: $2",
   couldntFindVersionThatMatchesRange: "Couldn't find any versions for $0 that matches $1",
-  chooseVersionFromList: 'Please choose a version from this list:',
+  chooseVersionFromList: 'Please choose a version of $0 from this list:',
   moduleNotInManifest: "This module isn't specified in a manifest.",
   unknownFolderOrTarball: "Passed folder/tarball doesn't exist,",
   unknownPackage: "Couldn't find package $0.",
@@ -91,6 +93,10 @@ const messages = {
   allDependenciesUpToDate: 'All of your dependencies are up to date.',
   frozenLockfileError: 'Your lockfile needs to be updated, but yarn was run with `--frozen-lockfile`.',
   fileWriteError: 'Could not write file $0: $1',
+  multiplePackagesCantUnpackInSameDestination: 'Pattern $0 is trying to unpack in the same destination $1 as pattern $2. This could result in a non deterministic behavior, skipping.',
+  incorrectLockfileEntry: 'Lockfile has incorrect entry for $0. Ingoring it.',
+  workspacesIncompatibleDependencies: 'Dependency $0 has different versions in $1 and $2',
+  workspacesRequirePrivateProjects: 'Workspaces can only be enabled for private projects',
 
   yarnOutdated: "Your current version of Yarn is out of date. The latest version is $0 while you're on $1.",
   yarnOutdatedInstaller: 'To upgrade, download the latest installer at $0.',
@@ -128,21 +134,22 @@ const messages = {
   linkUnregistered: 'Unregistered $0.',
   linkUsing: 'Using linked module for $0.',
 
+  createInvalidBin: 'Invalid bin entry found in package $0.',
+  createMissingPackage: 'Package not found - this is probably an internal error, and should be reported at https://github.com/yarnpkg/yarn/issues.',
+
   commandNotSpecified: 'No command specified.',
   binCommands: 'Commands available from binary scripts: ',
   possibleCommands: 'Project commands',
   commandQuestion: 'Which command would you like to run?',
   commandFailed: 'Command failed with exit code $0.',
+  packageRequiresNodeGyp: 'This package requires node-gyp, which is not currently installed. Yarn will attempt to automatically install it. If this fails, you can run "yarn global add node-gyp" to manually install it.',
+  nodeGypAutoInstallFailed: 'Failed to auto-install node-gyp. Please run "yarn global add node-gyp" manually. Error: $0',
 
   foundIncompatible: 'Found incompatible module',
   incompatibleEngine: 'The engine $0 is incompatible with this module. Expected version $1.',
   incompatibleCPU: 'The CPU architecture $0 is incompatible with this module.',
   incompatibleOS: 'The platform $0 is incompatible with this module.',
   invalidEngine: 'The engine $0 appears to be invalid.',
-
-  selfUpdateReleased: 'Replaced current release with $0.',
-  selfUpdateDownloading: 'Downloading yarn version $0.',
-  selfUpdateNoNewer: 'Yarn is already using the latest version.',
 
   optionalCompatibilityExcluded: '$0 is an optional dependency and failed compatibility check. Excluding it from installation.',
   optionalModuleFail: 'This module is OPTIONAL, you can safely ignore this error',
@@ -186,7 +193,7 @@ const messages = {
   whyDiskSizeWithout: 'Disk size without dependencies: $0',
   whyDiskSizeUnique: 'Disk size with unique dependencies: $0',
   whyDiskSizeTransitive: 'Disk size with transitive dependencies: $0',
-  whySharedDependencies: 'Amount of shared dependencies: $0',
+  whySharedDependencies: 'Number of shared dependencies: $0',
   whyHoistedTo: `Has been hoisted to $0`,
 
   whyHoistedFromSimple: `This module exists because it's hoisted from $0.`,
@@ -202,6 +209,9 @@ const messages = {
 
   cleanRemovedFiles: 'Removed $0 files',
   cleanSavedSize: 'Saved $0 MB.',
+
+  configFileFound: 'Found configuration file $0.',
+  configPossibleFile: 'Checking for configuration file $0.',
 
   npmUsername: 'npm username',
   npmPassword: 'npm password',
@@ -219,7 +229,6 @@ const messages = {
   incorrectCredentials: 'Incorrect username or password.',
   clearedCredentials: 'Cleared login credentials.',
 
-  publishSame: 'New version is the same as the current version.',
   publishFail: "Couldn't publish package.",
   publishPrivate: 'Package marked as private, not publishing.',
   published: 'Published.',
@@ -228,12 +237,13 @@ const messages = {
   infoFail: 'Received invalid response from npm.',
   malformedRegistryResponse: 'Received malformed response from registry for $0. The registry may be down.',
 
-  cantRequestOffline: 'Can\'t make a request in offline mode',
+  cantRequestOffline: 'Can\'t make a request in offline mode ($0)',
   requestManagerNotSetupHAR: 'RequestManager was not setup to capture HAR files',
   requestError: 'Request $0 returned a $1',
   requestFailed: 'Request failed $0',
   tarballNotInNetworkOrCache: '$0: Tarball is not in network and can not be located in cache ($1)',
-  fetchBadHash: 'Bad hash. Expected $0 but got $1 ',
+  fetchBadHash: 'Hashes don\'t match. Expected $1 but got $2',
+  fetchBadHashWithPath: 'Hashes don\'t match when extracting file $0. Expected $1 but got $2',
   fetchErrorCorrupt: '$0. Mirror tarball appears to be corrupt. You can resolve this by running:\n\n  rm -rf $1\n  yarn install',
   errorDecompressingTarball: '$0. Error decompressing $1, it appears to be corrupt.',
   updateInstalling: 'Installing $0...',
@@ -250,13 +260,27 @@ const messages = {
   packageHasNoBinaries: '$0 has no binaries',
 
   couldBeDeduped: '$0 could be deduped from $1 to $2',
-  lockfileNotContainPatter: 'Lockfile does not contain pattern: $0',
-  integrityHashesDontMatch: 'Integrity hashes don\'t match, expected $0 but got $1',
-  noIntegirtyHashFile: 'Couldn\'t find an integrity hash file',
+  lockfileNotContainPattern: 'Lockfile does not contain pattern: $0',
+  integrityCheckFailed: 'Integrity check failed',
+  noIntegrityFile: 'Couldn\'t find an integrity file',
+  integrityFailedExpectedIsNotAJSON: 'Integrity check: integrity file is not a json',
+  integrityCheckLinkedModulesDontMatch: 'Integrity check: Linked modules don\'t match',
+  integrityFlagsDontMatch: 'Integrity check: Flags don\'t match',
+  integrityLockfilesDontMatch: 'Integrity check: Lock files don\'t match',
+  integrityFailedFilesMissing: 'Integrity check: Files are missing',
   packageNotInstalled: '$0 not installed',
   optionalDepNotInstalled: 'Optional dependency $0 not installed',
   packageWrongVersion: '$0 is wrong version: expected $1, got $2',
   packageDontSatisfy: '$0 doesn\'t satisfy found match of $1',
+
+  lockfileExists: 'Lockfile already exists, not importing.',
+  skippingImport: 'Skipping import of $0 for $1',
+  importFailed: 'Import of $0 for $1 failed, resolving normally.',
+  importResolveFailed: 'Import of $0 failed starting in $1',
+  importResolvedRangeMatch: 'Using version $0 of $1 instead of $2 for $3',
+  packageContainsYarnAsGlobal: 'Installing Yarn via Yarn will result in you having two separate versions of Yarn installed at the same time, which is not recommended. To update Yarn please follow https://yarnpkg.com/en/docs/install .',
+
+  scopeNotValid: 'The specified scope is not valid.',
 };
 
 export type LanguageKeys = $Keys<typeof messages>;

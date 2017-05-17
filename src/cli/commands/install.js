@@ -1,13 +1,14 @@
 /* @flow */
 
+import type {InstallationMethod} from '../../util/yarn-version.js';
 import type {Reporter} from '../../reporters/index.js';
 import type {ReporterSelectOption} from '../../reporters/types.js';
 import type {Manifest, DependencyRequestPatterns} from '../../types.js';
 import type Config from '../../config.js';
 import type {RegistryNames} from '../../registries/index.js';
 import normalizeManifest from '../../util/normalize-manifest/index.js';
-import {registryNames} from '../../registries/index.js';
 import {MessageError} from '../../errors.js';
+import InstallationIntegrityChecker from '../../integrity-checker.js';
 import Lockfile from '../../lockfile/wrapper.js';
 import lockStringify from '../../lockfile/stringify.js';
 import PackageFetcher from '../../package-fetcher.js';
@@ -20,17 +21,15 @@ import {registries} from '../../registries/index.js';
 import {clean} from './clean.js';
 import * as constants from '../../constants.js';
 import * as fs from '../../util/fs.js';
-import * as crypto from '../../util/crypto.js';
 import map from '../../util/map.js';
-import {sortAlpha} from '../../util/misc.js';
+import {version as YARN_VERSION, getInstallationMethod} from '../../util/yarn-version.js';
 
-const invariant = require('invariant');
-const semver = require('semver');
 const emoji = require('node-emoji');
+const invariant = require('invariant');
 const isCI = require('is-ci');
 const path = require('path');
+const semver = require('semver');
 
-const {version: YARN_VERSION, installationMethod: YARN_INSTALL_METHOD} = require('../../../package.json');
 const ONE_DAY = 1000 * 60 * 60 * 24;
 
 export type InstallCwdRequest = {
@@ -41,25 +40,20 @@ export type InstallCwdRequest = {
   manifest: Object,
 };
 
-export type IntegrityMatch = {
-  actual: string,
-  expected: string,
-  loc: string,
-  matches: boolean,
-};
-
 type Flags = {
   // install
+  har: boolean,
   ignorePlatform: boolean,
   ignoreEngines: boolean,
   ignoreScripts: boolean,
   ignoreOptional: boolean,
-  har: boolean,
+  linkDuplicates: boolean,
   force: boolean,
   flat: boolean,
   lockfile: boolean,
   pureLockfile: boolean,
-  skipIntegrity: boolean,
+  skipIntegrityCheck: boolean,
+  checkFiles: boolean,
 
   // add
   peer: boolean,
@@ -73,42 +67,42 @@ type Flags = {
  * Try and detect the installation method for Yarn and provide a command to update it with.
  */
 
-function getUpdateCommand(): ?string {
-  if (YARN_INSTALL_METHOD === 'tar') {
-    return 'curl -o- -L https://yarnpkg.com/install.sh | bash';
+function getUpdateCommand(installationMethod: InstallationMethod): ?string {
+  if (installationMethod === 'tar') {
+    return `curl -o- -L ${constants.YARN_INSTALLER_SH} | bash`;
   }
 
-  if (YARN_INSTALL_METHOD === 'homebrew') {
+  if (installationMethod === 'homebrew') {
     return 'brew upgrade yarn';
   }
 
-  if (YARN_INSTALL_METHOD === 'deb') {
+  if (installationMethod === 'deb') {
     return 'sudo apt-get update && sudo apt-get install yarn';
   }
 
-  if (YARN_INSTALL_METHOD === 'rpm') {
+  if (installationMethod === 'rpm') {
     return 'sudo yum install yarn';
   }
 
-  if (YARN_INSTALL_METHOD === 'npm') {
+  if (installationMethod === 'npm') {
     return 'npm upgrade --global yarn';
   }
 
-  if (YARN_INSTALL_METHOD === 'chocolatey') {
+  if (installationMethod === 'chocolatey') {
     return 'choco upgrade yarn';
   }
 
-  if (YARN_INSTALL_METHOD === 'apk') {
+  if (installationMethod === 'apk') {
     return 'apk update && apk add -u yarn';
   }
 
   return null;
 }
 
-function getUpdateInstaller(): ?string {
+function getUpdateInstaller(installationMethod: InstallationMethod): ?string {
   // Windows
-  if (YARN_INSTALL_METHOD === 'msi') {
-    return 'https://yarnpkg.com/latest.msi';
+  if (installationMethod === 'msi') {
+    return constants.YARN_INSTALLER_MSI;
   }
 
   return null;
@@ -126,8 +120,10 @@ function normalizeFlags(config: Config, rawFlags: Object): Flags {
     flat: !!rawFlags.flat,
     lockfile: rawFlags.lockfile !== false,
     pureLockfile: !!rawFlags.pureLockfile,
-    skipIntegrity: !!rawFlags.skipIntegrity,
+    skipIntegrityCheck: !!rawFlags.skipIntegrityCheck,
     frozenLockfile: !!rawFlags.frozenLockfile,
+    linkDuplicates: !!rawFlags.linkDuplicates,
+    checkFiles: !!rawFlags.checkFiles,
 
     // add
     peer: !!rawFlags.peer,
@@ -177,6 +173,7 @@ export class Install {
 
     this.resolver = new PackageResolver(config, lockfile);
     this.fetcher = new PackageFetcher(config, this.resolver);
+    this.integrityChecker = new InstallationIntegrityChecker(config);
     this.compatibility = new PackageCompatibility(config, this.resolver, this.flags.ignoreEngines);
     this.linker = new PackageLinker(config, this.resolver);
     this.scripts = new PackageInstallScripts(config, this.resolver, this.flags.force);
@@ -195,12 +192,16 @@ export class Install {
   compatibility: PackageCompatibility;
   fetcher: PackageFetcher;
   rootPatternsToOrigin: { [pattern: string]: string };
+  integrityChecker: InstallationIntegrityChecker;
 
   /**
    * Create a list of dependency requests from the current directories manifests.
    */
 
-  async fetchRequestFromCwd(excludePatterns?: Array<string> = []): Promise<InstallCwdRequest> {
+  async fetchRequestFromCwd(
+    excludePatterns?: Array<string> = [],
+    ignoreUnusedPatterns?: boolean = false,
+  ): Promise<InstallCwdRequest> {
     const patterns = [];
     const deps = [];
     const manifest = {};
@@ -229,14 +230,55 @@ export class Install {
       }
 
       this.rootManifestRegistries.push(registry);
-      const json = await this.config.readJson(loc);
-      await normalizeManifest(json, this.config.cwd, this.config, true);
+      const projectManifestJson = await this.config.readJson(loc);
+      await normalizeManifest(projectManifestJson, this.config.cwd, this.config, true);
 
-      Object.assign(this.resolutions, json.resolutions);
-      Object.assign(manifest, json);
+      const rootCwd = this.config.cwd;
+      // if project has workspaces we aggreagate all dependences from workspaces into root
+      if (projectManifestJson.workspaces && this.config.workspacesExperimental) {
+        if (!projectManifestJson.private) {
+          throw new MessageError(this.reporter.lang('workspacesRequirePrivateProjects'));
+        }
+        for (const workspace of projectManifestJson.workspaces) {
+          for (const workspaceLoc of await fs.glob(path.join(rootCwd, workspace, filename))) {
+            const workspaceCwd = path.dirname(workspaceLoc);
+            const workspaceJson: Manifest = await this.config.readJson(workspaceLoc);
+            await normalizeManifest(workspaceJson, workspaceCwd, this.config, true);
+            for (const type of ['dependencies', 'devDependencies', 'optionalDependencies']) {
+              if (workspaceJson[type]) {
+                for (const key in workspaceJson[type]) {
+                  if (
+                    projectManifestJson[type] &&
+                    projectManifestJson[type][key] &&
+                    projectManifestJson[type][key] !== workspaceJson[type][key]
+                  ) {
+                    // TODO conflicts should still be installed inside workspaces' folders
+                    throw new MessageError(
+                      this.reporter.lang('workspacesIncompatibleDependencies', key, workspaceCwd, rootCwd),
+                    );
+                  }
+                  projectManifestJson[type][key] = workspaceJson[type][key];
+                }
+              }
+            }
+          }
+        }
+      }
+
+      Object.assign(this.resolutions, projectManifestJson.resolutions);
+      Object.assign(manifest, projectManifestJson);
 
       const pushDeps = (depType, {hint, optional}, isUsed) => {
-        const depMap = json[depType];
+        if (ignoreUnusedPatterns && !isUsed) {
+          return;
+        }
+        // We only take unused dependencies into consideration to get deterministic hoisting.
+        // Since flat mode doesn't care about hoisting and everything is top level and specified then we can safely
+        // leave these out.
+        if (this.flags.flat && !isUsed) {
+          return;
+        }
+        const depMap = projectManifestJson[depType];
         for (const name in depMap) {
           if (excludeNames.indexOf(name) >= 0) {
             continue;
@@ -249,6 +291,7 @@ export class Install {
             pattern += '@' + depMap[name];
           }
 
+          // normalization made sure packages are mentioned only once
           if (isUsed) {
             usedPatterns.push(pattern);
           } else {
@@ -299,20 +342,26 @@ export class Install {
   async bailout(
     patterns: Array<string>,
   ): Promise<boolean> {
-    const match = await this.matchesIntegrityHash(patterns);
-    const haveLockfile = await fs.exists(path.join(this.config.cwd, constants.LOCKFILE_FILENAME));
-
-    if (this.flags.frozenLockfile && !this.lockFileInSync(patterns)) {
-      this.reporter.error(this.reporter.lang('frozenLockfileError'));
-      return true;
+    if (this.flags.skipIntegrityCheck || this.flags.force) {
+      return false;
+    }
+    const lockfileCache = this.lockfile.cache;
+    if (!lockfileCache) {
+      return false;
+    }
+    const match = await this.integrityChecker.check(patterns, lockfileCache, this.flags);
+    if (this.flags.frozenLockfile && match.missingPatterns.length > 0) {
+      throw new MessageError(this.reporter.lang('frozenLockfileError'));
     }
 
-    if (!this.flags.skipIntegrity && !this.flags.force && match.matches && haveLockfile) {
+    const haveLockfile = await fs.exists(path.join(this.config.cwd, constants.LOCKFILE_FILENAME));
+
+    if (match.integrityMatches && haveLockfile) {
       this.reporter.success(this.reporter.lang('upToDate'));
       return true;
     }
 
-    if (!patterns.length && !match.expected) {
+    if (!patterns.length && !match.integrityFileMissing) {
       this.reporter.success(this.reporter.lang('nothingToInstall'));
       await this.createEmptyManifestFolders();
       await this.saveLockfileAndIntegrity(patterns);
@@ -348,12 +397,9 @@ export class Install {
       const ref = manifest._reference;
       invariant(ref, 'expected package reference');
 
-      if (ref.requests.length === 1) {
-        // this module was only depended on once by the root so we can safely ignore it
-        // if it was requested more than once then ignoring it would break a transitive
-        // dep that resolved to it
-        ref.ignore = true;
-      }
+      // just mark the package as ignored. if the package is used by a required package, the hoister
+      // will take care of that.
+      ref.ignore = true;
     }
   }
 
@@ -369,20 +415,28 @@ export class Install {
       this.reporter.warn(this.reporter.lang('shrinkwrapWarning'));
     }
 
-    let patterns: Array<string> = [];
+
+    let flattenedTopLevelPatterns: Array<string> = [];
     const steps: Array<(curr: number, total: number) => Promise<{bailout: boolean} | void>> = [];
     const {
       requests: depRequests,
       patterns: rawPatterns,
       ignorePatterns,
-      usedPatterns,
     } = await this.fetchRequestFromCwd();
+    let topLevelPatterns: Array<string> = [];
+
+    const artifacts = await this.integrityChecker.getArtifacts();
+    if (artifacts) {
+      this.linker.setArtifacts(artifacts);
+      this.scripts.setArtifacts(artifacts);
+    }
 
     steps.push(async (curr: number, total: number) => {
       this.reporter.step(curr, total, this.reporter.lang('resolvingPackages'), emoji.get('mag'));
       await this.resolver.init(this.prepareRequests(depRequests), this.flags.flat);
-      patterns = await this.flatten(this.preparePatterns(rawPatterns));
-      return {bailout: await this.bailout(usedPatterns)};
+      topLevelPatterns = this.preparePatterns(rawPatterns);
+      flattenedTopLevelPatterns = await this.flatten(topLevelPatterns);
+      return {bailout: await this.bailout(topLevelPatterns)};
     });
 
     steps.push(async (curr: number, total: number) => {
@@ -394,10 +448,9 @@ export class Install {
 
     steps.push(async (curr: number, total: number) => {
       // remove integrity hash to make this operation atomic
-      const loc = await this.getIntegrityHashLocation();
-      await fs.unlink(loc);
+      await this.integrityChecker.removeIntegrityFile();
       this.reporter.step(curr, total, this.reporter.lang('linkingDependencies'), emoji.get('link'));
-      await this.linker.init(patterns);
+      await this.linker.init(flattenedTopLevelPatterns, this.flags.linkDuplicates);
     });
 
     steps.push(async (curr: number, total: number) => {
@@ -411,7 +464,7 @@ export class Install {
       if (this.flags.ignoreScripts) {
         this.reporter.warn(this.reporter.lang('ignoredScripts'));
       } else {
-        await this.scripts.init(patterns);
+        await this.scripts.init(flattenedTopLevelPatterns);
       }
     });
 
@@ -440,15 +493,16 @@ export class Install {
     for (const step of steps) {
       const stepResult = await step(++currentStep, steps.length);
       if (stepResult && stepResult.bailout) {
-        return patterns;
+        this.maybeOutputUpdate();
+        return flattenedTopLevelPatterns;
       }
     }
 
     // fin!
-    await this.saveLockfileAndIntegrity(patterns);
+    await this.saveLockfileAndIntegrity(topLevelPatterns);
     this.maybeOutputUpdate();
     this.config.requestManager.clearCache();
-    return patterns;
+    return flattenedTopLevelPatterns;
   }
 
   /**
@@ -553,18 +607,33 @@ export class Install {
   }
 
   /**
-   * Check if the loaded lockfile has all the included patterns
+   * Remove offline tarballs that are no longer required
    */
 
-  lockFileInSync(patterns: Array<string>): boolean {
-    let inSync = true;
-    for (const pattern of patterns) {
-      if (!this.lockfile.getLocked(pattern)) {
-        inSync = false;
-        break;
+  async pruneOfflineMirror(lockfile: Object): Promise<void> {
+    const mirror = this.config.getOfflineMirrorPath();
+    if (!mirror) {
+      return;
+    }
+
+    const requiredTarballs = new Set();
+    for (const dependency in lockfile) {
+      const resolved = lockfile[dependency].resolved;
+      const basename = path.basename(resolved.split('#')[0]);
+      if (resolved) {
+        if (dependency[0] === '@' && basename[0] !== '@') {
+          requiredTarballs.add(`${dependency.split('/')[0]}-${basename}`);
+        }
+        requiredTarballs.add(basename);
       }
     }
-    return inSync;
+
+    const mirrorTarballs = await fs.walk(mirror);
+    for (const tarball of mirrorTarballs) {
+      if (!requiredTarballs.has(tarball.basename)) {
+        await fs.unlink(tarball.absolute);
+      }
+    }
   }
 
   /**
@@ -572,21 +641,36 @@ export class Install {
    */
 
   async saveLockfileAndIntegrity(patterns: Array<string>): Promise<void> {
-    // stringify current lockfile
-    const lockSource = lockStringify(this.lockfile.getLockfile(this.resolver.patterns));
-
-    // write integrity hash
-    await this.writeIntegrityHash(lockSource, patterns);
-
     // --no-lockfile or --pure-lockfile flag
     if (this.flags.lockfile === false || this.flags.pureLockfile) {
       return;
     }
 
-    const inSync = this.lockFileInSync(patterns);
+    const lockfileBasedOnResolver = this.lockfile.getLockfile(this.resolver.patterns);
 
-    // remove is followed by install with force on which we rewrite lockfile
-    if (inSync && patterns.length && !this.flags.force) {
+    if (this.config.pruneOfflineMirror) {
+      await this.pruneOfflineMirror(lockfileBasedOnResolver);
+    }
+
+    // write integrity hash
+    await this.integrityChecker.save(
+      patterns,
+      lockfileBasedOnResolver,
+      this.flags,
+      this.resolver.usedRegistries,
+      this.scripts.getArtifacts(),
+    );
+
+    const lockFileHasAllPatterns = patterns.filter((p) => !this.lockfile.getLocked(p)).length === 0;
+    const resolverPatternsAreSameAsInLockfile = Object.keys(lockfileBasedOnResolver)
+      .filter((pattern) => {
+        const manifest = this.lockfile.getLocked(pattern);
+        return !manifest || manifest.resolved !== lockfileBasedOnResolver[pattern].resolved;
+      },
+    ).length === 0;
+
+    // remove command is followed by install with force, lockfile will be rewritten in any case then
+    if (lockFileHasAllPatterns && resolverPatternsAreSameAsInLockfile && patterns.length && !this.flags.force) {
       return;
     }
 
@@ -594,6 +678,7 @@ export class Install {
     const loc = path.join(this.config.cwd, constants.LOCKFILE_FILENAME);
 
     // write lockfile
+    const lockSource = lockStringify(lockfileBasedOnResolver, false, this.config.disableLockfileVersions);
     await fs.writeFilePreservingEol(loc, lockSource);
 
     this._logSuccessSaveLockfile();
@@ -604,116 +689,10 @@ export class Install {
   }
 
   /**
-   * Check if the integrity hash of this installation matches one on disk.
-   */
-
-  async matchesIntegrityHash(patterns: Array<string>): Promise<IntegrityMatch> {
-    const loc = await this.getIntegrityHashLocation();
-    if (!await fs.exists(loc)) {
-      return {
-        actual: '',
-        expected: '',
-        loc,
-        matches: false,
-      };
-    }
-
-    const lockSource = lockStringify(this.lockfile.getLockfile(this.resolver.patterns));
-    const actual = this.generateIntegrityHash(lockSource, patterns);
-    const expected = (await fs.readFile(loc)).trim();
-
-    return {
-      actual,
-      expected,
-      loc,
-      matches: actual === expected,
-    };
-  }
-
-  /**
-   * Get the location of an existing integrity hash. If none exists then return the location where we should
-   * write a new one.
-   */
-
-  async getIntegrityHashLocation(): Promise<string> {
-    // build up possible folders
-    const possibleFolders = [];
-    if (this.config.modulesFolder) {
-      possibleFolders.push(this.config.modulesFolder);
-    }
-
-    // get a list of registry names to check existence in
-    let checkRegistryNames = this.resolver.usedRegistries;
-    if (!checkRegistryNames.length) {
-      // we haven't used any registries yet
-      checkRegistryNames = registryNames;
-    }
-
-    // ensure we only write to a registry folder that was used
-    for (const name of checkRegistryNames) {
-      const loc = path.join(this.config.cwd, this.config.registries[name].folder);
-      possibleFolders.push(loc);
-    }
-
-    // if we already have an integrity hash in one of these folders then use it's location otherwise use the
-    // first folder
-    const possibles = possibleFolders.map((folder): string => path.join(folder, constants.INTEGRITY_FILENAME));
-    let loc = possibles[0];
-    for (const possibleLoc of possibles) {
-      if (await fs.exists(possibleLoc)) {
-        loc = possibleLoc;
-        break;
-      }
-    }
-    return loc;
-  }
-  /**
-   * Write the integrity hash of the current install to disk.
-   */
-
-  async writeIntegrityHash(lockSource: string, patterns: Array<string>): Promise<void> {
-    const loc = await this.getIntegrityHashLocation();
-    invariant(loc, 'expected integrity hash location');
-    await fs.mkdirp(path.dirname(loc));
-    await fs.writeFile(loc, this.generateIntegrityHash(lockSource, patterns));
-  }
-
-  /**
-   * Generate integrity hash of input lockfile.
-   */
-
-  generateIntegrityHash(lockfile: string, patterns: Array<string>): string {
-    const opts = [lockfile];
-
-    opts.push(`patterns:${patterns.sort(sortAlpha).join(',')}`);
-
-    if (this.flags.flat) {
-      opts.push('flat');
-    }
-
-    if (this.config.production) {
-      opts.push('production');
-    }
-
-    const linkedModules = this.config.linkedModules;
-    if (linkedModules.length) {
-      opts.push(`linked:${linkedModules.join(',')}`);
-    }
-
-    const mirror = this.config.getOfflineMirrorPath();
-    if (mirror != null) {
-      opts.push(`mirror:${mirror}`);
-    }
-
-    return crypto.hash(opts.join('-'), 'sha256');
-  }
-
-  /**
    * Load the dependency graph of the current install. Only does package resolving and wont write to the cwd.
    */
-
-  async hydrate(fetch?: boolean): Promise<InstallCwdRequest> {
-    const request = await this.fetchRequestFromCwd();
+  async hydrate(fetch?: boolean, ignoreUnusedPatterns?: boolean): Promise<InstallCwdRequest> {
+    const request = await this.fetchRequestFromCwd([], ignoreUnusedPatterns);
     const {requests: depRequests, patterns: rawPatterns, ignorePatterns} = request;
 
     await this.resolver.init(depRequests, this.flags.flat);
@@ -749,6 +728,11 @@ export class Install {
       return;
     }
 
+    // don't check if disabled
+    if (this.config.getOption('disable-self-update-check')) {
+      return;
+    }
+
     // only check for updates once a day
     const lastUpdateCheck = Number(this.config.getOption('lastUpdateCheck')) || 0;
     if (lastUpdateCheck && Date.now() - lastUpdateCheck < ONE_DAY) {
@@ -767,7 +751,7 @@ export class Install {
 
   async _checkUpdate(): Promise<void> {
     let latestVersion = await this.config.requestManager.request({
-      url: 'https://yarnpkg.com/latest-version',
+      url: constants.SELF_UPDATE_VERSION_URL,
     });
     invariant(typeof latestVersion === 'string', 'expected string');
     latestVersion = latestVersion.trim();
@@ -781,15 +765,16 @@ export class Install {
     });
 
     if (semver.gt(latestVersion, YARN_VERSION)) {
+      const installationMethod = await getInstallationMethod();
       this.maybeOutputUpdate = () => {
         this.reporter.warn(this.reporter.lang('yarnOutdated', latestVersion, YARN_VERSION));
 
-        const command = getUpdateCommand();
+        const command = getUpdateCommand(installationMethod);
         if (command) {
           this.reporter.info(this.reporter.lang('yarnOutdatedCommand'));
           this.reporter.command(command);
         } else {
-          const installer = getUpdateInstaller();
+          const installer = getUpdateInstaller(installationMethod);
           if (installer) {
             this.reporter.info(this.reporter.lang('yarnOutdatedInstaller', installer));
           }
@@ -804,6 +789,10 @@ export class Install {
 
   maybeOutputUpdate() {}
   maybeOutputUpdate: any;
+}
+
+export function hasWrapper(): boolean {
+  return true;
 }
 
 export function setFlags(commander: Object) {
@@ -871,5 +860,6 @@ export async function wrapLifecycle(config: Config, flags: Object, factory: () =
 
   if (!config.production) {
     await config.executeLifecycleScript('prepublish');
+    await config.executeLifecycleScript('prepare');
   }
 }

@@ -3,7 +3,13 @@
 import type {Reporter} from '../../reporters/index.js';
 import type Config from '../../config.js';
 
-const YARN_VERSION = require('../../../package.json').version;
+import {version as yarnVersion} from '../../util/yarn-version.js';
+
+export function setFlags() {}
+
+export function hasWrapper(): boolean {
+  return true;
+}
 
 export async function run(
  config: Config,
@@ -11,7 +17,7 @@ export async function run(
  flags: Object,
  args: Array<string>,
 ): Promise<void> {
-  const versions: {[name: string]: string} = {yarn: YARN_VERSION};
+  const versions: {[name: string]: string} = {yarn: yarnVersion};
 
   const pkg = await config.maybeReadManifest(config.cwd);
   if (pkg && pkg.name && pkg.version) {

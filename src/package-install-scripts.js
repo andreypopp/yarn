@@ -7,12 +7,14 @@ import type Config from './config.js';
 import type {ReporterSetSpinner} from './reporters/types.js';
 import executeLifecycleScript from './util/execute-lifecycle-script.js';
 import * as fs from './util/fs.js';
-import * as constants from './constants.js';
 
 const invariant = require('invariant');
-const path = require('path');
 
 const INSTALL_STAGES = ['preinstall', 'install', 'postinstall'];
+
+export type InstallArtifacts = {
+  [pattern: string]: Array<string>,
+};
 
 export default class PackageInstallScripts {
   constructor(config: Config, resolver: PackageResolver, force: boolean) {
@@ -21,6 +23,7 @@ export default class PackageInstallScripts {
     this.reporter = config.reporter;
     this.config = config;
     this.force = force;
+    this.artifacts = {};
   }
 
   needsPermission: boolean;
@@ -29,9 +32,17 @@ export default class PackageInstallScripts {
   installed: number;
   config: Config;
   force: boolean;
+  artifacts: InstallArtifacts;
 
+  setArtifacts(artifacts: InstallArtifacts) {
+    this.artifacts = artifacts;
+  }
 
-  getInstallCommands(pkg: Manifest): Array<[string]> {
+  getArtifacts(): InstallArtifacts {
+    return this.artifacts;
+  }
+
+  getInstallCommands(pkg: Manifest): Array<[string, string]> {
     const scripts = pkg.scripts;
     if (scripts) {
       const cmds = [];
@@ -77,21 +88,10 @@ export default class PackageInstallScripts {
       return;
     }
 
-    // if the process is killed while copying over build artifacts then we'll leave
-    // the cache in a bad state. remove the metadata file and add it back once we've
-    // done our copies to ensure cache integrity.
-    const cachedLoc = this.config.generateHardModulePath(pkg._reference, true);
-    const metadata = await this.config.readPackageMetadata(cachedLoc);
-    metadata.artifacts = buildArtifacts;
-
-    const metadataLoc = path.join(cachedLoc, constants.METADATA_FILENAME);
-    await fs.writeFile(metadataLoc, JSON.stringify({
-      ...metadata,
-
-      // config.readPackageMetadata also returns the package manifest but that's not in the original
-      // metadata json
-      package: undefined,
-    }, null, '  '));
+    // set build artifacts
+    const ref = pkg._reference;
+    invariant(ref, 'expected reference');
+    this.artifacts[`${pkg.name}@${pkg.version}`] = buildArtifacts;
   }
 
   async install(cmds: Array<[string, string]>, pkg: Manifest, spinner: ReporterSetSpinner): Promise<void> {
@@ -101,7 +101,8 @@ export default class PackageInstallScripts {
 
     try {
       for (const [stage, cmd] of cmds) {
-        await executeLifecycleScript(stage, this.config, loc, cmd, spinner);
+        const {stdout} = await executeLifecycleScript(stage, this.config, loc, cmd, spinner);
+        this.reporter.verbose(stdout);
       }
     } catch (err) {
       err.message = `${loc}: ${err.message}`;
@@ -110,6 +111,7 @@ export default class PackageInstallScripts {
 
       if (ref.optional) {
         ref.ignore = true;
+        ref.incompatible = true;
         this.reporter.warn(this.reporter.lang('optionalModuleScriptFail', err.message));
         this.reporter.info(this.reporter.lang('optionalModuleFail'));
 
@@ -261,7 +263,7 @@ export default class PackageInstallScripts {
     const waitQueue = new Set();
     const workers = [];
 
-    const set = this.reporter.activitySet(installablePkgs, Math.min(constants.CHILD_CONCURRENCY, workQueue.size));
+    const set = this.reporter.activitySet(installablePkgs, Math.min(this.config.childConcurrency, workQueue.size));
 
     for (const spinner of set.spinners) {
       workers.push(this.worker(spinner, workQueue, installed, waitQueue));

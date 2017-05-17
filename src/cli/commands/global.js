@@ -12,6 +12,7 @@ import {Install} from './install.js';
 import {Add} from './add.js';
 import {run as runRemove} from './remove.js';
 import {run as runUpgrade} from './upgrade.js';
+import {run as runUpgradeInteractive} from './upgrade-interactive.js';
 import {linkBin} from '../../package-linker.js';
 import * as fs from '../../util/fs.js';
 
@@ -40,7 +41,7 @@ async function updateCwd(config: Config): Promise<void> {
     cwd: config.globalFolder,
     binLinks: true,
     globalFolder: config.globalFolder,
-    cacheFolder: config.cacheFolder,
+    cacheFolder: config._cacheRootFolder,
     linkFolder: config.linkFolder,
   });
 }
@@ -76,6 +77,9 @@ function getGlobalPrefix(config: Config, flags: Object): string {
   } else if (process.env.PREFIX) {
     return process.env.PREFIX;
   } else if (process.platform === 'win32') {
+    if (process.env.LOCALAPPDATA) {
+      return path.join(process.env.LOCALAPPDATA, 'Yarn', 'bin');
+    }
     // c:\node\node.exe --> prefix=c:\node\
     return path.dirname(process.execPath);
   } else {
@@ -164,7 +168,7 @@ function ls(manifest: Manifest, reporter: Reporter, saved: boolean) {
     }
     reporter.list(`bins-${manifest.name}`, bins);
   } else if (saved) {
-    reporter.warn(reporter.lang('packageHasNoBinaries'));
+    reporter.warn(reporter.lang('packageHasNoBinaries', human));
   }
 }
 
@@ -178,6 +182,9 @@ const {run, setFlags: _setFlags} = buildSubCommands('global', {
     await updateCwd(config);
 
     const updateBins = await initUpdateBins(config, reporter, flags);
+    if (args.indexOf('yarn') !== -1) {
+      reporter.warn(reporter.lang('packageContainsYarnAsGlobal'));
+    }
 
     // install module
     const lockfile = await Lockfile.fromDirectory(config.cwd);
@@ -194,7 +201,7 @@ const {run, setFlags: _setFlags} = buildSubCommands('global', {
     flags: Object,
     args: Array<string>,
   ) {
-    console.log(getBinFolder(config, flags));
+    reporter.log(getBinFolder(config, flags));
   },
 
   async ls(
@@ -207,7 +214,7 @@ const {run, setFlags: _setFlags} = buildSubCommands('global', {
 
     // install so we get hard file paths
     const lockfile = await Lockfile.fromDirectory(config.cwd);
-    const install = new Install({skipIntegrity: true}, config, new NoopReporter(), lockfile);
+    const install = new Install({skipIntegrityCheck: true}, config, new NoopReporter(), lockfile);
     const patterns = await install.init();
 
     // dump global modules
@@ -246,6 +253,23 @@ const {run, setFlags: _setFlags} = buildSubCommands('global', {
 
     // upgrade module
     await runUpgrade(config, reporter, flags, args);
+
+    // update binaries
+    await updateBins();
+  },
+
+  async upgradeInteractive(
+    config: Config,
+    reporter: Reporter,
+    flags: Object,
+    args: Array<string>,
+  ): Promise<void> {
+    await updateCwd(config);
+
+    const updateBins = await initUpdateBins(config, reporter, flags);
+
+    // upgrade module
+    await runUpgradeInteractive(config, reporter, flags, args);
 
     // update binaries
     await updateBins();
