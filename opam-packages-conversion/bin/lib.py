@@ -5,8 +5,6 @@ import os
 import json
 import collections
 
-import config
-
 #   See https://github.com/reasonml/esy/issues/3
 #
 #   This scheme:
@@ -33,6 +31,8 @@ def normalize_package_name_to_var_name(name):
     name = name.replace('/', '__slash__')
     name = name.replace('-', '_')
     return name
+
+import config
 
 def generate_package_json(name, version, directory):
     opam_file = os.path.join(directory, 'opam')

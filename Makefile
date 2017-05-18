@@ -19,11 +19,6 @@ build:
 	@echo '*** Building esy-core'
 	@(cd esy && $(MAKE) build)
 
-convert-opam-packages: check-filterdiff
-	@$(MAKE) -C opam-packages-conversion/ convert || true # some conversions fail now
-	@rm -rf opam-packages/
-	@mv opam-packages-conversion/output opam-packages
-
 check-filterdiff:
 	@which filterdiff > /dev/null \
 		|| (echo "$(FILTERDIFF_MANUAL)" && exit 1)
@@ -34,21 +29,18 @@ ifndef VERSION
 endif
 
 # Beta releases to Github
-beta-release: check-version convert-opam-packages build
+beta-release: check-version build
 	@# Program "fails" if unstaged changes.
 	@echo "Preparing beta release beta-$(VERSION)"
 	@echo "--------------------------------------"
-	@echo "- Will convert opam package meta-data to package.json"
-	@echo "- Will locally commit built version of esy itself, along with these opam package.json conversions."
+	@echo "- Will locally commit built version of esy itself."
 	@echo "- Will tag that commit as beta-$(VERSION)."
 	@echo "- To finalize, you must follow final instructions to push that commit and tag to upstream repo."
 	@echo "--------------------------------------"
 	@git diff --exit-code || (echo "You have unstaged changes. Please clean up first." && exit 1)
 	@git diff --cached --exit-code || (echo "You have staged changes. Please reset them or commit them first." && exit 1)
 	@git rm ./.gitmodules
-	@git rm -r ./opam-packages-conversion
 	@git add -f lib/*
-	@git add -f opam-packages/*
 	@git add -f lib-legacy/*
 	@git commit -m "Preparing beta release beta-v$(VERSION)"
 	@# Return code is inverted to receive boolean return value
