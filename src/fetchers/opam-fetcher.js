@@ -9,7 +9,8 @@ import {SecurityError} from '../errors.js';
 import type {OpamManifest} from '../resolvers/exotics/opam-resolver';
 import {
   parseOpamResolution,
-  lookupOpamPackageManifest,
+  getCurrentRepository,
+  getPackageManifest,
 } from '../resolvers/exotics/opam-resolver';
 import BaseFetcher from '../fetchers/base-fetcher.js';
 import * as constants from '../constants.js';
@@ -23,10 +24,12 @@ export default class OpamFetcher extends BaseFetcher {
   async _fetch(): Promise<FetchedOverride> {
     const {dest} = this;
     const resolution = parseOpamResolution(this.reference);
-    const manifest = await lookupOpamPackageManifest(
+    const repo = await getCurrentRepository(this.config);
+    const manifest = await getPackageManifest(
+      this.config,
+      repo,
       resolution.name,
       resolution.version,
-      this.config,
     );
     let hash = this.hash || '';
 
