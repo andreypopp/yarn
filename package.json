@@ -35,7 +35,6 @@
     "outdent": "^0.3.0",
     "p-queue": "^1.0.0",
     "path-is-inside": "^1.0.2",
-    "prettier": "^0.22.0",
     "proper-lockfile": "^2.0.0",
     "read": "^1.0.7",
     "request": "^2.81.0",
@@ -93,7 +92,7 @@
   "repository": "yarnpkg/yarn",
   "bin": {
     "esy": "./bin/esy",
-    "esybuild": "./bin/esybuild.js"
+    "esybuild": "./esy/bin/esybuild.js"
   },
   "scripts": {
     "test": "yarn lint && yarn test-only",
