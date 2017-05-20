@@ -28,3 +28,5 @@ test/fixtures/**/.fbkpm
 /__tests__/fixtures/request-cache/
 /opam-packages-conversion/output/
 /opam-packages/
+/package
+/esy-*.tgz

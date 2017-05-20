@@ -17,7 +17,6 @@
 /CODE_OF_CONDUCT.md
 /flow-typed/
 /RELEASING.md
-/Makefile
 /tmp/
 /.nyc_output
 /resources
@@ -31,8 +30,12 @@
 *.nupkg
 Dockerfile
 end_to_end_tests
+/.gitmodules
 /opam-packages-conversion/
+/bin/EsyYarnCache-*
 /esy/node_modules
 /esy/src
 /esy/coverage
 /esy/flow-typed
+/esy-*tgz
+/package
