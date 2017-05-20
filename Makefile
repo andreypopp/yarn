@@ -44,11 +44,11 @@ ifndef ORIGIN
 endif
 
 check-no-changes:
-	@#git diff --exit-code || (echo "You have unstaged changes. Please clean up first." && exit 1)
-	@#git diff --cached --exit-code || (echo "You have staged changes. Please reset them or commit them first." && exit 1)
+	@git diff --exit-code || (echo "You have unstaged changes. Please clean up first." && exit 1)
+	@git diff --cached --exit-code || (echo "You have staged changes. Please reset them or commit them first." && exit 1)
 
 # Beta releases to Github
-beta-release: check-no-changes check-version convert-opam-packages build
+beta-release: check-no-changes check-version build convert-opam-packages
 	@# Program "fails" if unstaged changes.
 	@echo "--------------------------------------------"
 	@echo "-- Preparing beta release beta-$(VERSION) --"
