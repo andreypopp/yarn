@@ -359,8 +359,14 @@ errors that might be causing the package conversion failure.
 
 On a clean branch off of `origin/master`, run
 
-    # npm install if needed.
+    # Remove node_modules and esy/node_modules if they are from previous versions.
+    # Then npm install if needed.
+    cd esy
     npm install
+    # Then cd into the *nested* esy directory and npm install if necessary
+    cd esy && npm install
+    # Go back into the root directory of the project
+    cd ..
     which filterdiff || echo "You do not have filterdiff installed. Your build will fail! See README"
     git submodule init
     git submodule update
