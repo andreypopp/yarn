@@ -26,3 +26,5 @@ test/fixtures/**/.fbkpm
 **/*.pyc
 /opam-packages-conversion/output/
 /opam-packages/
+/package
+/esy-*.tgz
