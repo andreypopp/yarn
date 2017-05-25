@@ -33,11 +33,6 @@ ESY__YARN_CACHE_DIR="$SCRIPTDIR/EsyYarnCache-$ESY__CACHE_VERSION/"
 #     CURDIR=`cd $CURDIR/..; pwd`
 # done
 
-
-# Capture the error output
-# Capturing stderr is very important to prevent nodejs from setting
-# stderr to nonblocking mode
-
 if [ -z "${ESY__SANDBOX+x}" ]; then
   export ESY__SANDBOX="$PWD"
 fi
@@ -48,8 +43,8 @@ if [ -z "${ESY__LOCAL_STORE+x}" ]; then
   export ESY__LOCAL_STORE="$ESY__SANDBOX/node_modules/.cache/_esy/store"
 fi
 
-EJECT_PATH="$ESY__SANDBOX/node_modules/.cache/_esy/build-eject"
-ENV_PATH="$ESY__SANDBOX/node_modules/.cache/_esy/command-env"
+BUILD_EJECT_PATH="$ESY__SANDBOX/node_modules/.cache/_esy/build-eject"
+COMMAND_ENV_PATH="$ESY__SANDBOX/node_modules/.cache/_esy/command-env"
 
 if [ -d "$ESY__SANDBOX/node_modules" ]; then
   DEPENDENCIES_PACKAGE_JSON=`find $ESY__SANDBOX/node_modules -name 'package.json'`
@@ -82,9 +77,12 @@ needRebuildTarget () {
   echo "$NEED_REBUILD"
 }
 
-builtInEject () {
-  if [ `needRebuildTarget "$EJECT_PATH/Makefile"` == "true" ]; then
-    EJECT_LOG=`node $SCRIPTDIR/../esy/bin/esy.js build-eject "$EJECT_PATH" 2>&1`
+callBuiltInCommand__buildEject () {
+  if [ `needRebuildTarget "$BUILD_EJECT_PATH/Makefile"` == "true" ]; then
+    # Capture the error output
+    # Capturing stderr is very important to prevent nodejs from setting
+    # stderr to nonblocking mode
+    EJECT_LOG=`node $SCRIPTDIR/../esy/bin/esy.js build-eject "$BUILD_EJECT_PATH" 2>&1`
     if [ $? -ne 0 ]; then
       echo "Failed to prepare build environment:"
       printf "%s\n" "$EJECT_LOG" >&2
@@ -93,25 +91,28 @@ builtInEject () {
   fi
 }
 
-ensureEnvEjected () {
-  if [ `needRebuildTarget "$ENV_PATH"` == "true" ]; then
+ensureCommandEnvEjected () {
+  if [ `needRebuildTarget "$COMMAND_ENV_PATH"` == "true" ]; then
+    # Capture the error output
+    # Capturing stderr is very important to prevent nodejs from setting
+    # stderr to nonblocking mode
     EJECTED_ENV=`node $SCRIPTDIR/../esy/bin/esy.js 2>&1`
     if [ $? -ne 0 ]; then
       echo "Failed to get environment:"
       printf "%s\n" "$EJECTED_ENV" >&2
       exit 1
     else
-      mkdir -p `dirname $ENV_PATH`
-      echo "$EJECTED_ENV" > "$ENV_PATH"
+      mkdir -p `dirname $COMMAND_ENV_PATH`
+      echo "$EJECTED_ENV" > "$COMMAND_ENV_PATH"
     fi
   fi
 }
 
-builtIn() {
+callBuiltInCommand() {
 	node $SCRIPTDIR/../esy/bin/esy.js $@
 }
 
-builtInYarn() {
+callBuiltInCommand__yarn() {
 	node $SCRIPTDIR/yarn.js $@ --cache-folder $ESY__YARN_CACHE_DIR
 }
 
@@ -152,10 +153,10 @@ $ESY__VERSION.
 EOF
 }
 
-execute_any_command() {
-  ensureEnvEjected
+callAnyCommand() {
+  ensureCommandEnvEjected
 
-  source "$ENV_PATH"
+  source "$COMMAND_ENV_PATH"
   # Checks if command ($1) is present available
   command -v $1 >/dev/null 2>&1 || {
   echo >&2 "$1 command is not installed.";
@@ -170,25 +171,25 @@ then
 elif [ $# -eq 1 ]; then
   case $1 in
     build-shell|clean)
-      builtInEject
-      make -j -s -f "$EJECT_PATH/Makefile" "$1"
+      callBuiltInCommand__buildEject
+      make -j -s -f "$BUILD_EJECT_PATH/Makefile" "$1"
       ;;
     build-eject)
-      builtInEject
+      callBuiltInCommand__buildEject
       ;;
     build)
-      builtIn build
+      callBuiltInCommand build
       ;;
     shell)
-      ensureEnvEjected
-      ENV="$ENV_PATH" PS1="esy % " sh
+      ensureCommandEnvEjected
+      ENV="$COMMAND_ENV_PATH" PS1="esy % " sh
       ;;
     print-env)
-      ensureEnvEjected
-      cat "$ENV_PATH"
+      ensureCommandEnvEjected
+      cat "$COMMAND_ENV_PATH"
       ;;
     install|add)
-      builtInYarn "$@"
+      callBuiltInCommand__yarn "$@"
       ;;
     --version|-v)
       printVersion
@@ -196,29 +197,25 @@ elif [ $# -eq 1 ]; then
     --help|-h)
       printHelp
       ;;
-    dump-env)
-      ensureEnvEjected
-      cat "$ENV_PATH"
-      ;;
     -*)
       echo Unknown option "$1" >&2
       exit 1
       ;;
     *)
-      execute_any_command "$@"
+      callAnyCommand "$@"
       break
   esac
 else
   case $1 in
     add)
-      builtInYarn "$@"
+      callBuiltInCommand__yarn "$@"
       ;;
     -*)
       echo Unknown option "$1" >&2
       exit 1
       ;;
     *)
-      execute_any_command "$@"
+      callAnyCommand "$@"
       break
   esac
 fi
