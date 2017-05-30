@@ -37,7 +37,7 @@ if [ -z "${ESY__SANDBOX+x}" ]; then
   export ESY__SANDBOX="$PWD"
 fi
 if [ -z "${ESY__STORE+x}" ]; then
-  export ESY__STORE="$HOME/.esy/store-$ESY__STORE_VERSION"
+  export ESY__STORE="$HOME/.esy/$ESY__STORE_VERSION"
 fi
 if [ -z "${ESY__LOCAL_STORE+x}" ]; then
   export ESY__LOCAL_STORE="$ESY__SANDBOX/node_modules/.cache/_esy/store"
