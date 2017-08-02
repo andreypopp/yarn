@@ -370,6 +370,7 @@ conf-sdl2-net 1
 conf-sdl2-ttf 1
 conf-sdl2 1
 conf-sfml2 1
+conf-time 1
 conf-tcl 1
 conf-tk 1
 conf-vim 1
