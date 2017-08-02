@@ -1,0 +1,280 @@
+{
+  "versions": {
+    "0.38.0": {
+      "version": "0.38.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.38.0.tar.gz", 
+        "checksum": "aeccb250256697c4598fb23c1c3b6af3", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.38.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }, 
+    "0.42.0": {
+      "version": "0.42.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.42.0.tar.gz", 
+        "checksum": "e75b34445e18ad54b72326973f4f85be", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.42.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }, 
+    "0.44.0": {
+      "version": "0.44.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.44.0.tar.gz", 
+        "checksum": "b2b5a5e032a44f255bb313993c2f6602", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.44.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }, 
+    "0.40.0": {
+      "version": "0.40.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.40.0.tar.gz", 
+        "checksum": "661a4345d3111978276576908050f638", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.40.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }, 
+    "0.46.0": {
+      "version": "0.46.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.46.0.tar.gz", 
+        "checksum": "da2357595a8ee443fa40346e2171b1e9", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.46.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }, 
+    "0.43.0": {
+      "version": "0.43.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.43.0.tar.gz", 
+        "checksum": "236d98c54f4a6d571c54d2729a81edb2", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.43.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }, 
+    "0.47.0": {
+      "version": "0.47.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.47.0.tar.gz", 
+        "checksum": "f7d85c086b570ef7d5693f06391bfe19", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "sh -c cd src/parser && make ocamlfind-install", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flow___parser_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flow___parser_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "flow___parser_version": {
+            "scope": "global", 
+            "val": "0.47.0"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0"
+      }, 
+      "name": "@opam-alpha/flow_parser"
+    }
+  }
+}

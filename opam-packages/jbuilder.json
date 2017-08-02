@@ -1,0 +1,127 @@
+{
+  "versions": {
+    "1.9.0": {
+      "version": "1.9.0", 
+      "opam": {
+        "url": "https://github.com/janestreet/jbuilder/releases/download/1.0+beta9/jbuilder-1.0.beta9.tbz", 
+        "checksum": "7a8a71d559ed51712cfb4bba0da6721b", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "ocaml bootstrap.ml", 
+          "./boot.exe --subst", 
+          "./boot.exe -j 4", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "jbuilder_version": {
+            "scope": "global", 
+            "val": "1.9.0"
+          }, 
+          "jbuilder_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "jbuilder_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.3"
+      }, 
+      "name": "@opam-alpha/jbuilder"
+    }, 
+    "1.11.0": {
+      "version": "1.11.0", 
+      "opam": {
+        "url": "https://github.com/janestreet/jbuilder/releases/download/1.0+beta11/jbuilder-1.0.beta11.tbz", 
+        "checksum": "e6f433574a0fe635ad4e126c043f5e00", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "ocaml bootstrap.ml", 
+          "./boot.exe --subst", 
+          "./boot.exe -j 4", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "jbuilder_version": {
+            "scope": "global", 
+            "val": "1.11.0"
+          }, 
+          "jbuilder_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "jbuilder_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.3"
+      }, 
+      "name": "@opam-alpha/jbuilder"
+    }, 
+    "1.10.0": {
+      "version": "1.10.0", 
+      "opam": {
+        "url": "https://github.com/janestreet/jbuilder/releases/download/1.0+beta10/jbuilder-1.0.beta10.tbz", 
+        "checksum": "a93c7321b4421686090a3f5dd571fbe7", 
+        "files": []
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "ocaml bootstrap.ml", 
+          "./boot.exe --subst", 
+          "./boot.exe -j 4", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "jbuilder_version": {
+            "scope": "global", 
+            "val": "1.10.0"
+          }, 
+          "jbuilder_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }, 
+          "jbuilder_installed": {
+            "scope": "global", 
+            "val": "true"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/ocamlfind": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.3"
+      }, 
+      "name": "@opam-alpha/jbuilder"
+    }
+  }
+}

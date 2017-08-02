@@ -1,0 +1,477 @@
+{
+  "versions": {
+    "4.04.0": {
+      "version": "4.04.0", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.04/ocaml-4.04.0.tar.gz", 
+        "checksum": "496f99822133bb905171bae8f64b7be4", 
+        "files": [
+          {
+            "content": "version = \"4.04.0\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.04.0"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.04.0"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.01.0": {
+      "version": "4.01.0", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.01/ocaml-4.01.0.tar.gz", 
+        "checksum": "04dfdd7da189462a4f10ec6530359cef", 
+        "files": [
+          {
+            "content": "version = \"4.01.0\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.01.0"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.01.0"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.05.0": {
+      "version": "4.05.0", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.05/ocaml-4.05.0.tar.gz", 
+        "checksum": "89fd8cee148a00a6fcd5f587a2cebe10", 
+        "files": [
+          {
+            "content": "version = \"4.05.0\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.05.0"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.05.0"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.00.0": {
+      "version": "4.00.0", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.00/ocaml-4.00.0.tar.gz", 
+        "checksum": "fa11560a45793bd9fa45c1295a6f4a91", 
+        "files": [
+          {
+            "content": "version = \"4.00.0\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.00.0"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.00.0"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.00.1": {
+      "version": "4.00.1", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.00/ocaml-4.00.1.tar.gz", 
+        "checksum": "91124a8eb12a57f1e56c02fe3db0f9e7", 
+        "files": [
+          {
+            "content": "version = \"4.00.1\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.00.1"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.00.1"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.03.0": {
+      "version": "4.03.0", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz", 
+        "checksum": "43812739ea1b4641cf480f57f977c149", 
+        "files": [
+          {
+            "content": "version = \"4.03.0\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.03.0"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.03.0"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "3.12.1": {
+      "version": "3.12.1", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-3.12/ocaml-3.12.1.tar.gz", 
+        "checksum": "814a047085f0f901ab7d8e3a4b7a9e65", 
+        "files": [
+          {
+            "content": "version = \"3.12.1\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "3.12.1"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 3.12.1"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.02.0": {
+      "version": "4.02.0", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.0.tar.gz", 
+        "checksum": "8bba7e7d872083af1723dd450e07a5f4", 
+        "files": [
+          {
+            "content": "version = \"4.02.0\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.02.0"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.02.0"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.02.1": {
+      "version": "4.02.1", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.1.tar.gz", 
+        "checksum": "3c35318eefd201f96797c093c920b343", 
+        "files": [
+          {
+            "content": "version = \"4.02.1\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.02.1"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.02.1"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.02.2": {
+      "version": "4.02.2", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.2.tar.gz", 
+        "checksum": "359ad0ef89717341767142f2a4d050b2", 
+        "files": [
+          {
+            "content": "version = \"4.02.2\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.02.2"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.02.2"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }, 
+    "4.02.3": {
+      "version": "4.02.3", 
+      "opam": {
+        "url": "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.3.tar.gz", 
+        "checksum": "ef1a324608c97031cbd92a442d685ab7", 
+        "files": [
+          {
+            "content": "version = \"4.02.3\"\n", 
+            "name": "META"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "cp -r . $cur__lib/ocaml-src", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "ocaml_src_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "ocaml_src_version": {
+            "scope": "global", 
+            "val": "4.02.3"
+          }, 
+          "ocaml_src_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": "= 4.02.3"
+      }, 
+      "name": "@opam-alpha/ocaml-src"
+    }
+  }
+}

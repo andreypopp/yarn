@@ -1,0 +1,528 @@
+{
+  "versions": {
+    "0.50.0": {
+      "version": "0.50.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.50.0.tar.gz", 
+        "checksum": "e336eb926aeac874b106dea977dee22e", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "env FLOW_RELEASE=1 make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.50.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.38.0": {
+      "version": "0.38.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.38.0.tar.gz", 
+        "checksum": "aeccb250256697c4598fb23c1c3b6af3", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.38.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.01.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.42.0": {
+      "version": "0.42.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.42.0.tar.gz", 
+        "checksum": "e75b34445e18ad54b72326973f4f85be", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.42.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.44.0": {
+      "version": "0.44.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.44.0.tar.gz", 
+        "checksum": "b2b5a5e032a44f255bb313993c2f6602", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.44.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.45.0": {
+      "version": "0.45.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.45.0.tar.gz", 
+        "checksum": "7ade5f6d0f77f0c63e96f48a4a77085d", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.45.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.51.0": {
+      "version": "0.51.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.51.0.tar.gz", 
+        "checksum": "cc98e965b0858232be47082222ced382", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "env FLOW_RELEASE=1 make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.51.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": ">= 1.99.4", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.49.1": {
+      "version": "0.49.1", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.49.1.tar.gz", 
+        "checksum": "3d3ec2450c40e0e77dc230266cf143a2", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "env FLOW_RELEASE=1 make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.49.1"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.40.0": {
+      "version": "0.40.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.40.0.tar.gz", 
+        "checksum": "661a4345d3111978276576908050f638", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.40.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.46.0": {
+      "version": "0.46.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.46.0.tar.gz", 
+        "checksum": "da2357595a8ee443fa40346e2171b1e9", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.46.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.43.0": {
+      "version": "0.43.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.43.0.tar.gz", 
+        "checksum": "236d98c54f4a6d571c54d2729a81edb2", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.43.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.02.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.47.0": {
+      "version": "0.47.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.47.0.tar.gz", 
+        "checksum": "f7d85c086b570ef7d5693f06391bfe19", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.47.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }, 
+    "0.48.0": {
+      "version": "0.48.0", 
+      "opam": {
+        "url": "https://github.com/facebook/flow/archive/v0.48.0.tar.gz", 
+        "checksum": "1b9461432e88f89e8dcccec71e3d782b", 
+        "files": [
+          {
+            "content": "bin: [\"bin/flow\" {\"flow\"}]\n", 
+            "name": "flowtype.install"
+          }
+        ]
+      }, 
+      "esy": {
+        "buildsInSource": true, 
+        "build": [
+          "make", 
+          "sh -c '(opam-installer --prefix=$cur__install || true)'"
+        ], 
+        "exportedEnv": {
+          "flowtype_installed": {
+            "scope": "global", 
+            "val": "true"
+          }, 
+          "flowtype_version": {
+            "scope": "global", 
+            "val": "0.48.0"
+          }, 
+          "flowtype_enable": {
+            "scope": "global", 
+            "val": "enable"
+          }
+        }
+      }, 
+      "dependencies": {
+        "substs": "esy-ocaml/substs", 
+        "@opam-alpha/sedlex": "*", 
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      }, 
+      "scripts": {}, 
+      "peerDependencies": {
+        "ocaml": ">= 4.03.0 < 4.04.0"
+      }, 
+      "name": "@opam-alpha/flowtype"
+    }
+  }
+}
