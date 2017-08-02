@@ -1288,7 +1288,7 @@ schoca 0.2.3
 schroedinger 0.1.0 0.1.1
 scrypt-kdf 0.1.0 0.2.0
 scrypt 0.2.1
-sedlex 1.99 1.99.1 1.99.2 1.99.3 1.99.4
+sedlex 1.99.4
 semver 0.1.0
 sendmsg 0.0.2
 sequence 0.4 0.4.1 0.5 0.5.1 0.5.2 0.5.3 0.5.4 0.5.5 0.6 0.7 0.8 0.9
