@@ -1,6 +1,7 @@
 /* @flow */
 
 const path = require('path');
+const semver = require('semver');
 
 import type {Manifest} from '../../types.js';
 import type Config from '../../config';
@@ -45,11 +46,14 @@ export default class OpamResolver extends ExoticResolver {
   version: string;
 
   static isVersion(pattern: string): boolean {
-    if (pattern.startsWith(`@${OPAM_SCOPE}`)) {
-      return true;
+    if (!pattern.startsWith(`@${OPAM_SCOPE}`)) {
+      return false;
     }
 
-    return false;
+    // rm leading @
+    pattern = pattern[0] === '@' ? pattern.slice(1) : pattern;
+    const [_name, constraint] = pattern.split('@');
+    return !!semver.validRange(constraint);
   }
 
   static getPatternVersion(pattern: string, pkg: Manifest): string {
