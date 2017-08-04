@@ -1,0 +1,182 @@
+#!/usr/bin/env node
+
+const loudRejection = require('loud-rejection');
+const {promisify} = require('util');
+const fs = require('fs');
+const errno = require('errno');
+const path = require('path');
+const {parseOpam, renderOpam, parseOpamUrl, renderOpamUrl} = require('../../../esy-opam/index');
+
+loudRejection();
+
+/**
+ * Implementation
+ */
+
+const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
+const readdir = promisify(fs.readdir);
+const stat = promisify(fs.stat);
+
+function ignoreIfNotExists(promiseDoingIO) {
+  return promiseDoingIO.then(undefined, err => {
+    if (errno.errno[err.errno].code === 'ENOENT') {
+      return null;
+    } else {
+      throw err;
+    }
+  });
+}
+
+function listdir(dir) {
+  const result = [];
+  async function listdirImpl(dir, prefix = []) {
+    const items = await readdir(dir);
+    for (const item of items) {
+      const filename = path.join(dir, item);
+      const st = await stat(filename);
+      if (st.isDirectory()) {
+        await listdirImpl(filename, prefix.concat(item));
+      } else {
+        result.push(path.join(...prefix.concat(item)));
+      }
+    }
+  }
+  return listdirImpl(dir).then(_ => result);
+}
+
+async function readOpamAsEsy(name, version, directory) {
+  const opamFilename = path.join(directory, 'opam');
+  const opamData = await ignoreIfNotExists(readFile(opamFilename, 'utf8'));
+  if (opamData == null) {
+    return null;
+  }
+  const opam = parseOpam(opamData);
+  const pkg = renderOpam(name, version, opam);
+
+  const urlFilename = path.join(directory, 'url');
+  const urlData = await ignoreIfNotExists(readFile(urlFilename, 'utf8'));
+  if (urlData != null) {
+    const opamUrl = parseOpamUrl(urlData);
+    const url = renderOpamUrl(opamUrl);
+    let checksum = url.checksum.filter(h => h.kind === 'md5')[0];
+    checksum = checksum ? checksum.contents : null;
+    pkg.opam = {url: url.url, checksum, files: []};
+  } else {
+    pkg.opam = {url: null, checksum: null, files: []};
+  }
+
+  const files = await ignoreIfNotExists(listdir(path.join(directory, 'files')));
+  if (files != null) {
+    for (const name of files) {
+      const filename = path.join(directory, 'files', name);
+      const content = await readFile(filename, 'utf8');
+      if (content.indexOf('\0') > -1) {
+        throw new Error(`trying to include a binary file: ${filename}`);
+      }
+      pkg.opam.files.push({name, content});
+    }
+  }
+
+  return pkg;
+}
+
+async function convertOpamRepo(repoPath, tasks) {
+
+  async function convertOpamPackage(name, versions) {
+    const running = [];
+    for (const version of versions) {
+      const dir = path.join(repoPath, 'packages', name, `${name}.${version}`);
+      running.push(readOpamAsEsy(name, version, dir));
+    }
+    const packages = await Promise.all(running);
+    const packument = {};
+    for (const pkg of packages) {
+      if (pkg == null) {
+        continue;
+      }
+      packument[pkg.version] = pkg;
+    }
+    const keys = Object.keys(packument);
+    keys.sort();
+    for (const version of keys) {
+      packument[version] = packument[version];
+    }
+    if (Object.keys(packument).length > 0) {
+      await writeFile(
+        path.join('output', `${name}.json`),
+        JSON.stringify({versions: packument}, null, 2)
+      );
+    }
+  }
+
+  const running = [];
+  for (const name in tasks) {
+    const versions = tasks[name];
+    running.push(convertOpamPackage(name, versions));
+  }
+  await Promise.all(running);
+}
+
+/**
+ * CLI utilities
+ */
+
+function error(msg) {
+  console.error('error: ' + msg);
+  usage();
+  process.exit(1);
+}
+
+function usage() {
+  console.log('usage: opam-to-package-json convert PKG_NAME PKG_VERSION OPAM_FILENAME');
+  console.log('usage: opam-to-package-json convert-from REPO_PATH TASKS_FILENAME');
+}
+
+const args = process.argv.slice(2);
+
+/**
+ * CLI runner
+ */
+
+if (args.length < 3) {
+  error('provide command package name and path to opam file as arguments');
+}
+
+
+const command = args[0];
+
+switch (command) {
+
+  case 'convert': {
+    const name = args[1];
+    const version = args[2];
+    const dir = args[3];
+    readOpamAsEsy(name, version, dir).then(data => {
+      console.log(JSON.stringify(data, null, 2));
+    });
+    break;
+  }
+
+  case 'convert-from': {
+    const repoPath = args[1];
+    const taskFilename = args[2];
+    const taskData = fs.readFileSync(taskFilename, 'utf8');
+    const lines = taskData.split('\n');
+    const tasks = {};
+    for (let line of lines) {
+      line = line.trim();
+      if (line.startsWith('#') || line === '') {
+        continue;
+      }
+      const [name, ...versions] = line.split(' ');
+      tasks[name] = versions;
+    }
+    convertOpamRepo(repoPath, tasks);
+    break;
+  }
+
+  default: {
+    error('unknown command');
+  }
+}

@@ -25,7 +25,9 @@ clean:
 	@$(MAKE) -C esy clean
 
 convert-opam-packages: check-filterdiff
-	@$(MAKE) -C opam-packages-conversion/ convert || true # some conversions fail now
+	@rm -rf opam-packages-conversion/output
+	@mkdir opam-packages-conversion/output
+	@(cd opam-packages-conversion && ./bin/opam-to-package-json convert-from ./opam-repository ./convertedPackages.txt)
 	@rm -rf opam-packages/
 	@mv opam-packages-conversion/output opam-packages
 
