@@ -5,7 +5,7 @@ const {promisify} = require('util');
 const fs = require('fs');
 const errno = require('errno');
 const path = require('path');
-const {parseOpam, renderOpam, parseOpamUrl, renderOpamUrl} = require('../../../esy-opam/index');
+const {parseOpam, renderOpam, parseOpamUrl, renderOpamUrl} = require('esy-opam');
 
 loudRejection();
 
