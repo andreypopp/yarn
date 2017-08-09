@@ -65,7 +65,7 @@
     "validate-npm-package-license": "^3.0.1",
     "var-expansion": "^0.1.0",
     "walkdir": "^0.0.11",
-    "esy-opam": "esy-ocaml/esy-opam"
+    "esy-opam": "esy-ocaml/esy-opam#d4f32b1ebf08576d4ff87b31da3794942f8c7478"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
