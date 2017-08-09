@@ -17,6 +17,7 @@
     "debug": "^2.2.0",
     "decompress-zip": "^0.3.0",
     "detect-indent": "^5.0.0",
+    "esy-opam": "esy-ocaml/esy-opam#d4f32b1ebf08576d4ff87b31da3794942f8c7478",
     "fastreplacestring": "git+https://github.com/IwanKaramazow/FastReplaceString.git#0.0.4",
     "fs-extra": "^2.1.2",
     "gunzip-maybe": "^1.4.0",
@@ -50,10 +51,10 @@
     "v8-compile-cache": "^1.1.0",
     "validate-npm-package-license": "^3.0.1",
     "var-expansion": "^0.1.0",
-    "walkdir": "^0.0.11",
-    "esy-opam": "esy-ocaml/esy-opam#d4f32b1ebf08576d4ff87b31da3794942f8c7478"
+    "walkdir": "^0.0.11"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^6.1.2",
     "babel-jest": "^19.0.0",
