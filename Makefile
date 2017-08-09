@@ -27,7 +27,8 @@ clean:
 convert-opam-packages: check-filterdiff
 	@rm -rf opam-packages-conversion/output
 	@mkdir opam-packages-conversion/output
-	@(cd opam-packages-conversion && ./bin/opam-to-package-json convert-from ./opam-repository ./convertedPackages.txt)
+	@(cd opam-packages-conversion && \
+		../node_modules/.bin/babel-node ./bin/opam-to-package-json convert-from ./opam-repository ./convertedPackages.txt)
 	@rm -rf opam-packages/
 	@mv opam-packages-conversion/output opam-packages
 

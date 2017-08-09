@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const loudRejection = require('loud-rejection');
-const {promisify} = require('util');
 const fs = require('fs');
 const errno = require('errno');
 const path = require('path');
 const {parseOpam, renderOpam, parseOpamUrl, renderOpamUrl} = require('esy-opam');
+const {promisify} = require('../../lib/util/promise');
 
 loudRejection();
 
