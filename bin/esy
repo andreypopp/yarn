@@ -141,6 +141,11 @@ printHelp() {
                         which is later can be used for building without the NodeJS
                         runtime.
 
+  import-opam           Read a provided opam file and print esy-enabled
+                        package.json conents on stdout. Example:
+
+                          esy import-opam lwt 3.0.0 ./opam
+
   <command>             Executes <command> as if you had executed it inside of
                         esy shell.
 
@@ -180,6 +185,9 @@ elif [ $# -eq 1 ]; then
     build)
       callBuiltInCommand build
       ;;
+    import-opam)
+      callBuiltInCommand import-opam
+      ;;
     shell)
       ensureCommandEnvEjected
       ENV="$COMMAND_ENV_PATH" PS1="esy % " sh
@@ -207,6 +215,9 @@ elif [ $# -eq 1 ]; then
   esac
 else
   case $1 in
+    import-opam)
+      callBuiltInCommand import-opam "$@"
+      ;;
     add)
       callBuiltInCommand__yarn "$@"
       ;;
