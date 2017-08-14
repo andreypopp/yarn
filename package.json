@@ -17,7 +17,7 @@
     "debug": "^2.2.0",
     "decompress-zip": "^0.3.0",
     "detect-indent": "^5.0.0",
-    "esy-opam": "esy-ocaml/esy-opam#d4f32b1ebf08576d4ff87b31da3794942f8c7478",
+    "esy-opam": "esy-ocaml/esy-opam#cd397cb",
     "fastreplacestring": "git+https://github.com/IwanKaramazow/FastReplaceString.git#0.0.4",
     "fs-extra": "^2.1.2",
     "gunzip-maybe": "^1.4.0",
