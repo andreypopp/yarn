@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/win-eventlog",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/logs": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "win_eventlog_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "win_eventlog_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "win_eventlog_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/ocaml-win-eventlog/archive/v0.1.tar.gz",
+        "checksum": "d3fb7d584327a5abacfd86eeea24c177",
+        "files": []
+      }
+    }
+  }
+}

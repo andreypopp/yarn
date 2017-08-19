@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "2.2.0": {
+      "name": "@opam-alpha/spotlib_js",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib___js_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "spotlib___js_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib___js_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.2.0_js.tar.gz",
+        "checksum": "fda8a741e4f1c4d3720d45d2ccaaab07",
+        "files": []
+      }
+    }
+  }
+}

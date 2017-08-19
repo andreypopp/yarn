@@ -1,0 +1,169 @@
+{
+  "versions": {
+    "2.0.1": {
+      "name": "@opam-alpha/cfg",
+      "version": "2.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfg_version": {
+            "val": "2.0.1",
+            "scope": "global"
+          },
+          "cfg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/cfg/archive/v2.0.1.tar.gz",
+        "checksum": "f48d30b72ff4f3577d2c5258fdcfe0e1",
+        "files": []
+      }
+    },
+    "2.0.3": {
+      "name": "@opam-alpha/cfg",
+      "version": "2.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfg_version": {
+            "val": "2.0.3",
+            "scope": "global"
+          },
+          "cfg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/cfg/archive/v2.0.3.tar.gz",
+        "checksum": "5fb9eae04946a3262f151f5db21bf268",
+        "files": []
+      }
+    },
+    "2.0.4": {
+      "name": "@opam-alpha/cfg",
+      "version": "2.0.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfg_version": {
+            "val": "2.0.4",
+            "scope": "global"
+          },
+          "cfg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/cfg/releases/download/v2.0.4/cfg-2.0.4.tar.gz",
+        "checksum": "5c83422b43378f24af6ce47ff470dad4",
+        "files": []
+      }
+    }
+  }
+}

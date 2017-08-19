@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "1.99.4": {
+      "name": "@opam-alpha/sedlex",
+      "version": "1.99.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools_versioned": "*",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/gen": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sedlex_version": {
+            "val": "1.99.4",
+            "scope": "global"
+          },
+          "sedlex_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sedlex_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alainfrisch/sedlex/archive/v1.99.4.tar.gz",
+        "checksum": "f621d80e36cda2548528766f31b16b12",
+        "files": []
+      }
+    }
+  }
+}

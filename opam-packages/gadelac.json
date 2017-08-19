@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "0.6.0": {
+      "name": "@opam-alpha/gadelac",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "gadelac"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gadelac_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "gadelac_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gadelac_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/Abdallah/gadelac/get/v0.6.tar.gz",
+        "checksum": "5ca184e4b13042288aa407f39fabf625",
+        "files": [
+          {
+            "name": "gadelac.install",
+            "content": "bin: [\"Src/_build/Main.native\" {\"gadelac\"}]"
+          }
+        ]
+      }
+    },
+    "0.6.1": {
+      "name": "@opam-alpha/gadelac",
+      "version": "0.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "gadelac"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gadelac_version": {
+            "val": "0.6.1",
+            "scope": "global"
+          },
+          "gadelac_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gadelac_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/Abdallah/gadelac/get/v0.6.1.tar.gz",
+        "checksum": "e2de253e8ab8fc2cbcb81734f594ef5d",
+        "files": [
+          {
+            "name": "gadelac.install",
+            "content": "bin: [\"Src/_build/Main.native\" {\"gadelac\"}]"
+          }
+        ]
+      }
+    }
+  }
+}

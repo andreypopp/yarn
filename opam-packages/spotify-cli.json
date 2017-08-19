@@ -1,0 +1,116 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/spotify-cli",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/obus": "*",
+        "@opam-alpha/mpris": "*",
+        "@opam-alpha/spotify-web-api": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotify_cli_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "spotify_cli_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotify_cli_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/spotify-cli/archive/0.2.0.tar.gz",
+        "checksum": "c85d5014c459505ac9ff9118633de84b",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/spotify-cli",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/obus": "*",
+        "@opam-alpha/mpris": "*",
+        "@opam-alpha/spotify-web-api": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotify_cli_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "spotify_cli_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotify_cli_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/spotify-cli/archive/0.3.0.tar.gz",
+        "checksum": "f7dc104818f611adf3d6b62d66fd931b",
+        "files": []
+      }
+    }
+  }
+}

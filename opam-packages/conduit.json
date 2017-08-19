@@ -1,0 +1,72 @@
+{
+  "versions": {
+    "0.14.4": {
+      "name": "@opam-alpha/conduit",
+      "version": "0.14.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_driver": "",
+        "@opam-alpha/ppx_optcomp": "  >= 113.24.0",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ipaddr": " >= 2.5.0  < 2.8.0",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/async_ssl": "*",
+        "@opam-alpha/vchan": "*",
+        "@opam-alpha/launchd": "*",
+        "@opam-alpha/tls": "*",
+        "@opam-alpha/mirage-types-lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conduit_version": {
+            "val": "0.14.4",
+            "scope": "global"
+          },
+          "conduit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conduit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-conduit/archive/v0.14.4.tar.gz",
+        "checksum": "671bc66a25c05ff37d36fcb731b9c8eb",
+        "files": []
+      }
+    }
+  }
+}

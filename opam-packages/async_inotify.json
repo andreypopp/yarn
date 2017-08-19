@@ -1,0 +1,70 @@
+{
+  "versions": {
+    "113.33.3": {
+      "name": "@opam-alpha/async_inotify",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/async_find": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/inotify": "*",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___inotify_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "async___inotify_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___inotify_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/async_inotify-113.33.03.tar.gz",
+        "checksum": "ec25f0e00aa725260460fd53e94bc5e6",
+        "files": []
+      }
+    }
+  }
+}

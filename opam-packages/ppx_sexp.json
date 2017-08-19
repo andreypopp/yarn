@@ -1,0 +1,51 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/ppx_sexp",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./build"
+          ],
+          [
+            "./install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___sexp_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "ppx___sexp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___sexp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/jyc/ppx_sexp/get/0.3.0.tar.gz",
+        "checksum": "afbfb6e6c9eca9032234464703b83588",
+        "files": []
+      }
+    }
+  }
+}

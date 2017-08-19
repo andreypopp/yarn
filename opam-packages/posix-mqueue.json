@@ -1,0 +1,130 @@
+{
+  "versions": {
+    "0.7.20": {
+      "name": "@opam-alpha/posix-mqueue",
+      "version": "0.7.20",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/posix-time": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "posix_mqueue_version": {
+            "val": "0.7.20",
+            "scope": "global"
+          },
+          "posix_mqueue_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "posix_mqueue_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mwweissmann/ocaml-posix-mqueue/archive/0.7.2.tar.gz",
+        "checksum": "5458623dbb9eafbab77eb5f1f7320021",
+        "files": []
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/posix-mqueue",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/posix-time": " >= 0.5.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "posix_mqueue_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "posix_mqueue_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "posix_mqueue_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mwweissmann/ocaml-posix-mqueue/archive/0.8.0.tar.gz",
+        "checksum": "ceb57cb54fe0aa30cf92f1def8854d42",
+        "files": []
+      }
+    }
+  }
+}

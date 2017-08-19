@@ -1,0 +1,171 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_hardcaml",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/oasis": "  >= 0.4.8",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ppx_driver": "",
+        "@opam-alpha/ppx_core": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/hardcaml": " >= 1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___hardcaml_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___hardcaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___hardcaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_hardcaml/archive/v1.0.0.tar.gz",
+        "checksum": "b261cbae6403a53326e527d2cd6e6746",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/ppx_hardcaml",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/hardcaml": " >= 1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___hardcaml_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ppx___hardcaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___hardcaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_hardcaml/archive/v1.1.0.tar.gz",
+        "checksum": "b8579a655eac7331f39b33e27bbfef02",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/ppx_hardcaml",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/hardcaml": " >= 1.2.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___hardcaml_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "ppx___hardcaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___hardcaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_hardcaml/archive/v1.2.0.tar.gz",
+        "checksum": "fa538fe56d779c56efb752af8faee307",
+        "files": []
+      }
+    }
+  }
+}

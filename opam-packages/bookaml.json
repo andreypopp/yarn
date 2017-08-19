@@ -1,0 +1,362 @@
+{
+  "versions": {
+    "2.0.0": {
+      "name": "@opam-alpha/bookaml",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlnet": " < 4.0.0",
+        "@opam-alpha/tyxml": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocsigenserver": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--docdir",
+            "$cur__doc/bookaml",
+            "--${ocsigenserver_enable:-disable}-ocsigen",
+            "--${ocamlnet_enable:-disable}-ocamlnet"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "doc"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bookaml_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "bookaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bookaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/darioteixeira/bookaml/archive/v2.0.tar.gz",
+        "checksum": "e9c0fc2caa4394f1912d50475e30561f",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/bookaml",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlnet": " >= 4.0.0",
+        "@opam-alpha/tyxml": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocsigenserver": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--docdir",
+            "$cur__doc/bookaml",
+            "--${ocsigenserver_enable:-disable}-ocsigen",
+            "--${ocamlnet_enable:-disable}-ocamlnet"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "doc"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bookaml_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "bookaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bookaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/darioteixeira/bookaml/archive/v2.1.tar.gz",
+        "checksum": "b403da259bc90379831aa33dae903cd4",
+        "files": []
+      }
+    },
+    "3.0.0": {
+      "name": "@opam-alpha/bookaml",
+      "version": "3.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlnet": " >= 4.0.0",
+        "@opam-alpha/tyxml": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/type_conv": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocsigenserver": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--docdir",
+            "$cur__doc/bookaml",
+            "--${ocsigenserver_enable:-disable}-ocsigen",
+            "--${ocamlnet_enable:-disable}-ocamlnet"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "doc"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bookaml_version": {
+            "val": "3.0.0",
+            "scope": "global"
+          },
+          "bookaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bookaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/darioteixeira/bookaml/archive/v3.0.tar.gz",
+        "checksum": "aa2e4768692b6c11a4f3bc6bdf8f9da9",
+        "files": []
+      }
+    },
+    "3.1.0": {
+      "name": "@opam-alpha/bookaml",
+      "version": "3.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 4.0.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/tyxml": " >= 3.4.0  < 3.6.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocsigenserver": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--docdir",
+            "$cur__doc/bookaml",
+            "--${ocsigenserver_enable:-disable}-ocsigen",
+            "--${ocamlnet_enable:-disable}-ocamlnet"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "doc"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bookaml_version": {
+            "val": "3.1.0",
+            "scope": "global"
+          },
+          "bookaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bookaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/darioteixeira/bookaml/archive/v3.1.tar.gz",
+        "checksum": "ca8af791889eb96ef141d8ea64a0ad20",
+        "files": []
+      }
+    },
+    "4.0.0": {
+      "name": "@opam-alpha/bookaml",
+      "version": "4.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 4.0.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/tyxml": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocsigenserver": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--docdir",
+            "$cur__doc/bookaml",
+            "--${ocsigenserver_enable:-disable}-ocsigen",
+            "--${ocamlnet_enable:-disable}-ocamlnet"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "doc"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bookaml_version": {
+            "val": "4.0.0",
+            "scope": "global"
+          },
+          "bookaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bookaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/darioteixeira/bookaml/archive/v4.0.tar.gz",
+        "checksum": "d18eec930a00a2ba442531d3cc12dea1",
+        "files": []
+      }
+    }
+  }
+}

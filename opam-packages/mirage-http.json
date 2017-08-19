@@ -1,0 +1,559 @@
+{
+  "versions": {
+    "1.1.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-types": " >= 1.1.0  < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/tcpip": " >= 1.1.0  <= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.9.16  < 0.12.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v1.1.0.tar.gz",
+        "checksum": "f8ca9f9cb46592682ee571bd124783e6",
+        "files": []
+      }
+    },
+    "2.0.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/conduit": " < 0.7.0",
+        "@opam-alpha/tcpip": " < 2.3.0",
+        "@opam-alpha/mirage-dns": "*",
+        "@opam-alpha/vchan": "*",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.12.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.0.0.tar.gz",
+        "checksum": "cf20706f3360eb49fe457628f3b41b8f",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " < 2.2.0",
+        "@opam-alpha/conduit": " <= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.13.0  < 0.16.0",
+        "@opam-alpha/tcpip": " <= 2.5.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.1.0.tar.gz",
+        "checksum": "0e1d7d00d5f87e8d2c42967fcd346317",
+        "files": []
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " < 2.2.0",
+        "@opam-alpha/conduit": " <= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.16.0  < 0.18.0",
+        "@opam-alpha/tcpip": " <= 2.5.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.2.0.tar.gz",
+        "checksum": "901d47714cb6713a7b3a42bae9749a7c",
+        "files": []
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " >= 2.2.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.16.0  < 0.18.0",
+        "@opam-alpha/tcpip": " <= 2.5.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.3.0.tar.gz",
+        "checksum": "d1968e5bc5aea254b93dc77dc8d79007",
+        "files": []
+      }
+    },
+    "2.4.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " >= 2.2.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.18.0  < 0.99.0",
+        "@opam-alpha/tcpip": " <= 2.5.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.4.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.4.0.tar.gz",
+        "checksum": "45570b5dfb08a8c027e2da4f5edfb095",
+        "files": []
+      }
+    },
+    "2.5.0": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " >= 2.2.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.18.0  < 0.99.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/channel": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.5.0.tar.gz",
+        "checksum": "d9391f983182c7de9a8e9ddc1275c4cc",
+        "files": []
+      }
+    },
+    "2.5.1": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " >= 2.2.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.18.0  < 0.99.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/channel": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.5.1",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.5.1.tar.gz",
+        "checksum": "2b603bc6a49e9c5003b749942b9704ba",
+        "files": []
+      }
+    },
+    "2.5.2": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.5.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-conduit": " >= 2.2.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.18.0  < 0.99.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/channel": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.5.2",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/archive/v2.5.2.tar.gz",
+        "checksum": "3419cfd4eb377c1a44f9ac94e0034586",
+        "files": []
+      }
+    },
+    "2.5.3": {
+      "name": "@opam-alpha/mirage-http",
+      "version": "2.5.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/mirage-types": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/conduit": "*",
+        "@opam-alpha/mirage-conduit": " >= 2.2.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cohttp": " >= 0.18.0  < 0.99.0",
+        "@opam-alpha/channel": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_http_version": {
+            "val": "2.5.3",
+            "scope": "global"
+          },
+          "mirage_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-http/releases/download/2.5.3/mirage-http-2.5.3.tbz",
+        "checksum": "3e83cab7de7cca512bac4f54d485fc0a",
+        "files": []
+      }
+    }
+  }
+}

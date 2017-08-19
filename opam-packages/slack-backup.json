@@ -1,0 +1,74 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/slack-backup",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/slacko": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "slack_backup_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "slack_backup_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "slack_backup_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Khady/slack-backup/archive/0.1.zip",
+        "checksum": "021171eb1436d2c24a007c46f8ba2f0d",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "slack-backup.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

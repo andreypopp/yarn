@@ -1,0 +1,410 @@
+{
+  "versions": {
+    "0.2.7": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.2.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.2.7",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.2.7.tar.gz",
+        "checksum": "bfd7e3f143df9a49775b9b58ad0a4173",
+        "files": []
+      }
+    },
+    "0.2.8": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.2.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.2.8",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.2.8.tar.gz",
+        "checksum": "c313cc503227182f12869b4123f8ee37",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.3.0.tar.gz",
+        "checksum": "ce60d86f8da276955f533115056f35ec",
+        "files": []
+      }
+    },
+    "0.3.5": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.3.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.3.5",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.3.5.tar.gz",
+        "checksum": "c5169e676a8ba08674923b3a82b3c43b",
+        "files": []
+      }
+    },
+    "0.3.6": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.3.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.3.6",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.3.6.tar.gz",
+        "checksum": "73456fa3e84f5e3884e18749d74f77d7",
+        "files": []
+      }
+    },
+    "0.3.7": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.3.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.3.7",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.3.7.tar.gz",
+        "checksum": "ebabe285a626c703a485e025147340a7",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/ppx_jsobject_conv",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0",
+        "@opam-alpha/ppx_driver": "*",
+        "@opam-alpha/ppx_core": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___jsobject___conv_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___jsobject___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/little-arhat/ppx_jsobject_conv/archive/v0.4.0.tar.gz",
+        "checksum": "9d623974c91f22fc21ec0a0bcb385f1c",
+        "files": []
+      }
+    }
+  }
+}

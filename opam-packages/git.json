@@ -1,0 +1,79 @@
+{
+  "versions": {
+    "1.9.3": {
+      "name": "@opam-alpha/git",
+      "version": "1.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/mstruct": " >= 1.3.1",
+        "@opam-alpha/ocamlgraph": "*",
+        "@opam-alpha/uri": " >= 1.3.12",
+        "@opam-alpha/lwt": " >= 2.4.7",
+        "@opam-alpha/mtime": " < 1.0.0",
+        "@opam-alpha/logs": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/hex": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/ocplib-endian": " >= 0.6.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/mirage-types-lwt": "*",
+        "@opam-alpha/mirage-http": "*",
+        "@opam-alpha/mirage-flow": "*",
+        "@opam-alpha/channel": "*",
+        "@opam-alpha/mirage-fs-unix": "  >= 1.1.4",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/conduit": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/nocrypto": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-http",
+            "${cohttp_installed:-false}",
+            "--with-unix",
+            "%{conduit+cohttp+camlzip+nocrypto+base-unix:installed}%",
+            "--with-mirage",
+            "%{mirage-http+mirage-flow+mirage-types-lwt+channel:installed}%"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "git_version": {
+            "val": "1.9.3",
+            "scope": "global"
+          },
+          "git_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "git_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-git/releases/download/1.9.3/git-1.9.3.tbz",
+        "checksum": "07c7fc074023e794abb76806b176970d",
+        "files": []
+      }
+    }
+  }
+}

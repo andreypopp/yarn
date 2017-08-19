@@ -1,0 +1,161 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/ocb-stubblr",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": " >= 0.9.3",
+        "@opam-alpha/topkg": " >= 0.7.8  < 0.8.0",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocb_stubblr_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "ocb_stubblr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocb_stubblr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/ocb-stubblr/releases/download/v0.0.1/ocb-stubblr-0.0.1.tbz",
+        "checksum": "0a7c257f618775fa3215ecd0c900f164",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/ocb-stubblr",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/topkg": " >= 0.7.8  < 0.8.0",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--tests",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocb_stubblr_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "ocb_stubblr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocb_stubblr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/ocb-stubblr/releases/download/v0.0.2/ocb-stubblr-0.0.2.tbz",
+        "checksum": "57b37a1ff318d0baa08259e5505590f3",
+        "files": []
+      }
+    },
+    "0.1.0": {
+      "name": "@opam-alpha/ocb-stubblr",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": " >= 0.9.3 ||  < 0.9.0",
+        "@opam-alpha/topkg": " >= 0.8.1",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--tests",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocb_stubblr_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ocb_stubblr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocb_stubblr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/ocb-stubblr/releases/download/v0.1.0/ocb-stubblr-0.1.0.tbz",
+        "checksum": "5a7909b50d8d68f981f4be798a3b8112",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/dumpast",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dumpast_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "dumpast_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dumpast_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/samoht/ocaml-dumpast/archive/0.1.tar.gz",
+        "checksum": "f681e95bf5cac3d59369033d9f103a79",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/dumpast",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "HAS_ANNOT=false",
+            "OCAML_VERSION=402",
+            "OCAML_VERSION=401"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dumpast_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "dumpast_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dumpast_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/samoht/ocaml-dumpast/archive/0.2.0.tar.gz",
+        "checksum": "3696c216ca25970fd6fb13c9a6b80766",
+        "files": []
+      }
+    }
+  }
+}

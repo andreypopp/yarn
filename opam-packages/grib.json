@@ -1,0 +1,125 @@
+{
+  "versions": {
+    "0.11.0": {
+      "name": "@opam-alpha/grib",
+      "version": "0.11.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bear": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "grib_version": {
+            "val": "0.11.0",
+            "scope": "global"
+          },
+          "grib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "grib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/ocaml-grib/archive/v0.11.0.tar.gz",
+        "checksum": "7e1b8cc9bcd7a407d75578f61d6e22dd",
+        "files": []
+      }
+    },
+    "0.9.7": {
+      "name": "@opam-alpha/grib",
+      "version": "0.9.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "grib_version": {
+            "val": "0.9.7",
+            "scope": "global"
+          },
+          "grib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "grib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/ocaml-grib/archive/v0.9.7.tar.gz",
+        "checksum": "80016011743fbfce450d27f74be849f0",
+        "files": []
+      }
+    }
+  }
+}

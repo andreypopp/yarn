@@ -1,0 +1,76 @@
+{
+  "versions": {
+    "0.6.0": {
+      "name": "@opam-alpha/links",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/deriving": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cgi": "*",
+        "@opam-alpha/base64": "*",
+        "@opam-alpha/cohttp": " < 0.99.0",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*",
+        "@opam-alpha/sqlite3": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "nc"
+          ],
+          [
+            "cp",
+            "links",
+            "links__bin"
+          ],
+          [
+            "mkdir",
+            "-p",
+            "links__lib"
+          ],
+          [
+            "cp",
+            "prelude.links",
+            "links__lib"
+          ],
+          [
+            "./links",
+            "links__lib/prelude.links"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "links_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "links_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "links_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/links-lang/links/archive/v0.6.tar.gz",
+        "checksum": "946128c93a53fe85cddccc43b0ed89a4",
+        "files": []
+      }
+    }
+  }
+}

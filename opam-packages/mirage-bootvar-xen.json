@@ -1,0 +1,218 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/mirage-bootvar-xen",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen": " >= 2.2.0",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_bootvar_xen_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/MagnusS/mirage-bootvar-xen/archive/0.2.tar.gz",
+        "checksum": "472a33ae73e42c647095dab8736d1257",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/mirage-bootvar-xen",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen": " >= 2.2.0",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_bootvar_xen_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-bootvar-xen/archive/0.3.tar.gz",
+        "checksum": "ce5281d7b1d454a68d8679b9729f3072",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/mirage-bootvar-xen",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen": " >= 2.2.0",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/re": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_bootvar_xen_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-bootvar-xen/archive/0.3.1.tar.gz",
+        "checksum": "d21a6a8b022523a76935e4393d75edbd",
+        "files": []
+      }
+    },
+    "0.3.2": {
+      "name": "@opam-alpha/mirage-bootvar-xen",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen": " >= 2.2.0",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--disable-tests"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_bootvar_xen_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_bootvar_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-bootvar-xen/archive/v0.3.2.tar.gz",
+        "checksum": "379fcf0df9377329e82ffcfa2119daa1",
+        "files": []
+      }
+    }
+  }
+}

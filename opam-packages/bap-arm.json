@@ -1,0 +1,116 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/bap-arm",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bap-std": "*",
+        "@opam-alpha/bap-llvm": "*",
+        "@opam-alpha/bap-abi": "*",
+        "@opam-alpha/bap-c": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--enable-arm"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bap_arm_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "bap_arm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bap_arm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/BinaryAnalysisPlatform/bap/archive/v1.0.0.tar.gz",
+        "checksum": "07dce66dd871e448652d8885283c6631",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/bap-arm",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bap-std": "*",
+        "@opam-alpha/bap-llvm": "*",
+        "@opam-alpha/bap-abi": "*",
+        "@opam-alpha/bap-c": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--enable-arm"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bap_arm_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "bap_arm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bap_arm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/BinaryAnalysisPlatform/bap/archive/v1.1.0.tar.gz",
+        "checksum": "92e7f703d58ce1835bfeeed9ec523242",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "1.3.0": {
+      "name": "@opam-alpha/camllib",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "Makefile.config.opam",
+            "Makefile.config"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camllib_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "camllib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camllib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://nberth.space/pool/camllib/camllib-1.3.0.tar.gz",
+        "checksum": "4a48775b63e6538eacb5e10c2d40a6ca",
+        "files": []
+      }
+    },
+    "1.3.1": {
+      "name": "@opam-alpha/camllib",
+      "version": "1.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "Makefile.config.opam",
+            "Makefile.config"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camllib_version": {
+            "val": "1.3.1",
+            "scope": "global"
+          },
+          "camllib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camllib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://nberth.space/pool/camllib/camllib-1.3.1.tar.gz",
+        "checksum": "165241aeada8257e3d37589ae6c28efc",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-leveldb",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cc",
+            "-c",
+            "test.cc"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_leveldb_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_leveldb_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_leveldb_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test.cc",
+            "content": "#include <leveldb/db.h>\n#ifndef STORAGE_LEVELDB_INCLUDE_DB_H_\n#error \"No LevelDB headers\"\n#endif\n\nusing namespace leveldb;\n\nvoid test(void) {\n  leveldb::DB* db;\n  leveldb::Options options;\n  options.create_if_missing = true;\n  leveldb::Status status = leveldb::DB::Open(options, \"/tmp/testdb\", &db);\n  assert(status.ok());\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

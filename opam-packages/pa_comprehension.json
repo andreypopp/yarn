@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/pa_comprehension",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___comprehension_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "pa___comprehension_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___comprehension_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cakeplus/pa_comprehension/archive/0.4.tar.gz",
+        "checksum": "d1e6dc22c129d4a5cbc6fd848724be25",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/conf-graphviz",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-which": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "which",
+            "dot"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_graphviz_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "conf_graphviz_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_graphviz_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

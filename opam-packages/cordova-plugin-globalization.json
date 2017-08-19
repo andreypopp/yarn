@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cordova-plugin-globalization",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/gen_js_api": "*",
+        "@opam-alpha/ocaml-js-stdlib": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cordova_plugin_globalization_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cordova_plugin_globalization_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cordova_plugin_globalization_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dannywillems/ocaml-cordova-plugin-globalization/archive/v1.0.tar.gz",
+        "checksum": "ca0e9735354f39f0f650940b1ee1eabb",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,959 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/1.0.0.tar.gz",
+        "checksum": "29b04f6898428dd3e2648b2c71989ccd",
+        "files": []
+      }
+    },
+    "2.0.1": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.0.1",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.0.1.tar.gz",
+        "checksum": "5d9ba6b6b3389b9ac6a4ceb868ad2863",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.1.0.tar.gz",
+        "checksum": "58e170e0137137783ce63f4cf7050b02",
+        "files": []
+      }
+    },
+    "2.1.1": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.1.1",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.1.1.tar.gz",
+        "checksum": "d4d25f82710616f282567b44b4ceb236",
+        "files": []
+      }
+    },
+    "2.1.2": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.1.2",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.1.2.tar.gz",
+        "checksum": "879baaebf734378c1a2f8e98ba16ce92",
+        "files": []
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/pa_ounit": " >= 109.18.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.2.0.tar.gz",
+        "checksum": "d7d87563fada5b85b22ee820b0c89e71",
+        "files": []
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/pa_ounit": " >= 109.53.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.3.0.tar.gz",
+        "checksum": "05aac3e07559d97b240462243f94f3a5",
+        "files": []
+      }
+    },
+    "2.4.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/pa_ounit": " >= 109.53.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.4.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.4.0.tar.gz",
+        "checksum": "9fc0aa4d88019ac92a73b0a534abf399",
+        "files": []
+      }
+    },
+    "2.4.1": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.4.1",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.4.1.tar.gz",
+        "checksum": "0b4e7dc83cee701752c3f5187c98da3a",
+        "files": []
+      }
+    },
+    "2.5.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.5.0.tar.gz",
+        "checksum": "2a75107d504e6c6bb048cab5814ffe4a",
+        "files": []
+      }
+    },
+    "2.5.1": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.5.1",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.5.1.tar.gz",
+        "checksum": "df9342fe31e9a10f332b5686d818867f",
+        "files": []
+      }
+    },
+    "2.5.2": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.5.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.5.2",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.5.2.tar.gz",
+        "checksum": "a6db69db71619322556ab64ccb438a32",
+        "files": []
+      }
+    },
+    "2.5.3": {
+      "name": "@opam-alpha/spotlib",
+      "version": "2.5.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "2.5.3",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/2.5.3.tar.gz",
+        "checksum": "8afa2635a6141b25e1c942a1b4aa039d",
+        "files": []
+      }
+    },
+    "3.0.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "3.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": " >= 1.3.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "3.0.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/3.0.0.tar.gz",
+        "checksum": "9482af4c08faa5df32cb47283209920c",
+        "files": []
+      }
+    },
+    "3.1.0": {
+      "name": "@opam-alpha/spotlib",
+      "version": "3.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/ppx_test": " >= 1.3.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "3.1.0",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/3.1.0.tar.gz",
+        "checksum": "fb973cb0ca224bcf33a107f7000a0f6a",
+        "files": []
+      }
+    },
+    "3.1.2": {
+      "name": "@opam-alpha/spotlib",
+      "version": "3.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/ppx_test": " >= 1.4.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotlib_version": {
+            "val": "3.1.2",
+            "scope": "global"
+          },
+          "spotlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/spotlib/get/3.1.2.tar.gz",
+        "checksum": "ba343c44ca722aeb5b40b1ba2bed7096",
+        "files": []
+      }
+    }
+  }
+}

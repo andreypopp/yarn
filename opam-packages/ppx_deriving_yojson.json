@@ -1,0 +1,439 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 0.2.0  < 1.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v1.0.tar.gz",
+        "checksum": "6aa7494bc8edf6799e2c14fd99431fd7",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 0.2.0  < 1.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v1.1.tar.gz",
+        "checksum": "9f354ce7334787cbfe8316ebc18b75a4",
+        "files": []
+      }
+    },
+    "2.0.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 1.0.0  < 2.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_import": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v2.0.tar.gz",
+        "checksum": "1a549a0530aa267eb56ab5c47a5f5415",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 1.0.0  < 2.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_import": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v2.1.tar.gz",
+        "checksum": "1fa0abe813fa0f89ccaa1f5f2b8b0649",
+        "files": []
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_import": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v2.2.tar.gz",
+        "checksum": "e20a18cf2f7d09274d16c4ea3f6dc997",
+        "files": []
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 1.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_import": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v2.3.tar.gz",
+        "checksum": "ef4f247f645457f129ff1e66400ff077",
+        "files": []
+      }
+    },
+    "2.4.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "2.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": " >= 2.0.0  < 4.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_import": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "2.4.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v2.4.tar.gz",
+        "checksum": "e24b28c1728b34ef6390455cbd8b98f3",
+        "files": []
+      }
+    },
+    "3.0.0": {
+      "name": "@opam-alpha/ppx_deriving_yojson",
+      "version": "3.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_deriving": " >= 4.0.0  < 5.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_import": "  >= 1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___yojson_version": {
+            "val": "3.0.0",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_yojson/archive/v3.0.tar.gz",
+        "checksum": "8ec1badbd729420e5531f8fe51cbf3b7",
+        "files": []
+      }
+    }
+  }
+}

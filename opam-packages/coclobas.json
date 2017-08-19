@@ -1,0 +1,76 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/coclobas",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/solvuu-build": " =0.2.0",
+        "@opam-alpha/nonstd": "*",
+        "@opam-alpha/sosa": "*",
+        "@opam-alpha/pvem_lwt_unix": "*",
+        "@opam-alpha/cohttp": " >= 0.21.1  < 0.99.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/trakeva": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ppx_deriving_yojson": " >= 3.0.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/base64": "*",
+        "@opam-alpha/odate": "*",
+        "@opam-alpha/ketrew": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "native"
+          ],
+          [
+            "make",
+            "META"
+          ],
+          [
+            "make",
+            "coclobas.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coclobas_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "coclobas_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coclobas_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hammerlab/coclobas/archive/0.0.0.tar.gz",
+        "checksum": "2ca556f40657af9487dc5e6bbde1e7ec",
+        "files": []
+      }
+    }
+  }
+}

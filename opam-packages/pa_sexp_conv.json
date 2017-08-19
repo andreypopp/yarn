@@ -1,0 +1,113 @@
+{
+  "versions": {
+    "113.0.0": {
+      "name": "@opam-alpha/pa_sexp_conv",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/type_conv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___sexp___conv_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "pa___sexp___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___sexp___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/pa_sexp_conv/archive/113.00.00.tar.gz",
+        "checksum": "de8e69d53b6a2d1b3d47284267c2aca0",
+        "files": []
+      }
+    },
+    "113.0.1": {
+      "name": "@opam-alpha/pa_sexp_conv",
+      "version": "113.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/type_conv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___sexp___conv_version": {
+            "val": "113.0.1",
+            "scope": "global"
+          },
+          "pa___sexp___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___sexp___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/pa_sexp_conv/archive/113.00.01.tar.gz",
+        "checksum": "ce291059d215e6e2d64f1924c68a37cd",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.8.0": {
+      "name": "@opam-alpha/cryptodbm",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/exenum": "*",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/fileutils": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cryptodbm_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "cryptodbm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cryptodbm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1349/cryptodbm-source-0.8.tgz",
+        "checksum": "a0940f2dd89aa0de601133b749176927",
+        "files": []
+      }
+    }
+  }
+}

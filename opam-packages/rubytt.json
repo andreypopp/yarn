@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/rubytt",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 0.9.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/alcotest": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/stringext": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "native"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rubytt_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "rubytt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rubytt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/chenyukang/rubytt/archive/v0.1.tar.gz",
+        "checksum": "b42dfee18d5d061583736a3b644133e6",
+        "files": [
+          {
+            "name": "rubytt.install",
+            "content": "bin: [\"bin/main.native\" {\"rubytt\"}]"
+          }
+        ]
+      }
+    }
+  }
+}

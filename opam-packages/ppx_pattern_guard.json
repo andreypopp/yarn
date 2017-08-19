@@ -1,0 +1,122 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_pattern_guard",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___pattern___guard_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___pattern___guard_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___pattern___guard_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/ppx_pattern_guard/get/1.0.0.tar.gz",
+        "checksum": "176b8c2d67669c436a77531815282b6e",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/ppx_pattern_guard",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___pattern___guard_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "ppx___pattern___guard_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___pattern___guard_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/ppx_pattern_guard/get/1.0.1.tar.gz",
+        "checksum": "6e2902dfa2fe8d0e7ccaebba9ce867b6",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "versions": {
+    "1.0.10": {
+      "name": "@opam-alpha/oni",
+      "version": "1.0.10",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": " =0.9.8"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./etc/install.sh",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oni_version": {
+            "val": "1.0.10",
+            "scope": "global"
+          },
+          "oni_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oni_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/jhw/oni/downloads/oni.1.0.10.tar.xz",
+        "checksum": "44a3e40c6d1a22af1215c945b8d65110",
+        "files": []
+      }
+    },
+    "1.0.11": {
+      "name": "@opam-alpha/oni",
+      "version": "1.0.11",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": " =0.9.8"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./etc/install.sh",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oni_version": {
+            "val": "1.0.11",
+            "scope": "global"
+          },
+          "oni_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oni_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/jhw/oni/downloads/oni-1.0.11.tar.bz2",
+        "checksum": "df8c0ce58e00a6e4b821a282e5e5917a",
+        "files": []
+      }
+    },
+    "1.0.12": {
+      "name": "@opam-alpha/oni",
+      "version": "1.0.12",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": " =0.9.8"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./etc/install.sh",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oni_version": {
+            "val": "1.0.12",
+            "scope": "global"
+          },
+          "oni_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oni_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/jhw/oni/downloads/oni.1.0.12.tar.xz",
+        "checksum": "c3959a726383d351cbe4fc9471d336d0",
+        "files": []
+      }
+    },
+    "1.0.9": {
+      "name": "@opam-alpha/oni",
+      "version": "1.0.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": " =0.9.8"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./etc/install.sh",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oni_version": {
+            "val": "1.0.9",
+            "scope": "global"
+          },
+          "oni_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oni_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/jhw/oni/downloads/oni-1.0.9.tar.bz2",
+        "checksum": "c52fcb0353c510c064168c99354c8bc3",
+        "files": []
+      }
+    }
+  }
+}

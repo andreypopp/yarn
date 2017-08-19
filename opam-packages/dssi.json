@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/dssi",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ladspa": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dssi_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "dssi_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dssi_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-dssi/0.1.1/ocaml-dssi-0.1.1.tar.gz",
+        "checksum": "e9b831a7a1abde56f37e704dbe5741c0",
+        "files": []
+      }
+    },
+    "0.1.2": {
+      "name": "@opam-alpha/dssi",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ladspa": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dssi_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "dssi_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dssi_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-dssi/releases/download/0.1.2/ocaml-dssi-0.1.2.tar.gz",
+        "checksum": "9fe0b20291e33676e8f33a445e8d3ee8",
+        "files": []
+      }
+    }
+  }
+}

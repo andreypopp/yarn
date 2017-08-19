@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/solo5-kernel-ukvm",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-pkg-config": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "ukvm"
+          ],
+          [
+            "make",
+            "opam-ukvm-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "solo5_kernel_ukvm_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "solo5_kernel_ukvm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "solo5_kernel_ukvm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Solo5/solo5/archive/v0.1.1.tar.gz",
+        "checksum": "72bf81d2dfcf25815169cef842c2e2dc",
+        "files": []
+      }
+    }
+  }
+}

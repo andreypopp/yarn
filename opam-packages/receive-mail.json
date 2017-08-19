@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/receive-mail",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bolt": "*",
+        "@opam-alpha/core": " < 113.24.0",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "receive_mail_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "receive_mail_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "receive_mail_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dominicjprice/receive-mail/archive/v0.1.2.tar.gz",
+        "checksum": "da3555a2bee56214f1b275a1b6fee3e4",
+        "files": []
+      }
+    }
+  }
+}

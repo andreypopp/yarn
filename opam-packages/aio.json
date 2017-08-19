@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "0.0.3": {
+      "name": "@opam-alpha/aio",
+      "version": "0.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aio_version": {
+            "val": "0.0.3",
+            "scope": "global"
+          },
+          "aio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/818/libaio-ocaml_1.0.orig.tar.gz",
+        "checksum": "bc99ae0567d9feb4952c73da305aeb95",
+        "files": [
+          {
+            "name": "meta.patch",
+            "content": "diff -ur libaio-ocaml-1.0-orig/lib/META libaio-ocaml-1.0/lib/META\n--- libaio-ocaml-1.0-orig/lib/META\t2013-08-24 14:08:16.922728137 +0100\n+++ libaio-ocaml-1.0/lib/META\t2013-08-24 14:08:28.282728434 +0100\n@@ -2,5 +2,4 @@\n description = \"Linux kernel AIO access library for OCaml\"\n archive(byte) = \"aio.cma\"\n archive(native) = \"aio.cmxa\"\n-directory = \"+aio\"\n requires = \"unix,bigarray\"\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/erm_xmpp",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/erm_xml": " >= 0.3.0",
+        "@opam-alpha/cryptokit": " >= 1.5.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "erm___xmpp_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "erm___xmpp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "erm___xmpp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ermine/xmpp/tarball/v0.2",
+        "checksum": "40f15d7a910935a792d0f3b3f3642b69",
+        "files": [
+          {
+            "name": "disable_tests.patch",
+            "content": "diff --git a/setup.ml b/setup.ml\nindex 795b218..36b36cd 100644\n--- a/setup.ml\n+++ b/setup.ml\n@@ -5946,7 +5946,11 @@ let setup_t =\n                      cs_plugin_data = [];\n                      },\n                    {\n-                      bs_build = [(OASISExpr.EBool true, true)];\n+                      bs_build =\n+                        [\n+                           (OASISExpr.EBool true, false);\n+                           (OASISExpr.EFlag \"tests\", true)\n+                        ];\n                       bs_install = [(OASISExpr.EBool true, false)];\n                       bs_path = \"tests\";\n                       bs_compiled_object = Best;\n@@ -5973,7 +5977,11 @@ let setup_t =\n                      cs_plugin_data = [];\n                      },\n                    {\n-                      bs_build = [(OASISExpr.EBool true, true)];\n+                      bs_build =\n+                        [\n+                           (OASISExpr.EBool true, false);\n+                           (OASISExpr.EFlag \"tests\", true)\n+                        ];\n                       bs_install = [(OASISExpr.EBool true, false)];\n                       bs_path = \"tests\";\n                       bs_compiled_object = Best;\n@@ -6002,7 +6010,11 @@ let setup_t =\n                      cs_plugin_data = [];\n                      },\n                    {\n-                      bs_build = [(OASISExpr.EBool true, true)];\n+                      bs_build =\n+                        [\n+                           (OASISExpr.EBool true, false);\n+                           (OASISExpr.EFlag \"tests\", true)\n+                        ];\n                       bs_install = [(OASISExpr.EBool true, false)];\n                       bs_path = \"tests\";\n                       bs_compiled_object = Best;\n"
+          }
+        ]
+      }
+    }
+  }
+}

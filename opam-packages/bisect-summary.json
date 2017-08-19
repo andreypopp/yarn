@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/bisect-summary",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bisect_ppx": "*",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect_summary_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "bisect_summary_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect_summary_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lindig/bisect-summary/archive/0.3.zip",
+        "checksum": "62cfc015ccf1cacf224a32be79265be0",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/ascii85",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ascii85_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "ascii85_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ascii85_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lindig/ascii85/archive/v0.2.zip",
+        "checksum": "4a6c3f795e3dda8918ffa26f2938d9fa",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/ascii85",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ascii85_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "ascii85_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ascii85_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lindig/ascii85/archive/v0.3.zip",
+        "checksum": "52b3e995f43c7488ecb037bca176a06f",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/aez",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "ocamlfind",
+            "install",
+            "aez",
+            "aez.a",
+            "aez.cmi",
+            "aez.cma",
+            "aez.cmxa",
+            "META"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aez_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "aez_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aez_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://cubicle.lri.fr/alt-ergo-zero/aez-0.3.tar.gz",
+        "checksum": "42260d8e110defa9c8c5b6cc1eafa29f",
+        "files": [
+          {
+            "name": "META",
+            "content": "name=\"aez\"\nversion=\"0.3\"\ndescription=\"Alt-Ergo Zero is an OCaml library for an SMT solver.\"\nrequires=\"num unix\"\narchive(byte) = \"aez.cma\"\narchive(native) = \"aez.cmxa\"\n"
+          }
+        ]
+      }
+    }
+  }
+}

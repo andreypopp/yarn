@@ -1,0 +1,464 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "",
+        "@opam-alpha/core": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.0.0.tar.gz",
+        "checksum": "4b18a94e5179ac503c2ee6d48b9d62d3",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "",
+        "@opam-alpha/core": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.0.1.tar.gz",
+        "checksum": "c037e5c0f3525f083dbd21cb915f13cb",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "",
+        "@opam-alpha/core": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.1.0.tar.gz",
+        "checksum": "a9f5cd73f5fc8ec702b9be4767f17563",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "",
+        "@opam-alpha/core": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${ounit_enable:-disable}-tests"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.2.0.tar.gz",
+        "checksum": "0d39ebed5c45704aa8c5095e29347357",
+        "files": []
+      }
+    },
+    "1.3.0": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ppx_driver": "  < 0.9.0",
+        "@opam-alpha/ppx_core": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/js-build-tools": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${ounit_enable:-disable}-tests"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.3.0.tar.gz",
+        "checksum": "d53dd3c69b15d62bcba60775a9044615",
+        "files": []
+      }
+    },
+    "1.3.1": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "",
+        "@opam-alpha/bitstring": "  >= 2.1.0",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ppx_driver": "  < 0.9.0",
+        "@opam-alpha/ppx_core": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.3.1",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.3.1.tar.gz",
+        "checksum": "57292e2a4d56f2609aae7f139c254f72",
+        "files": []
+      }
+    },
+    "1.3.2": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "",
+        "@opam-alpha/bitstring": "  >= 2.1.0",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ppx_driver": "  < 0.9.0",
+        "@opam-alpha/ppx_core": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.3.2",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.3.2.tar.gz",
+        "checksum": "3dd7ea937dc24f95598ca1d5157afab5",
+        "files": []
+      }
+    },
+    "1.3.3": {
+      "name": "@opam-alpha/ppx_bitstring",
+      "version": "1.3.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "  >= 2.1.0",
+        "@opam-alpha/js-build-tools": "",
+        "@opam-alpha/oasis": "  >= 0.4.8",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_core": "",
+        "@opam-alpha/ppx_driver": "  < 0.9.0",
+        "@opam-alpha/ppx_tools": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___bitstring_version": {
+            "val": "1.3.3",
+            "scope": "global"
+          },
+          "ppx___bitstring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___bitstring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xguerin/ppx_bitstring/archive/v1.3.3.tar.gz",
+        "checksum": "09555b27b31287f506e7a4cd9659b110",
+        "files": []
+      }
+    }
+  }
+}

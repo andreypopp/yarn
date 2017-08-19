@@ -1,0 +1,103 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ocamldiff",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamldiff_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ocamldiff_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamldiff_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/ocamldiff/ocamldiff-1.0.tar.gz",
+        "checksum": "10b3975775447d4c4dd8eb28ca7bbc78",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/ocamldiff",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamldiff_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ocamldiff_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamldiff_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/ocamldiff/ocamldiff-1.1.tar.gz",
+        "checksum": "3fe4b10fe15cdf544904dd0ca3448a77",
+        "files": []
+      }
+    }
+  }
+}

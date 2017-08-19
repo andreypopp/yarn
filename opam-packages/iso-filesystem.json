@@ -1,0 +1,72 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/iso-filesystem",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/io-page": "",
+        "@opam-alpha/lwt": " < 2.6.0",
+        "@opam-alpha/mirage-block-unix": "",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "iso_filesystem_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "iso_filesystem_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "iso_filesystem_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/jonludlam/ocaml-iso9660/archive/v0.1.tar.gz",
+        "checksum": "aa3afc0f7f858f352c07425d4b779dcc",
+        "files": []
+      }
+    }
+  }
+}

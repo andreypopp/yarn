@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "1.99.17": {
+      "name": "@opam-alpha/typerex-build",
+      "version": "1.99.17",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typerex_build_version": {
+            "val": "1.99.17",
+            "scope": "global"
+          },
+          "typerex_build_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typerex_build_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/OCamlPro/typerex-build/archive/1.99.17-beta.tar.gz",
+        "checksum": "708acf374cd8587d0e3481beae1308d5",
+        "files": []
+      }
+    }
+  }
+}

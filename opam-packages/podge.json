@@ -1,0 +1,462 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/podge",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": " >= 0.9.7",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/tyxml": " < 4.0.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "podge_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "podge_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "podge_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/podge/archive/v0.0.2.tar.gz",
+        "checksum": "29cbcc1d3f025b840a9ef3254b6d8ff2",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/podge",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": " >= 0.9.7",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/tyxml": " < 4.0.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "podge_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "podge_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "podge_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/podge/archive/v0.0.3.tar.gz",
+        "checksum": "4e91f8cbb770d74b10b3bd6f7d48c528",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/podge",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ANSITerminal": " >= 0.6.5",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": " >= 0.9.7",
+        "@opam-alpha/ezxmlm": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/tyxml": " < 4.0.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "podge_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "podge_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "podge_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/podge/archive/v0.0.4.tar.gz",
+        "checksum": "a2755ba37df9af3709270a5bf6c33ed8",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "podge.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/podge",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ANSITerminal": " >= 0.6.5",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": " >= 0.9.7",
+        "@opam-alpha/ezxmlm": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/tyxml": " < 4.0.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "podge_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "podge_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "podge_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/podge/archive/v0.5.tar.gz",
+        "checksum": "0c01367a9b874bed65eb2b3a5a0ec6bd",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "podge.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.7.0": {
+      "name": "@opam-alpha/podge",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ANSITerminal": " >= 0.6.5",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": " >= 0.20.0",
+        "@opam-alpha/ezxmlm": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/tyxml": " < 4.0.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/stringext": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "podge_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "podge_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "podge_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/podge/archive/v0.7.0.tar.gz",
+        "checksum": "2cb216fb73b15110316aa1ec9273561e",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "podge.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/podge",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ANSITerminal": " >= 0.7.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": " >= 0.21.0",
+        "@opam-alpha/ezxmlm": " >= 1.0.1",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/re": " >= 1.7.1",
+        "@opam-alpha/tyxml": " >= 4.0.1",
+        "@opam-alpha/yojson": " >= 1.3.3",
+        "@opam-alpha/astring": " >= 0.8.3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "podge_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "podge_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "podge_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/podge/archive/v0.8.0.tar.gz",
+        "checksum": "2d3c406bed590b10263b35412ac91ea8",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "podge.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

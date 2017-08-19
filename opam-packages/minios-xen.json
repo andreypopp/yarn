@@ -1,0 +1,164 @@
+{
+  "versions": {
+    "0.7.0": {
+      "name": "@opam-alpha/minios-xen",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-perl": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "debug=n"
+          ],
+          [
+            "make",
+            "install",
+            "LIBDIR=$cur__install/lib",
+            "INCLUDEDIR=$cur__install/include"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "minios_xen_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "minios_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "minios_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/talex5/mini-os/archive/v0.7.tar.gz",
+        "checksum": "5d317b28e6e540fb027f9f8be871c4af",
+        "files": []
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/minios-xen",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-perl": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "debug=n",
+            "CONFIG_VERBOSE_BOOT=n"
+          ],
+          [
+            "make",
+            "install",
+            "LIBDIR=$cur__install/lib",
+            "INCLUDEDIR=$cur__install/include"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "minios_xen_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "minios_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "minios_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/talex5/mini-os/archive/v0.8.tar.gz",
+        "checksum": "c60c9fd38452673fc1af75a1f6acfa89",
+        "files": []
+      }
+    },
+    "0.9.0": {
+      "name": "@opam-alpha/minios-xen",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-perl": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-ex",
+            "./build-opam.sh"
+          ],
+          [
+            "make",
+            "install",
+            "LIBDIR=$cur__install/lib",
+            "INCLUDEDIR=$cur__install/include"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "minios_xen_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "minios_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "minios_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/talex5/mini-os/archive/v0.9.tar.gz",
+        "checksum": "8f30d651d16f9e7b6b0f2296cd71cec0",
+        "files": [
+          {
+            "name": "build-opam.sh",
+            "content": "#!/bin/sh -ex\n\n# The MiniOS build is sensitive to some external variables\n# like EXTRA_DEPS being set, even to blank values.\n# See: https://github.com/mirage/mirage-xen-minios/issues/15\n# This wrapper script explicitly unexports them from the\n# environment before invoking Make\n\nunset EXTRA_DEPS\n\nmake debug=n CONFIG_VERBOSE_BOOT=n\n"
+          }
+        ]
+      }
+    }
+  }
+}

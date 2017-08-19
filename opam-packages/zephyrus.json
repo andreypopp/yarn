@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/zephyrus",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/atd": " >= 1.0.3  <= 2.0.0",
+        "@opam-alpha/atdgen": " >= 1.2.4  < 1.4.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "zephyrus_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "zephyrus_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "zephyrus_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://archives.pps.univ-paris-diderot.fr/~qba/archives/2013.08.30/zephyrus-0.1.tar.gz",
+        "checksum": "436086148dd6b21663998c780d440a6d",
+        "files": []
+      }
+    }
+  }
+}

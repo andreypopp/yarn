@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/cmark",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ctypes": " >= 0.4.1",
+        "@opam-alpha/ctypes-foreign": " >= 0.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./car",
+            "lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cmark_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "cmark_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cmark_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/jonathanyc/ocaml-cmark/archive/0.2.0.tar.gz",
+        "checksum": "a1d0979deee4c059852f7b3d5b06cf10",
+        "files": []
+      }
+    }
+  }
+}

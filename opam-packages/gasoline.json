@@ -1,0 +1,261 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/gasoline",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bsdowl": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camomile": "*",
+        "@opam-alpha/conf-bmake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gasoline_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "gasoline_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gasoline_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/gasoline/releases/download/v0.1/gasoline-0.1.tar.gz",
+        "checksum": "219afb22b6a8d67ab8508bceb6592347",
+        "files": [
+          {
+            "name": "META",
+            "content": "name=\"gasoline\"\nversion=\"0.1\"\ndescription=\"Rapid application development package\"\nrequires=\"camomile\"\n\narchive(byte)=\"gasoline_appkit.cma\"\narchive(byte)+=\"gasoline_authorkit.cma\"\narchive(byte)+=\"gasoline_testkit.cma\"\n"
+          },
+          {
+            "name": "gasoline.install",
+            "content": "lib: [\n  \"META\"\n  \"appkit/cApplication.cmi\"\n  \"appkit/cConfigurationMap.cmi\"\n  \"appkit/cMessage.cmi\"\n  \"appkit/cType.cmi\"\n  \"appkit/configurationMap.cmi\"\n  \"appkit/configurationParser.cmi\"\n  \"appkit/gasoline_appkit.cma\"\n  \"authorkit/gasoline_authorkit.cma\"\n  \"testkit/gasoline_testkit.cma\"\n  \"appkit/generic_application.cmi\"\n  \"appkit/generic_asset.cmi\"\n  \"appkit/generic_component.cmi\"\n  \"appkit/generic_diagnostic.cmi\"\n  \"appkit/generic_message.cmi\"\n  \"appkit/generic_type.cmi\"\n  \"appkit/getopt.cmi\"\n  \"authorkit/loremIpsum.cmi\"\n  \"appkit/sysExits.cmi\"\n  \"appkit/unicode.cmi\"\n  \"testkit/unitTest.cmi\"\n  \"authorkit/wHTML.cmi\"\n  \"authorkit/wSGML.cmi\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/gasoline",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/camomile": " >= 0.8.5",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/configuration": " >= 0.4.1",
+        "@opam-alpha/getopts": " >= 0.3.2",
+        "@opam-alpha/lemonade": " >= 0.2.1",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gasoline_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "gasoline_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gasoline_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/gasoline/releases/download/v0.3.0/gasoline-0.3.0.tar.xz",
+        "checksum": "8f072e4ee7199b6f3837be4718a3ba5d",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/gasoline",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/camomile": " >= 0.8.5",
+        "@opam-alpha/configuration": " >= 0.4.1",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/getopts": " >= 0.3.2",
+        "@opam-alpha/lemonade": " >= 0.3.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gasoline_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "gasoline_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gasoline_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/gasoline/releases/download/v0.4.0/gasoline-0.4.0.tar.xz",
+        "checksum": "7c7bac64186f5dad5a4fdbf8097220b6",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/gasoline",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/camomile": " >= 0.8.5",
+        "@opam-alpha/configuration": " >= 0.4.1",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/getopts": " >= 0.4.0",
+        "@opam-alpha/lemonade": " >= 0.6.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gasoline_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "gasoline_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gasoline_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/gasoline/releases/download/v0.5.0/gasoline-0.5.0.tar.xz",
+        "checksum": "e17952f27bb97bd36e3f3cc26699f802",
+        "files": []
+      }
+    }
+  }
+}

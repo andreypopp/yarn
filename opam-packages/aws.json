@@ -1,0 +1,357 @@
+{
+  "versions": {
+    "0.0.2": {
+      "name": "@opam-alpha/aws",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocsigenserver": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--enable-ocsigen"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aws_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "aws_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aws_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/besport/aws/tarball/0.0.2",
+        "checksum": "a3330a566ea11650477e9bf9c7f5aaa6",
+        "files": []
+      }
+    },
+    "0.0.3": {
+      "name": "@opam-alpha/aws",
+      "version": "0.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocsigenserver": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aws_version": {
+            "val": "0.0.3",
+            "scope": "global"
+          },
+          "aws_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aws_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/besport/aws/archive/0.0.3.tar.gz",
+        "checksum": "3c80abb8064e6409240237b03c1831c3",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/aws",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/ezxmlm": "*",
+        "@opam-alpha/nocrypto": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/async_ssl": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--%{lwt+cohttp+ssl:enable}%-lwt",
+            "--%{async+cohttp+async_ssl:enable}%-async"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aws_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "aws_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aws_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inhabitedtype/ocaml-aws/releases/download/aws-v1.0.0/aws-v1.0.0.tar.gz",
+        "checksum": "f9ce8b3f61e5ebb726f3ef6189104a61",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/aws",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/ezxmlm": "*",
+        "@opam-alpha/nocrypto": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uri": " >= 1.4.0",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/async_ssl": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--%{lwt+cohttp+ssl:enable}%-lwt",
+            "--%{async+cohttp+async_ssl:enable}%-async"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aws_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "aws_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aws_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inhabitedtype/ocaml-aws/releases/download/aws-1.0.1/aws-1.0.1.tar.gz",
+        "checksum": "077ac52195a96a3491da0abe71f81b25",
+        "files": []
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/aws",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/calendar": "*",
+        "@opam-alpha/ezxmlm": "*",
+        "@opam-alpha/nocrypto": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uri": " >= 1.4.0",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/async_ssl": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--%{lwt+cohttp+ssl:enable}%-lwt",
+            "--%{async+cohttp+async_ssl:enable}%-async"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aws_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "aws_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aws_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inhabitedtype/ocaml-aws/releases/download/aws-1.0.2/aws-1.0.2.tar.gz",
+        "checksum": "21c8d70e4e95ccb4285ddef3cff8c230",
+        "files": []
+      }
+    }
+  }
+}

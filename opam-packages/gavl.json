@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.1.5": {
+      "name": "@opam-alpha/gavl",
+      "version": "0.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gavl_version": {
+            "val": "0.1.5",
+            "scope": "global"
+          },
+          "gavl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gavl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-gavl/0.1.5/ocaml-gavl-0.1.5.tar.gz",
+        "checksum": "f55a9984e05f32bffecdce21c6784943",
+        "files": []
+      }
+    },
+    "0.1.6": {
+      "name": "@opam-alpha/gavl",
+      "version": "0.1.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gavl_version": {
+            "val": "0.1.6",
+            "scope": "global"
+          },
+          "gavl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gavl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-gavl/releases/download/0.1.6/ocaml-gavl-0.1.6.tar.gz",
+        "checksum": "6a95cb233b1929bd9d54431a7c7c4aa1",
+        "files": []
+      }
+    }
+  }
+}

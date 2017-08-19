@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "0.8.1": {
+      "name": "@opam-alpha/nosetup",
+      "version": "0.8.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/angstrom": "*",
+        "@opam-alpha/containers": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nosetup_version": {
+            "val": "0.8.1",
+            "scope": "global"
+          },
+          "nosetup_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nosetup_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Leonidas-from-XIV/nosetup/releases/download/v0.8.1/nosetup-0.8.1.tbz",
+        "checksum": "2c319ec16f31e851cba78240a8bed18c",
+        "files": []
+      }
+    }
+  }
+}

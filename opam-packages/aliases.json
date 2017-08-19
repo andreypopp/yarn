@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "0.0.5": {
+      "name": "@opam-alpha/aliases",
+      "version": "0.0.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aliases_version": {
+            "val": "0.0.5",
+            "scope": "global"
+          },
+          "aliases_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aliases_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/besport/ocaml-aliases/archive/0.0.5.tar.gz",
+        "checksum": "d844a5c9fe0a06abfcc600a0085f45f6",
+        "files": []
+      }
+    }
+  }
+}

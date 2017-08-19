@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cordova-plugin-sim-card",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/gen_js_api": "*",
+        "@opam-alpha/cordova": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cordova_plugin_sim_card_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cordova_plugin_sim_card_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cordova_plugin_sim_card_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dannywillems/ocaml-cordova-plugin-sim-card/archive/v1.0.tar.gz",
+        "checksum": "4ea9b720ff653c47f4ce421e6d9622f2",
+        "files": []
+      }
+    }
+  }
+}

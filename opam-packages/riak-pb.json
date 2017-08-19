@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/riak-pb",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/piqi": " < 0.7.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "riak_pb_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "riak_pb_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "riak_pb_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/metadave/riak-ocaml-pb/archive/riak-pb-1.0.0.tar.gz",
+        "checksum": "23926ad6a39a47a1375c134cdf6f644c",
+        "files": []
+      }
+    }
+  }
+}

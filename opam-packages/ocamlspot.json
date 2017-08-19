@@ -1,0 +1,163 @@
+{
+  "versions": {
+    "4.0.1": {
+      "name": "@opam-alpha/ocamlspot",
+      "version": "4.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all",
+            "opt",
+            "install",
+            "BINDIR=$cur__bin",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlspot_version": {
+            "val": "4.0.1",
+            "scope": "global"
+          },
+          "ocamlspot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlspot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/ocamlspot/get/4.00.1.2.1.4.tar.gz",
+        "checksum": "1a713a74884b694af8c86e57636740f1",
+        "files": [
+          {
+            "name": "ocamlspot.install",
+            "content": "lib: [\n  \"ocamlspot.vim\"\n  \"ocamlspot.el\"\n]\n"
+          }
+        ]
+      }
+    },
+    "4.1.0": {
+      "name": "@opam-alpha/ocamlspot",
+      "version": "4.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all",
+            "opt",
+            "install",
+            "BINDIR=$cur__bin",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlspot_version": {
+            "val": "4.1.0",
+            "scope": "global"
+          },
+          "ocamlspot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlspot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/ocamlspot/get/4.01.0.2.2.0.tar.gz",
+        "checksum": "7679c9daa1bb248517f0f6b74381fe11",
+        "files": [
+          {
+            "name": "ocamlspot.install",
+            "content": "lib: [\n  \"ocamlspot.vim\"\n  \"ocamlspot.el\"\n]\n"
+          }
+        ]
+      }
+    },
+    "4.2.1": {
+      "name": "@opam-alpha/ocamlspot",
+      "version": "4.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all",
+            "opt",
+            "BINDIR=$cur__bin",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlspot_version": {
+            "val": "4.2.1",
+            "scope": "global"
+          },
+          "ocamlspot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlspot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/ocamlspot/get/4.02.1.2.3.0.tar.gz",
+        "checksum": "2a68af48bf52b3b0ab3bc719cd9c611c",
+        "files": []
+      }
+    }
+  }
+}

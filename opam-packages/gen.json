@@ -1,0 +1,392 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/gen",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.2.tar.gz",
+        "checksum": "71df6f679f051a59e1c7d3fe71ed427d",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/gen",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.2.1.tar.gz",
+        "checksum": "7c8a7dcb9fc96892201cf225f4be73eb",
+        "files": []
+      }
+    },
+    "0.2.2": {
+      "name": "@opam-alpha/gen",
+      "version": "0.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs",
+            "--disable-tests",
+            "--disable-bench"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.2.2",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.2.2.tar.gz",
+        "checksum": "d76f9935ceb961ace660f701ad0a664c",
+        "files": []
+      }
+    },
+    "0.2.3": {
+      "name": "@opam-alpha/gen",
+      "version": "0.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs",
+            "--disable-tests",
+            "--disable-bench"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.2.3",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.2.3.tar.gz",
+        "checksum": "1f3ca5098c442507ab2f516e6049d59b",
+        "files": []
+      }
+    },
+    "0.2.4": {
+      "name": "@opam-alpha/gen",
+      "version": "0.2.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs",
+            "--disable-tests",
+            "--disable-bench"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.2.4",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.2.4.tar.gz",
+        "checksum": "0fcded8fdc3f4e222b4b689354a37e26",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/gen",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs",
+            "--disable-tests",
+            "--disable-bench"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.3.tar.gz",
+        "checksum": "4b8df7d3bd3ff7f2e10ad4a2fef66397",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/gen",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-docs",
+            "--disable-tests",
+            "--disable-bench"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gen_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "gen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/gen/archive/0.4.0.1.tar.gz",
+        "checksum": "186933675bced2dbe3b2ea57a3eeb1d5",
+        "files": []
+      }
+    }
+  }
+}

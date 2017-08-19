@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.1.4": {
+      "name": "@opam-alpha/bjack",
+      "version": "0.1.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bjack_version": {
+            "val": "0.1.4",
+            "scope": "global"
+          },
+          "bjack_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bjack_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-bjack/0.1.4/ocaml-bjack-0.1.4.tar.gz",
+        "checksum": "9638b5fa1695d2ab20078874aceae888",
+        "files": []
+      }
+    },
+    "0.1.5": {
+      "name": "@opam-alpha/bjack",
+      "version": "0.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bjack_version": {
+            "val": "0.1.5",
+            "scope": "global"
+          },
+          "bjack_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bjack_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-bjack/releases/download/0.1.5/ocaml-bjack-0.1.5.tar.gz",
+        "checksum": "684b2bac4b55d7ef35c72d42f32eee3f",
+        "files": []
+      }
+    }
+  }
+}

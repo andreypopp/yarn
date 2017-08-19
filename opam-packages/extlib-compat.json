@@ -1,0 +1,105 @@
+{
+  "versions": {
+    "1.6.1": {
+      "name": "@opam-alpha/extlib-compat",
+      "version": "1.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "extlib_compat_version": {
+            "val": "1.6.1",
+            "scope": "global"
+          },
+          "extlib_compat_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "extlib_compat_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ocaml-extlib/extlib-1.6.1.tar.gz",
+        "checksum": "5643237a6410dc915347956cff97df86",
+        "files": []
+      }
+    },
+    "1.7.0": {
+      "name": "@opam-alpha/extlib-compat",
+      "version": "1.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/base-bytes": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "extlib_compat_version": {
+            "val": "1.7.0",
+            "scope": "global"
+          },
+          "extlib_compat_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "extlib_compat_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ygrek/ocaml-extlib/archive/1.7.0.tar.gz",
+        "checksum": "b50b02d9e40d35cc20c82d9c881a1bf6",
+        "files": []
+      }
+    }
+  }
+}

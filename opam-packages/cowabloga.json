@@ -1,0 +1,671 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2  < 1.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.9.14  < 0.10.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.1.tar.gz",
+        "checksum": "ac4d104fe5fab5bafdab4431179f1378",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2  < 1.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.9.14  < 0.10.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.2.tar.gz",
+        "checksum": "c4298b4827722b1228a3e1b9293cc285",
+        "files": []
+      }
+    },
+    "0.0.3": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2  < 1.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.9.14  < 0.10.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.3",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.3.tar.gz",
+        "checksum": "9be65e89e457d93e819bb44e0e45db50",
+        "files": []
+      }
+    },
+    "0.0.4": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2  < 1.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.9.14  < 0.10.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.4",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.4.tar.gz",
+        "checksum": "3b8ef9a3d1c8a8770546a596190fe4dc",
+        "files": []
+      }
+    },
+    "0.0.5": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2  < 1.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": "=0.10.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.5",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.5.tar.gz",
+        "checksum": "7befa7527ec46095d341a93108eee739",
+        "files": []
+      }
+    },
+    "0.0.6": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2  < 1.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.10.0  < 0.12.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.6",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.6.tar.gz",
+        "checksum": "0d197b3db26b3e7cb20f253ec5d7235e",
+        "files": []
+      }
+    },
+    "0.0.7": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.10.0  < 0.12.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.7",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.7.tar.gz",
+        "checksum": "bbd351c18831fb086417f3f83719be86",
+        "files": []
+      }
+    },
+    "0.0.8": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.12.0  < 0.14.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.8",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.8.tar.gz",
+        "checksum": "90dd8b095ef9264537e7441ea300e062",
+        "files": []
+      }
+    },
+    "0.0.9": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.0.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.15.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.0.9",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.0.9.tar.gz",
+        "checksum": "e62bc8e2e71db97c5d693e854884bf11",
+        "files": []
+      }
+    },
+    "0.1.0": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cow": " >= 0.9.1  < 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.7  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.15.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.1.0.tar.gz",
+        "checksum": "ef7ad62166edd9b091b7354bd488b620",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cow": " >= 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.15.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.2.0.tar.gz",
+        "checksum": "151a71cde1a9d7c56883c8ab152584ae",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/cowabloga",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cow": " >= 2.0.0",
+        "@opam-alpha/omd": " >= 0.8.2",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.7.0",
+        "@opam-alpha/cohttp": " >= 0.15.0",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cowabloga_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "cowabloga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cowabloga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/cowabloga/archive/v0.2.1.tar.gz",
+        "checksum": "89457351fded3f3f53ef857f3c8ebed1",
+        "files": []
+      }
+    }
+  }
+}

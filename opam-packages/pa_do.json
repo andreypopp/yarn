@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "0.8.15": {
+      "name": "@opam-alpha/pa_do",
+      "version": "0.8.15",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___do_version": {
+            "val": "0.8.15",
+            "scope": "global"
+          },
+          "pa___do_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___do_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1018/pa_do-0.8.15.tar.gz",
+        "checksum": "0092aaa3369f9e8fe954345e891a7ee0",
+        "files": []
+      }
+    },
+    "0.8.16": {
+      "name": "@opam-alpha/pa_do",
+      "version": "0.8.16",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___do_version": {
+            "val": "0.8.16",
+            "scope": "global"
+          },
+          "pa___do_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___do_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1063/pa_do-0.8.16.tar.gz",
+        "checksum": "a5686159671fe462e876f5138ebe3009",
+        "files": []
+      }
+    }
+  }
+}

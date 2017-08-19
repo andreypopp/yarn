@@ -1,0 +1,70 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/core-lwt",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/core_kernel": " < 0.9.0",
+        "@opam-alpha/lwt": " < 3.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "core_lwt_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "core_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "core_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/BinaryAnalysisPlatform/core-lwt/archive/0.1.tar.gz",
+        "checksum": "0c38f8048f76586eef51a80973452776",
+        "files": []
+      }
+    }
+  }
+}

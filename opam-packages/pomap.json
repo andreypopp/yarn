@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "3.0.6": {
+      "name": "@opam-alpha/pomap",
+      "version": "3.0.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pomap_version": {
+            "val": "3.0.6",
+            "scope": "global"
+          },
+          "pomap_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pomap_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/pomap/releases/download/v3.0.6/pomap-3.0.6.tar.gz",
+        "checksum": "899aa41641b0961ae0b03c62950365c0",
+        "files": []
+      }
+    }
+  }
+}

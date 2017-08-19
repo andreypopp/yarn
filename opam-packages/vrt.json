@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/vrt",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/async_shell": "*",
+        "@opam-alpha/async_unix": "*",
+        "@opam-alpha/async_extra": "*",
+        "@opam-alpha/sexplib": " < 113.9.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/core_extended": "*",
+        "@opam-alpha/async_find": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vrt_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "vrt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vrt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/afiniate/vrt/archive/0.1.0.tar.gz",
+        "checksum": "be3bd2fdc543d2dab7accd7390d3b1e4",
+        "files": []
+      }
+    }
+  }
+}

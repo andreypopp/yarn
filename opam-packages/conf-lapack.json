@@ -1,0 +1,71 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-lapack",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-exc",
+            "cc $CFLAGS test.c -llapack"
+          ],
+          [
+            "sh",
+            "-exc",
+            "${CC:-gcc} $CFLAGS test.c -llapack $LDFLAGS"
+          ],
+          [
+            "sh",
+            "-exc",
+            "cc -framework Accelerate $CFLAGS test.c -llapack"
+          ],
+          [
+            "$cur__target_dir/test-win.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_lapack_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_lapack_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_lapack_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test-win.sh",
+            "content": "#!/usr/bin/env sh\n\ncc=$(ocamlc -config | awk '/^bytecomp_c_compiler/ {$1=\"\";sub(/^ /, \"\"); print}')\n$cc $CFLAGS test.c -llapack\n\n"
+          },
+          {
+            "name": "test.c",
+            "content": "extern double dlamch_(char *CMACH);\n\nint main(int argc, char **argv)\n{\n  char CMACH = 'E';\n\tdouble res = dlamch_(&CMACH);\n  return 0;\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

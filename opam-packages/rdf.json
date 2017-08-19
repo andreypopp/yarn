@@ -1,0 +1,697 @@
+{
+  "versions": {
+    "0.10.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.10.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/sedlex": " >= 1.99.2",
+        "@opam-alpha/menhir": " >= 20151112.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.5",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/yojson": " >= 1.1.8",
+        "@opam-alpha/iri": " >= 0.2.0",
+        "@opam-alpha/uri": " >= 1.9.1",
+        "@opam-alpha/calendar": " >= 2.3.2",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.10.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/zoggy/ocaml-rdf/archive/0.10.0.tar.gz",
+        "checksum": "9fad8205b792f3643382454d5637acb5",
+        "files": []
+      }
+    },
+    "0.11.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.11.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.2.0",
+        "@opam-alpha/sedlex": " >= 1.99.2",
+        "@opam-alpha/menhir": " >= 20151112.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.6",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/yojson": " >= 1.1.8",
+        "@opam-alpha/iri": " >= 0.4.0",
+        "@opam-alpha/uri": " >= 1.9.1",
+        "@opam-alpha/calendar": " >= 2.3.2",
+        "@opam-alpha/uutf": " >= 1.0.0",
+        "@opam-alpha/jsonm": " >= 1.0.0",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.11.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.11.0.tar.gz",
+        "checksum": "7c8eb3bac17d324ea57da4696e50b66b",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1036/ocaml-rdf-0.2.tar.gz",
+        "checksum": "58b22c35d69bca6670f304adbcee8ccb",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1104/ocaml-rdf-0.3.tar.gz",
+        "checksum": "a985247f22998ebf149124b98cc7a0c0",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1131/ocaml-rdf-0.4.tar.gz",
+        "checksum": "6a9f69c08e7f40d3392f193707c1319d",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/ulex": " >= 1.1.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0  < 20141215.0.0",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1188/ocaml-rdf-0.5.tar.gz",
+        "checksum": "92ec0d2105aac2082775e454defa96a5",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ulex": " >= 1.1.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.5",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.6.0.tar.gz",
+        "checksum": "01a990e967bea74d8e2f414544470795",
+        "files": []
+      }
+    },
+    "0.7.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ulex": " >= 1.1.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.5",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.7.0.tar.gz",
+        "checksum": "5ecd5d98fed7919dd2ee75d2a4eb1d52",
+        "files": []
+      }
+    },
+    "0.7.1": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ulex": " >= 1.1.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.5",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.7.1.tar.gz",
+        "checksum": "31395f1f283a1bdd10c72ed7ef9de321",
+        "files": []
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ulex": " >= 1.1.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.5",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.8.0.tar.gz",
+        "checksum": "e3336c0f73faa054497fd7bbae3cddb2",
+        "files": []
+      }
+    },
+    "0.9.0": {
+      "name": "@opam-alpha/rdf",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": " >= 1.1.1",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ulex": " >= 1.1.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/uuidm": " >= 0.9.5",
+        "@opam-alpha/cryptokit": " >= 1.7.0",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/yojson": " >= 1.1.8",
+        "@opam-alpha/mysql": "*",
+        "@opam-alpha/postgresql": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdf_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "rdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/ocaml-rdf/ocaml-rdf-0.9.0.tar.gz",
+        "checksum": "229e2162b9344d9ce051f019a170bdba",
+        "files": []
+      }
+    }
+  }
+}

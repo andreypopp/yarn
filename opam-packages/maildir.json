@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/maildir",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "maildir_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "maildir_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "maildir_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nojb/ocaml-maildir/archive/v0.9.0.tar.gz",
+        "checksum": "77fb1a413686c0c06ac13a69de507bf7",
+        "files": []
+      }
+    }
+  }
+}

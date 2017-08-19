@@ -1,0 +1,294 @@
+{
+  "versions": {
+    "1.3.0": {
+      "name": "@opam-alpha/lwt-zmq",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "=0.3.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocaml-zmq": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt_zmq_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "lwt_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/lwt-zmq/archive/v1.0-beta3.tar.gz",
+        "checksum": "0ef8e4ee309ae816fc9fe31884b6daaa",
+        "files": []
+      }
+    },
+    "1.4.0": {
+      "name": "@opam-alpha/lwt-zmq",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocaml-zmq": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt_zmq_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "lwt_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/lwt-zmq/archive/v1.0-beta4.tar.gz",
+        "checksum": "29338d125a545daf45df9e3d7631d01d",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/lwt-zmq",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/zmq": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt_zmq_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "lwt_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/lwt-zmq/archive/v1.0.0.tar.gz",
+        "checksum": "17967607c74f9b809f135bf0561fd30a",
+        "files": []
+      }
+    },
+    "2.0.0": {
+      "name": "@opam-alpha/lwt-zmq",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/zmq": " >= 4.2.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt_zmq_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "lwt_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/lwt-zmq/archive/v2.0.0.tar.gz",
+        "checksum": "4b6fa7947ccbc14a3597c80f84f1fe74",
+        "files": []
+      }
+    },
+    "2.0.1": {
+      "name": "@opam-alpha/lwt-zmq",
+      "version": "2.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/zmq": " >= 4.2.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt_zmq_version": {
+            "val": "2.0.1",
+            "scope": "global"
+          },
+          "lwt_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/lwt-zmq/archive/v2.0.1.tar.gz",
+        "checksum": "e5321d12d3d5cab74577c0669d31fe7c",
+        "files": []
+      }
+    }
+  }
+}

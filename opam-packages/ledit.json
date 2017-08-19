@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "2.3.0": {
+      "name": "@opam-alpha/ledit",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp5": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "LIBDIR=$cur__lib/ledit",
+            "MANDIR=$cur__man/man1",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ledit_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "ledit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ledit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.03.tgz",
+        "checksum": "3a70ee7d5d5e2dfb905a1ac2e1e60276",
+        "files": [
+          {
+            "name": "ledit.install",
+            "content": "bin: [\"ledit.out\" {\"ledit\"}]\n"
+          }
+        ]
+      }
+    }
+  }
+}

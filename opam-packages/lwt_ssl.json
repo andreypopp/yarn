@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/lwt_ssl",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lwt": " >= 2.7.0  < 3.0.0",
+        "@opam-alpha/ssl": " >= 0.5.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "install",
+            "lwt_ssl",
+            "src/ssl/META"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt___ssl_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "lwt___ssl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt___ssl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/lwt/archive/2.7.0.tar.gz",
+        "checksum": "cee770cf9edbda92578c873e7e4c6105",
+        "files": []
+      }
+    }
+  }
+}

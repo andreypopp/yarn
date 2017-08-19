@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "0.10.1": {
+      "name": "@opam-alpha/omake",
+      "version": "0.10.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "omake_version": {
+            "val": "0.10.1",
+            "scope": "global"
+          },
+          "omake_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "omake_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml-omake/omake/archive/omake-0.10.1.tar.gz",
+        "checksum": "6d66d68bbf39d5f241778ab1e70a78cf",
+        "files": []
+      }
+    }
+  }
+}

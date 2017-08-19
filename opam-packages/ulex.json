@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "1.1.0": {
+      "name": "@opam-alpha/ulex",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ulex_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ulex_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ulex_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://deb.debian.org/debian/pool/main/u/ulex/ulex_1.1.orig.tar.gz",
+        "checksum": "ce49a013bc4a0e085977a9fe157017bf",
+        "files": []
+      }
+    }
+  }
+}

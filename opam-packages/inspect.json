@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.2.1": {
+      "name": "@opam-alpha/inspect",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "inspect_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "inspect_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "inspect_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/krohrer/caml-inspect/archive/v0.2.1.tar.gz",
+        "checksum": "5d7fedff7522a82d13ad9a1abb1f1399",
+        "files": []
+      }
+    }
+  }
+}

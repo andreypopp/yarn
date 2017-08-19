@@ -1,0 +1,175 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/hardcaml-reedsolomon",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/hardcaml": "*",
+        "@opam-alpha/hardcaml-waveterm": "*",
+        "@opam-alpha/hardcaml-examples": "*",
+        "@opam-alpha/reedsolomon": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hardcaml_reedsolomon_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "hardcaml_reedsolomon_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hardcaml_reedsolomon_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ujamjar/hardcaml-reedsolomon/archive/v0.1.tar.gz",
+        "checksum": "1797a9ea4a5e70d53f9700756ad76297",
+        "files": [
+          {
+            "name": "hardcaml-reedsolomon.install",
+            "content": "bin: [\n\"hcrsencode.native\" {\"hardcaml-rsencode\"}\n\"hcrsdecode.native\" {\"hardcaml-rsdecode\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/hardcaml-reedsolomon",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/hardcaml": " >= 1.1.1",
+        "@opam-alpha/hardcaml-waveterm": "*",
+        "@opam-alpha/hardcaml-examples": " >= 0.2.0",
+        "@opam-alpha/reedsolomon": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hardcaml_reedsolomon_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "hardcaml_reedsolomon_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hardcaml_reedsolomon_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ujamjar/hardcaml-reedsolomon/archive/v0.2.tar.gz",
+        "checksum": "eed44d5dad21a5f2121a77ef915e462d",
+        "files": [
+          {
+            "name": "hardcaml-reedsolomon.install",
+            "content": "bin: [\n\"hcrsencode.native\" {\"hardcaml-rsencode\"}\n\"hcrsdecode.native\" {\"hardcaml-rsdecode\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/hardcaml-reedsolomon",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/hardcaml": " >= 1.2.0  < 2.0.0",
+        "@opam-alpha/hardcaml-waveterm": " >= 0.2.0",
+        "@opam-alpha/hardcaml-examples": " >= 0.3.0",
+        "@opam-alpha/reedsolomon": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hardcaml_reedsolomon_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "hardcaml_reedsolomon_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hardcaml_reedsolomon_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ujamjar/hardcaml-reedsolomon/archive/v0.3.0.tar.gz",
+        "checksum": "746349c50c97fca3e7b801741acd3c1f",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.5.0": {
+      "name": "@opam-alpha/camlprime",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camlprime_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "camlprime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camlprime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pymander/camlprime/archive/v0.5.tar.gz",
+        "checksum": "3e78f5522c6cd32e6c44951823b3a3f7",
+        "files": []
+      }
+    }
+  }
+}

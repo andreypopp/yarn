@@ -1,0 +1,808 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/unix-errno": " < 0.4.0",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.1.tar.gz",
+        "checksum": "b05bf534917ae021735f73fab7f4b80c",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/unix-errno": " < 0.4.0",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.2.tar.gz",
+        "checksum": "064a53e441e3f7e4c42c329ad596f608",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/unix-errno": " >= 0.3.0  < 0.4.0",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/alcotest": "  >= 0.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.3.tar.gz",
+        "checksum": "f69315d992ab6c9adbd5b256241bbe42",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/unix-errno": " >= 0.3.0  < 0.4.0",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/alcotest": "  >= 0.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.4.0.tar.gz",
+        "checksum": "fc55bae7e3da6e8f87796eac417f49fe",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/unix-errno": " >= 0.3.0  < 0.4.0",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/lambda-term": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/alcotest": "  >= 0.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.5.0.tar.gz",
+        "checksum": "6ed32d999b5a6cb19966fb7377d5c489",
+        "files": []
+      }
+    },
+    "0.5.1": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cstruct": " >= 1.6.0  < 2.0.0",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.5.1.tar.gz",
+        "checksum": "14bb94e9aa8ac205d6b8b5e3a5062542",
+        "files": []
+      }
+    },
+    "0.5.2": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.5.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": " >= 1.7.0  <= 1.9.0",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/named-pipe": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/win-error": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.5.2",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.5.2.tar.gz",
+        "checksum": "9fbd3d754b5635366a92fdc67c837785",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/sexplib": " > 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/ppx_cstruct": "*",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.6.0.tar.gz",
+        "checksum": "107922a383d0b6ae43b82831b5bb55e5",
+        "files": []
+      }
+    },
+    "0.7.2": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.7.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cstruct-lwt": "*",
+        "@opam-alpha/sexplib": " > 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/channel": " >= 1.1.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/named-pipe": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/win-error": "*",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/topkg": "  >= 0.7.3",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/ppx_cstruct": "*",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-lambda-term",
+            "lambda-term:installed"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.7.2",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/releases/download/v0.7.2/protocol-9p-0.7.2.tbz",
+        "checksum": "c8a73115d6da47d9a759fbd4f1c451c9",
+        "files": []
+      }
+    },
+    "0.7.3": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.7.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cstruct-lwt": "*",
+        "@opam-alpha/sexplib": " > 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/channel": " >= 1.1.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/named-pipe": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/win-error": "*",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/topkg": "  >= 0.7.3",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/ppx_cstruct": "*",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-lambda-term",
+            "${lambda_term_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.7.3",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/archive/v0.7.3.tar.gz",
+        "checksum": "40fba01a1218a97228284d4fe9ad3492",
+        "files": []
+      }
+    },
+    "0.7.4": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.7.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cstruct-lwt": "*",
+        "@opam-alpha/sexplib": " > 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/channel": " >= 1.1.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/named-pipe": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/win-error": "*",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/topkg": "  >= 0.7.3",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-lambda-term",
+            "${lambda_term_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.7.4",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/releases/download/v0.7.4/protocol-9p-0.7.4.tbz",
+        "checksum": "4b906e1ba9a91d351288f0f0a7dc3836",
+        "files": []
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/protocol-9p",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cstruct-lwt": "*",
+        "@opam-alpha/sexplib": " > 113.0.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mirage-types-lwt": "*",
+        "@opam-alpha/channel": " >= 1.1.0",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/named-pipe": " >= 0.4.0",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/win-error": "*",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/topkg": "  >= 0.7.3",
+        "@opam-alpha/alcotest": "  >= 0.4.0",
+        "@opam-alpha/ppx_cstruct": "*",
+        "@opam-alpha/lambda-term": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-lambda-term",
+            "${lambda_term_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "protocol_9p_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "protocol_9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "protocol_9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-9p/releases/download/v0.8.0/protocol-9p-0.8.0.tbz",
+        "checksum": "2576040bdd1fba3d9dc7249d5fd8d5b7",
+        "files": []
+      }
+    }
+  }
+}

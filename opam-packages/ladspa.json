@@ -1,0 +1,118 @@
+{
+  "versions": {
+    "0.1.4": {
+      "name": "@opam-alpha/ladspa",
+      "version": "0.1.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ladspa_version": {
+            "val": "0.1.4",
+            "scope": "global"
+          },
+          "ladspa_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ladspa_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-ladspa/0.1.4/ocaml-ladspa-0.1.4.tar.gz",
+        "checksum": "9931908da1bc7efd82ab83e4ab36c8ca",
+        "files": []
+      }
+    },
+    "0.1.5": {
+      "name": "@opam-alpha/ladspa",
+      "version": "0.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "./configure",
+            "CFLAGS=-I/usr/local/include",
+            "LDFLAGS=-L/usr/local/lib",
+            "OCAMLFLAGS=-ccopt -I/usr/local/include -cclib -L/usr/local/lib",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ladspa_version": {
+            "val": "0.1.5",
+            "scope": "global"
+          },
+          "ladspa_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ladspa_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-ladspa/releases/download/0.1.5/ocaml-ladspa-0.1.5.tar.gz",
+        "checksum": "ae66337eb15dbbf0f432016e79db7267",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-mpfr",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-gmp": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cc",
+            "test.c",
+            "-I/usr/local/include",
+            "-L/usr/local/lib",
+            "-lgmp",
+            "-lmpfr"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_mpfr_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_mpfr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_mpfr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test.c",
+            "content": "#include <stdio.h>\n#include <mpfr.h>\n\n// compile with: gcc test.c -lmpfr -lgmp\n\nint main (void) {\n  printf (\"MPFR library: %-12s\\nMPFR header:  %s (based on %d.%d.%d)\\n\",\n          mpfr_get_version (), MPFR_VERSION_STRING, MPFR_VERSION_MAJOR,\n          MPFR_VERSION_MINOR, MPFR_VERSION_PATCHLEVEL);\n  return 0;\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

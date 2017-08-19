@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/pvem_lwt_unix",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pvem": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/lwt": " < 2.5.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "please.ml",
+            "build"
+          ],
+          [
+            "ocaml",
+            "please.ml",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pvem___lwt___unix_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "pvem___lwt___unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pvem___lwt___unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/smondet/pvem_lwt_unix/get/pvem_lwt_unix.0.0.1.tar.gz",
+        "checksum": "e0ffa446bded126770c3704636093752",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/pvem_lwt_unix",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pvem": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/lwt": " >= 2.5.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "please.ml",
+            "build"
+          ],
+          [
+            "ocaml",
+            "please.ml",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pvem___lwt___unix_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "pvem___lwt___unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pvem___lwt___unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/smondet/pvem_lwt_unix/get/pvem_lwt_unix.0.0.2.tar.gz",
+        "checksum": "15e69255c8e21d8cd467ed65be1c913c",
+        "files": []
+      }
+    }
+  }
+}

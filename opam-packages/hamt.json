@@ -1,0 +1,116 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/hamt",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/monomorphic": "*",
+        "@opam-alpha/ounit": " >= 1.0.2",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hamt_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "hamt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hamt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/ocaml-hamt/archive/0.1.tar.gz",
+        "checksum": "51f67ef806a08c1835566de208594565",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/hamt",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "  >= 1.0.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hamt_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "hamt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hamt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/ocaml-hamt/archive/1.0.0.tar.gz",
+        "checksum": "47b2625ffcede0652d0e9b4e2ba13722",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/captureio",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/testsimple": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "library"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "captureio_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "captureio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "captureio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/sylvarant/captureio/archive/v0.1.1.tar.gz",
+        "checksum": "4b1934e165c5d54fa507eb67c83b7a79",
+        "files": []
+      }
+    },
+    "0.1.2": {
+      "name": "@opam-alpha/captureio",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/testsimple": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "library"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "captureio_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "captureio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "captureio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/sylvarant/captureio/archive/v0.1.2.tar.gz",
+        "checksum": "238638ade7342e1b4a75677abf43fe4f",
+        "files": []
+      }
+    }
+  }
+}

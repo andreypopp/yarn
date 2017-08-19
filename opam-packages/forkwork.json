@@ -1,0 +1,123 @@
+{
+  "versions": {
+    "0.3.1": {
+      "name": "@opam-alpha/forkwork",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "forkwork_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "forkwork_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "forkwork_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mlin/forkwork/archive/v0.3.1.tar.gz",
+        "checksum": "d299dae98136d37175a2ee9e68045bc5",
+        "files": []
+      }
+    },
+    "0.3.2": {
+      "name": "@opam-alpha/forkwork",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/kaputt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "forkwork_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "forkwork_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "forkwork_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mlin/forkwork/archive/v0.3.2.tar.gz",
+        "checksum": "d1ab07dd323c47b80f3c0bf80bd0531a",
+        "files": []
+      }
+    }
+  }
+}

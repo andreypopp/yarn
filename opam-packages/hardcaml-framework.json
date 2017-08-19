@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/hardcaml-framework",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/hardcaml": " >= 1.2.0  < 2.0.0",
+        "@opam-alpha/hardcaml-waveterm": " >= 0.2.0",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/omd": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/js_of_ocaml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hardcaml_framework_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "hardcaml_framework_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hardcaml_framework_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ujamjar/hardcaml-framework/archive/v0.3.0.tar.gz",
+        "checksum": "1a960c0bcc1853661365509079b6c589",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/pds-reachability",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/jhupllib": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_deriving": " >= 3.2.0",
+        "@opam-alpha/ppx_deriving_yojson": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_reachability_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "pds_reachability_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_reachability_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/JHU-PL-Lab/pds-reachability/archive/66ee9322ef9c4a474e607831cf9c6fea7c586811.zip",
+        "checksum": "66d2fb3dbbcd2fca866cc7ecaecc7a0b",
+        "files": []
+      }
+    }
+  }
+}

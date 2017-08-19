@@ -1,0 +1,199 @@
+{
+  "versions": {
+    "0.0.2": {
+      "name": "@opam-alpha/expect",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "=1.5.3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/oasis": " >= 0.3.0  < 0.4.2",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "rm",
+            "setup.ml"
+          ],
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "expect_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "expect_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "expect_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/475/ocaml-expect-0.0.2.tar.gz",
+        "checksum": "723288a1c9078f86e6185e78a6baa577",
+        "files": []
+      }
+    },
+    "0.0.3": {
+      "name": "@opam-alpha/expect",
+      "version": "0.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "=1.5.3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "expect_version": {
+            "val": "0.0.3",
+            "scope": "global"
+          },
+          "expect_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "expect_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/894/ocaml-expect-0.0.3.tar.gz",
+        "checksum": "3ac7f4bf2cfa9e7e8375c231be384248",
+        "files": []
+      }
+    },
+    "0.0.4": {
+      "name": "@opam-alpha/expect",
+      "version": "0.0.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "expect_version": {
+            "val": "0.0.4",
+            "scope": "global"
+          },
+          "expect_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "expect_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1289/ocaml-expect-0.0.4.tar.gz",
+        "checksum": "ec0839ed6d5fecbe204299ec4161bb0d",
+        "files": []
+      }
+    }
+  }
+}

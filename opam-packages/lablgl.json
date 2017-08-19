@@ -1,0 +1,187 @@
+{
+  "versions": {
+    "1.4.20120306": {
+      "name": "@opam-alpha/lablgl",
+      "version": "1.4.20120306",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "Makefile.config.ex",
+            "Makefile.config"
+          ],
+          [
+            "cp",
+            "Makefile.config.osx",
+            "Makefile.config"
+          ],
+          [
+            "mkdir",
+            "-p",
+            "$cur__bin"
+          ],
+          [
+            "make",
+            "glut"
+          ],
+          [
+            "make",
+            "glutopt"
+          ],
+          [
+            "make",
+            "install",
+            "-C",
+            "src",
+            "BINDIR=$cur__bin",
+            "INSTALLDIR=$cur__lib/lablgl",
+            "DLLDIR=$cur__lib/stublibs"
+          ],
+          [
+            "make",
+            "install",
+            "-C",
+            "LablGlut/src",
+            "BINDIR=$cur__bin",
+            "INSTALLDIR=$cur__lib/lablgl",
+            "DLLDIR=$cur__lib/stublibs"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgl_version": {
+            "val": "1.4.20120306",
+            "scope": "global"
+          },
+          "lablgl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/816/lablgl-20120306.tar.gz",
+        "checksum": "c850c8500837165adfa98535ad33f770",
+        "files": [
+          {
+            "name": "META",
+            "content": "description = \"Bindings for OpenGL graphics engines\"\nversion = \"1.04.20120306\"\narchive(byte) = \"lablgl.cma\"\narchive(native) = \"lablgl.cmxa\"\n\npackage \"togl\" (\n\tdescription = \"OpenGL widget for labltk\"\n\tversion = \"1.01\"\n\trequires = \"lablgl, labltk\"\n\tarchive(byte) = \"togl.cma\"\n\tarchive(native) = \"togl.cmxa\"\n)\n\npackage \"glut\" (\n\tdescription = \"Platform-independent OpenGL window\"\n\tversion = \"1.01\"\n\trequires = \"lablgl\"\n\tarchive(byte) = \"lablglut.cma\"\n\tarchive(native) = \"lablglut.cmxa\"\n)\n"
+          },
+          {
+            "name": "lablgl.install",
+            "content": "lib: [\"META\"]\n"
+          }
+        ]
+      }
+    },
+    "1.5.0": {
+      "name": "@opam-alpha/lablgl",
+      "version": "1.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "Makefile.config.ex",
+            "Makefile.config"
+          ],
+          [
+            "cp",
+            "Makefile.config.osx",
+            "Makefile.config"
+          ],
+          [
+            "mkdir",
+            "-p",
+            "$cur__bin"
+          ],
+          [
+            "make",
+            "INSTALLDIR=$cur__lib/lablgl",
+            "glut"
+          ],
+          [
+            "make",
+            "glutopt"
+          ],
+          [
+            "make",
+            "install",
+            "-C",
+            "src",
+            "BINDIR=$cur__bin",
+            "INSTALLDIR=$cur__lib/lablgl",
+            "DLLDIR=$cur__lib/stublibs"
+          ],
+          [
+            "make",
+            "install",
+            "-C",
+            "LablGlut/src",
+            "BINDIR=$cur__bin",
+            "INSTALLDIR=$cur__lib/lablgl",
+            "DLLDIR=$cur__lib/stublibs"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgl_version": {
+            "val": "1.5.0",
+            "scope": "global"
+          },
+          "lablgl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1254/lablgl-1.05.tar.gz",
+        "checksum": "b64662bf47f2973f836d33ae1365244f",
+        "files": [
+          {
+            "name": "META",
+            "content": "description = \"Bindings for OpenGL graphics engines\"\nversion = \"1.05\"\narchive(byte) = \"lablgl.cma\"\narchive(native) = \"lablgl.cmxa\"\n\npackage \"togl\" (\n\tdescription = \"OpenGL widget for labltk\"\n\tversion = \"1.01\"\n\trequires = \"lablgl, labltk\"\n\tarchive(byte) = \"togl.cma\"\n\tarchive(native) = \"togl.cmxa\"\n)\n\npackage \"glut\" (\n\tdescription = \"Platform-independent OpenGL window\"\n\tversion = \"1.01\"\n\trequires = \"lablgl\"\n\tarchive(byte) = \"lablglut.cma\"\n\tarchive(native) = \"lablglut.cmxa\"\n)\n"
+          },
+          {
+            "name": "lablgl.install",
+            "content": "lib: [\"META\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

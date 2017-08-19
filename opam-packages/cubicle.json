@@ -1,0 +1,186 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cubicle",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/functory": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "MANDIR=$cur__man"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cubicle_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cubicle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cubicle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://cubicle.lri.fr/cubicle-1.0.tar.gz",
+        "checksum": "24b163eb77e6832747dccd6cc8a5d57c",
+        "files": [
+          {
+            "name": "cubicle.install",
+            "content": "bin: [\"cubicle.opt\" {\"cubicle\"}]\n"
+          }
+        ]
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/cubicle",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/functory": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "MANDIR=$cur__man"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cubicle_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "cubicle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cubicle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://cubicle.lri.fr/cubicle-1.0.1.tar.gz",
+        "checksum": "a13b45e48ba6bfa35f38ed52cb639c13",
+        "files": [
+          {
+            "name": "cubicle.install",
+            "content": "bin: [\"cubicle.opt\" {\"cubicle\"}]\n"
+          }
+        ]
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/cubicle",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/functory": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cubicle_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "cubicle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cubicle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://cubicle.lri.fr/cubicle-1.0.2.tar.gz",
+        "checksum": "08a6f19c157037c162bb4a764f2c3747",
+        "files": [
+          {
+            "name": "cubicle.install",
+            "content": "bin: [\"cubicle.opt\" {\"cubicle\"}]\n"
+          },
+          {
+            "name": "patch_syntax_ocaml_4_03_0.patch",
+            "content": "diff --git a/enumerative.ml b/enumerative.ml\nindex 31e6054..1374cd7 100644\n--- a/enumerative.ml\n+++ b/enumerative.ml\n@@ -285,7 +285,7 @@ let init_tables procs s =\n   let ht = HT.create (nb_vars + nb_consts) in\n   let i = ref 0 in\n   Term.Set.iter (fun t -> HT.add ht t !i; incr i) var_terms;\n-  let max_id_vars = !i - 1in\n+  let max_id_vars = !i - 1 in\n   let proc_ids = ref [] in\n   let first_proc = !i in\n   List.iter (fun t -> HT.add ht t !i; proc_ids := !i :: !proc_ids; incr i)\n"
+          }
+        ]
+      }
+    }
+  }
+}

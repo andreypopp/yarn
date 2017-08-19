@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/srs",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "srs_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "srs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "srs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1005/ocaml-srs-1.0.0.tar.gz",
+        "checksum": "b5522b6ca3488fb31ef2421757d96389",
+        "files": []
+      }
+    }
+  }
+}

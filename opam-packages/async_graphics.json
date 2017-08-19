@@ -1,0 +1,51 @@
+{
+  "versions": {
+    "0.5.1": {
+      "name": "@opam-alpha/async_graphics",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/graphics": "*",
+        "@opam-alpha/async": " >= 109.9.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./install.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___graphics_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "async___graphics_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___graphics_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lpw25/async_graphics/archive/0.5.1.tar.gz",
+        "checksum": "dae320729beeeef947c6a6e03989ed55",
+        "files": []
+      }
+    }
+  }
+}

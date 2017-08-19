@@ -1,0 +1,193 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/unmagic",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/spotlib": "*",
+        "@opam-alpha/typerep": "*",
+        "@opam-alpha/ppx_typerep_conv": "",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "unmagic_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "unmagic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "unmagic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/unmagic/get/0.9.0.tar.gz",
+        "checksum": "d66048abe7125c283f3d0183b46dd864",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/unmagic",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "  < 0.10.1",
+        "@opam-alpha/spotlib": "*",
+        "@opam-alpha/typerep": "*",
+        "@opam-alpha/ppx_typerep_conv": "",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "unmagic_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "unmagic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "unmagic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/unmagic/get/1.0.0.tar.gz",
+        "checksum": "5e51eb8dadd4a836f762b570b8a94fe8",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/unmagic",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/spotlib": "*",
+        "@opam-alpha/typerep": "*",
+        "@opam-alpha/ppx_typerep_conv": "",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "unmagic_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "unmagic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "unmagic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/unmagic/get/1.0.1.tar.gz",
+        "checksum": "7c1a5c774c8c66c468ba5b492e20cdfc",
+        "files": []
+      }
+    }
+  }
+}

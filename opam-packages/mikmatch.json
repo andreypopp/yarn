@@ -1,0 +1,231 @@
+{
+  "versions": {
+    "1.0.5": {
+      "name": "@opam-alpha/mikmatch",
+      "version": "1.0.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/pcre": "=7.0.4"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mikmatch_version": {
+            "val": "1.0.5",
+            "scope": "global"
+          },
+          "mikmatch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mikmatch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/mikmatch/archive/v1.0.5.tar.gz",
+        "checksum": "a54f27f7db6e4d460aad852b9ce90f1e",
+        "files": []
+      }
+    },
+    "1.0.6": {
+      "name": "@opam-alpha/mikmatch",
+      "version": "1.0.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/pcre": "=7.0.4"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mikmatch_version": {
+            "val": "1.0.6",
+            "scope": "global"
+          },
+          "mikmatch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mikmatch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/mikmatch/archive/v1.0.6.tar.gz",
+        "checksum": "180854a13780a4db850c0d4bd646a9c1",
+        "files": []
+      }
+    },
+    "1.0.7": {
+      "name": "@opam-alpha/mikmatch",
+      "version": "1.0.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/tophide": " >= 1.0.2",
+        "@opam-alpha/pcre": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "str"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-str"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mikmatch_version": {
+            "val": "1.0.7",
+            "scope": "global"
+          },
+          "mikmatch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mikmatch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/mikmatch/archive/v1.0.7.tar.gz",
+        "checksum": "70aabc8eb8f67ab3ac3f36bbd04729f4",
+        "files": [
+          {
+            "name": "fix_build.patch",
+            "content": "--- pcre/Makefile.orig\t2014-11-11 18:50:00.000000000 +0800\n+++ pcre/Makefile\t2014-11-11 18:54:45.385223413 +0800\n@@ -94,11 +94,9 @@\n \tocamlc -c mikmatch.mli\n \tocamlc -a -o run_mikmatch_pcre.cma -I $(PCRE_DIR) \\\n \t\tmikmatch.ml run_mikmatch_pcre.ml\n-\tocamlmktop -o mikmatch_pcre.top \\\n-\t\t-I +camlp4 -I $(PCRE_DIR) \\\n-\t\tdynlink.cma \\\n-\t\tcamlp4o.cma \\\n-\t\tpa_mikmatch_pcre.cma pcre.cma unix.cma run_mikmatch_pcre.cma\n+\tocamlfind ocamlmktop -o mikmatch_pcre.top \\\n+\t\t-linkpkg -package camlp4.lib,pcre,unix \\\n+\t\tpa_mikmatch_pcre.cma run_mikmatch_pcre.cma\n \n misc-nc:\n \tocamlc -c mikmatch.mli\n"
+          },
+          {
+            "name": "mikmatch.patch",
+            "content": "diff --git a/str/META.template b/str/META.template\nindex b692995..961e89b 100644\n--- a/str/META.template\n+++ b/str/META.template\n@@ -2,7 +2,7 @@ name = \"mikmatch_str\"\n version = \"VERSION\"\n description = \"Pattern matching extended with regexps in Ocamllex syntax\"\n \n-requires = \"camlp4 pcre unix\"\n+requires = \"camlp4 str unix\"\n requires(toploop) += \"tophide\"\n \n archive(syntax,toploop) = \"pa_mikmatch_str.cma run_mikmatch_str.cma\"\n"
+          }
+        ]
+      }
+    },
+    "1.0.8": {
+      "name": "@opam-alpha/mikmatch",
+      "version": "1.0.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/tophide": " >= 1.0.2",
+        "@opam-alpha/pcre": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "str"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-str"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mikmatch_version": {
+            "val": "1.0.8",
+            "scope": "global"
+          },
+          "mikmatch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mikmatch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/mikmatch/archive/v1.0.8.tar.gz",
+        "checksum": "0f3b272491bff4fe842948dbf71d022e",
+        "files": []
+      }
+    }
+  }
+}

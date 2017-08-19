@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/transmission-rpc",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cohttp": " >= 0.13.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ppx_deriving_yojson": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "transmission_rpc_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "transmission_rpc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "transmission_rpc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/bataille/ocaml-transmission-rpc/archive/1.0.tar.gz",
+        "checksum": "a1fd3f45728686185203c09d5d6c50f2",
+        "files": []
+      }
+    }
+  }
+}

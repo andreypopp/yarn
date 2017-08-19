@@ -1,0 +1,72 @@
+{
+  "versions": {
+    "1.2.1": {
+      "name": "@opam-alpha/gpr",
+      "version": "1.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/core": " >= 109.31.0",
+        "@opam-alpha/gsl": "*",
+        "@opam-alpha/lacaml": " >= 7.2.3  < 9.2.3",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gpr_version": {
+            "val": "1.2.1",
+            "scope": "global"
+          },
+          "gpr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gpr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/gpr/releases/download/v1.2.1/gpr-1.2.1.tar.gz",
+        "checksum": "c9b69dbaaa69e3efa7be4e473bb78ee8",
+        "files": [
+          {
+            "name": "gpr.install",
+            "content": "bin: [\n  \"?_build/app/ocaml_gpr.byte\" {\"ocaml_gpr\"}\n  \"?_build/app/ocaml_gpr.native\" {\"ocaml_gpr\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

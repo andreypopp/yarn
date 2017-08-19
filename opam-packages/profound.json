@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.4.2": {
+      "name": "@opam-alpha/profound",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": "*",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/batteries": " >= 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "mkdir",
+            "-p",
+            "$cur__share/profound"
+          ],
+          [
+            "cp",
+            "share/profound/wash_form.tex",
+            "$cur__share/profound/"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "profound_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "profound_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "profound_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/chaudhuri/profound/archive/v0.4.2.tar.gz",
+        "checksum": "52f2c3d963cb0497c18ef64185ff6df7",
+        "files": [
+          {
+            "name": "profound.install",
+            "content": "bin: [\"_build/profound.native\" {\"profound\"}]\n"
+          }
+        ]
+      }
+    }
+  }
+}

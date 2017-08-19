@@ -1,0 +1,221 @@
+{
+  "versions": {
+    "113.9.0": {
+      "name": "@opam-alpha/ppx_typerep_conv",
+      "version": "113.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_type_conv": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_core": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ppx_driver": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___typerep___conv_version": {
+            "val": "113.9.0",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/ppx_typerep_conv/archive/113.09.00.tar.gz",
+        "checksum": "eafa43886f62537b2e4a3f29f8e9d562",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/ppx_typerep_conv",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___typerep___conv_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/ppx_typerep_conv-113.24.00.tar.gz",
+        "checksum": "b6e032525242de38ac7e760ab00ec833",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/ppx_typerep_conv",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/ppx_type_conv": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___typerep___conv_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ppx_typerep_conv-113.33.00+4.03.tar.gz",
+        "checksum": "ac4eb28f43b6538b1547e5b10779a015",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/ppx_typerep_conv",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/ppx_type_conv": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___typerep___conv_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___typerep___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ppx_typerep_conv-113.33.03.tar.gz",
+        "checksum": "5dfa2918b204dee5ee5f09ee0863be63",
+        "files": []
+      }
+    }
+  }
+}

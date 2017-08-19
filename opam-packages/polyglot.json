@@ -1,0 +1,70 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/polyglot",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "lib/META.in"
+          ],
+          [
+            "substs",
+            "polyglot.version.in"
+          ],
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "tool"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "polyglot_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "polyglot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "polyglot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dsheets/polyglot/archive/1.0.0.tar.gz",
+        "checksum": "3726118bf51ea1ba8183526ca810a834",
+        "files": []
+      }
+    }
+  }
+}

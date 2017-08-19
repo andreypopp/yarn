@@ -1,0 +1,363 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/packet",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 0.7.0  < 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "packet_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "packet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "packet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-packet/archive/packet.0.1.1.tar.gz",
+        "checksum": "965fd0dad2229cd611e0593095692bee",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/packet",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 0.7.0  < 2.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/quickcheck": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${quickcheck_enable:-disable}-quickcheck"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "packet_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "packet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "packet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-packet/archive/v0.2.0.tar.gz",
+        "checksum": "c81335824da31e6905b64d32896d4c4e",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/packet",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/quickcheck": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${quickcheck_enable:-disable}-quickcheck"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "packet_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "packet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "packet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-packet/archive/v0.2.1.tar.gz",
+        "checksum": "f7c3c7fbf7846390823ea4dab479190f",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/packet",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/quickcheck": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${quickcheck_enable:-disable}-quickcheck"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "packet_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "packet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "packet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-packet/archive/v0.3.0.tar.gz",
+        "checksum": "79ec177703c8cd3035b5c907e75e113e",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/packet",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/sexplib": " >= 110.1.0  < 113.1.0",
+        "@opam-alpha/type_conv": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/quickcheck": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${quickcheck_enable:-disable}-quickcheck"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "packet_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "packet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "packet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-packet/archive/v0.3.1.tar.gz",
+        "checksum": "4fd97b9a82f075c018b92482011b81db",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/packet",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/sexplib": " >= 110.1.0  < 113.1.0",
+        "@opam-alpha/tcpip": " >= 2.0.3",
+        "@opam-alpha/quickcheck": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/pa_ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${pa___ounit_enable:-disable}-tests"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "packet_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "packet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "packet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-packet/archive/v0.4.0.tar.gz",
+        "checksum": "4f6f97ad5e1156b0d30bd91d03ce7b1a",
+        "files": []
+      }
+    }
+  }
+}

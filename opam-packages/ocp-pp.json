@@ -1,0 +1,45 @@
+{
+  "versions": {
+    "1.99.17": {
+      "name": "@opam-alpha/ocp-pp",
+      "version": "1.99.17",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/typerex-build": "=1.99.17"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocp_pp_version": {
+            "val": "1.99.17",
+            "scope": "global"
+          },
+          "ocp_pp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocp_pp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

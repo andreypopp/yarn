@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "0.9.8": {
+      "name": "@opam-alpha/json-static",
+      "version": "0.9.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/json-wheel": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "json_static_version": {
+            "val": "0.9.8",
+            "scope": "global"
+          },
+          "json_static_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "json_static_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/mjambon2016/raw/master/json-static-0.9.8.tar.bz2",
+        "checksum": "a8b586a4c7851f5e34c28da60ebf8904",
+        "files": []
+      }
+    }
+  }
+}

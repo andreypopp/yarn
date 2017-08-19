@@ -1,0 +1,163 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/tip-parser",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/menhir": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tip_parser_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "tip_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tip_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/tip-parser/archive/0.1.tar.gz",
+        "checksum": "fcb0025885403ab4a167b2697898053e",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/tip-parser",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/menhir": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tip_parser_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "tip_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tip_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/tip-parser/archive/0.2.tar.gz",
+        "checksum": "01a16ab5936bbaa2d70007c21cda12cc",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/tip-parser",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/menhir": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tip_parser_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "tip_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tip_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/tip-parser/archive/0.3.tar.gz",
+        "checksum": "c80de6832afe720df7f14a1c107625bf",
+        "files": []
+      }
+    }
+  }
+}

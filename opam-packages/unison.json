@@ -1,0 +1,172 @@
+{
+  "versions": {
+    "2.40.102": {
+      "name": "@opam-alpha/unison",
+      "version": "2.40.102",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install",
+            "OCAMLLIBDIR=$cur__lib",
+            "HOME=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "unison_version": {
+            "val": "2.40.102",
+            "scope": "global"
+          },
+          "unison_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "unison_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.seas.upenn.edu/~bcpierce/unison/download/releases/unison-2.40.102/unison-2.40.102.tar.gz",
+        "checksum": "ec0fc4bb6fb4cfeb452660b287bd1097",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff -ru unison.2.40.63/Makefile.OCaml unison.2.40.63/Makefile.OCaml\n--- unison.2.40.63/Makefile.OCaml\t2011-04-16 22:35:38.000000000 +0200\n+++ unison.2.40.63/Makefile.OCaml\t2012-10-05 18:15:10.918222957 +0200\n@@ -285,14 +285,14 @@\n \n # Gtk GUI\n ifeq ($(UISTYLE), gtk)\n-  CAMLFLAGS+=-I +lablgtk\n+  CAMLFLAGS+=-I $(LABLGTKLIB)\n   OCAMLOBJS+=pixmaps.cmo uigtk.cmo linkgtk.cmo\n   OCAMLLIBS+=lablgtk.cma\n endif\n \n # Gtk2 GUI\n ifeq ($(UISTYLE), gtk2)\n-  CAMLFLAGS+=-I +lablgtk2\n+  CAMLFLAGS+=-I $(LABLGTK2LIB)\n   OCAMLOBJS+=pixmaps.cmo uigtk2.cmo linkgtk2.cmo\n   OCAMLLIBS+=lablgtk.cma\n endif\n"
+          },
+          {
+            "name": "unison.install",
+            "content": "bin: [\n  \"unison\" {\"unison-2.40\"}\n  \"unison\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.40.63": {
+      "name": "@opam-alpha/unison",
+      "version": "2.40.63",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install",
+            "OCAMLLIBDIR=$cur__lib",
+            "HOME=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "unison_version": {
+            "val": "2.40.63",
+            "scope": "global"
+          },
+          "unison_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "unison_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.seas.upenn.edu/~bcpierce/unison//download/releases/unison-2.40.63/unison-2.40.63.tar.gz",
+        "checksum": "3281207850cf6f0a17fe73f371893bd3",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff -ru unison.2.40.63/Makefile.OCaml unison.2.40.63/Makefile.OCaml\n--- unison.2.40.63/Makefile.OCaml\t2011-04-16 22:35:38.000000000 +0200\n+++ unison.2.40.63/Makefile.OCaml\t2012-10-05 18:15:10.918222957 +0200\n@@ -285,14 +285,14 @@\n \n # Gtk GUI\n ifeq ($(UISTYLE), gtk)\n-  CAMLFLAGS+=-I +lablgtk\n+  CAMLFLAGS+=-I $(LABLGTKLIB)\n   OCAMLOBJS+=pixmaps.cmo uigtk.cmo linkgtk.cmo\n   OCAMLLIBS+=lablgtk.cma\n endif\n \n # Gtk2 GUI\n ifeq ($(UISTYLE), gtk2)\n-  CAMLFLAGS+=-I +lablgtk2\n+  CAMLFLAGS+=-I $(LABLGTK2LIB)\n   OCAMLOBJS+=pixmaps.cmo uigtk2.cmo linkgtk2.cmo\n   OCAMLLIBS+=lablgtk.cma\n endif\n"
+          },
+          {
+            "name": "unison.install",
+            "content": "bin: [\n  \"unison\" {\"unison-2.40\"}\n  \"unison\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.48.3": {
+      "name": "@opam-alpha/unison",
+      "version": "2.48.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install",
+            "OCAMLLIBDIR=$cur__lib",
+            "HOME=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "unison_version": {
+            "val": "2.48.3",
+            "scope": "global"
+          },
+          "unison_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "unison_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.seas.upenn.edu/~bcpierce/unison//download/releases/unison-2.48.3/unison-2.48.3.tar.gz",
+        "checksum": "91ff2ef4141aede9af719fdd5e848bcb",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff -ru unison.2.40.63/Makefile.OCaml unison.2.40.63/Makefile.OCaml\n--- unison.2.40.63/Makefile.OCaml\t2011-04-16 22:35:38.000000000 +0200\n+++ unison.2.40.63/Makefile.OCaml\t2012-10-05 18:15:10.918222957 +0200\n@@ -285,14 +285,14 @@\n \n # Gtk GUI\n ifeq ($(UISTYLE), gtk)\n-  CAMLFLAGS+=-I +lablgtk\n+  CAMLFLAGS+=-I $(LABLGTKLIB)\n   OCAMLOBJS+=pixmaps.cmo uigtk.cmo linkgtk.cmo\n   OCAMLLIBS+=lablgtk.cma\n endif\n \n # Gtk2 GUI\n ifeq ($(UISTYLE), gtk2)\n-  CAMLFLAGS+=-I +lablgtk2\n+  CAMLFLAGS+=-I $(LABLGTK2LIB)\n   OCAMLOBJS+=pixmaps.cmo uigtk2.cmo linkgtk2.cmo\n   OCAMLLIBS+=lablgtk.cma\n endif\n"
+          },
+          {
+            "name": "unison.install",
+            "content": "bin: [\n  \"unison\" {\"unison-2.48\"}\n  \"unison\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/m17n",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sedlex": "*",
+        "@opam-alpha/uutf": " >= 0.9.4  < 1.0.0",
+        "@opam-alpha/uunf": " >= 1.0.0  < 2.0.0",
+        "@opam-alpha/uucp": " >= 1.1.0  < 2.0.0",
+        "@opam-alpha/gen": " >= 0.2.3  < 0.5.0",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/utop": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "utop=${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "m17n_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "m17n_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "m17n_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ocaml-m17n/archive/v1.0.tar.gz",
+        "checksum": "c95d4404804208f1176b8868bbc2d365",
+        "files": []
+      }
+    }
+  }
+}

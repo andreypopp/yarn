@@ -1,0 +1,305 @@
+{
+  "versions": {
+    "112.35.0": {
+      "name": "@opam-alpha/incremental",
+      "version": "112.35.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/fieldslib": " >= 109.20.0  < 112.36.0",
+        "@opam-alpha/herelib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/pa_ounit": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/pa_test": " >= 112.24.0  < 112.36.0",
+        "@opam-alpha/sexplib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental_version": {
+            "val": "112.35.0",
+            "scope": "global"
+          },
+          "incremental_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.35/files/incremental-112.35.00.tar.gz",
+        "checksum": "1030e5a8093de3d7c8df63c2c36eac5b",
+        "files": []
+      }
+    },
+    "113.0.0": {
+      "name": "@opam-alpha/incremental",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/fieldslib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/herelib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/pa_ounit": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/pa_test": " >= 112.24.0  < 112.36.0",
+        "@opam-alpha/sexplib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "incremental_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.00/files/incremental-113.00.00.tar.gz",
+        "checksum": "3fb033a7b87b6fae754b7ee4ca01809b",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/incremental",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_bench": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_expect": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_jane": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "incremental_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/incremental-113.24.00.tar.gz",
+        "checksum": "49c3709bbf4c378912ed0113a8020f60",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/incremental",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/incremental_kernel": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "incremental_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/incremental-113.33.00.tar.gz",
+        "checksum": "3c88c08b6939aec8adb2ecc0da3d8113",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/incremental",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/incremental_kernel": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "incremental_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/incremental-113.33.03.tar.gz",
+        "checksum": "22c47bb459bea77c0f6228ae4d9b04c6",
+        "files": []
+      }
+    }
+  }
+}

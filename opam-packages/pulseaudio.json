@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/pulseaudio",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pulseaudio_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "pulseaudio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pulseaudio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-pulseaudio/0.1.2/ocaml-pulseaudio-0.1.2.tar.gz",
+        "checksum": "e2161f08741d07ca08915b77ad1a5b0d",
+        "files": []
+      }
+    },
+    "0.1.3": {
+      "name": "@opam-alpha/pulseaudio",
+      "version": "0.1.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pulseaudio_version": {
+            "val": "0.1.3",
+            "scope": "global"
+          },
+          "pulseaudio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pulseaudio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-pulseaudio/releases/download/0.1.3/ocaml-pulseaudio-0.1.3.tar.gz",
+        "checksum": "bd04013ada1a6ed72e111e406befc709",
+        "files": []
+      }
+    }
+  }
+}

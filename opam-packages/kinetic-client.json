@@ -1,0 +1,264 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/kinetic-client",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/piqi": "  >= 0.7.1",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "kinetic_client_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "kinetic_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "kinetic_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/CloudFounders/kinetic-ocaml-client/archive/0.0.1.tar.gz",
+        "checksum": "b16e3653540dfba5b9a4c2526e02e933",
+        "files": []
+      }
+    },
+    "0.0.3": {
+      "name": "@opam-alpha/kinetic-client",
+      "version": "0.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/piqi": "  >= 0.7.1",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "kinetic_client_version": {
+            "val": "0.0.3",
+            "scope": "global"
+          },
+          "kinetic_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "kinetic_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/CloudFounders/kinetic-ocaml-client/archive/0.0.3.tar.gz",
+        "checksum": "4c0c321bd26c3f1fe5088adf42a672a4",
+        "files": []
+      }
+    },
+    "0.0.4": {
+      "name": "@opam-alpha/kinetic-client",
+      "version": "0.0.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/piqi": "  >= 0.7.1",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "kinetic_client_version": {
+            "val": "0.0.4",
+            "scope": "global"
+          },
+          "kinetic_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "kinetic_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/CloudFounders/kinetic-ocaml-client/archive/0.0.4.tar.gz",
+        "checksum": "940c5df210322f4e0de6410868d0ca2f",
+        "files": []
+      }
+    },
+    "0.0.5": {
+      "name": "@opam-alpha/kinetic-client",
+      "version": "0.0.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/piqi": "  >= 0.7.1",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "kinetic_client_version": {
+            "val": "0.0.5",
+            "scope": "global"
+          },
+          "kinetic_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "kinetic_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/CloudFounders/kinetic-ocaml-client/archive/0.0.5.tar.gz",
+        "checksum": "d1a97325cbfafef4f387bb687e26b598",
+        "files": []
+      }
+    },
+    "0.0.6": {
+      "name": "@opam-alpha/kinetic-client",
+      "version": "0.0.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/piqi": "  >= 0.7.1",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "kinetic_client_version": {
+            "val": "0.0.6",
+            "scope": "global"
+          },
+          "kinetic_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "kinetic_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/CloudFounders/kinetic-ocaml-client/archive/0.0.6.tar.gz",
+        "checksum": "abe059263eb7b2fb1f716073b30739a0",
+        "files": []
+      }
+    }
+  }
+}

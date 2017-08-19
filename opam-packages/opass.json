@@ -1,0 +1,330 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/opass",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 113.24.0",
+        "@opam-alpha/core_extended": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlbuild",
+            "-use-ocamlfind",
+            "-Is",
+            "lib,bin",
+            "bin/main.native"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opass_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "opass_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opass_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pygatea/opass/archive/0.2.0-ocamlbuild.tar.gz",
+        "checksum": "583a541cad90423ec759ecb295481578",
+        "files": [
+          {
+            "name": "opass.install",
+            "content": "bin: [\"main.native\" {\"opass\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/opass",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": "=108.8.0",
+        "@opam-alpha/core_extended": "=108.8.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlbuild",
+            "-use-ocamlfind",
+            "-Is",
+            "lib,bin",
+            "bin/main.native"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opass_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "opass_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opass_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pygatea/opass/archive/0.2.1-ocamlbuild.tar.gz",
+        "checksum": "4568e8f717b57a98a9736e6a719d8450",
+        "files": [
+          {
+            "name": "opass.install",
+            "content": "bin: [\"main.native\" {\"opass\"}]\n"
+          }
+        ]
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/opass",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " >= 108.8.0  < 113.24.0",
+        "@opam-alpha/core_extended": "*",
+        "@opam-alpha/csv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opass_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "opass_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opass_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/orbitz/opass/archive/1.0.0.tar.gz",
+        "checksum": "5c0ceb156bb4f04522545f9b6b884fcf",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/opass",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " >= 108.8.0  < 113.24.0",
+        "@opam-alpha/core_extended": "*",
+        "@opam-alpha/csv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opass_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "opass_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opass_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/orbitz/opass/archive/1.0.1.tar.gz",
+        "checksum": "bdc26211ae2e323dcc1303e68ec855f8",
+        "files": []
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/opass",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " >= 108.8.0  < 113.24.0",
+        "@opam-alpha/csv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "-j",
+            "4",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opass_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "opass_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opass_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/orbitz/opass/archive/1.0.2.tar.gz",
+        "checksum": "f748df374449900679dd48a17a37610e",
+        "files": []
+      }
+    },
+    "1.0.6": {
+      "name": "@opam-alpha/opass",
+      "version": "1.0.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/csv": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pds": "*",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "*",
+        "@opam-alpha/sexplib": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opass_version": {
+            "val": "1.0.6",
+            "scope": "global"
+          },
+          "opass_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opass_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/orbitz/opass/archive/1.0.6.tar.gz",
+        "checksum": "78adc40ed845e971b6949aaca5005cea",
+        "files": []
+      }
+    }
+  }
+}

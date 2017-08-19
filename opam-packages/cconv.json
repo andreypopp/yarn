@@ -1,0 +1,315 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/cconv",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bencode": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${bencode_enable:-disable}-bencode",
+            "--${yojson_enable:-disable}-yojson",
+            "--${sexplib_enable:-disable}-sexp"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cconv_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "cconv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cconv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/cconv/archive/0.1.tar.gz",
+        "checksum": "1ec069ac54f4ec4fd4cd3501039b0b69",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/cconv",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bencode": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${yojson_enable:-disable}-yojson",
+            "--${bencode_enable:-disable}-bencode",
+            "--${sexplib_enable:-disable}-sexp"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cconv_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "cconv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cconv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/cconv/archive/0.2.tar.gz",
+        "checksum": "ac8384a679cec49f2dda98fe3f5ba59b",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/cconv",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bencode": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${yojson_enable:-disable}-yojson",
+            "--${bencode_enable:-disable}-bencode",
+            "--${sexplib_enable:-disable}-sexp",
+            "--${ppx___deriving_enable:-disable}-ppx",
+            "--disable-tests",
+            "--${doc_enable:-disable}-docs"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cconv_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "cconv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cconv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/cconv/archive/0.3.tar.gz",
+        "checksum": "c910c8752abe6f12b5755c5fd814b055",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/cconv",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bencode": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${yojson_enable:-disable}-yojson",
+            "--${bencode_enable:-disable}-bencode",
+            "--${sexplib_enable:-disable}-sexp",
+            "--${ppx___deriving_enable:-disable}-ppx",
+            "--disable-tests",
+            "--${doc_enable:-disable}-docs"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cconv_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "cconv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cconv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/cconv/archive/0.3.1.tar.gz",
+        "checksum": "a50485f02fa264d55a9c6b1744dabfc6",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/cconv",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bencode": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${yojson_enable:-disable}-yojson",
+            "--${bencode_enable:-disable}-bencode",
+            "--${sexplib_enable:-disable}-sexp",
+            "--${ppx___deriving_enable:-disable}-ppx",
+            "--disable-tests",
+            "--${doc_enable:-disable}-docs"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cconv_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "cconv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cconv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/cconv/archive/0.4.tar.gz",
+        "checksum": "25d873aa26a0521ab3b015fdb7f26e28",
+        "files": []
+      }
+    }
+  }
+}

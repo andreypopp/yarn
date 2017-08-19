@@ -1,0 +1,49 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-pkg-config",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "yarn-pkg-config": "reasonml/yarn-pkg-config#esy"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "pkg-config",
+            "--help"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_pkg_config_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_pkg_config_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_pkg_config_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

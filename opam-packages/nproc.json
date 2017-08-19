@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.5.1": {
+      "name": "@opam-alpha/nproc",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nproc_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "nproc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nproc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rizo/nproc/archive/v0.5.1.zip",
+        "checksum": "f6e672b522d9482950ffd1a7bcc04cf2",
+        "files": []
+      }
+    }
+  }
+}

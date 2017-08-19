@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "0.7.0": {
+      "name": "@opam-alpha/ANSITerminal",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ANSITerminal_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "ANSITerminal_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ANSITerminal_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ANSITerminal/releases/download/0.7/ANSITerminal-0.7.tar.gz",
+        "checksum": "5a583942e720ef5a2f7951ee2caa0ec7",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,784 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "=1.5.3",
+        "@opam-alpha/ocamlgraph": "=1.8.2",
+        "@opam-alpha/fileutils": "*",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocaml-data-notation": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/expect": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "rm",
+            "test/TestMETA.ml"
+          ],
+          [
+            "touch",
+            "test/TestMETA.ml"
+          ],
+          [
+            "rm",
+            "test/test.ml"
+          ],
+          [
+            "touch",
+            "test/test.ml"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/501/oasis-0.2.0.tar.gz",
+        "checksum": "e5d04bfe41eacd4f58a156784700a2ba",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/oasis\"]\n"
+          }
+        ]
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-data-notation": "*",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/918/oasis-0.3.0.tar.gz",
+        "checksum": "c2b6dec8c12517d85ce98e7feffe2531",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/Main.byte\" {\"oasis\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1352/oasis-0.4.0.tar.gz",
+        "checksum": "c0284612163ec366336bc9e163e09e09",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/Main.byte\" {\"oasis\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.4.1": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.1",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1355/oasis-0.4.1.tar.gz",
+        "checksum": "15f8de126b860287e7b5ae1d2227b3b1",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/Main.byte\" {\"oasis\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.4.2": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1379/oasis-0.4.2.tar.gz",
+        "checksum": "9f42068625c68aec0083b8a40a9fbcd6",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/Main.byte\" {\"oasis\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.4.3": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.3",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1388/oasis-0.4.3.tar.gz",
+        "checksum": "526aba0cc424da7c3559c46bc56b8972",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/Main.byte\" {\"oasis\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.4.4": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.4",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1391/oasis-0.4.4.tar.gz",
+        "checksum": "847c0cc9ec02109e3a1d8464ded0d9e4",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\"_build/src/cli/Main.byte\" {\"oasis\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.4.5": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlify": "",
+        "@opam-alpha/ocamlmod": "",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/gettext": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${gettext_enable:-disable}-gettext"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.5",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1475/oasis-0.4.5.tar.gz",
+        "checksum": "c6e319e75f4fd3302e030909714851fe",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "oasis.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.4.6": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocaml-data-notation": " >= 0.0.11",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlify": "",
+        "@opam-alpha/ocamlmod": "",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/gettext": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${gettext_enable:-disable}-gettext"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.6",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1604/oasis-0.4.6.tar.gz",
+        "checksum": "d939fc5cb9c914965051f7453fee4a81",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "oasis.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.4.7": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlify": "",
+        "@opam-alpha/ocamlmod": "",
+        "@opam-alpha/benchmark": "*",
+        "@opam-alpha/fileutils": "*",
+        "@opam-alpha/pcre": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.7",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1635/oasis-0.4.7.tar.gz",
+        "checksum": "d848bac0234ed1849a9187d16630cda3",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "oasis.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.4.8": {
+      "name": "@opam-alpha/oasis",
+      "version": "0.4.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlify": "",
+        "@opam-alpha/ocamlmod": "",
+        "@opam-alpha/benchmark": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_version": {
+            "val": "0.4.8",
+            "scope": "global"
+          },
+          "oasis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1669/oasis-0.4.8.tar.gz",
+        "checksum": "9ba176512a3cc008ec39cd4b528cc4e5",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

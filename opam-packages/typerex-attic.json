@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/typerex-attic",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocp-build": " >= 1.99.11  < 1.99.17"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typerex_attic_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "typerex_attic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typerex_attic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/OCamlPro/typerex-attic/archive/1.0.0.tar.gz",
+        "checksum": "f46a8b0c1ac41322bd8fedfec027f962",
+        "files": []
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/typerex-attic",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocp-build": " >= 1.99.11  < 1.99.17"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--with-ocamldir",
+            "$cur__install/lib",
+            "--with-metadir",
+            "$cur__install/lib"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typerex_attic_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "typerex_attic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typerex_attic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/OCamlPro/typerex-attic/archive/1.0.2.tar.gz",
+        "checksum": "3e472f2cc761297c32582293404136c4",
+        "files": []
+      }
+    }
+  }
+}

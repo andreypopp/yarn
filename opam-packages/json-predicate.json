@@ -1,0 +1,130 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/json-predicate",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/json-pointer": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "json_predicate_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "json_predicate_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "json_predicate_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mwweissmann/ocaml-json-predicate/archive/0.1.0.tar.gz",
+        "checksum": "25d79068c83ca6029e1a4635f40f010e",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/json-predicate",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/json-pointer": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "json_predicate_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "json_predicate_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "json_predicate_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mwweissmann/ocaml-json-predicate/archive/0.2.0.tar.gz",
+        "checksum": "766772d1c3907971a8942151f89b2824",
+        "files": []
+      }
+    }
+  }
+}

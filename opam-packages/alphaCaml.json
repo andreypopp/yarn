@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "20061214.0.0": {
+      "name": "@opam-alpha/alphaCaml",
+      "version": "20061214.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "alphaCaml_version": {
+            "val": "20061214.0.0",
+            "scope": "global"
+          },
+          "alphaCaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "alphaCaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://cristal.inria.fr/~fpottier/alphaCaml/alphaCaml-20061214.tar.gz",
+        "checksum": "e2111da76d54a8d086a906b52d71953b",
+        "files": [
+          {
+            "name": "alphaCaml.install",
+            "content": "bin: [\"tool/alphaCaml\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

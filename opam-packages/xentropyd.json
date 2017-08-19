@@ -1,0 +1,150 @@
+{
+  "versions": {
+    "0.9.1": {
+      "name": "@opam-alpha/xentropyd",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " < 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/io-page": " < 1.3.0",
+        "@opam-alpha/xen-evtchn": "*",
+        "@opam-alpha/xen-gnt": "*",
+        "@opam-alpha/shared-memory-ring": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/mirage-clock-unix": "*",
+        "@opam-alpha/mirage-types": " < 2.3.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "cp",
+            "main.native",
+            "$cur__bin/xentropyd"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xentropyd_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "xentropyd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xentropyd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/xentropyd/archive/v0.9.1.tar.gz",
+        "checksum": "e56914ae847fc280e66d836a3d8fba4a",
+        "files": []
+      }
+    },
+    "0.9.3": {
+      "name": "@opam-alpha/xentropyd",
+      "version": "0.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/xen-evtchn": "*",
+        "@opam-alpha/xen-gnt": "*",
+        "@opam-alpha/shared-memory-ring": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/mirage-clock-unix": "*",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "cp",
+            "main.native",
+            "$cur__bin/xentropyd"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xentropyd_version": {
+            "val": "0.9.3",
+            "scope": "global"
+          },
+          "xentropyd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xentropyd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/xentropyd/archive/v0.9.3.tar.gz",
+        "checksum": "7d739ac0759c83c96eb7802c1893718b",
+        "files": []
+      }
+    }
+  }
+}

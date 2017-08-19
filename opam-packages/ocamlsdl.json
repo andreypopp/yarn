@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "0.9.1": {
+      "name": "@opam-alpha/ocamlsdl",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgl": "*",
+        "@opam-alpha/conf-sdl-gfx": "*",
+        "@opam-alpha/conf-sdl-image": "*",
+        "@opam-alpha/conf-sdl-mixer": "*",
+        "@opam-alpha/conf-sdl-ttf": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--with-installdir=$cur__lib/ocamlsdl",
+            "--with-lablgldir=$cur__lib/lablgl"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlsdl_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "ocamlsdl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlsdl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/ocamlsdl/OCamlSDL/ocamlsdl-0.9.1/ocamlsdl-0.9.1.tar.gz",
+        "checksum": "c3086423991fcdc1ba468afd52fc112b",
+        "files": []
+      }
+    }
+  }
+}

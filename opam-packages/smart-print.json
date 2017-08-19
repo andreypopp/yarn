@@ -1,0 +1,156 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/smart-print",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "smart_print_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "smart_print_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "smart_print_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/clarus/smart-print/archive/v0.1.0.tar.gz",
+        "checksum": "f3d41b3de45ccdde0f0fe190d150a719",
+        "files": [
+          {
+            "name": "operators.patch",
+            "content": "diff --git a/smartPrint.ml b/smartPrint.ml\nindex 8d1479a..90598b7 100644\n--- a/smartPrint.ml\n+++ b/smartPrint.ml\n@@ -1,3 +1,6 @@\n+external (|>) : 'a -> ('a -> 'b) -> 'b = \"%revapply\";;\n+external ( @@ ) : ('a -> 'b) -> 'a -> 'b = \"%apply\"\n+\n (* Separators. *)\n module Break = struct\n   (* A break can be a whitespace or a newline if the text has to be splited. *)\n@@ -418,4 +421,4 @@ let to_out_channel (width : int) (tab : int) (c : out_channel) (d : t) : unit =\n     (output_char c) (output_string c) output_sub_string d\n \n let to_stdout (width : int) (tab : int) (d : t) : unit =\n-  to_out_channel width tab stdout d\n\\ No newline at end of file\n+  to_out_channel width tab stdout d\n"
+          }
+        ]
+      }
+    },
+    "0.1.1": {
+      "name": "@opam-alpha/smart-print",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "smart_print_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "smart_print_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "smart_print_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/clarus/smart-print/archive/v0.1.1.tar.gz",
+        "checksum": "3f09f44acd212431c058013be42e1da8",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/smart-print",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "smart_print_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "smart_print_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "smart_print_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/clarus/smart-print/archive/v0.2.0.tar.gz",
+        "checksum": "8602be66d57c1f0525651263b5fff370",
+        "files": []
+      }
+    }
+  }
+}

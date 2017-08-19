@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/msgpck",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/ocplib-endian": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "msgpck_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "msgpck_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "msgpck_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/vbmithr/ocaml-msgpck/archive/1.0.tar.gz",
+        "checksum": "1653a0bdfc1b2c3c0b25cc52dc1a553e",
+        "files": []
+      }
+    }
+  }
+}

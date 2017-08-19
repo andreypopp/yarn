@@ -1,0 +1,154 @@
+{
+  "versions": {
+    "0.0.10": {
+      "name": "@opam-alpha/ocaml-data-notation",
+      "version": "0.0.10",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 108.7.1",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_data_notation_version": {
+            "val": "0.0.10",
+            "scope": "global"
+          },
+          "ocaml_data_notation_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_data_notation_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1029/ocaml-data-notation-0.0.10.tar.gz",
+        "checksum": "35b32f58d01a8fe2e0deead4bc8d78b8",
+        "files": []
+      }
+    },
+    "0.0.11": {
+      "name": "@opam-alpha/ocaml-data-notation",
+      "version": "0.0.11",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 108.7.1",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_data_notation_version": {
+            "val": "0.0.11",
+            "scope": "global"
+          },
+          "ocaml_data_notation_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_data_notation_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1310/ocaml-data-notation-0.0.11.tar.gz",
+        "checksum": "0ab9cd196b4a7f22a037ab96a477896f",
+        "files": []
+      }
+    },
+    "0.0.9": {
+      "name": "@opam-alpha/ocaml-data-notation",
+      "version": "0.0.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=108.0.2",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_data_notation_version": {
+            "val": "0.0.9",
+            "scope": "global"
+          },
+          "ocaml_data_notation_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_data_notation_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/881/ocaml-data-notation-0.0.9.tar.gz",
+        "checksum": "aa16e0f2230fa2bb2b3808c0665f056c",
+        "files": []
+      }
+    }
+  }
+}

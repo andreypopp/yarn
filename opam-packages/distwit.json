@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/distwit",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/topkg": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "distwit_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "distwit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "distwit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/let-def/distwit/archive/v0.1.0.tar.gz",
+        "checksum": "e179b38ae27e925530b752b301f3b8f8",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/mirage-bootvar-solo5",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-solo5": "*",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_bootvar_solo5_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "mirage_bootvar_solo5_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_bootvar_solo5_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-bootvar-solo5/archive/v0.1.1.tar.gz",
+        "checksum": "c527a623073ba8a60f7b2eae911f64c3",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/base-ocamlbuild",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "base_ocamlbuild_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "base_ocamlbuild_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "base_ocamlbuild_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

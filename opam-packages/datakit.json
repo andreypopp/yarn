@@ -1,0 +1,80 @@
+{
+  "versions": {
+    "0.8.0": {
+      "name": "@opam-alpha/datakit",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/git": " >= 1.9.3",
+        "@opam-alpha/mirage-tc": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/irmin": "=0.12.0",
+        "@opam-alpha/camlzip": " >= 1.6.0",
+        "@opam-alpha/cstruct": " >= 2.2.0",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/conduit": "*",
+        "@opam-alpha/mirage-flow": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/named-pipe": " >= 0.4.0",
+        "@opam-alpha/hvsock": " >= 0.11.1  < 0.14.0",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/win-eventlog": "*",
+        "@opam-alpha/asl": " >= 0.10.0",
+        "@opam-alpha/mtime": " < 1.0.0",
+        "@opam-alpha/irmin-watcher": " >= 0.2.0",
+        "@opam-alpha/datakit-server": " >= 0.8.0  < 0.9.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--tests",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "datakit_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "datakit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "datakit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/docker/datakit/releases/download/0.8.0/datakit-0.8.0.tbz",
+        "checksum": "eee43f96d223465e4759015aba3ffa00",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/conf-zmq",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cc",
+            "test.c",
+            "-I/usr/local/include",
+            "-L/usr/local/lib",
+            "-lzmq"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_zmq_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "conf_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test.c",
+            "content": "#include <zmq.h>\n\n// compile with: gcc test.c -lzmq\n\nint main () {\n  return 0;\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

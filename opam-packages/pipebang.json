@@ -1,0 +1,154 @@
+{
+  "versions": {
+    "109.60.0": {
+      "name": "@opam-alpha/pipebang",
+      "version": "109.60.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pipebang_version": {
+            "val": "109.60.0",
+            "scope": "global"
+          },
+          "pipebang_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pipebang_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.60.00/individual/pipebang-109.60.00.tar.gz",
+        "checksum": "6b616b84e558b85cf0415532bc196c78",
+        "files": []
+      }
+    },
+    "110.1.0": {
+      "name": "@opam-alpha/pipebang",
+      "version": "110.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pipebang_version": {
+            "val": "110.1.0",
+            "scope": "global"
+          },
+          "pipebang_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pipebang_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/110.01.00/individual/pipebang-110.01.00.tar.gz",
+        "checksum": "09094ac5a5ccdf7f8b7a6115ce228a40",
+        "files": []
+      }
+    },
+    "113.0.0": {
+      "name": "@opam-alpha/pipebang",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pipebang_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "pipebang_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pipebang_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.00/files/pipebang-113.00.00.tar.gz",
+        "checksum": "685ee2184eb95270751c58790f93dd0b",
+        "files": []
+      }
+    }
+  }
+}

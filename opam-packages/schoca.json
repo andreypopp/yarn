@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "0.2.3": {
+      "name": "@opam-alpha/schoca",
+      "version": "0.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "DESTPREF=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "schoca_version": {
+            "val": "0.2.3",
+            "scope": "global"
+          },
+          "schoca_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "schoca_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/chesslib/Schoca/schoca-0.2.3/schoca-0.2.3.tar.bz2",
+        "checksum": "98ff10d4e586ecc9c30ee4898945ec78",
+        "files": [
+          {
+            "name": "schoca.install",
+            "content": "bin: [\n  \"shell/schoca.opt\" {\"schoca\"}\n  \"examples/read_ini_file.opt\" {\"read_ini_file\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

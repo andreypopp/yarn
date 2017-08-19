@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/aws-ec2",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/aws": " >= 0.1.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "aws_ec2_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "aws_ec2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "aws_ec2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inhabitedtype/ocaml-aws/releases/download/aws-1.0.2/aws-ec2-0.1.0.tar.gz",
+        "checksum": "22eee043b576df98b095f508b440a846",
+        "files": []
+      }
+    }
+  }
+}

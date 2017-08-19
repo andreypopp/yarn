@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "0.2.1": {
+      "name": "@opam-alpha/c3",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/js_of_ocaml": " >= 2.5.0  < 3.0.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "c3_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "c3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "c3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/ocaml-c3/archive/v0.2.1.tar.gz",
+        "checksum": "1c8a772f9c8ad6288f836168b54862fc",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/c3",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/js_of_ocaml": " >= 2.5.0  < 3.0.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "c3_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "c3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "c3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/ocaml-c3/archive/v0.3.0.tar.gz",
+        "checksum": "bd10a4cb49319d8e24fab4a485893b6f",
+        "files": []
+      }
+    }
+  }
+}

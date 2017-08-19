@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "1.0.1": {
+      "name": "@opam-alpha/hashcons",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-which": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hashcons_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "hashcons_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hashcons_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dsheets/ocaml-hashcons/releases/download/1.0.1/ocaml-hashcons-1.0.1.tar.gz",
+        "checksum": "caa6378c30d69baaf703e5f8b903a493",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/hashcons",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-autoconf": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-which": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "autoconf"
+          ],
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hashcons_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "hashcons_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hashcons_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/backtracking/ocaml-hashcons/archive/1.2.tar.gz",
+        "checksum": "3febf305ffbdd31d6de92c42d382a09e",
+        "files": []
+      }
+    }
+  }
+}

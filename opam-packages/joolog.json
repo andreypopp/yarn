@@ -1,0 +1,77 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/joolog",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "joolog_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "joolog_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "joolog_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hhugo/jsoolog/archive/0.4.tar.gz",
+        "checksum": "6c9b2af04be5a08cb6f86d26f0209f1c",
+        "files": [
+          {
+            "name": "joolog.install",
+            "content": "lib: [\"default.css\"]"
+          }
+        ]
+      }
+    }
+  }
+}

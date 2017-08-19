@@ -1,0 +1,71 @@
+{
+  "versions": {
+    "0.21.0": {
+      "name": "@opam-alpha/cohttp",
+      "version": "0.21.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": "  >= 0.9.4",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/uri": " >= 1.9.0",
+        "@opam-alpha/fieldslib": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/conduit": " >= 0.11.0  < 0.16.0",
+        "@opam-alpha/ppx_fields_conv": "*",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cohttp_version": {
+            "val": "0.21.0",
+            "scope": "global"
+          },
+          "cohttp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cohttp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-cohttp/archive/v0.21.0.tar.gz",
+        "checksum": "ce54a6363da401eb774fcad8a47e31a5",
+        "files": []
+      }
+    }
+  }
+}

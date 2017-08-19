@@ -1,0 +1,105 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/terminal_size",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/topkg": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "terminal___size_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "terminal___size_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "terminal___size_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/terminal_size/releases/download/v0.1.0/terminal_size-0.1.0.tbz",
+        "checksum": "1ae2f8533917b21d986a2a34846c4df1",
+        "files": []
+      }
+    },
+    "0.1.1": {
+      "name": "@opam-alpha/terminal_size",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/topkg": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "terminal___size_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "terminal___size_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "terminal___size_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/terminal_size/releases/download/v0.1.1/terminal_size-0.1.1.tbz",
+        "checksum": "46fe5f36bf485b47b4d88cbdb2cc17f2",
+        "files": []
+      }
+    }
+  }
+}

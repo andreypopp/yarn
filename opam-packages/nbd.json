@@ -1,0 +1,438 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/nbd",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": "*",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.6.0",
+        "@opam-alpha/bitstring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xen-org/nbd/archive/nbd-0.9.0.tar.gz",
+        "checksum": "c43e3882996f75ece4ed83984aad0c2f",
+        "files": []
+      }
+    },
+    "0.9.2": {
+      "name": "@opam-alpha/nbd",
+      "version": "0.9.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": "*",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.6.0",
+        "@opam-alpha/cstruct": " >= 0.7.1  < 2.0.0",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "0.9.2",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/nbd/archive/0.9.2.tar.gz",
+        "checksum": "8b3e03d77d9e2e4dfaae4bf831d44e40",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/nbd",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3  < 2.6.0",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/nbd/archive/v1.0.1.tar.gz",
+        "checksum": "0dd457458d5f546a4de5035fafd58953",
+        "files": []
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/nbd",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": "*",
+        "@opam-alpha/lwt": " >= 2.4.5  < 2.6.0",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/nbd/archive/v1.0.2/nbd-1.0.2.tar.gz",
+        "checksum": "68c68b823d453968e46ff3276324caee",
+        "files": []
+      }
+    },
+    "2.0.1": {
+      "name": "@opam-alpha/nbd",
+      "version": "2.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/lwt": " >= 2.4.5  < 2.6.0",
+        "@opam-alpha/cstruct": " > 1.0.0  < 2.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/sexplib": " < 113.24.0",
+        "@opam-alpha/mirage-block-unix": " < 2.5.0",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/mirage": " < 3.0.0",
+        "@opam-alpha/uri": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "2.0.1",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/nbd/archive/v2.0.1.tar.gz",
+        "checksum": "3fe44fed68a8f2a4819d358182f610cd",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/nbd",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/lwt": " >= 2.4.5  < 2.6.0",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/mirage-block-unix": " < 2.5.0",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/mirage": " >= 1.1.0  < 3.0.0",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "!=113.33.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/nbd/archive/v2.1.0.tar.gz",
+        "checksum": "6f372f8f287ac142024a820cd44f7a5e",
+        "files": []
+      }
+    },
+    "2.1.1": {
+      "name": "@opam-alpha/nbd",
+      "version": "2.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/mirage-block-unix": " < 2.5.0",
+        "@opam-alpha/io-page": " < 2.0.0",
+        "@opam-alpha/mirage": " >= 1.1.0  < 3.0.0",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "!=113.33.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nbd_version": {
+            "val": "2.1.1",
+            "scope": "global"
+          },
+          "nbd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nbd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/nbd/archive/v2.1.1.tar.gz",
+        "checksum": "3dd4eb7e145be3e0cbad37a738659663",
+        "files": []
+      }
+    }
+  }
+}

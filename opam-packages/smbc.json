@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/smbc",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/containers": " > 0.16.0",
+        "@opam-alpha/sequence": " >= 0.4.0",
+        "@opam-alpha/msat": " >= 0.5.0  < 0.6.0",
+        "@opam-alpha/tip-parser": " >= 0.3.0",
+        "@opam-alpha/menhir": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "BINDIR=$cur__bin",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "smbc_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "smbc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "smbc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/smbc/archive/0.2.tar.gz",
+        "checksum": "2b97164ca0866491bd27676c723d2b45",
+        "files": []
+      }
+    }
+  }
+}

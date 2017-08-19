@@ -1,0 +1,721 @@
+{
+  "versions": {
+    "2.1.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/react": " < 1.0.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.4.0  < 2.4.7",
+        "@opam-alpha/ocamlnet": "=3.6.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " < 3.2.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "user",
+            "--ocsigen-group",
+            "group",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ocsigen.org/download/ocsigenserver-2.1.tar.gz",
+        "checksum": "d0cccecbfac701eeeee0ad48d743f3d0",
+        "files": [
+          {
+            "name": "ocsigenserver.install",
+            "content": "bin: [\n  \"src/server/ocsigenserver\"\n  \"src/server/ocsigenserver.opt\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/react": " < 1.0.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.4.0  < 2.4.7",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " < 3.0.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "user",
+            "--ocsigen-group",
+            "group",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ocsigen.org/download/ocsigenserver-2.2.0.tar.gz",
+        "checksum": "9abb6860b2000bb4de1d1207b5b976f4",
+        "files": [
+          {
+            "name": "ocsigenserver.install",
+            "content": "bin: [\n  \"src/server/ocsigenserver\"\n  \"src/server/ocsigenserver.opt\"\n]\n"
+          },
+          {
+            "name": "use_netstring-pcre.patch",
+            "content": "diff -ur ocsigenserver.2.2.0/Makefile.options ocsigenserver.2.2.0-patched/Makefile.options\n--- ocsigenserver.2.2.0/Makefile.options\t2012-12-08 00:17:09.000000000 +0900\n+++ ocsigenserver.2.2.0-patched/Makefile.options\t2013-07-03 21:29:47.000000000 +0900\n@@ -34,6 +34,7 @@\n SERVER_PACKAGE := lwt.ssl           \\\n \t          ${LWT_EXTRA_PACKAGE} \\\n \t          netstring         \\\n+\t          netstring-pcre    \\\n                   findlib           \\\n \t          cryptokit         \\\n \t\t  tyxml             \\\ndiff -ur ocsigenserver.2.2.0/src/baselib/Makefile ocsigenserver.2.2.0-patched/src/baselib/Makefile\n--- ocsigenserver.2.2.0/src/baselib/Makefile\t2012-12-08 00:17:09.000000000 +0900\n+++ ocsigenserver.2.2.0-patched/src/baselib/Makefile\t2013-07-03 21:25:11.000000000 +0900\n@@ -1,6 +1,6 @@\n include ../../Makefile.config\n \n-LIBS     := -package lwt.unix,netstring,cryptokit,findlib,tyxml,lwt.syntax,${LWT_EXTRA_PACKAGE}\n+LIBS     := -package lwt.unix,netstring,netstring-pcre,cryptokit,findlib,tyxml,lwt.syntax,${LWT_EXTRA_PACKAGE}\n OCAMLC   := $(OCAMLFIND) ocamlc${BYTEDBG} ${THREAD}\n OCAMLOPT := $(OCAMLFIND) ocamlopt ${OPTDBG} ${THREAD}\n OCAMLDOC := $(OCAMLFIND) ocamldoc\ndiff -ur ocsigenserver.2.2.0/src/extensions/Makefile ocsigenserver.2.2.0-patched/src/extensions/Makefile\n--- ocsigenserver.2.2.0/src/extensions/Makefile\t2012-12-08 00:17:09.000000000 +0900\n+++ ocsigenserver.2.2.0-patched/src/extensions/Makefile\t2013-07-03 21:32:06.000000000 +0900\n@@ -4,6 +4,7 @@\n \t    lwt.ssl      \\\n \t    lwt.react    \\\n             netstring    \\\n+            netstring-pcre \\\n \t    tyxml.parser \\\n \n LIBS     := -I ../baselib -I ../http -I ../server ${addprefix -package ,${PACKAGE}}\ndiff -ur ocsigenserver.2.2.0/src/http/Makefile ocsigenserver.2.2.0-patched/src/http/Makefile\n--- ocsigenserver.2.2.0/src/http/Makefile\t2012-12-08 00:17:09.000000000 +0900\n+++ ocsigenserver.2.2.0-patched/src/http/Makefile\t2013-07-03 21:25:19.000000000 +0900\n@@ -1,6 +1,6 @@\n include ../../Makefile.config\n \n-LIBS     := -package netstring,lwt.ssl,tyxml -I ../baselib\n+LIBS     := -package netstring,netstring-pcre,lwt.ssl,tyxml -I ../baselib\n OCAMLC   := $(OCAMLFIND) ocamlc${BYTEDBG}\n OCAMLOPT := $(OCAMLFIND) ocamlopt ${OPTDBG}\n OCAMLDOC := $(OCAMLFIND) ocamldoc\n"
+          }
+        ]
+      }
+    },
+    "2.3.1": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/react": " < 1.0.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.4.0  < 2.4.7",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " >= 3.0.0  < 3.2.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "user",
+            "--ocsigen-group",
+            "group",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.3.1",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/ocsigenserver/archive/2.3.1.tar.gz",
+        "checksum": "f263df53365397f96681a0495718d0aa",
+        "files": []
+      }
+    },
+    "2.4.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.4.0  < 2.4.7",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " >= 3.0.0  < 3.2.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/ipaddr": " >= 2.1.0",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "user",
+            "--ocsigen-group",
+            "group",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.4.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/ocsigenserver/archive/2.4.0.tar.gz",
+        "checksum": "646594a1b2e362cd0e346ac09a3f6316",
+        "files": []
+      }
+    },
+    "2.5.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": " >= 2.4.0  < 3.0.0",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " >= 3.3.0  < 4.0.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/ipaddr": " >= 2.1.0",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "$USER",
+            "--ocsigen-group",
+            "$USER",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/ocsigenserver/archive/2.5.tar.gz",
+        "checksum": "3f69bf9d1a3fa2ce3e042378b450e72f",
+        "files": [
+          {
+            "name": "build-against-recent-lwt.diff",
+            "content": "From dcf9988313f4e3110c12065ea889a1ee2a9badd8 Mon Sep 17 00:00:00 2001\nFrom: Mauricio Fernandez <mfp@acm.org>\nDate: Sun, 26 Apr 2015 12:42:47 +0200\nSubject: [PATCH] Fix build against recent Lwt.\n\n---\n src/extensions/ocsigen_comet.ml | 2 +-\n src/server/ocsigen_server.ml    | 2 +-\n 2 files changed, 2 insertions(+), 2 deletions(-)\n\ndiff --git a/src/extensions/ocsigen_comet.ml b/src/extensions/ocsigen_comet.ml\nindex ad7d9dd..ccc0719 100644\n--- a/src/extensions/ocsigen_comet.ml\n+++ b/src/extensions/ocsigen_comet.ml\n@@ -468,7 +468,7 @@ end = struct\n            Lwt.choose\n              [ (choosed >|= fun x -> Some x);\n                (Lwt_unix.sleep (get_timeout ()) >|= fun () -> None);\n-               (Lwt_event.next Security.kill >>= fun () -> Lwt.fail Kill);\n+               (Lwt_react.E.next Security.kill >>= fun () -> Lwt.fail Kill);\n              ] >|= fun x ->\n            List.iter (fun c -> Channels.send_listeners c (-1)) active ;\n            let s = Messages.encode_downgoing ended x in\ndiff --git a/src/server/ocsigen_server.ml b/src/server/ocsigen_server.ml\nindex c5563a6..e548f5e 100644\n--- a/src/server/ocsigen_server.ml\n+++ b/src/server/ocsigen_server.ml\n@@ -1040,7 +1040,7 @@ let rec wait_connection use_ssl port socket =\n          >>= decr_connected\n        in\n \n-       Lwt_util.iter handle_one l >>= fun () ->\n+       Lwt_list.iter_p handle_one l >>= fun () ->\n        match e with\n        | Some e -> handle_exn e\n        | None -> Lwt.return ())\n-- \n1.8.5.2\n\n"
+          },
+          {
+            "name": "fix-build-with-ocsipersist-sqlite.diff",
+            "content": "From 42eef0caa729a39467fdac61e4120a5cefabd4e4 Mon Sep 17 00:00:00 2001\nFrom: Mauricio Fernandez <mfp@acm.org>\nDate: Sun, 26 Apr 2015 17:22:56 +0200\nSubject: [PATCH] Check against lwt.preemptive instead of lwt.extra in\n configure script.\n\n---\n Makefile.options | 2 +-\n configure        | 6 +++---\n 2 files changed, 4 insertions(+), 4 deletions(-)\n\ndiff --git a/Makefile.options b/Makefile.options\nindex bd3a8fa..060cdbe 100644\n--- a/Makefile.options\n+++ b/Makefile.options\n@@ -26,7 +26,7 @@ endif\n ## but also to generate src/baselib/ocsigen_config.ml and src/files/META\n \n ifeq \"$(PREEMPTIVE)\" \"YES\"\n-LWT_EXTRA_PACKAGE:=lwt.extra\n+LWT_EXTRA_PACKAGE:=lwt.preemptive\n endif\n \n BASE_PACKAGE := lwt ipaddr\ndiff --git a/configure b/configure\nindex 2e786ed..cec8fe7 100755\n--- a/configure\n+++ b/configure\n@@ -454,12 +454,12 @@ if [ \"$with_camlzip\" -gt 0 ]; then\n     fi\n fi\n \n-# Check Lwt.extra\n+# Check lwt.preemptive\n if [ \"$with_preempt\" -gt 0 ]; then\n-    if test_library lwt.extra; then\n+    if test_library lwt.preemptive; then\n \techo -n\n     elif [ \"$with_preempt\" -gt 1 ]; then\n-\tfail_library lwt.extra \"Missing support for 'extra' in lwt.\"\n+\tfail_library lwt.extra \"Missing support for 'preemptive' in lwt.\"\n     else\n \twith_preempt=0\n     fi\n-- \n1.8.5.2\n\n"
+          }
+        ]
+      }
+    },
+    "2.6.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.4.6  < 3.0.0",
+        "@opam-alpha/ocamlnet": " >= 4.0.2",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " >= 3.4.0  < 4.0.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/ipaddr": " >= 2.1.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "$USER",
+            "--ocsigen-group",
+            "$USER",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.6.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/ocsigenserver/archive/2.6.tar.gz",
+        "checksum": "be5dad42a57cda19ab20e0600c0dd023",
+        "files": []
+      }
+    },
+    "2.7.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.5.0  < 3.0.0",
+        "@opam-alpha/ocamlnet": " >= 4.0.2",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " >= 3.4.0  < 4.0.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/ipaddr": " >= 2.1.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "$USER",
+            "--ocsigen-group",
+            "$USER",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.7.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/ocsigenserver/archive/2.7.tar.gz",
+        "checksum": "c918913321572a412f872640824c3530",
+        "files": []
+      }
+    },
+    "2.8.0": {
+      "name": "@opam-alpha/ocsigenserver",
+      "version": "2.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": " >= 2.5.0  < 3.0.0",
+        "@opam-alpha/ocamlnet": " >= 4.0.2",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/tyxml": " >= 4.0.0",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/pgocaml": "*",
+        "@opam-alpha/ipaddr": " >= 2.1.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure",
+            "--prefix",
+            "$cur__install",
+            "--ocsigen-user",
+            "$USER",
+            "--ocsigen-group",
+            "$USER",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--logdir",
+            "$cur__lib/ocsigenserver/var/log/ocsigenserver",
+            "--mandir",
+            "$cur__man/man1",
+            "--docdir",
+            "$cur__lib/ocsigenserver/share/doc/ocsigenserver",
+            "--commandpipe",
+            "$cur__lib/ocsigenserver/var/run/ocsigenserver_command",
+            "--staticpagesdir",
+            "$cur__lib/ocsigenserver/var/www",
+            "--datadir",
+            "$cur__lib/ocsigenserver/var/lib/ocsigenserver",
+            "--sysconfdir",
+            "$cur__lib/ocsigenserver/etc/ocsigenserver"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocsigenserver_version": {
+            "val": "2.8.0",
+            "scope": "global"
+          },
+          "ocsigenserver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocsigenserver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/ocsigenserver/archive/2.8.tar.gz",
+        "checksum": "108674a6a014e525f06b29db69d119cd",
+        "files": []
+      }
+    }
+  }
+}

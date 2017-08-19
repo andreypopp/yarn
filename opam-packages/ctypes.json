@@ -1,0 +1,80 @@
+{
+  "versions": {
+    "0.11.2": {
+      "name": "@opam-alpha/ctypes",
+      "version": "0.11.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-pkg-config": "",
+        "@opam-alpha/lwt": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ctypes-foreign": "*",
+        "libffi": "reasonml/libffi#esy"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "XEN=${mirage_xen_enable:-disable}",
+            "libffi.config"
+          ],
+          [
+            "touch",
+            "libffi.config"
+          ],
+          [
+            "make",
+            "XEN=${mirage_xen_enable:-disable}",
+            "ctypes-base",
+            "ctypes-stubs"
+          ],
+          [
+            "make",
+            "XEN=${mirage_xen_enable:-disable}",
+            "ctypes-foreign"
+          ],
+          [
+            "make",
+            "install",
+            "XEN=${mirage_xen_enable:-disable}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__ctypes__lib/ctypes:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "ctypes_version": {
+            "val": "0.11.2",
+            "scope": "global"
+          },
+          "ctypes_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ctypes_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocamllabs/ocaml-ctypes/archive/0.11.2.tar.gz",
+        "checksum": "72055750770278a84965bb81aec68d87",
+        "files": []
+      }
+    }
+  }
+}

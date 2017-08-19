@@ -1,0 +1,1017 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1067/gapi-ocaml-0.2.tar.gz",
+        "checksum": "8636499bd962cfa9b87d743a7eec5230",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pa_monad_custom": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1274/gapi-ocaml-0.2.1.tar.gz",
+        "checksum": "c87aa3b2c9afef190307d8da51d65875",
+        "files": []
+      }
+    },
+    "0.2.10": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.10",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.10",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1601/gapi-ocaml-0.2.10.tar.gz",
+        "checksum": "14ddd4dfbabdc560c9719bcffeafe58b",
+        "files": []
+      }
+    },
+    "0.2.13": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.13",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.13",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1647/gapi-ocaml-0.2.13.tar.gz",
+        "checksum": "d7acc5dc7645b82a557f97622cc192fd",
+        "files": []
+      }
+    },
+    "0.2.14": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.14",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.14",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1657/gapi-ocaml-0.2.14.tar.gz",
+        "checksum": "0f59862148d26665587760538fa7f2ec",
+        "files": []
+      }
+    },
+    "0.2.3": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pa_monad_custom": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.3",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1445/gapi-ocaml-0.2.3.tar.gz",
+        "checksum": "a42aec2eb734f16af7c12261b86eaea4",
+        "files": []
+      }
+    },
+    "0.2.4": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pa_monad_custom": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.4",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1448/gapi-ocaml-0.2.4.tar.gz",
+        "checksum": "6396613e70d8c768e81295ed677cc204",
+        "files": []
+      }
+    },
+    "0.2.5": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pa_monad_custom": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.5",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1460/gapi-ocaml-0.2.5.tar.gz",
+        "checksum": "656396569f5bb469f9ea8ebd09d49dbb",
+        "files": []
+      }
+    },
+    "0.2.6": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pa_monad_custom": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.6",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1468/gapi-ocaml-0.2.6.tar.gz",
+        "checksum": "e158c98587681652decdff6302e423b7",
+        "files": []
+      }
+    },
+    "0.2.7": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.7",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1581/gapi-ocaml-0.2.7.tar.gz",
+        "checksum": "54d49c6675488b63aae72e4ba9fc67ca",
+        "files": []
+      }
+    },
+    "0.2.8": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.8",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1584/gapi-ocaml-0.2.8.tar.gz",
+        "checksum": "0547ec33a53ad275281c66d22a9e55b6",
+        "files": []
+      }
+    },
+    "0.2.9": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.2.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.2.9",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1600/gapi-ocaml-0.2.9.tar.gz",
+        "checksum": "18320f61dad3587e5c3ea8f25e202e50",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1665/gapi-ocaml-0.3.1.tar.gz",
+        "checksum": "9375d72d95238825ed66c1e2bfa6fefa",
+        "files": []
+      }
+    },
+    "0.3.2": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/astrada/gapi-ocaml/archive/v0.3.2.tar.gz",
+        "checksum": "6f2e2b11fd32e24c5de82ff91db61379",
+        "files": []
+      }
+    },
+    "0.3.3": {
+      "name": "@opam-alpha/gapi-ocaml",
+      "version": "0.3.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.5.1",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": " ",
+        "@opam-alpha/pa_monad_custom": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gapi_ocaml_version": {
+            "val": "0.3.3",
+            "scope": "global"
+          },
+          "gapi_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gapi_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/astrada/gapi-ocaml/archive/v0.3.3.tar.gz",
+        "checksum": "ad2e8f0df3e31561bf7234c1408e9e22",
+        "files": []
+      }
+    }
+  }
+}

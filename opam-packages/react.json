@@ -1,0 +1,327 @@
+{
+  "versions": {
+    "0.9.3": {
+      "name": "@opam-alpha/react",
+      "version": "0.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "react_version": {
+            "val": "0.9.3",
+            "scope": "global"
+          },
+          "react_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "react_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/react/releases/react-0.9.3.tbz",
+        "checksum": "ba2239e33ae78bf941d56099319f41d4",
+        "files": []
+      }
+    },
+    "0.9.4": {
+      "name": "@opam-alpha/react",
+      "version": "0.9.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "react_version": {
+            "val": "0.9.4",
+            "scope": "global"
+          },
+          "react_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "react_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/react/releases/react-0.9.4.tbz",
+        "checksum": "ea5edd6475ad305e084744571e0c9209",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/react",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./pkg/pkg-git"
+          ],
+          [
+            "./pkg/build",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "react_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "react_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "react_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/react/releases/react-1.0.0.tbz",
+        "checksum": "28dffef441f84d626829a812c675bc6d",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/react",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "react_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "react_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "react_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/react/releases/react-1.0.1.tbz",
+        "checksum": "24253985ab67643db1932737f292c998",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/react",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "react_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "react_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "react_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/react/releases/react-1.1.0.tbz",
+        "checksum": "a406bc1913690f67a8c9586371c169cd",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/react",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "react_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "react_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "react_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/react/releases/react-1.2.0.tbz",
+        "checksum": "f071a1308b6cad131c55cda8677823c3",
+        "files": []
+      }
+    }
+  }
+}

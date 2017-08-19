@@ -1,0 +1,462 @@
+{
+  "versions": {
+    "109.10.0": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.10.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.10.0",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.10.00/individual/typehashlib-109.10.00.tar.gz",
+        "checksum": "2054cba6920a9ba2400fb1b84d04c7b0",
+        "files": []
+      }
+    },
+    "109.11.0": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.11.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.11.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.11.0",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.11.00/individual/typehashlib-109.11.00.tar.gz",
+        "checksum": "a21bf61b96a94fea33c90e7b9080fb1f",
+        "files": []
+      }
+    },
+    "109.12.0": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.12.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.12.0",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/typehashlib/archive/109.12.00.tar.gz",
+        "checksum": "321d585b3a25b5e0c5bba44f261af7be",
+        "files": []
+      }
+    },
+    "109.13.0": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.13.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.13.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.13.0",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.13.00/individual/typehashlib-109.13.00.tar.gz",
+        "checksum": "e1b851ddfa3a8e4b613152d9fa4ddbd9",
+        "files": []
+      }
+    },
+    "109.14.0": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.14.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.14.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.14.0",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.14.00/individual/typehashlib-109.14.00.tar.gz",
+        "checksum": "0a3522b0ed47f40fff892f3ce80bacc8",
+        "files": []
+      }
+    },
+    "109.15.0": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.15.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.15.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.15.0",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.15.00/individual/typehashlib-109.15.00.tar.gz",
+        "checksum": "6213d875fdc4cd98b2d1fe2907a7a443",
+        "files": []
+      }
+    },
+    "109.15.1": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.15.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": "=109.15.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.15.1",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.15.00/individual/typehashlib-109.15.01.tar.gz",
+        "checksum": "5e66336346f68f2f0e15affcfb92785b",
+        "files": []
+      }
+    },
+    "109.15.2": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.15.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 109.15.0  <= 109.53.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.15.2",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.15.00/individual/typehashlib-109.15.02.tar.gz",
+        "checksum": "28a436f30b4c293bc10cfbac80c4aae8",
+        "files": []
+      }
+    },
+    "109.15.4": {
+      "name": "@opam-alpha/typehashlib",
+      "version": "109.15.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 109.15.0  < 112.2.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typehashlib_version": {
+            "val": "109.15.4",
+            "scope": "global"
+          },
+          "typehashlib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typehashlib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.15.00/individual/typehashlib-109.15.04.tar.gz",
+        "checksum": "8a7d639ebb58e96cafe4c833bead3c8d",
+        "files": []
+      }
+    }
+  }
+}

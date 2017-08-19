@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/crc",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "crc_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "crc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "crc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/ocaml-crc/archive/0.9.0.tar.gz",
+        "checksum": "314e8a5e6a03f970ea70eb89bdc2d0d5",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/crc",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${mirage_xen_enable:-disable}-xen"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "crc_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "crc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "crc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/ocaml-crc/archive/1.0.0.tar.gz",
+        "checksum": "09051d7cd0a4dd935d379a1584777e07",
+        "files": []
+      }
+    }
+  }
+}

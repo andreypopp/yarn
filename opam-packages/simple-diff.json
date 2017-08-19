@@ -1,0 +1,50 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/simple-diff",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/re": " >= 1.7.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "simple_diff_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "simple_diff_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "simple_diff_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gjaldon/simple-diff/archive/v0.1.tar.gz",
+        "checksum": "29f3888fcdf5d7b9d72d9af03ea5b1bf",
+        "files": []
+      }
+    }
+  }
+}

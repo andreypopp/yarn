@@ -1,0 +1,132 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/rfc6287",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/nocrypto": " >= 0.5.1  < 0.5.3",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/hex": "*",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/bisect": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rfc6287_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "rfc6287_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rfc6287_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/sg2342/ocaml-rfc6287/archive/1.0.0.tar.gz",
+        "checksum": "634307bc9653d4672e6d5e88f8718fdf",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/rfc6287",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/nocrypto": " >= 0.5.1  < 0.5.3",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/hex": "*",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/bisect": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rfc6287_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "rfc6287_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rfc6287_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/sg2342/ocaml-rfc6287/archive/1.0.1.tar.gz",
+        "checksum": "cb3c3ff53bae6dc275b92faa0e28d814",
+        "files": []
+      }
+    }
+  }
+}

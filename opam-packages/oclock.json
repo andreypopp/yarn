@@ -1,0 +1,101 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/oclock",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oclock_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "oclock_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oclock_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/polazarus/oclock/archive/v0.3.tar.gz",
+        "checksum": "c01a19b8b41a0b924915b9225478166d",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/oclock",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oclock_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "oclock_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oclock_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/polazarus/oclock/archive/v0.4.tar.gz",
+        "checksum": "80b35eedb0e73bd8811976e7d521a5a6",
+        "files": []
+      }
+    }
+  }
+}

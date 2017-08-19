@@ -1,0 +1,126 @@
+{
+  "versions": {
+    "2.5.3": {
+      "name": "@opam-alpha/merlin",
+      "version": "2.5.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "rm",
+            "-rf",
+            "$cur__install/share/ocamlmerlin"
+          ],
+          [
+            "make",
+            "-j",
+            "4"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_alpha__slash__merlin__vim_rtp": {
+            "val": "$opam_alpha__slash__merlin__install/share/merlin/vim",
+            "scope": "global"
+          },
+          "merlin_version": {
+            "val": "2.5.3",
+            "scope": "global"
+          },
+          "merlin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "merlin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/the-lambda-church/merlin/archive/v2.5.3.tar.gz",
+        "checksum": "d2ff86fb0685247bf3dd17f07ba4ee0c",
+        "files": []
+      }
+    },
+    "2.5.4": {
+      "name": "@opam-alpha/merlin",
+      "version": "2.5.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "rm",
+            "-rf",
+            "$cur__install/share/ocamlmerlin"
+          ],
+          [
+            "make",
+            "-j",
+            "4"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_alpha__slash__merlin__vim_rtp": {
+            "val": "$opam_alpha__slash__merlin__install/share/merlin/vim",
+            "scope": "global"
+          },
+          "merlin_version": {
+            "val": "2.5.4",
+            "scope": "global"
+          },
+          "merlin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "merlin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/merlin/archive/v2.5.4.tar.gz",
+        "checksum": "3d9ba02bdea38541c650e3a8bee01931",
+        "files": []
+      }
+    }
+  }
+}

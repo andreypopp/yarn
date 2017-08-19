@@ -1,0 +1,45 @@
+{
+  "versions": {
+    "1.99.17": {
+      "name": "@opam-alpha/ocplib-config",
+      "version": "1.99.17",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/typerex-build": "=1.99.17"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocplib_config_version": {
+            "val": "1.99.17",
+            "scope": "global"
+          },
+          "ocplib_config_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocplib_config_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

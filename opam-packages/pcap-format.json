@@ -1,0 +1,216 @@
+{
+  "versions": {
+    "0.3.1": {
+      "name": "@opam-alpha/pcap-format",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 0.5.1  < 0.6.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pcap_format_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "pcap_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pcap_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/mirage/ocaml-pcap/tarball/ocaml-pcap-0.3.1",
+        "checksum": "ead83996e1f580c261cad1820b2666be",
+        "files": []
+      }
+    },
+    "0.3.2": {
+      "name": "@opam-alpha/pcap-format",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 0.5.0  < 0.6.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pcap_format_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "pcap_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pcap_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/mirage/ocaml-pcap/tarball/ocaml-pcap-0.3.2",
+        "checksum": "3798e45befe2abff4dbf0451f254b1f4",
+        "files": []
+      }
+    },
+    "0.3.3": {
+      "name": "@opam-alpha/pcap-format",
+      "version": "0.3.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 0.6.0  <= 1.9.0",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/lwt": " >= 2.4.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/mirage-net": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pcap_format_version": {
+            "val": "0.3.3",
+            "scope": "global"
+          },
+          "pcap_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pcap_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-pcap/archive/0.3.3.tar.gz",
+        "checksum": "09ce300e0e26cd91960cefcfb183ecf4",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/pcap-format",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.9.0",
+        "@opam-alpha/ppx_cstruct": "",
+        "@opam-alpha/lwt": "  >= 2.4.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/mirage-net": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pcap_format_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "pcap_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pcap_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-pcap/archive/v0.4.0.tar.gz",
+        "checksum": "1ae8cfea340a6ae81aaaf314c7a96523",
+        "files": []
+      }
+    }
+  }
+}

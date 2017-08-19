@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-ppl",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "cc test.c -lppl_c -lppl",
+            "cc test.c -I/usr/local/include -L/usr/local/lib -lppl_c -lppl"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_ppl_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_ppl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_ppl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test.c",
+            "content": "#include <ppl_c.h>\n#ifndef PPL_VERSION_MAJOR\n#error \"No PPL header\"\n#endif\n\nint main() {\n  ppl_initialize();\n  return ppl_finalize();\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

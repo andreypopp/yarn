@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.9.11": {
+      "name": "@opam-alpha/ocamldbi",
+      "version": "0.9.11",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/postgresql": "*",
+        "@opam-alpha/mysql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "OCAMLDBIDIR=$cur__lib/ocamldbi",
+            "DOCDIR=$cur__doc/ocamldbi"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamldbi_version": {
+            "val": "0.9.11",
+            "scope": "global"
+          },
+          "ocamldbi_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamldbi_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.savannah.gnu.org/releases/modcaml/ocamldbi-0.9.11.tar.gz",
+        "checksum": "b22a0aeb956c9049359579cd2cba33fd",
+        "files": []
+      }
+    }
+  }
+}

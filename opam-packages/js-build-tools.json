@@ -1,0 +1,104 @@
+{
+  "versions": {
+    "113.33.3": {
+      "name": "@opam-alpha/js-build-tools",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "js_build_tools_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "js_build_tools_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "js_build_tools_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/js-build-tools-113.33.03.tar.gz",
+        "checksum": "18234d96c4ddba4201dc44ad7e7d26be",
+        "files": []
+      }
+    },
+    "113.33.4": {
+      "name": "@opam-alpha/js-build-tools",
+      "version": "113.33.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "js_build_tools_version": {
+            "val": "113.33.4",
+            "scope": "global"
+          },
+          "js_build_tools_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "js_build_tools_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/js-build-tools-113.33.04.tar.gz",
+        "checksum": "25e2657622a2be4dac42adc2ea148999",
+        "files": []
+      }
+    }
+  }
+}

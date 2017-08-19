@@ -1,0 +1,124 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/bistro",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/pvem": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/sexplib": " < 113.24.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bistro_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "bistro_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bistro_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pveber/bistro/archive/v0.0.0.tar.gz",
+        "checksum": "65500009ee598dee04788edbb224dca8",
+        "files": []
+      }
+    },
+    "0.1.0": {
+      "name": "@opam-alpha/bistro",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/pvem": "*",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/sexplib": " < 113.24.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bistro_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "bistro_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bistro_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pveber/bistro/archive/v0.1.0.tar.gz",
+        "checksum": "2e1b5dabade11d518da4549b6c93e161",
+        "files": []
+      }
+    }
+  }
+}

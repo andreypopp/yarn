@@ -1,0 +1,147 @@
+{
+  "versions": {
+    "0.3.4": {
+      "name": "@opam-alpha/electrumAnalyzer",
+      "version": "0.3.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "",
+        "@opam-alpha/cmdliner": " =0.9.2",
+        "@opam-alpha/menhir": "  >= 20150720.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pprint": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "electrumAnalyzer_version": {
+            "val": "0.3.4",
+            "scope": "global"
+          },
+          "electrumAnalyzer_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "electrumAnalyzer_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/grayswandyr/electrumAnalyzer/archive/0.3.4.tar.gz",
+        "checksum": "c9b6781a609b198d9d399a41a2b340b3",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "electrumAnalyzer.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "0.3.52": {
+      "name": "@opam-alpha/electrumAnalyzer",
+      "version": "0.3.52",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "",
+        "@opam-alpha/cmdliner": "",
+        "@opam-alpha/menhir": "  >= 20150720.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pprint": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "electrumAnalyzer_version": {
+            "val": "0.3.52",
+            "scope": "global"
+          },
+          "electrumAnalyzer_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "electrumAnalyzer_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/grayswandyr/electrumAnalyzer/archive/0.3.5-2.tar.gz",
+        "checksum": "bf143427742ead2d748bcb1ab0294a62",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "electrumAnalyzer.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

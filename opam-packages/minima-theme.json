@@ -1,0 +1,61 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/minima-theme",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/lambdasoup": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ptime": "*",
+        "@opam-alpha/bos": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--tests",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "minima_theme_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "minima_theme_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "minima_theme_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/avsm/ocaml-minima-theme/releases/download/v1.0.0/minima-theme-1.0.0.tbz",
+        "checksum": "630e144d08468b62fb353df969dbc4ea",
+        "files": []
+      }
+    }
+  }
+}

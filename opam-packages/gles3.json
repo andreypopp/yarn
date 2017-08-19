@@ -1,0 +1,100 @@
+{
+  "versions": {
+    "20160307.0.0": {
+      "name": "@opam-alpha/gles3",
+      "version": "20160307.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gles3_version": {
+            "val": "20160307.0.0",
+            "scope": "global"
+          },
+          "gles3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gles3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://lama.univ-savoie.fr/~raffalli/gles3/gles3-20160307.alpha.tar.gz",
+        "checksum": "86b0d72e42fd3e7eed18f3ced34de66a",
+        "files": []
+      }
+    },
+    "20160505.0.0": {
+      "name": "@opam-alpha/gles3",
+      "version": "20160505.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gles3_version": {
+            "val": "20160505.0.0",
+            "scope": "global"
+          },
+          "gles3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gles3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://lama.univ-savoie.fr/~raffalli/gles3/gles3-20160505.alpha.tar.gz",
+        "checksum": "f69ee4f6933304ead70b09e5ae5192e9",
+        "files": []
+      }
+    }
+  }
+}

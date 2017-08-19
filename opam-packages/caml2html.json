@@ -1,0 +1,259 @@
+{
+  "versions": {
+    "1.4.1": {
+      "name": "@opam-alpha/caml2html",
+      "version": "1.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "caml2html_version": {
+            "val": "1.4.1",
+            "scope": "global"
+          },
+          "caml2html_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "caml2html_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://godi-backup2.camlcity.org/godi-backup/caml2html-1.4.1.tar.gz",
+        "checksum": "ec0e48e6851dceac8eb1ee70339aaadc",
+        "files": [
+          {
+            "name": "caml2html.install",
+            "content": "bin: [\"caml2html\"]\n"
+          }
+        ]
+      }
+    },
+    "1.4.2": {
+      "name": "@opam-alpha/caml2html",
+      "version": "1.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlmix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "caml2html_version": {
+            "val": "1.4.2",
+            "scope": "global"
+          },
+          "caml2html_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "caml2html_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/caml2html/archive/v1.4.2.tar.gz",
+        "checksum": "cf5a6bff1c0a029a2e494e4dac80c482",
+        "files": [
+          {
+            "name": "caml2html.install",
+            "content": "bin: [\"caml2html\"]\n"
+          }
+        ]
+      }
+    },
+    "1.4.3": {
+      "name": "@opam-alpha/caml2html",
+      "version": "1.4.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlmix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "caml2html_version": {
+            "val": "1.4.3",
+            "scope": "global"
+          },
+          "caml2html_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "caml2html_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/caml2html/tarball/v1.4.3",
+        "checksum": "5cbb7aff571ff46cc8e602c0459e094a",
+        "files": [
+          {
+            "name": "caml2html.install",
+            "content": "bin: [\"caml2html\"]\n"
+          }
+        ]
+      }
+    },
+    "1.4.4": {
+      "name": "@opam-alpha/caml2html",
+      "version": "1.4.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlmix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "caml2html_version": {
+            "val": "1.4.4",
+            "scope": "global"
+          },
+          "caml2html_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "caml2html_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/caml2html/tarball/v1.4.4",
+        "checksum": "4577623529b5148b079da36865814890",
+        "files": [
+          {
+            "name": "caml2html.install",
+            "content": "bin: [\"caml2html\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "versions": {
+    "109.35.2": {
+      "name": "@opam-alpha/herelib",
+      "version": "109.35.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "herelib_version": {
+            "val": "109.35.2",
+            "scope": "global"
+          },
+          "herelib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "herelib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.35.00/individual/herelib-109.35.02.tar.gz",
+        "checksum": "a320680252270e2998e7aa8c2801a26a",
+        "files": []
+      }
+    },
+    "112.35.0": {
+      "name": "@opam-alpha/herelib",
+      "version": "112.35.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "herelib_version": {
+            "val": "112.35.0",
+            "scope": "global"
+          },
+          "herelib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "herelib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.35/files/herelib-112.35.00.tar.gz",
+        "checksum": "b534bc00f643b664135346e6b8d69da0",
+        "files": []
+      }
+    }
+  }
+}

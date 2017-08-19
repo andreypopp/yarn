@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/async-mvar",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": "",
+        "@opam-alpha/core_kernel": " < 113.24.0",
+        "@opam-alpha/async_kernel": "*",
+        "@opam-alpha/core": "",
+        "@opam-alpha/async": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "obuild",
+            "configure"
+          ],
+          [
+            "obuild",
+            "build"
+          ],
+          [
+            "obuild",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async_mvar_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "async_mvar_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async_mvar_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/async-mvar/archive/v0.1.0.tar.gz",
+        "checksum": "0ca7827c947b1ce59690f215121550cf",
+        "files": []
+      }
+    }
+  }
+}

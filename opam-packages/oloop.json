@@ -1,0 +1,79 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/oloop",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "cp",
+            "opam/files/oloop.install",
+            "./"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oloop_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "oloop_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oloop_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/oloop/archive/0.1.2.tar.gz",
+        "checksum": "94fa6040cf7d4c4304cb06fa5902a1aa",
+        "files": []
+      }
+    }
+  }
+}

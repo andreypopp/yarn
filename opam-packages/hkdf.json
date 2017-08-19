@@ -1,0 +1,166 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/hkdf",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.6.0",
+        "@opam-alpha/nocrypto": " >= 0.5.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hkdf_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "hkdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hkdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hannesm/ocaml-hkdf/archive/1.0.0.tar.gz",
+        "checksum": "c6012ebf7bb23fb8155d90a01e3679e2",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/hkdf",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.6.0",
+        "@opam-alpha/nocrypto": " >= 0.5.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "alcotest=false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hkdf_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "hkdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hkdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hannesm/ocaml-hkdf/archive/1.0.1.tar.gz",
+        "checksum": "7974bdf65c1e0897fd0485f34bcc80ec",
+        "files": []
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/hkdf",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/cstruct": " >= 1.6.0",
+        "@opam-alpha/nocrypto": " >= 0.5.0",
+        "@opam-alpha/alcotest": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hkdf_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "hkdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hkdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hannesm/ocaml-hkdf/releases/download/1.0.2/hkdf-1.0.2.tbz",
+        "checksum": "91627b3d546eea255a42faf98d82dddc",
+        "files": []
+      }
+    }
+  }
+}

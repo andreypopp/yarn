@@ -1,0 +1,73 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/commonjs_of_ocaml",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/js_of_ocaml": " >= 2.7.0  < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "commonjs___of___ocaml_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "commonjs___of___ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "commonjs___of___ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/AngryLawyer/commonjs_of_ocaml/archive/v0.1.0.tar.gz",
+        "checksum": "3e5dccd67a02ac7c01df182426c542f6",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "commonjs_of_ocaml.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

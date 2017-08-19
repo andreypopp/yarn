@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/hardcaml-llvmsim",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/hardcaml": " >= 1.1.1",
+        "@opam-alpha/llvm": " >= 3.4.0  < 3.6.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ctypes-foreign": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hardcaml_llvmsim_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "hardcaml_llvmsim_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hardcaml_llvmsim_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ujamjar/hardcaml-llvmsim/archive/v0.2.tar.gz",
+        "checksum": "edb3eef442b126d6258eb916f1a0c585",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/hardcaml-llvmsim",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/hardcaml": " >= 1.2.0  < 2.0.0",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/llvm": " >= 3.8.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hardcaml_llvmsim_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "hardcaml_llvmsim_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hardcaml_llvmsim_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ujamjar/hardcaml-llvmsim/archive/v0.3.0.tar.gz",
+        "checksum": "a0edaf14196ab2cf0e78b5745874c084",
+        "files": []
+      }
+    }
+  }
+}

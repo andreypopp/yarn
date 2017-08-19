@@ -1,0 +1,109 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/pbkdf",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.7.0",
+        "@opam-alpha/nocrypto": " >= 0.5.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "alcotest=false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pbkdf_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "pbkdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pbkdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/abeaumont/ocaml-pbkdf/archive/0.1.0.tar.gz",
+        "checksum": "a59b1ec460f25209ea5259ded6a18fbe",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/pbkdf",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/cstruct": " >= 1.7.0",
+        "@opam-alpha/nocrypto": " >= 0.5.0",
+        "@opam-alpha/alcotest": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pbkdf_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "pbkdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pbkdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/abeaumont/ocaml-pbkdf/archive/0.2.0.tar.gz",
+        "checksum": "ddb093e2c226058e2341e5251d41721c",
+        "files": []
+      }
+    }
+  }
+}

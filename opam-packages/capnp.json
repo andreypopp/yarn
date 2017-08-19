@@ -1,0 +1,296 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/capnp",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 111.25.0",
+        "@opam-alpha/ocplib-endian": " >= 0.7.0",
+        "@opam-alpha/res": "*",
+        "@opam-alpha/uint": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake"
+          ],
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "capnp_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "capnp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "capnp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/capnproto/capnp-ocaml/archive/v1.0.0.tar.gz",
+        "checksum": "fadf2d058f266514e4a5227469d040f7",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/capnp",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 111.25.0",
+        "@opam-alpha/ocplib-endian": " >= 0.7.0",
+        "@opam-alpha/res": "*",
+        "@opam-alpha/uint": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake"
+          ],
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "capnp_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "capnp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "capnp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/capnproto/capnp-ocaml/archive/v1.0.1.tar.gz",
+        "checksum": "7df6d317fb0f1e1bb3395f8b0d92743c",
+        "files": []
+      }
+    },
+    "2.0.1": {
+      "name": "@opam-alpha/capnp",
+      "version": "2.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 111.25.0",
+        "@opam-alpha/ocplib-endian": " >= 0.7.0",
+        "@opam-alpha/res": "*",
+        "@opam-alpha/uint": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake"
+          ],
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "capnp_version": {
+            "val": "2.0.1",
+            "scope": "global"
+          },
+          "capnp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "capnp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/capnproto/capnp-ocaml/archive/v2.0.1.tar.gz",
+        "checksum": "65fe11901d4a9d9e963107927867fc00",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/capnp",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/sexplib": " <= 0.9.0",
+        "@opam-alpha/extunix": "*",
+        "@opam-alpha/ocplib-endian": " >= 0.7.0",
+        "@opam-alpha/res": "*",
+        "@opam-alpha/uint": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake"
+          ],
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "capnp_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "capnp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "capnp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/capnproto/capnp-ocaml/archive/v2.1.0.tar.gz",
+        "checksum": "fc7a34b16faba3387b3b25ec9c1bfcd4",
+        "files": []
+      }
+    },
+    "2.1.1": {
+      "name": "@opam-alpha/capnp",
+      "version": "2.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/sexplib": " <= 0.9.0",
+        "@opam-alpha/extunix": "*",
+        "@opam-alpha/ocplib-endian": " >= 0.7.0",
+        "@opam-alpha/res": "*",
+        "@opam-alpha/uint": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake"
+          ],
+          [
+            "env",
+            "PREFIX=$cur__install",
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "capnp_version": {
+            "val": "2.1.1",
+            "scope": "global"
+          },
+          "capnp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "capnp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/capnproto/capnp-ocaml/archive/v2.1.1.tar.gz",
+        "checksum": "88faa1670c4cce32cf986f14fe749eed",
+        "files": []
+      }
+    }
+  }
+}

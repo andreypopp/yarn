@@ -1,0 +1,162 @@
+{
+  "versions": {
+    "2.5.2": {
+      "name": "@opam-alpha/lwt",
+      "version": "2.5.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/conf-ncurses": "",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/react": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--${conf_libev_enable:-disable}-libev",
+            "--${camlp4_enable:-disable}-camlp4",
+            "--${react_enable:-disable}-react",
+            "--${ssl_enable:-disable}-ssl",
+            "--${base_unix_enable:-disable}-unix",
+            "--${base_threads_enable:-disable}-preemptive",
+            "--${lablgtk_enable:-disable}-glib",
+            "--${ppx___tools_enable:-disable}-ppx"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__lwt__lib/lwt:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "lwt_version": {
+            "val": "2.5.2",
+            "scope": "global"
+          },
+          "lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/lwt/archive/2.5.2.tar.gz",
+        "checksum": "69cd0b8439fe1aa548aeb669fec4f2a4",
+        "files": []
+      }
+    },
+    "2.7.0": {
+      "name": "@opam-alpha/lwt",
+      "version": "2.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/react": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${conf_libev_enable:-disable}-libev",
+            "--${camlp4_enable:-disable}-camlp4",
+            "--${react_enable:-disable}-react",
+            "--${ssl_enable:-disable}-ssl",
+            "--${base_unix_enable:-disable}-unix",
+            "--${base_threads_enable:-disable}-preemptive",
+            "--${lablgtk_enable:-disable}-glib",
+            "--${ppx___tools_enable:-disable}-ppx"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__lwt__lib/lwt:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "lwt_version": {
+            "val": "2.7.0",
+            "scope": "global"
+          },
+          "lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/lwt/archive/2.7.0.tar.gz",
+        "checksum": "cee770cf9edbda92578c873e7e4c6105",
+        "files": [
+          {
+            "name": "lwt.install",
+            "content": "lib: \"lwt.opam\" { \"opam\" }\ndoc: [\n  \"README.md\"\n  \"CHANGES\"\n  \"doc/COPYING\" { \"LICENSE\" }\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

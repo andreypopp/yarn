@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "1.1.2": {
+      "name": "@opam-alpha/libra-tk",
+      "version": "1.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-expat": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "libra_tk_version": {
+            "val": "1.1.2",
+            "scope": "global"
+          },
+          "libra_tk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "libra_tk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://libra.cs.uoregon.edu/libra-tk-1.1.2d.tar.gz",
+        "checksum": "a53e35d844ba391d5053416696c48168",
+        "files": []
+      }
+    }
+  }
+}

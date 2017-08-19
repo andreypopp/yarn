@@ -1,0 +1,154 @@
+{
+  "versions": {
+    "0.1.6": {
+      "name": "@opam-alpha/glpk",
+      "version": "0.1.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "glpk_version": {
+            "val": "0.1.6",
+            "scope": "global"
+          },
+          "glpk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "glpk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/ocaml-glpk/ocaml-glpk/0.1.6/ocaml-glpk-0.1.6.tar.gz",
+        "checksum": "daff90d6786f410813dcdd5f56b8a83f",
+        "files": []
+      }
+    },
+    "0.1.7": {
+      "name": "@opam-alpha/glpk",
+      "version": "0.1.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "glpk_version": {
+            "val": "0.1.7",
+            "scope": "global"
+          },
+          "glpk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "glpk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/smimram/ocaml-glpk/archive/0.1.7.tar.gz",
+        "checksum": "65f600f8ae12ab022fdbe5546727c919",
+        "files": []
+      }
+    },
+    "0.1.8": {
+      "name": "@opam-alpha/glpk",
+      "version": "0.1.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "glpk_version": {
+            "val": "0.1.8",
+            "scope": "global"
+          },
+          "glpk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "glpk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/smimram/ocaml-glpk/releases/download/0.1.8/ocaml-glpk-0.1.8.tar.gz",
+        "checksum": "d760f081a25259fb0c79175bcb51d6cd",
+        "files": []
+      }
+    }
+  }
+}

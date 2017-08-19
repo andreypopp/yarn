@@ -1,0 +1,182 @@
+{
+  "versions": {
+    "0.9.1": {
+      "name": "@opam-alpha/gammu",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gammu_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "gammu_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gammu_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1143/gammu-0.9.1.tar.gz",
+        "checksum": "968d5ceb0f11777b4a49953918b19a1d",
+        "files": []
+      }
+    },
+    "0.9.2": {
+      "name": "@opam-alpha/gammu",
+      "version": "0.9.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gammu_version": {
+            "val": "0.9.2",
+            "scope": "global"
+          },
+          "gammu_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gammu_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1153/gammu-0.9.2.tar.gz",
+        "checksum": "f12232e69d989f2d353117bc33ade0e4",
+        "files": []
+      }
+    },
+    "0.9.3": {
+      "name": "@opam-alpha/gammu",
+      "version": "0.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gammu_version": {
+            "val": "0.9.3",
+            "scope": "global"
+          },
+          "gammu_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gammu_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-gammu/releases/download/0.9.3/gammu-0.9.3.tar.gz",
+        "checksum": "c75282188ec8a0a8f4fe3b2c1a30410a",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/shared-block-ring",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 0.7.1",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/mirage-block-unix": " <= 2.4.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/io-page-unix": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/type_conv": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "shared_block_ring_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "shared_block_ring_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "shared_block_ring_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/shared-block-ring/archive/v1.0.0.tar.gz",
+        "checksum": "513806eab5f5dc55a0b48259ff1a63fe",
+        "files": []
+      }
+    }
+  }
+}

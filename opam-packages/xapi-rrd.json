@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.10.1": {
+      "name": "@opam-alpha/xapi-rrd",
+      "version": "0.10.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/rpc": "*",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xapi_rrd_version": {
+            "val": "0.10.1",
+            "scope": "global"
+          },
+          "xapi_rrd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xapi_rrd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/xcp-rrd/archive/v0.10.1.tar.gz",
+        "checksum": "8237f7d60b3169085831e521c3bc813b",
+        "files": []
+      }
+    },
+    "0.12.0": {
+      "name": "@opam-alpha/xapi-rrd",
+      "version": "0.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/rpc": "*",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xapi_rrd_version": {
+            "val": "0.12.0",
+            "scope": "global"
+          },
+          "xapi_rrd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xapi_rrd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xapi-project/xcp-rrd/archive/v0.12.0.tar.gz",
+        "checksum": "a51c3d90d07ee770f418d856bc0cdffe",
+        "files": []
+      }
+    }
+  }
+}

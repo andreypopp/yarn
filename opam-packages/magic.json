@@ -1,0 +1,61 @@
+{
+  "versions": {
+    "0.7.3": {
+      "name": "@opam-alpha/magic",
+      "version": "0.7.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--datarootdir",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "byte",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "magic_version": {
+            "val": "0.7.3",
+            "scope": "global"
+          },
+          "magic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "magic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/ocaml-magic/ocaml-magic/0.7/ocaml-magic-0.7.3.tar.gz",
+        "checksum": "5b8a4d149fe8ce095ab8115f2e49beba",
+        "files": []
+      }
+    }
+  }
+}

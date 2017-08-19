@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_const",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ppx_tools": " >= 0.99.1",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___const_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___const_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___const_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mcclure/ppx_const/archive/ppx_const-1.0.tar.gz",
+        "checksum": "c1351efbb013eb656b0202ed021ee42b",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/ppx_const",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ppx_tools": " >= 0.99.1",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___const_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ppx___const_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___const_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mcclure/ppx_const/archive/ppx_const-1.1.tar.gz",
+        "checksum": "53f811ffb931d9b8242ee1ddf9bf4e47",
+        "files": []
+      }
+    }
+  }
+}

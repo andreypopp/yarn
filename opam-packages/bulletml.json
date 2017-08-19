@@ -1,0 +1,118 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/bulletml",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/mparser": "*",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/xml-light": "*",
+        "@opam-alpha/ocamlsdl": "*",
+        "@opam-alpha/js_of_ocaml": " >= 2.6.0",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bulletml_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "bulletml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bulletml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/emillon/bulletml/archive/v0.1.0.tar.gz",
+        "checksum": "d49961d0e353975b94f1b7f05c99aecb",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/bulletml",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/mparser": "*",
+        "@opam-alpha/alcotest": "*",
+        "@opam-alpha/xml-light": "*",
+        "@opam-alpha/ocamlsdl": "*",
+        "@opam-alpha/js_of_ocaml": " >= 2.6.0",
+        "@opam-alpha/ppx_deriving": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bulletml_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "bulletml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bulletml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/emillon/bulletml/archive/v0.2.0.tar.gz",
+        "checksum": "366d117b591b95afec028774f6e0ff6e",
+        "files": []
+      }
+    }
+  }
+}

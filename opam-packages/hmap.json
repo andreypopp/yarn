@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "0.8.0": {
+      "name": "@opam-alpha/hmap",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hmap_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "hmap_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hmap_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/hmap/releases/hmap-0.8.0.tbz",
+        "checksum": "4fff0508f0be8529dc8f8ac62cb3f951",
+        "files": []
+      }
+    }
+  }
+}

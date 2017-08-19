@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/bdd",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "obuild",
+            "configure"
+          ],
+          [
+            "obuild",
+            "build"
+          ],
+          [
+            "obuild",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bdd_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "bdd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bdd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://www.lri.fr/~filliatr/ftp/ocaml/bdd/bdd-0.3.tar.gz",
+        "checksum": "56834a743f15b1569712125660aa4af4",
+        "files": [
+          {
+            "name": "bdd.obuild",
+            "content": "Name: BDD\nVersion: 0.3\nAuthors: Jean-Christophe Filliatre\nLicense: GPL\nSynopsis: quick implementation of a Binary Decision Diagrams (BDD) library\nobuild-ver: 1\n\nlibrary bdd\n  oflags: -annot -w +27 -warn-error +8\n  modules: Bdd\n  src-dir: .\n\n# executable check\n#   oflags: -annot -w +27 -warn-error +8\n#   src-dir: .\n#   main-is: check.ml\n\n# executable bench\n#   oflags: -annot -w +27 -warn-error +8\n#   src-dir: .\n#   main-is: bench_prop.ml\n\n# executable sat\n#   oflags: -annot -w +27 -warn-error +8\n#   src-dir: .\n#   main-is: bdd_sat.ml\n#   build-deps: unix\n\n# executable queen\n#   oflags: -annot -w +27 -warn-error +8\n#   src-dir: .\n#   main-is: queen.ml\n"
+          }
+        ]
+      }
+    }
+  }
+}

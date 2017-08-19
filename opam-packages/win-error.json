@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/win-error",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "win_error_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "win_error_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "win_error_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/ocaml-win-error/archive/v0.2.tar.gz",
+        "checksum": "e90c76fc5c599061718de385099cb1ce",
+        "files": []
+      }
+    }
+  }
+}

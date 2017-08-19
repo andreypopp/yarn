@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.7.1": {
+      "name": "@opam-alpha/hydro",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "=3.6.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/omake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hydro_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "hydro_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hydro_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/hydro-0.7.1.tar.gz",
+        "checksum": "df2d15e50a28cfda14cc86ef4f19adc2",
+        "files": []
+      }
+    }
+  }
+}

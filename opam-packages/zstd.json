@@ -1,0 +1,69 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/zstd",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/extlib": "",
+        "@opam-alpha/extlib-compat": "",
+        "@opam-alpha/base-unix": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--disable-tests",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "zstd_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "zstd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "zstd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ygrek.org.ua/p/release/ocaml-zstd/ocaml-zstd-0.2.tar.gz",
+        "checksum": "6edef3e3fc8de3e608c9c57f171de7a6",
+        "files": []
+      }
+    }
+  }
+}

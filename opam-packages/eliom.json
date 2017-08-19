@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "6.1.0": {
+      "name": "@opam-alpha/eliom",
+      "version": "6.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/deriving": " >= 0.6.0",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/js_of_ocaml": " >= 2.8.2  < 3.0.0",
+        "@opam-alpha/tyxml": " >= 4.0.0",
+        "@opam-alpha/ocsigenserver": " >= 2.8.0",
+        "@opam-alpha/ipaddr": " >= 2.1.0",
+        "@opam-alpha/reactiveData": " >= 0.2.1",
+        "@opam-alpha/dbm": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/base-bytes": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "eliom_version": {
+            "val": "6.1.0",
+            "scope": "global"
+          },
+          "eliom_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "eliom_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/eliom/archive/6.1.0.tar.gz",
+        "checksum": "e3fb8dead2b427a3da5a240294c27bea",
+        "files": []
+      }
+    }
+  }
+}

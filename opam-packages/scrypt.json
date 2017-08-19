@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.2.1": {
+      "name": "@opam-alpha/scrypt",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "scrypt_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "scrypt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "scrypt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pacemkr/ocaml-scrypt/tarball/v0.2.1",
+        "checksum": "24704b12638932a14400f74a354c0617",
+        "files": []
+      }
+    }
+  }
+}

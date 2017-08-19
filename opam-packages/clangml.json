@@ -1,0 +1,70 @@
+{
+  "versions": {
+    "3.9.1": {
+      "name": "@opam-alpha/clangml",
+      "version": "3.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/dolog": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/deriving": "*",
+        "@opam-alpha/ANSITerminal": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/conf-wget": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "test -d ${HOME}/usr/clang39 ||\n              ( wget http://llvm.org/releases/3.9.0/clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz &&\n                tar -xf clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz &&\n                mkdir -p ${HOME}/usr/clang39 && mv clang+llvm-3.9.0-x86_64-apple-darwin/* ${HOME}/usr/clang39 )"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "clangml_version": {
+            "val": "3.9.1",
+            "scope": "global"
+          },
+          "clangml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "clangml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Antique-team/clangml/archive/v3.9.1.tar.gz",
+        "checksum": "5db29afb605415bdfd2f73f3c7a0bf9f",
+        "files": [
+          {
+            "name": "clangml.install",
+            "content": "bin: [\n  \"_build/consumer/processor.native\" {\"clangml-processor\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

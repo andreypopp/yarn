@@ -1,0 +1,167 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/dnscurve",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/dns": " >= 0.7.0  < 0.11.0",
+        "@opam-alpha/sodium": " < 0.2.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dnscurve_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "dnscurve_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dnscurve_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dsheets/ocaml-dnscurve/archive/0.1.0.tar.gz",
+        "checksum": "1494b67f9b7bc39438e466dcd0afc105",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/dnscurve",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/dns": " >= 0.8.0  < 0.11.0",
+        "@opam-alpha/sodium": " >= 0.2.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dnscurve_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "dnscurve_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dnscurve_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dsheets/ocaml-dnscurve/archive/0.2.0.tar.gz",
+        "checksum": "5a4c98d2009b2baf24fd0eea1f8140f2",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/dnscurve",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/dns": " >= 0.12.0  < 0.14.0",
+        "@opam-alpha/sodium": " >= 0.2.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dnscurve_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "dnscurve_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dnscurve_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dsheets/ocaml-dnscurve/archive/0.3.0.tar.gz",
+        "checksum": "13345b867a89a8fd6c8b59957b3ad707",
+        "files": []
+      }
+    }
+  }
+}

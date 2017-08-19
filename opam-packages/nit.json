@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.6.0": {
+      "name": "@opam-alpha/nit",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/javalib": "=2.3.0",
+        "@opam-alpha/sawja": "=1.5.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure.sh",
+            "-l",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nit_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "nit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/33093/nit-0.6.tar.bz2",
+        "checksum": "2a20cb66fc4d29a1f1af5884e4c25fb5",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "0.8.70": {
+      "name": "@opam-alpha/socketcan",
+      "version": "0.8.70",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/posix-time": " >= 1.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/conf-linux-libc-dev": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "socketcan_version": {
+            "val": "0.8.70",
+            "scope": "global"
+          },
+          "socketcan_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "socketcan_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mwweissmann/ocaml-socketcan/archive/0.8.7.tar.gz",
+        "checksum": "68f9db239002a276adfd3e2ae67438be",
+        "files": []
+      }
+    }
+  }
+}

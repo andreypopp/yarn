@@ -1,0 +1,160 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/otfm",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/uutf": " <= 0.9.4",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./pkg/pkg-git"
+          ],
+          [
+            "./pkg/build",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "otfm_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "otfm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "otfm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/otfm/releases/otfm-0.1.0.tbz",
+        "checksum": "36b5a4b30b2e7be1f0a665824d35a20c",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/otfm",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uutf": " <= 0.9.4",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "otfm_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "otfm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "otfm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/otfm/releases/otfm-0.2.0.tbz",
+        "checksum": "bdb84bb7e37f4ef6d2e74ecb8e0ef533",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/otfm",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/uchar": "*",
+        "@opam-alpha/uutf": " >= 1.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "otfm_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "otfm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "otfm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/otfm/releases/otfm-0.3.0.tbz",
+        "checksum": "e8e0ecb91048983b09a7fbe593042c89",
+        "files": []
+      }
+    }
+  }
+}

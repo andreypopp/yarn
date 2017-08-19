@@ -1,0 +1,197 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/rawlink",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.7",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rawlink_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "rawlink_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rawlink_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/rawlink/archive/v0.1.tar.gz",
+        "checksum": "1c600ed9fcb47617daa7431991e9e00f",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/rawlink",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.7",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rawlink_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "rawlink_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rawlink_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/rawlink/archive/v0.2.tar.gz",
+        "checksum": "7f996d7708e459daeb66d405ebe2f893",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/rawlink",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.7",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rawlink_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "rawlink_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rawlink_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/rawlink/archive/v0.3.tar.gz",
+        "checksum": "1ffa937054dbb25d33d26971dac85326",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/rawlink",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.7",
+        "@opam-alpha/cstruct": " >= 1.9.0",
+        "@opam-alpha/ppx_cstruct": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rawlink_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "rawlink_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rawlink_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/rawlink/archive/v0.4.tar.gz",
+        "checksum": "d10b3beffe14e45c4b3b6eec0f925d22",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "versions": {
+    "113.9.0": {
+      "name": "@opam-alpha/ppx_assert",
+      "version": "113.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_core": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_compare": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ppx_here": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_sexp_conv": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_driver": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___assert_version": {
+            "val": "113.9.0",
+            "scope": "global"
+          },
+          "ppx___assert_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___assert_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/ppx_assert/archive/113.09.00.tar.gz",
+        "checksum": "d2194f747216a71097693d3cb3c102bb",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/ppx_assert",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_compare": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_here": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_sexp_conv": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___assert_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "ppx___assert_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___assert_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/ppx_assert-113.24.00.tar.gz",
+        "checksum": "780dd113fa9bf28179b2e2a4a2d82ebe",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/ppx_assert",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_compare": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_here": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_sexp_conv": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/ppx_type_conv": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___assert_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "ppx___assert_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___assert_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ppx_assert-113.33.00.tar.gz",
+        "checksum": "6c445be7fb9cc61e215ecd8fb151e276",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/ppx_assert",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_compare": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_here": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_sexp_conv": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/ppx_type_conv": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___assert_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "ppx___assert_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___assert_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ppx_assert-113.33.03.tar.gz",
+        "checksum": "4da98302d2827397b6330451d44cd3e2",
+        "files": []
+      }
+    }
+  }
+}

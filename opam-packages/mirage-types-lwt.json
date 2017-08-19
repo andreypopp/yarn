@@ -1,0 +1,423 @@
+{
+  "versions": {
+    "2.0.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": "=2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.0.1": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 2.0.1  < 2.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.0.1",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 2.1.0  < 2.2.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.1.1": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 2.1.1  < 2.2.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.1.1",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 2.2.0  < 2.3.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": " >= 1.4.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 2.3.0  < 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.5.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": " >= 1.4.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 2.5.0  < 2.6.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.6.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": " >= 1.4.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": "=2.6.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.6.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.8.0": {
+      "name": "@opam-alpha/mirage-types-lwt",
+      "version": "2.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/io-page": " >= 1.4.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": "=2.8.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_lwt_version": {
+            "val": "2.8.0",
+            "scope": "global"
+          },
+          "mirage_types_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

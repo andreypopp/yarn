@@ -1,0 +1,79 @@
+{
+  "versions": {
+    "0.18.1": {
+      "name": "@opam-alpha/dns",
+      "version": "0.18.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/lwt": " >= 2.4.7  < 3.0.0",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/ipaddr": " >= 2.6.0  < 2.8.0",
+        "@opam-alpha/uri": " >= 1.7.0  < 1.9.4",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/mirage-profile": "*",
+        "@opam-alpha/hashcons": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/pcap-format": "",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/mirage-types": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--enable-lwt",
+            "--${mirage_types_enable:-disable}-mirage"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dns_version": {
+            "val": "0.18.1",
+            "scope": "global"
+          },
+          "dns_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dns_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-dns/archive/v0.18.1.tar.gz",
+        "checksum": "a232d3fae3363d00ad5fe672949b3240",
+        "files": []
+      }
+    }
+  }
+}

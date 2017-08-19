@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/conf-pic-switch",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "bash",
+            "./check.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_pic_switch_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "conf_pic_switch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_pic_switch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "check.sh",
+            "content": "#!/bin/bash\n\nopam_root=`opam config var root`\nocaml_version=`opam config var ocaml-version`\npic_comp_switch=$opam_root'/'$ocaml_version'+PIC'\n\ntest -d $pic_comp_switch || \\\n(echo \"the \"$pic_comp_switch\" opam compiler switch is not installed\" && exit 1)\n"
+          }
+        ]
+      }
+    }
+  }
+}

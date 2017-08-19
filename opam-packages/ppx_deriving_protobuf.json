@@ -1,0 +1,336 @@
+{
+  "versions": {
+    "2.0.0": {
+      "name": "@opam-alpha/ppx_deriving_protobuf",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ppx_deriving": " >= 1.0.0  < 2.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/uint": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___protobuf_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_protobuf/archive/v2.0.tar.gz",
+        "checksum": "f7b8ccd0ee34dbf839010c7fc1c3f0ad",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/ppx_deriving_protobuf",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ppx_deriving": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/uint": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___protobuf_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_protobuf/archive/v2.1.tar.gz",
+        "checksum": "f325537763c78d6a46ea205af937b377",
+        "files": []
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/ppx_deriving_protobuf",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ppx_deriving": " >= 2.0.0  < 4.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/uint": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___protobuf_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_protobuf/archive/v2.2.tar.gz",
+        "checksum": "72f983337e8f7d269417a8e749267ee6",
+        "files": []
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/ppx_deriving_protobuf",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_deriving": " >= 3.2.0  < 4.0.0",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/uint": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___protobuf_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_protobuf/archive/v2.3.tar.gz",
+        "checksum": "a4eee6e05e18329bb716cdd5640dc114",
+        "files": []
+      }
+    },
+    "2.4.0": {
+      "name": "@opam-alpha/ppx_deriving_protobuf",
+      "version": "2.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ppx_deriving": " >= 3.2.0  < 4.0.0",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/uint": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___protobuf_version": {
+            "val": "2.4.0",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_protobuf/archive/v2.4.tar.gz",
+        "checksum": "67cc2871bab9fff1833b2b748ada7692",
+        "files": []
+      }
+    },
+    "2.5.0": {
+      "name": "@opam-alpha/ppx_deriving_protobuf",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ppx_deriving": " >= 3.2.0  < 5.0.0",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/uint": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___deriving___protobuf_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___deriving___protobuf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ppx_deriving_protobuf/archive/v2.5.tar.gz",
+        "checksum": "2e3ba97f2354ba51cb470f899e3ccc25",
+        "files": []
+      }
+    }
+  }
+}

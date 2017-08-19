@@ -1,0 +1,181 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/nlopt-ocaml",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nlopt_ocaml_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "nlopt_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nlopt_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mkur/nlopt-ocaml/get/release-0.4.tar.gz",
+        "checksum": "a5a742f058469438dd45c34356ff9665",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/nlopt-ocaml",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nlopt_ocaml_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "nlopt_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nlopt_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mkur/nlopt-ocaml/get/release-0.5.tar.gz",
+        "checksum": "d1aacf0ced08082f2d2d7169d3c38339",
+        "files": []
+      }
+    },
+    "0.5.1": {
+      "name": "@opam-alpha/nlopt-ocaml",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nlopt_ocaml_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "nlopt_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nlopt_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mkur/nlopt-ocaml/get/release-0.5.1.tar.gz",
+        "checksum": "39d0bcd8d52686c0430b9cfd7a882335",
+        "files": []
+      }
+    }
+  }
+}

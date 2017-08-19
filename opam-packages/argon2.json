@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/argon2",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ctypes": " >= 0.4.1",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_deriving": " >= 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "argon2_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "argon2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "argon2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Khady/ocaml-argon2/archive/v0.1.zip",
+        "checksum": "d43b1d27ce45e6ea284586832e8bec8c",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/argon2",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ctypes": " >= 0.4.1",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ppx_deriving": " >= 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "argon2_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "argon2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "argon2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Khady/ocaml-argon2/archive/v0.2.zip",
+        "checksum": "f4a910560d06ac5210e445bcaccda986",
+        "files": []
+      }
+    }
+  }
+}

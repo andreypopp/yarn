@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.4.1": {
+      "name": "@opam-alpha/missinglib",
+      "version": "0.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "missinglib_version": {
+            "val": "0.4.1",
+            "scope": "global"
+          },
+          "missinglib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "missinglib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://godi-backup2.camlcity.org/godi-backup/missinglib_0.4.1.tar.gz",
+        "checksum": "e18de6dca91eec752174654cc5370546",
+        "files": [
+          {
+            "name": "meta-0.4.1.patch",
+            "content": "--- a/libsrc/META\t2015-01-15 15:21:20.991565330 +0100\n+++ b/libsrc/META\t2015-01-15 15:21:42.333564587 +0100\n@@ -1,6 +1,6 @@\n name=\"Missinglib\"\n-version=\"0.0.1\"\n+version=\"0.4.1\"\n description=\"Utility libraries for OCaml\"\n-requires=\"str\"\n+requires=\"str unix\"\n archive(byte)=\"missinglib.cma\"\n archive(native)=\"missinglib.cmxa\"\n"
+          },
+          {
+            "name": "opam.patch",
+            "content": "diff -ru missinglib.0.4.1/Makefile.setup missinglib.0.4.1/Makefile.setup\n--- missinglib.0.4.1/Makefile.setup\t2004-06-05 17:45:01.000000000 +0200\n+++ missinglib.0.4.1/Makefile.setup\t2012-10-05 18:14:52.729673166 +0200\n@@ -16,7 +16,7 @@\n # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n #\n \n-OCAMLFLAGS := -warn-error A\n+OCAMLFLAGS := -w -a\n \n ifndef OCAMLMAKEFILE\n   OCAMLMAKEFILE := $(PATHTOTOP)/contrib/OCamlMakefile/OCamlMakefile\n"
+          }
+        ]
+      }
+    }
+  }
+}

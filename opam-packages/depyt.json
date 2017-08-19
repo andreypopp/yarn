@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/depyt",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/jsonm": "*",
+        "@opam-alpha/ocplib-endian": " >= 0.7.0",
+        "@opam-alpha/alcotest": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "depyt_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "depyt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "depyt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/samoht/depyt/releases/download/0.1.0/depyt-0.1.0.tbz",
+        "checksum": "723487f8e7ac3e3ff08d601e837875f7",
+        "files": []
+      }
+    }
+  }
+}

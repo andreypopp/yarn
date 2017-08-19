@@ -1,0 +1,122 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/mbr-format",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mbr_format_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "mbr_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mbr_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-mbr/archive/v0.2.tar.gz",
+        "checksum": "e43654b2f5db746a03739bc2dcb2590f",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/mbr-format",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mbr_format_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "mbr_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mbr_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-mbr/archive/v0.3.tar.gz",
+        "checksum": "c92322dc6d37867fe9a2320c8a4a8f32",
+        "files": []
+      }
+    }
+  }
+}

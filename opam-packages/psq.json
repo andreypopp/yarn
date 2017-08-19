@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/psq",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/alcotest": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "psq_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "psq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "psq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/psq/releases/download/v0.1.0/psq-0.1.0.tbz",
+        "checksum": "21d6abc3db996888887ec61b7d38f885",
+        "files": []
+      }
+    }
+  }
+}

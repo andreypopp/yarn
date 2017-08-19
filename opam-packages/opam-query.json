@@ -1,0 +1,163 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/opam-query",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/opam-lib": " >= 1.2.0  < 1.3.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/containers": " < 1.0.0",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_query_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "opam_query_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_query_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/opam-query/archive/v1.0.tar.gz",
+        "checksum": "444477569052a846738469d82c2d1b3d",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/opam-query",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/opam-lib": " >= 1.2.0  < 1.3.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/containers": " < 1.0.0",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_query_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "opam_query_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_query_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/opam-query/archive/v1.1.tar.gz",
+        "checksum": "c5ae88707718208b9e45cdae04bb7c3a",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/opam-query",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/opam-lib": " >= 1.2.0  < 1.3.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/containers": " < 1.0.0",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_query_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "opam_query_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_query_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/opam-query/archive/v1.2.tar.gz",
+        "checksum": "6acf46f0caf76d97aa91c5077d4a580d",
+        "files": []
+      }
+    }
+  }
+}

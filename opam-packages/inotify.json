@@ -1,0 +1,72 @@
+{
+  "versions": {
+    "2.1.0": {
+      "name": "@opam-alpha/inotify",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/fileutils": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${lwt_enable:-disable}-lwt",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__inotify__lib/inotify:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "inotify_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "inotify_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "inotify_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/whitequark/ocaml-inotify/archive/v2.1.tar.gz",
+        "checksum": "60b3070dec5c008b3fe69a562ea4e905",
+        "files": []
+      }
+    }
+  }
+}

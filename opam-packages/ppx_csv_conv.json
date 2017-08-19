@@ -1,0 +1,222 @@
+{
+  "versions": {
+    "113.9.0": {
+      "name": "@opam-alpha/ppx_csv_conv",
+      "version": "113.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_type_conv": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_core": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_conv_func": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ppx_driver": " >= 113.9.0  < 113.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___csv___conv_version": {
+            "val": "113.9.0",
+            "scope": "global"
+          },
+          "ppx___csv___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___csv___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/ppx_csv_conv/archive/113.09.00.tar.gz",
+        "checksum": "a0467128be9140c62af01d9a35c3d3a4",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/ppx_csv_conv",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_conv_func": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ppx_type_conv": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___csv___conv_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "ppx___csv___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___csv___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/ppx_csv_conv-113.24.00.tar.gz",
+        "checksum": "0b14667e357245b9bd3e175a628ce6b2",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/ppx_csv_conv",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_conv_func": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/ppx_type_conv": " >= 113.33.0  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___csv___conv_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "ppx___csv___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___csv___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ppx_csv_conv-113.33.00+4.03.tar.gz",
+        "checksum": "d3cdff54b58090cebd82f5c6420ba65e",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/ppx_csv_conv",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_conv_func": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_tools": " >= 0.99.3",
+        "@opam-alpha/ppx_type_conv": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___csv___conv_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "ppx___csv___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___csv___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ppx_csv_conv-113.33.03.tar.gz",
+        "checksum": "17cc03de9a83a1c17660bc180b6a9904",
+        "files": []
+      }
+    }
+  }
+}

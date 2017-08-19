@@ -1,0 +1,80 @@
+{
+  "versions": {
+    "0.1.4": {
+      "name": "@opam-alpha/tftp",
+      "version": "0.1.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": " >= 2.4.7",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/mirage": " >= 2.5.0  < 3.0.0",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/mirage-console": "*",
+        "@opam-alpha/mirage-fs-unix": "*",
+        "@opam-alpha/tcpip": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--${alcotest_enable:-disable}-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "cp",
+            "./tftp.opam/install",
+            "./tftp.install"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "tftpd",
+            "FS=direct",
+            "NET=socket",
+            "MIRFLAGS=--no-depext --no-opam"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tftp_version": {
+            "val": "0.1.4",
+            "scope": "global"
+          },
+          "tftp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tftp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mor1/ocaml-tftp/archive/0.1.4.tar.gz",
+        "checksum": "eb6ad64af44fb43cc26fb3bb753a8bc4",
+        "files": []
+      }
+    }
+  }
+}

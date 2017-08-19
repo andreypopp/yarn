@@ -1,0 +1,48 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-mysql",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mysql_config",
+            "--include"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_mysql_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_mysql_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_mysql_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

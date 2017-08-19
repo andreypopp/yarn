@@ -1,0 +1,191 @@
+{
+  "versions": {
+    "4.3.0": {
+      "name": "@opam-alpha/dose3",
+      "version": "4.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.6",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/conf-perl": "",
+        "@opam-alpha/extlib": " >= 1.7.0",
+        "@opam-alpha/extlib-compat": " >= 1.7.0",
+        "@opam-alpha/re": " >= 1.2.2",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cppo": "  >= 1.1.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "installlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose3_version": {
+            "val": "4.3.0",
+            "scope": "global"
+          },
+          "dose3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/35797/dose3-4.3.tar.gz",
+        "checksum": "bb8b6be9a9d10b8b5e1906fac3861284",
+        "files": []
+      }
+    },
+    "5.0.0": {
+      "name": "@opam-alpha/dose3",
+      "version": "5.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.6",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/conf-perl": "",
+        "@opam-alpha/extlib": " >= 1.7.0",
+        "@opam-alpha/extlib-compat": " >= 1.7.0",
+        "@opam-alpha/re": " >= 1.2.2",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cppo": "  >= 1.1.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "installlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose3_version": {
+            "val": "5.0.0",
+            "scope": "global"
+          },
+          "dose3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/35975/dose3-5.0.tar.gz",
+        "checksum": "228c6a73a0759783fd01181047046610",
+        "files": []
+      }
+    },
+    "5.0.1": {
+      "name": "@opam-alpha/dose3",
+      "version": "5.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": " >= 1.8.6",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/conf-perl": "",
+        "@opam-alpha/extlib": " >= 1.7.0",
+        "@opam-alpha/extlib-compat": " >= 1.7.0",
+        "@opam-alpha/re": " >= 1.2.2",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cppo": "  >= 1.1.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "printconf"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "installlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose3_version": {
+            "val": "5.0.1",
+            "scope": "global"
+          },
+          "dose3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/36063/dose3-5.0.1.tar.gz",
+        "checksum": "e7d4b1840383c6732f29a47c08ba5650",
+        "files": [
+          {
+            "name": "0001-Install-mli-cmx-etc.patch",
+            "content": "From b5314c20d8e3caf62fe0dc96ad937a2950158b23 Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Thu, 2 Mar 2017 12:19:56 +0100\nSubject: [PATCH] Install mli, cmx, etc.\n\n---\n Makefile | 26 +++++++++++++-------------\n 1 file changed, 13 insertions(+), 13 deletions(-)\n\ndiff --git a/Makefile b/Makefile\nindex 09464ff..5044d7f 100644\n--- a/Makefile\n+++ b/Makefile\n@@ -56,7 +56,7 @@ $(DOSELIBS)/cudf.%:\n \t@for i in _build/cudf/cudf.*; do \\\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -67,7 +67,7 @@ $(DOSELIBS)/common.%: common/*.ml common/*.mli\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -78,7 +78,7 @@ $(DOSELIBS)/versioning.%: versioning/*.ml versioning/*.mli\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -88,7 +88,7 @@ $(DOSELIBS)/algo.%: algo/*.ml algo/*.mli $(DOSELIBS)/common.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -98,7 +98,7 @@ $(DOSELIBS)/debian.%: deb/*.ml deb/*.mli $(DOSELIBS)/pef.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -108,7 +108,7 @@ $(DOSELIBS)/opam.%: opam/*.ml opam/*.mli $(DOSELIBS)/pef.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -118,7 +118,7 @@ $(DOSELIBS)/npm.%: npm/*.ml npm/*.mli $(DOSELIBS)/versioning.% $(DOSELIBS)/pef.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -128,7 +128,7 @@ $(DOSELIBS)/rpm.%: rpm/*.ml $(DOSELIBS)/algo.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -138,7 +138,7 @@ $(DOSELIBS)/pef.%: pef/*.ml pef/*.mli\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -148,7 +148,7 @@ $(DOSELIBS)/csw.%: opencsw/*.ml $(DOSELIBS)/versioning.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack ; \\\n \t  fi ; \\\n \tdone\n \n@@ -158,7 +158,7 @@ $(DOSELIBS)/doseparse.%: $(DOSELIBS)/pef.% $(DOSELIBS)/debian.%\n \t  if [ -e $$i ]; then \\\n \t  cp $$i $(DOSELIBS) ; \\\n \t\trm $$i ;\\\n-\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx $(DOSELIBS)/*.ml ; \\\n+\t  rm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.ml ; \\\n \t  fi ; \\\n \tdone\n \n@@ -168,7 +168,7 @@ $(DOSELIBS)/doseparseNoRpm.%: $(DOSELIBS)/pef.% $(DOSELIBS)/debian.%\n \t  if [ -e $$i ]; then \\\n \t\t\tcp $$i $(DOSELIBS) ;\\\n \t\t\trm $$i ;\\\n-\t\t\trm -f $(DOSELIBS)/*.mlpack $(DOSELIBS)/*.cmx ;\\\n+\t\t\trm -f $(DOSELIBS)/*.mlpack ;\\\n \t  fi ; \\\n \tdone\n \n@@ -223,7 +223,7 @@ INSTALL_STUFF_ = META\n INSTALL_STUFF_ += $(wildcard _build/doselibs/*.cma _build/doselibs/*.cmi)\n INSTALL_STUFF_ += $(wildcard _build/doselibs/*.cmxa _build/doselibs/*.cmxs)\n INSTALL_STUFF_ += $(wildcard _build/doselibs/*.a)\n-#INSTALL_STUFF_ += $(wildcard _build/*/*.mli)\n+INSTALL_STUFF_ += $(wildcard _build/doselibs/*.mli) $(wildcard _build/doselibs/*.cmti) $(wildcard _build/doselibs/*.cmx)\n INSTALL_STUFF_ += $(wildcard _build/rpm/*.so)\n \n exclude_cudf = $(wildcard _build/doselibs/*cudf* _build/cudf/*)\n-- \n2.11.0\n\n"
+          },
+          {
+            "name": "0002-dont-make-printconf.patch",
+            "content": "--- a/configure\n+++ b/configure\n@@ -6552,6 +6552,3 @@ if test -n \"$ac_unrecognized_opts\" && test \"$enable_option_checking\" != no; then\n   { $as_echo \"$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts\" >&5\n $as_echo \"$as_me: WARNING: unrecognized options: $ac_unrecognized_opts\" >&2;}\n fi\n-\n-\n-make printconf\n"
+          }
+        ]
+      }
+    }
+  }
+}

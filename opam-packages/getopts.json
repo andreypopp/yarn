@@ -1,0 +1,124 @@
+{
+  "versions": {
+    "0.3.2": {
+      "name": "@opam-alpha/getopts",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/lemonade": " >= 0.2.1  < 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "getopts_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "getopts_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "getopts_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/getopts/releases/download/v0.3.2/getopts-0.3.2.tar.xz",
+        "checksum": "37a552996dd5417b8c415ec6b332dce7",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/getopts",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/lemonade": " >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "getopts_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "getopts_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "getopts_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/getopts/releases/download/v0.4.0/getopts-0.4.0.tar.xz",
+        "checksum": "7153239eebb6114763aba3f3ab81c8a3",
+        "files": []
+      }
+    }
+  }
+}

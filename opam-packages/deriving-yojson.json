@@ -1,0 +1,263 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/deriving-yojson",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/deriving": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "deriving_yojson_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "deriving_yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "deriving_yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hhugo/deriving-yojson/archive/0.2.tar.gz",
+        "checksum": "5253478b4eea4d9ecf9759207611548e",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/deriving-yojson",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/deriving": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "deriving_yojson_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "deriving_yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "deriving_yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hhugo/deriving-yojson/archive/0.3.tar.gz",
+        "checksum": "dad606360393390b5e791e35f228130a",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/deriving-yojson",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/deriving": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "deriving_yojson_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "deriving_yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "deriving_yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hhugo/deriving-yojson/archive/0.3.1.tar.gz",
+        "checksum": "895dae9cbc32456079915920990bd440",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/deriving-yojson",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/deriving": " >= 0.6.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "deriving_yojson_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "deriving_yojson_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "deriving_yojson_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hhugo/deriving-yojson/archive/0.4.tar.gz",
+        "checksum": "2ef5ad46d15e2767918061fe597fb547",
+        "files": []
+      }
+    }
+  }
+}

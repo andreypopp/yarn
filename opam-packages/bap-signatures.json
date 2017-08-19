@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/bap-signatures",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__share/bap/"
+          ],
+          [
+            "cp",
+            "sigs.zip",
+            "$cur__share/bap/sigs.zip"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bap_signatures_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "bap_signatures_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bap_signatures_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/BinaryAnalysisPlatform/bap/releases/download/v1.0.0/sigs.tar.gz",
+        "checksum": "bf7b0554000f2692d4966de358c5559f",
+        "files": []
+      }
+    }
+  }
+}

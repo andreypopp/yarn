@@ -1,0 +1,122 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/xe-unikernel-upload",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/xen-api-client": " >= 0.9.4  < 0.9.9",
+        "@opam-alpha/cstruct": " >= 1.3.0  < 2.0.0",
+        "@opam-alpha/mbr-format": " >= 0.3.0",
+        "@opam-alpha/fat-filesystem": "*",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/mirage-types": " < 2.3.0  > 2.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin",
+            "MANDIR=$cur__man/man1"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xe_unikernel_upload_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "xe_unikernel_upload_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xe_unikernel_upload_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/xe-unikernel-upload/archive/v0.4.tar.gz",
+        "checksum": "0c0fcd954e3f571e491579d5cf45d687",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/xe-unikernel-upload",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/xen-api-client": " >= 0.9.5  < 0.9.9",
+        "@opam-alpha/cstruct": " >= 1.3.0  < 2.0.0",
+        "@opam-alpha/mbr-format": " >= 0.3.0",
+        "@opam-alpha/fat-filesystem": "*",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/mirage-types": " >= 2.3.0  < 3.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin",
+            "MANDIR=$cur__man/man1"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xe_unikernel_upload_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "xe_unikernel_upload_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xe_unikernel_upload_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/xe-unikernel-upload/archive/v0.5.tar.gz",
+        "checksum": "472e7c9347867729ee830377b83933dc",
+        "files": []
+      }
+    }
+  }
+}

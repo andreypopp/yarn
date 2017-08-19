@@ -1,0 +1,130 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/future",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/solvuu_build": "",
+        "@opam-alpha/core": " >= 111.17.0  < 0.9.0",
+        "@opam-alpha/cfstream": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "native"
+          ],
+          [
+            "make",
+            "META"
+          ],
+          [
+            "make",
+            "future.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "future_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "future_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "future_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/solvuu/future/archive/v0.1.0.tar.gz",
+        "checksum": "b1d3d6c455ec2f123254b5d2995b63c1",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/future",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/solvuu-build": "  >= 0.1.0  < 0.3.0",
+        "@opam-alpha/core": " >= 111.17.0  < 0.9.0",
+        "@opam-alpha/cfstream": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "native"
+          ],
+          [
+            "make",
+            "_build/META"
+          ],
+          [
+            "make",
+            "future.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "future_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "future_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "future_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/solvuu/future/archive/v0.2.0.tar.gz",
+        "checksum": "326d426b1f3af6a7cfa33e932b1ee1ba",
+        "files": []
+      }
+    }
+  }
+}

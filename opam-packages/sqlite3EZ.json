@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/sqlite3EZ",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/ocaml-twt": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/beluga": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sqlite3EZ_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "sqlite3EZ_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sqlite3EZ_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mlin/ocaml-sqlite3EZ/archive/v0.1.0.tar.gz",
+        "checksum": "6a85e8453e132ad905654e897973229a",
+        "files": []
+      }
+    }
+  }
+}

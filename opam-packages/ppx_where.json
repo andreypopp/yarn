@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_where",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___where_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___where_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___where_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/ppx_where/archive/1.0.tar.gz",
+        "checksum": "cdb1d702a42d4b61d02012bf146286f2",
+        "files": []
+      }
+    }
+  }
+}

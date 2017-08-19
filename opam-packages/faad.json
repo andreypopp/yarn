@@ -1,0 +1,118 @@
+{
+  "versions": {
+    "0.3.2": {
+      "name": "@opam-alpha/faad",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "faad_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "faad_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "faad_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-faad/archive/0.3.2.tar.gz",
+        "checksum": "1b07f7edac8f3568765f9fc5b3560caf",
+        "files": []
+      }
+    },
+    "0.3.3": {
+      "name": "@opam-alpha/faad",
+      "version": "0.3.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "./configure",
+            "CFLAGS=-I/usr/local/include",
+            "LDFLAGS=-L/usr/local/lib",
+            "OCAMLFLAGS=-ccopt -I/usr/local/include -cclib -L/usr/local/lib",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "faad_version": {
+            "val": "0.3.3",
+            "scope": "global"
+          },
+          "faad_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "faad_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-faad/releases/download/0.3.3/ocaml-faad-0.3.3.tar.gz",
+        "checksum": "70b3bea8fc805255ff2a7f9aafe55d8c",
+        "files": []
+      }
+    }
+  }
+}

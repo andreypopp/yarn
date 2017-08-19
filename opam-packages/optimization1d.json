@@ -1,0 +1,131 @@
+{
+  "versions": {
+    "0.5.0": {
+      "name": "@opam-alpha/optimization1d",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": " >= 0.3.0  < 0.4.7",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "rm",
+            "setup.ml"
+          ],
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "optimization1d_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "optimization1d_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "optimization1d_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/782/optimization1d-0.5.tar.gz",
+        "checksum": "ef416edb300095a89bef899ec1f8dc5f",
+        "files": []
+      }
+    },
+    "0.5.1": {
+      "name": "@opam-alpha/optimization1d",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "optimization1d_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "optimization1d_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "optimization1d_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1124/optimization1d-0.5.1.tar.gz",
+        "checksum": "2297184ac14a36d23feb398b0c0eea98",
+        "files": []
+      }
+    }
+  }
+}

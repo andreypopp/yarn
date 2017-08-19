@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/posix-getopt",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ctypes": " >= 0.4.0",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/extunix": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "posix_getopt_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "posix_getopt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "posix_getopt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/toots/posix-getopt/releases/download/0.1.0/posix-getopt-0.1.0.tar.gz",
+        "checksum": "5a285e0dfc3bf293770d5310dda96127",
+        "files": []
+      }
+    }
+  }
+}

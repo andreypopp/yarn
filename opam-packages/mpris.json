@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/mpris",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/obus": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mpris_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "mpris_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mpris_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-mpris/archive/0.1.0.tar.gz",
+        "checksum": "12fbfc8ccae899fa986d3b02223fb3ab",
+        "files": []
+      }
+    }
+  }
+}

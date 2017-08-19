@@ -1,0 +1,49 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-gssapi",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "pkg-config",
+            "krb5-gssapi",
+            "mit-krb5-gssapi"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_gssapi_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_gssapi_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_gssapi_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

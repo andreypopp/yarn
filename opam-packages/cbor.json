@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/cbor",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocplib-endian": " >= 0.6.0",
+        "@opam-alpha/oasis": " >= 0.4.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${yojson_enable:-disable}-tests",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cbor_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "cbor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cbor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ygrek.org.ua/p/release/ocaml-cbor/ocaml-cbor-0.1.tar.gz",
+        "checksum": "5ff56aa9395808ef27d65685965a41d2",
+        "files": []
+      }
+    }
+  }
+}

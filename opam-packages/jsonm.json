@@ -1,0 +1,121 @@
+{
+  "versions": {
+    "0.9.1": {
+      "name": "@opam-alpha/jsonm",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uutf": " <= 0.9.4",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jsonm_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "jsonm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jsonm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/jsonm/releases/jsonm-0.9.1.tbz",
+        "checksum": "631a5dabdada83236c83056f60e42685",
+        "files": [
+          {
+            "name": "jsonm.install",
+            "content": "bin: [\n  \"?_build/test/ocamltweets.byte\" {\"ocamltweets\"}\n  \"?_build/test/ocamltweets.native\" {\"ocamltweets\"}\n  \"?_build/test/jsontrip.byte\" {\"jsontrip\"}\n  \"?_build/test/jsontrip.native\" {\"jsontrip\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/jsonm",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/uchar": "*",
+        "@opam-alpha/uutf": " >= 1.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jsonm_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "jsonm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jsonm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/jsonm/releases/jsonm-1.0.0.tbz",
+        "checksum": "d1ec89c9586c5413f39f7f1fef74dc1a",
+        "files": []
+      }
+    }
+  }
+}

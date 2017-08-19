@@ -1,0 +1,226 @@
+{
+  "versions": {
+    "1.0.12": {
+      "name": "@opam-alpha/biniou",
+      "version": "1.0.12",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-which": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "biniou_version": {
+            "val": "1.0.12",
+            "scope": "global"
+          },
+          "biniou_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "biniou_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/biniou/archive/v1.0.12.tar.gz",
+        "checksum": "2f36d212bd1ca8fef26c5f6b8f71886e",
+        "files": [
+          {
+            "name": "biniou.install",
+            "content": "bin: [\n  \"?bdump.byte\"   {\"bdump\"}\n  \"?bdump.native\" {\"bdump\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.0.5": {
+      "name": "@opam-alpha/biniou",
+      "version": "1.0.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "biniou_version": {
+            "val": "1.0.5",
+            "scope": "global"
+          },
+          "biniou_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "biniou_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/biniou/archive/v1.0.5.tar.gz",
+        "checksum": "04faafa8c3f1e3fe6e82d78330da46a0",
+        "files": [
+          {
+            "name": "biniou.install",
+            "content": "bin: [\"bdump\"]\n"
+          }
+        ]
+      }
+    },
+    "1.0.6": {
+      "name": "@opam-alpha/biniou",
+      "version": "1.0.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "biniou_version": {
+            "val": "1.0.6",
+            "scope": "global"
+          },
+          "biniou_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "biniou_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/biniou/archive/v1.0.6.tar.gz",
+        "checksum": "6210856ffee54c95324ad213ad0c322e",
+        "files": [
+          {
+            "name": "biniou.install",
+            "content": "bin: [\"bdump\"]\n"
+          }
+        ]
+      }
+    },
+    "1.0.9": {
+      "name": "@opam-alpha/biniou",
+      "version": "1.0.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-which": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "biniou_version": {
+            "val": "1.0.9",
+            "scope": "global"
+          },
+          "biniou_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "biniou_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/biniou/archive/v1.0.9.tar.gz",
+        "checksum": "2f9f355281817912ac04c589eb463ef2",
+        "files": [
+          {
+            "name": "biniou.install",
+            "content": "bin: [\"bdump\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

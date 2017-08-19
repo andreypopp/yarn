@@ -1,0 +1,138 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/result",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "result_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "result_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "result_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/result/archive/1.0.tar.gz",
+        "checksum": "01391a66385ab1a43f90455dfb5c6843",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/result",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "result_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "result_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "result_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/result/archive/1.1.tar.gz",
+        "checksum": "1e0005783d4f70e1a9772723fa0e846b",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/result",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte",
+            "result.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "result_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "result_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "result_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/result/archive/1.2.tar.gz",
+        "checksum": "3d5b66c5526918f0f2ca9d6811ef09c8",
+        "files": []
+      }
+    }
+  }
+}

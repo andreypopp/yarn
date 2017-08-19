@@ -1,0 +1,109 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/charrua-unix",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/charrua-core": " <= 0.1.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/rawlink": "*",
+        "@opam-alpha/type_conv": "",
+        "@opam-alpha/sexplib": " < 113.9.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/tuntap": "*",
+        "@opam-alpha/cstruct": " < 2.0.0",
+        "@opam-alpha/mtime": " < 1.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "charrua_unix_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "charrua_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "charrua_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/charrua-unix/archive/v0.1.tar.gz",
+        "checksum": "57feacab4ba945c40794e186524c88ea",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/charrua-unix",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/charrua-core": " >= 0.3.0  < 0.4.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/rawlink": "*",
+        "@opam-alpha/tuntap": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "charrua_unix_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "charrua_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "charrua_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/charrua-unix/archive/v0.3.tar.gz",
+        "checksum": "7b5b598181c7d1fdc675afb905ceb20d",
+        "files": []
+      }
+    }
+  }
+}

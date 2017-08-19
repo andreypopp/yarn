@@ -1,0 +1,138 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/trakeva",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/nonstd": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pvem_lwt_unix": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/sqlite3": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${sqlite3_enable:-disable}-sqlite"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "trakeva_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "trakeva_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "trakeva_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/smondet/trakeva/archive/trakeva.0.0.0.tar.gz",
+        "checksum": "41f6eab4ccc88bd882be25eeef696201",
+        "files": []
+      }
+    },
+    "0.1.0": {
+      "name": "@opam-alpha/trakeva",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/nonstd": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pvem_lwt_unix": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/postgresql": "*",
+        "@opam-alpha/sqlite3": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${sqlite3_enable:-disable}-sqlite",
+            "--${postgresql_enable:-disable}-postgresql",
+            "--disable-test",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "trakeva_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "trakeva_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "trakeva_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/smondet/trakeva/archive/trakeva.0.1.0.tar.gz",
+        "checksum": "919e8429eb79f5f9f49a2b87bf8060d1",
+        "files": []
+      }
+    }
+  }
+}

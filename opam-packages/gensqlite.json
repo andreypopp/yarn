@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/gensqlite",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/re": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gensqlite_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "gensqlite_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gensqlite_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/j0sh/ocaml-gensqlite/archive/v0.1.tar.gz",
+        "checksum": "88a291bb5300faa626b7a5f454ade614",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/odisco",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sonet": "*",
+        "@opam-alpha/atdgen": "*",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "odisco_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "odisco_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "odisco_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/discoproject/odisco/archive/v0.1.2.tar.gz",
+        "checksum": "23dcaedeee6177c4362f6d65ed9ecaf3",
+        "files": []
+      }
+    },
+    "0.1.3": {
+      "name": "@opam-alpha/odisco",
+      "version": "0.1.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sonet": "*",
+        "@opam-alpha/atdgen": "*",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "odisco_version": {
+            "val": "0.1.3",
+            "scope": "global"
+          },
+          "odisco_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "odisco_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/discoproject/odisco/archive/v0.1.3.tar.gz",
+        "checksum": "dc2850819b3437105eba31964dc802a4",
+        "files": []
+      }
+    }
+  }
+}

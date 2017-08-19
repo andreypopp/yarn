@@ -1,0 +1,106 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/deriving-ocsigen",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/type_conv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "deriving_ocsigen_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "deriving_ocsigen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "deriving_ocsigen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ocsigen.org/download/deriving-ocsigen-0.3c.tar.gz",
+        "checksum": "fec1ca031fc988034e2b681d62da60e8",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/deriving-ocsigen",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/optcomp": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/type_conv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "deriving_ocsigen_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "deriving_ocsigen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "deriving_ocsigen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ocsigen.org/download/deriving-ocsigen-0.5.tar.gz",
+        "checksum": "aa184cea103311504bb305acf885acf1",
+        "files": []
+      }
+    }
+  }
+}

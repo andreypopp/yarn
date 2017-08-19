@@ -1,0 +1,48 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-libpng",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "pkg-config",
+            "libpng"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_libpng_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_libpng_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_libpng_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

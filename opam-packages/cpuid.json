@@ -1,0 +1,109 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/cpuid",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "  >= 0.9.3",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/result": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cpuid_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "cpuid_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cpuid_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/cpuid/releases/download/v0.0.1/cpuid-0.0.1.tbz",
+        "checksum": "163387039f01a369796eb21866ce21a7",
+        "files": []
+      }
+    },
+    "0.1.0": {
+      "name": "@opam-alpha/cpuid",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/ocb-stubblr": "  >= 0.1.0",
+        "@opam-alpha/result": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--tests",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cpuid_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "cpuid_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cpuid_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/cpuid/releases/download/v0.1.0/cpuid-0.1.0.tbz",
+        "checksum": "3455fc5b92033168608ca11d58424e9f",
+        "files": []
+      }
+    }
+  }
+}

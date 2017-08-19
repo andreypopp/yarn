@@ -1,0 +1,910 @@
+{
+  "versions": {
+    "1.10.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.10.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.2.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "findlib-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.10.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.10.0.tar.gz",
+        "checksum": "669f73d76349a5a96e4dc2d31f8337f6",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n  \"atdgen-cppo/atdgen-cppo\"\n  \"atdgen-cppo/cppo-json\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.2.2": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": "=1.0.2",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.2.2",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.2.2.tar.gz",
+        "checksum": "90dc173506001aa78dbb7b7f2c81bb49",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.2.3": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.0.2",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.2.3",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.2.3.tar.gz",
+        "checksum": "06156ff3ef4018ffcbafd753f160c09c",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.2.4": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.2.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.0.3",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.2.4",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.2.4.tar.gz",
+        "checksum": "1063919cad87e826c66caaed16c2ba2e",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.3.0.tar.gz",
+        "checksum": "f70213e38cbd7c377027a84393055f66",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.1": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.3.1",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.3.1.tar.gz",
+        "checksum": "d174594241bf9dc934ad57e684e0203e",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.4.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.4.0.tar.gz",
+        "checksum": "f4d3372425d8f96133e75dd6297e1b1a",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.4.1": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.4.1",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.4.1.tar.gz",
+        "checksum": "a373cdb4c002aba5a481fc333f380d74",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.5.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.5.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.5.0.tar.gz",
+        "checksum": "d61df581c79a5e8f1b438a5c5350e969",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"atdgen.run\"\n  \"atdgen\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.6.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.6.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.6.0.tar.gz",
+        "checksum": "5802165609615ac81848d7cc82e26d30",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.6.1": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.6.1",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.6.1.tar.gz",
+        "checksum": "a0201fa2cadddbaeaeb26b6efb7b391e",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.7.1": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "findlib-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.7.1",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.7.1.tar.gz",
+        "checksum": "7d2065ef55cfae5861508e6869a024d4",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.7.2": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.7.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "findlib-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.7.2",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.7.2.tar.gz",
+        "checksum": "472ca5134d152c7bbe658847e6ebcb4c",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.8.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "findlib-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.8.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.8.0.tar.gz",
+        "checksum": "259a3bc682c2f7c82b2ccadec52c63d2",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n  \"atdgen-cppo/atdgen-cppo\"\n  \"atdgen-cppo/cppo-json\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.9.0": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "findlib-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.9.0",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.9.0.tar.gz",
+        "checksum": "6413643524957c6ffe856eb82873ec56",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n  \"atdgen-cppo/atdgen-cppo\"\n  \"atdgen-cppo/cppo-json\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.9.1": {
+      "name": "@opam-alpha/atdgen",
+      "version": "1.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/atd": " >= 1.1.0",
+        "@opam-alpha/biniou": " >= 1.0.6",
+        "@opam-alpha/yojson": " >= 1.2.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "findlib-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "atdgen_version": {
+            "val": "1.9.1",
+            "scope": "global"
+          },
+          "atdgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "atdgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/atdgen/archive/v1.9.1.tar.gz",
+        "checksum": "00af8222f31ff8de5119bd5349778fa3",
+        "files": [
+          {
+            "name": "atdgen.install",
+            "content": "bin: [\n  \"src/atdgen.run\" {\"atdgen.run\"}\n  \"src/atdgen\" {\"atdgen\"}\n  \"atdgen-cppo/atdgen-cppo\"\n  \"atdgen-cppo/cppo-json\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

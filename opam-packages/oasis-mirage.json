@@ -1,0 +1,72 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/oasis-mirage",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/fileutils": "*",
+        "@opam-alpha/ocaml-data-notation": "*",
+        "@opam-alpha/ocamlify": "*",
+        "@opam-alpha/ocamlmod": "*",
+        "@opam-alpha/ocamlbuild": " < 0.9.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "oasis_mirage_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "oasis_mirage_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "oasis_mirage_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/avsm/oasis/archive/avsm+mirage-xen2.tar.gz",
+        "checksum": "daa43bde8b8519091847c4447b8fba11",
+        "files": [
+          {
+            "name": "oasis.install",
+            "content": "bin: [\n  \"_build/src/cli/Main.byte\" {\"oasis\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

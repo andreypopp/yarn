@@ -1,0 +1,187 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/mm",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/alsa": "*",
+        "@opam-alpha/ao": "*",
+        "@opam-alpha/pulseaudio": "*",
+        "@opam-alpha/gstreamer": "*",
+        "@opam-alpha/mad": "*",
+        "@opam-alpha/ogg": "*",
+        "@opam-alpha/ocamlsdl": "*",
+        "@opam-alpha/theora": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mm_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "mm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-mm/0.2.0/ocaml-mm-0.2.0.tar.gz",
+        "checksum": "319ce1604208c852835a20f8953cd676",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/mm",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/alsa": "*",
+        "@opam-alpha/ao": "*",
+        "@opam-alpha/pulseaudio": "*",
+        "@opam-alpha/gstreamer": "*",
+        "@opam-alpha/mad": "*",
+        "@opam-alpha/ogg": "*",
+        "@opam-alpha/ocamlsdl": "*",
+        "@opam-alpha/theora": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mm_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "mm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-mm/0.2.1/ocaml-mm-0.2.1.tar.gz",
+        "checksum": "bc0e63868eef60eb7a6ca61abb7a78d4",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/mm",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/alsa": "*",
+        "@opam-alpha/ao": "*",
+        "@opam-alpha/pulseaudio": "*",
+        "@opam-alpha/gstreamer": "*",
+        "@opam-alpha/mad": "*",
+        "@opam-alpha/ogg": "*",
+        "@opam-alpha/ocamlsdl": "*",
+        "@opam-alpha/theora": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mm_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "mm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-mm/releases/download/0.3.0/ocaml-mm-0.3.0.tar.gz",
+        "checksum": "6f29ba0342179d1eeff5314915b9572b",
+        "files": []
+      }
+    }
+  }
+}

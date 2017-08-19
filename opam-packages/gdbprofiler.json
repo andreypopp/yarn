@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/gdbprofiler",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/lwt": " >= 2.4.6",
+        "@opam-alpha/ppx_deriving_yojson": " >= 2.0.0",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/containers": " >= 0.20.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gdbprofiler_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "gdbprofiler_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gdbprofiler_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/copy/gdbprofiler/archive/0.1.tar.gz",
+        "checksum": "2aa855591d164a1b8fa682c4a4e0ceb7",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "versions": {
+    "2.5.0": {
+      "name": "@opam-alpha/sundialsml",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mpi": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make",
+            "install-findlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sundialsml_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "sundialsml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sundialsml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inria-parkas/sundialsml/archive/v2.5.0p0.zip",
+        "checksum": "ee0c22de275b1f26cab4ecfb08315c02",
+        "files": []
+      }
+    },
+    "2.5.1": {
+      "name": "@opam-alpha/sundialsml",
+      "version": "2.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mpi": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make",
+            "install-findlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sundialsml_version": {
+            "val": "2.5.1",
+            "scope": "global"
+          },
+          "sundialsml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sundialsml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inria-parkas/sundialsml/archive/v2.5.0p1.zip",
+        "checksum": "04454bd6b5278bcc65e8fe410dd33f1e",
+        "files": []
+      }
+    },
+    "2.5.2": {
+      "name": "@opam-alpha/sundialsml",
+      "version": "2.5.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mpi": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make",
+            "install-findlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sundialsml_version": {
+            "val": "2.5.2",
+            "scope": "global"
+          },
+          "sundialsml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sundialsml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inria-parkas/sundialsml/archive/v2.5.0p2.zip",
+        "checksum": "479095cc1cd4d9988cfe2e4848496b98",
+        "files": []
+      }
+    },
+    "2.6.20": {
+      "name": "@opam-alpha/sundialsml",
+      "version": "2.6.20",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mpi": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--stubdir=$cur__lib/stublibs/",
+            "--libdir=$cur__lib/",
+            "--docdir=$cur__doc/"
+          ],
+          [
+            "make",
+            "install-findlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sundialsml_version": {
+            "val": "2.6.20",
+            "scope": "global"
+          },
+          "sundialsml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sundialsml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inria-parkas/sundialsml/archive/v2.6.2p0.zip",
+        "checksum": "91985c269fb326d758bef9db044a433a",
+        "files": []
+      }
+    },
+    "2.6.21": {
+      "name": "@opam-alpha/sundialsml",
+      "version": "2.6.21",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mpi": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--stubdir=$cur__lib/stublibs/",
+            "--libdir=$cur__lib/",
+            "--docdir=$cur__doc/"
+          ],
+          [
+            "make",
+            "install-findlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sundialsml_version": {
+            "val": "2.6.21",
+            "scope": "global"
+          },
+          "sundialsml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sundialsml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inria-parkas/sundialsml/archive/v2.6.2p1.zip",
+        "checksum": "71fd10d67a87969d9fda2cbc188124f4",
+        "files": []
+      }
+    },
+    "2.7.0": {
+      "name": "@opam-alpha/sundialsml",
+      "version": "2.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mpi": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--stubdir=$cur__lib/stublibs/",
+            "--libdir=$cur__lib/",
+            "--docdir=$cur__doc/"
+          ],
+          [
+            "make",
+            "install-findlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sundialsml_version": {
+            "val": "2.7.0",
+            "scope": "global"
+          },
+          "sundialsml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sundialsml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/inria-parkas/sundialsml/archive/v2.7.0p0.zip",
+        "checksum": "bf22a8235c5ba25e4c3e5428ca876dbb",
+        "files": []
+      }
+    }
+  }
+}

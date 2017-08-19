@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/mirage-btrees",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bisect_ppx": " >= 1.0.0",
+        "@opam-alpha/cstruct": " >= 1.8.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_btrees_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "mirage_btrees_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_btrees_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ruhatch/mirage-btrees/archive/0.1.0.tar.gz",
+        "checksum": "2dc15ec59a043ccf93c91db9adec978e",
+        "files": []
+      }
+    }
+  }
+}

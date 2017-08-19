@@ -1,0 +1,403 @@
+{
+  "versions": {
+    "0.6.10": {
+      "name": "@opam-alpha/piqilib",
+      "version": "0.6.10",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/optcomp": "*",
+        "@opam-alpha/base64": " < 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "ocaml"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "ocaml-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "piqilib_version": {
+            "val": "0.6.10",
+            "scope": "global"
+          },
+          "piqilib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "piqilib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alavrik/piqi/archive/v0.6.10.tar.gz",
+        "checksum": "d676fab660a8e1f3e89aefd58d79562b",
+        "files": []
+      }
+    },
+    "0.6.12": {
+      "name": "@opam-alpha/piqilib",
+      "version": "0.6.12",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/optcomp": "*",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/base-bytes": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "ocaml"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "ocaml-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "piqilib_version": {
+            "val": "0.6.12",
+            "scope": "global"
+          },
+          "piqilib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "piqilib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alavrik/piqi/archive/v0.6.12.tar.gz",
+        "checksum": "0b0a780d066bb04d60590a203c3cb75d",
+        "files": []
+      }
+    },
+    "0.6.13": {
+      "name": "@opam-alpha/piqilib",
+      "version": "0.6.13",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/optcomp": "*",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/base-bytes": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "ocaml"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "ocaml-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "piqilib_version": {
+            "val": "0.6.13",
+            "scope": "global"
+          },
+          "piqilib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "piqilib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alavrik/piqi/archive/v0.6.13.tar.gz",
+        "checksum": "028d964856c6555c631a8a13b46a4c6c",
+        "files": []
+      }
+    },
+    "0.6.6": {
+      "name": "@opam-alpha/piqilib",
+      "version": "0.6.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "ocaml"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "ocaml-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "piqilib_version": {
+            "val": "0.6.6",
+            "scope": "global"
+          },
+          "piqilib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "piqilib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alavrik/piqi/archive/v0.6.6.tar.gz",
+        "checksum": "5bf3c30bc1d7b3996a85aaae32b121b1",
+        "files": []
+      }
+    },
+    "0.6.8": {
+      "name": "@opam-alpha/piqilib",
+      "version": "0.6.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/optcomp": "*",
+        "@opam-alpha/base64": " < 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "ocaml"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "ocaml-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "piqilib_version": {
+            "val": "0.6.8",
+            "scope": "global"
+          },
+          "piqilib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "piqilib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alavrik/piqi/archive/v0.6.8.tar.gz",
+        "checksum": "8cede03ada38e1778936db39f3757bc6",
+        "files": []
+      }
+    },
+    "0.6.9": {
+      "name": "@opam-alpha/piqilib",
+      "version": "0.6.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/optcomp": "*",
+        "@opam-alpha/base64": " < 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "ocaml"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "ocaml-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "piqilib_version": {
+            "val": "0.6.9",
+            "scope": "global"
+          },
+          "piqilib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "piqilib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alavrik/piqi/archive/v0.6.9.tar.gz",
+        "checksum": "d5256c6e1636617cf61cd010034a99e6",
+        "files": []
+      }
+    }
+  }
+}

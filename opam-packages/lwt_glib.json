@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/lwt_glib",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lwt": " >= 2.7.0  < 3.0.0",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "install",
+            "lwt_glib",
+            "src/glib/META"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lwt___glib_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "lwt___glib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lwt___glib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocsigen/lwt/archive/2.7.0.tar.gz",
+        "checksum": "cee770cf9edbda92578c873e7e4c6105",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.0.9": {
+      "name": "@opam-alpha/sanlock",
+      "version": "0.0.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ctypes": " >= 0.4.0",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sanlock_version": {
+            "val": "0.0.9",
+            "scope": "global"
+          },
+          "sanlock_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sanlock_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/simonjbeaumont/ocaml-sanlock/archive/v0.0.9/ocaml-sanlock-v0.0.9.tar.gz",
+        "checksum": "712d5707256ac339bb2abb9f5b5f6eaf",
+        "files": []
+      }
+    }
+  }
+}

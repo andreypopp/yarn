@@ -1,0 +1,181 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/mixture",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mixture_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "mixture_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mixture_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/mixture/releases/download/v0.2.0/mixture-0.2.0.tar.xz",
+        "checksum": "9a29767deb358c0fedbfc5a09c6a3b4f",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/mixture",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mixture_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "mixture_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mixture_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/mixture/releases/download/v0.2.1/mixture-0.2.1.tar.xz",
+        "checksum": "8ce007c1546384bf75af61156c927309",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/mixture",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mixture_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "mixture_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mixture_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/mixture/releases/download/v1.0.0/mixture-1.0.0.tar.xz",
+        "checksum": "db7edf005da69124f53d818dfaf908d0",
+        "files": []
+      }
+    }
+  }
+}

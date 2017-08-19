@@ -1,0 +1,486 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.1.0.tar.gz",
+        "checksum": "81621f380af1e1bee85e2022903569d7",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.2.0.tar.gz",
+        "checksum": "ec836339c5c10aafe79f9d26eee3cb96",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.3.0.tar.gz",
+        "checksum": "916df2c2cc03435df5572be600bf1784",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/records",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.3.1.tar.gz",
+        "checksum": "7d071d50958fb4fcb7c747efb4fa93b6",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.4.0.tar.gz",
+        "checksum": "262697bf0e3075c92f38898c207bac1c",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.5.0.tar.gz",
+        "checksum": "260af3bc1c1c1435cb42d902609bc6b2",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/bisect_ppx": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/archive/v0.6.0.tar.gz",
+        "checksum": "3d59a568ab0af54f3f00a9c8997a918b",
+        "files": []
+      }
+    },
+    "0.7.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/topkg": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/releases/download/v0.7.0/records-0.7.0.tbz",
+        "checksum": "30e69590355367dc1dbc1c6cfde80b50",
+        "files": []
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/records",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/topkg": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "records_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "records_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "records_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/records/releases/download/v0.8.0/records-0.8.0.tbz",
+        "checksum": "d67b3315208072bf9a3e99d834a1cbec",
+        "files": []
+      }
+    }
+  }
+}

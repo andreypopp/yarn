@@ -1,0 +1,50 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-libuv",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-pkg-config": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "pkg-config",
+            "libuv",
+            "--atleast-version=1"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_libuv_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_libuv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_libuv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "versions": {
+    "0.9.9": {
+      "name": "@opam-alpha/mirage-clock-xen",
+      "version": "0.9.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-build"
+          ],
+          [
+            "make",
+            "xen-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_clock_xen_version": {
+            "val": "0.9.9",
+            "scope": "global"
+          },
+          "mirage_clock_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_clock_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-clock/archive/v0.9.9.tar.gz",
+        "checksum": "9851fdf8293fe8eee16dc19f24c92d1c",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/mirage-clock-xen",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types": " >= 0.3.0  < 3.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-build"
+          ],
+          [
+            "make",
+            "xen-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_clock_xen_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "mirage_clock_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_clock_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-clock/archive/v1.0.0.tar.gz",
+        "checksum": "c20135e5bac324fb9009a54986cf615f",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/mirage-clock-xen",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types": " >= 0.3.0  < 3.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-build"
+          ],
+          [
+            "make",
+            "xen-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_clock_xen_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "mirage_clock_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_clock_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-clock/archive/v1.1.tar.gz",
+        "checksum": "ad5516ca38c796217b7203abd4360dda",
+        "files": []
+      }
+    }
+  }
+}

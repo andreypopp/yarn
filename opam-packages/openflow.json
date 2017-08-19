@@ -1,0 +1,252 @@
+{
+  "versions": {
+    "0.7.0": {
+      "name": "@opam-alpha/openflow",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/packet": " >= 0.3.1",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/quickcheck": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${async_enable:-disable}-async",
+            "--${quickcheck_enable:-disable}-quickcheck"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "openflow_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "openflow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "openflow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-openflow/archive/v0.7.0.tar.gz",
+        "checksum": "d8a293f6ce1744102bd588f609a7fe78",
+        "files": []
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/openflow",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/packet": " >= 0.3.1",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/async": " >= 112.6.0  < 112.17.0",
+        "@opam-alpha/quickcheck": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/pa_ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${pa___ounit_enable:-disable}-tests"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "openflow_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "openflow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "openflow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-openflow/archive/v0.8.0.tar.gz",
+        "checksum": "09055ddc4e3e2a4c94dc7ffa868af59b",
+        "files": []
+      }
+    },
+    "0.9.0": {
+      "name": "@opam-alpha/openflow",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 112.35.0",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/packet": " >= 0.3.1",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/async": " >= 112.17.0",
+        "@opam-alpha/quickcheck": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/pa_ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${pa___ounit_enable:-disable}-tests"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "openflow_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "openflow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "openflow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-openflow/archive/v0.9.0.tar.gz",
+        "checksum": "18fec9861b83af8888f77076711eed1e",
+        "files": []
+      }
+    },
+    "0.9.1": {
+      "name": "@opam-alpha/openflow",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " < 112.35.0",
+        "@opam-alpha/cstruct": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/packet": " >= 0.3.1",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/async": " >= 112.17.0",
+        "@opam-alpha/quickcheck": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/pa_ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${pa___ounit_enable:-disable}-tests"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "openflow_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "openflow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "openflow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-openflow/archive/v0.9.1.tar.gz",
+        "checksum": "16eb012526501cf28729ef873b359889",
+        "files": []
+      }
+    }
+  }
+}

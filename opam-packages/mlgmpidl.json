@@ -1,0 +1,220 @@
+{
+  "versions": {
+    "1.2.1": {
+      "name": "@opam-alpha/mlgmpidl",
+      "version": "1.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/conf-gmp": "*",
+        "@opam-alpha/conf-mpfr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mlgmpidl_version": {
+            "val": "1.2.1",
+            "scope": "global"
+          },
+          "mlgmpidl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mlgmpidl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nberth/mlgmpidl/archive/1.2.1.tar.gz",
+        "checksum": "5e43e58a14847020aff03271779ffdd5",
+        "files": []
+      }
+    },
+    "1.2.2": {
+      "name": "@opam-alpha/mlgmpidl",
+      "version": "1.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/conf-gmp": "*",
+        "@opam-alpha/conf-mpfr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mlgmpidl_version": {
+            "val": "1.2.2",
+            "scope": "global"
+          },
+          "mlgmpidl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mlgmpidl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nberth/mlgmpidl/archive/1.2.2-1.tar.gz",
+        "checksum": "c22aab7a888908c3859474d71d15fd75",
+        "files": []
+      }
+    },
+    "1.2.3": {
+      "name": "@opam-alpha/mlgmpidl",
+      "version": "1.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/conf-gmp": "*",
+        "@opam-alpha/conf-mpfr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mlgmpidl_version": {
+            "val": "1.2.3",
+            "scope": "global"
+          },
+          "mlgmpidl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mlgmpidl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nberth/mlgmpidl/archive/1.2.3.tar.gz",
+        "checksum": "21d50f3a267e4fd2ff1ec6b2dad99584",
+        "files": []
+      }
+    },
+    "1.2.4": {
+      "name": "@opam-alpha/mlgmpidl",
+      "version": "1.2.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/conf-gmp": "*",
+        "@opam-alpha/conf-mpfr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mlgmpidl_version": {
+            "val": "1.2.4",
+            "scope": "global"
+          },
+          "mlgmpidl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mlgmpidl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nberth/mlgmpidl/archive/1.2.4.tar.gz",
+        "checksum": "7b77c3c3cde3ed18b46b00cf7cf57dc5",
+        "files": []
+      }
+    }
+  }
+}

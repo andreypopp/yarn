@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/ocplib-simplex",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-autoconf": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "autoconf"
+          ],
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocplib_simplex_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "ocplib_simplex_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocplib_simplex_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/OCamlPro-Iguernlala/ocplib-simplex/archive/0.3.tar.gz",
+        "checksum": "ef6d61360bc1ed6c6f273dd723c71016",
+        "files": []
+      }
+    }
+  }
+}

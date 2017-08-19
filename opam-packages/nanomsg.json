@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/nanomsg",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-nanomsg": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ctypes": " >= 0.2.0",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/containers": " >= 0.7.0",
+        "@opam-alpha/ipaddr": " >= 2.2.0",
+        "@opam-alpha/ppx_deriving": " >= 1.0.0  < 3.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "lwt=${lwt_installed:-false}",
+            "ounit=${ounit_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "nanomsg_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "nanomsg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "nanomsg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/rgrinberg/onanomsg/archive/1.0.tar.gz",
+        "checksum": "5590f8df8accfc38e015032f794cca68",
+        "files": []
+      }
+    }
+  }
+}

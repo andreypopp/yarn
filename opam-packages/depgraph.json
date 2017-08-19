@@ -1,0 +1,51 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/depgraph",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/ocamlgraph": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "depgraph_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "depgraph_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "depgraph_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/ocaml-depgraph/archive/v0.1.0.tar.gz",
+        "checksum": "fe2edddf8ecfcf6b40fcc22ebe6992f7",
+        "files": []
+      }
+    }
+  }
+}

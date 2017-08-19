@@ -1,0 +1,106 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/setr",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/mlbdd": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "setr_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "setr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "setr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/arlencox/SETr/archive/v0.1.tar.gz",
+        "checksum": "56618f3f7a90e8eb9885a094fd306b8c",
+        "files": []
+      }
+    },
+    "0.1.1": {
+      "name": "@opam-alpha/setr",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/mlbdd": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "setr_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "setr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "setr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/arlencox/SETr/archive/v0.1.1.tar.gz",
+        "checksum": "07484d7fc9623196950cde9aff7167ca",
+        "files": []
+      }
+    }
+  }
+}

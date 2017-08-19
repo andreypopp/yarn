@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/lipsum",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/re": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lipsum_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "lipsum_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lipsum_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lindig/lipsum/archive/v0.2.zip",
+        "checksum": "68080f850882d90c6936b0c1343eb66b",
+        "files": []
+      }
+    }
+  }
+}
