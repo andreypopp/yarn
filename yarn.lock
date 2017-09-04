@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@esy-ocaml/esy-opam@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@esy-ocaml/esy-opam/-/esy-opam-0.0.3.tgz#560dc0f0b71701f8f31da4458042f1efad7fc022"
+
 "@gulp-sourcemaps/identity-map@1.X":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@gulp-sourcemaps/identity-map/-/identity-map-1.0.1.tgz#cfa23bc5840f9104ce32a65e74db7e7a974bbee1"
@@ -1791,10 +1795,6 @@ estraverse@~4.1.0:
 esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
-
-esy-opam@esy-ocaml/esy-opam#cd397cb:
-  version "0.0.1"
-  resolved "https://codeload.github.com/esy-ocaml/esy-opam/tar.gz/cd397cb"
 
 event-emitter@~0.3.5:
   version "0.3.5"
