@@ -4,7 +4,7 @@ const loudRejection = require('loud-rejection');
 const fs = require('fs');
 const errno = require('errno');
 const path = require('path');
-const {parseOpam, renderOpam, parseOpamUrl, renderOpamUrl} = require('esy-opam');
+const {parseOpam, renderOpam, parseOpamUrl, renderOpamUrl} = require('@esy-ocaml/esy-opam');
 const {promisify} = require('../../lib/util/promise');
 
 loudRejection();
