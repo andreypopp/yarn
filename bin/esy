@@ -82,7 +82,7 @@ callBuiltInCommand__buildEject () {
     # Capture the error output
     # Capturing stderr is very important to prevent nodejs from setting
     # stderr to nonblocking mode
-    EJECT_LOG=`node $SCRIPTDIR/../esy/bin/esy.js build-eject "$BUILD_EJECT_PATH" 2>&1`
+    EJECT_LOG=`node $SCRIPTDIR/../esy/bin/esy.js build-eject "$BUILD_EJECT_PATH" $@ 2>&1`
     if [ $? -ne 0 ]; then
       echo "Failed to prepare build environment:"
       printf "%s\n" "$EJECT_LOG" >&2
@@ -140,6 +140,13 @@ printHelp() {
   build-eject           Creates node_modules/.cache/esy/build-eject/Makefile,
                         which is later can be used for building without the NodeJS
                         runtime.
+
+                        Unsupported form: build-eject [cygwin | linux | darwin]
+                        Ejects a build for the specific platform. This
+                        build-eject form is not officially supported and will
+                        be removed soon. It is currently here for debugging
+                        purposes.
+
 
   import-opam           Read a provided opam file and print esy-enabled
                         package.json conents on stdout. Example:
@@ -217,6 +224,9 @@ else
   case $1 in
     import-opam)
       callBuiltInCommand import-opam "$@"
+      ;;
+    build-eject)
+      callBuiltInCommand__buildEject "$@"
       ;;
     add)
       callBuiltInCommand__yarn "$@"
