@@ -132,6 +132,8 @@ printHelp() {
                         environment - meaning it also inherits your existing
                         shell.
 
+  release TYPE          Create a release of type TYPE ("dev", "pack" or "bin").
+
   print-env             Prints esy environment on stdout.
 
   build-shell           Drops into a shell with environment matching your
@@ -230,6 +232,9 @@ else
       ;;
     add)
       callBuiltInCommand__yarn "$@"
+      ;;
+    release)
+      callBuiltInCommand release $@
       ;;
     -*)
       echo Unknown option "$1" >&2
