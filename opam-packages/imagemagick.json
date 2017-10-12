@@ -1,0 +1,249 @@
+{
+  "versions": {
+    "0.33.0": {
+      "name": "@opam-alpha/imagemagick",
+      "version": "0.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imagemagick_version": {
+            "val": "0.33.0",
+            "scope": "global"
+          },
+          "imagemagick_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imagemagick_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/besport/ocaml-imagemagick/tarball/0.33",
+        "checksum": "3ba64daac34acb3c38ec78cef09bb122",
+        "files": []
+      }
+    },
+    "0.33.1": {
+      "name": "@opam-alpha/imagemagick",
+      "version": "0.33.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imagemagick_version": {
+            "val": "0.33.1",
+            "scope": "global"
+          },
+          "imagemagick_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imagemagick_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/besport/ocaml-imagemagick/tarball/0.33.1",
+        "checksum": "9c7e6e567922409b5b8c8f02207da6b2",
+        "files": []
+      }
+    },
+    "0.33.2": {
+      "name": "@opam-alpha/imagemagick",
+      "version": "0.33.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imagemagick_version": {
+            "val": "0.33.2",
+            "scope": "global"
+          },
+          "imagemagick_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imagemagick_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/besport/ocaml-imagemagick/tarball/0.33.2",
+        "checksum": "30d23f4d8c8bb39aa977af20979e3111",
+        "files": []
+      }
+    },
+    "0.34.0": {
+      "name": "@opam-alpha/imagemagick",
+      "version": "0.34.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "find_install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imagemagick_version": {
+            "val": "0.34.0",
+            "scope": "global"
+          },
+          "imagemagick_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imagemagick_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.linux-nantes.org/~fmonnier/OCaml/ImageMagick/downloads/OCaml-ImageMagick-0.34.tgz",
+        "checksum": "d4e28dce94ccefba878ad31016f05fe4",
+        "files": []
+      }
+    },
+    "0.341.0": {
+      "name": "@opam-alpha/imagemagick",
+      "version": "0.341.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "find_install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imagemagick_version": {
+            "val": "0.341.0",
+            "scope": "global"
+          },
+          "imagemagick_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imagemagick_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.linux-nantes.org/~fmonnier/OCaml/ImageMagick/downloads/OCaml-ImageMagick-0.34.tgz",
+        "checksum": "d4e28dce94ccefba878ad31016f05fe4",
+        "files": [
+          {
+            "name": "fix_build.patch",
+            "content": "--- Makefile-\t2015-12-14 16:15:26.261118345 +0100\n+++ Makefile\t2015-12-14 16:15:32.093254187 +0100\n@@ -21,16 +21,13 @@\n # | 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA    |\n # +-----------------------------------------------------------------+\n \n-# path to the MagickCore-config utility\n-MAGICK_INSTALLED_BIN := $(shell which MagickCore-config)\n+MAGICK_INSTALLED_BIN := pkg-config\n \n-MAGICK_PREFIX := $(shell $(MAGICK_INSTALLED_BIN) --prefix)\n-\n-MAGICK_CLIBS := $(shell $(MAGICK_INSTALLED_BIN) --libs)\n+MAGICK_CLIBS := $(shell $(MAGICK_INSTALLED_BIN) --libs ImageMagick)\n \n MAGICK_CLIBS_ := $(shell ocaml mlarg.ml $(MAGICK_CLIBS))\n \n-MAGICK_CFLAGS := $(shell $(MAGICK_INSTALLED_BIN) --cflags)\n+MAGICK_CFLAGS := $(shell $(MAGICK_INSTALLED_BIN) --cflags ImageMagick)\n \n OCAML_DIR := $(shell ocamlc -where)\n #OCAML_DIR := $(shell ocamlfind printconf stdlib)\n"
+          }
+        ]
+      }
+    }
+  }
+}

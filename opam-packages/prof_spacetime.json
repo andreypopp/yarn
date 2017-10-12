@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/prof_spacetime",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/cohttp": " < 0.99.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/lambda-term": "*",
+        "@opam-alpha/spacetime_lib": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "prof___spacetime_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "prof___spacetime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "prof___spacetime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lpw25/prof_spacetime/archive/0.1.0.tar.gz",
+        "checksum": "1ab584662ce36307659c7d79bb691c0d",
+        "files": []
+      }
+    }
+  }
+}

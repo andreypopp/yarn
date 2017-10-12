@@ -1,0 +1,392 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/genet",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/xtmpl": " >= 0.5.0  < 0.8.0",
+        "@opam-alpha/mysql": " >= 1.0.4",
+        "@opam-alpha/pcre": " >= 6.2.5",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/ocamldot": " >= 1.0.0",
+        "@opam-alpha/rdf": " >= 0.3.0  < 0.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "genet_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "genet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "genet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/genet/genet-0.1.tar.gz",
+        "checksum": "807a4a297ba32a3a177b6ddf04d1a141",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/genet",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/menhir": " >= 20120123.0.0  < 20140422.0.0",
+        "@opam-alpha/xtmpl": " >= 0.5.0  < 0.8.0",
+        "@opam-alpha/mysql": " >= 1.0.4",
+        "@opam-alpha/pcre": " >= 6.2.5",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/ocamldot": " >= 1.0.0",
+        "@opam-alpha/rdf": " >= 0.3.0  < 0.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "genet_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "genet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "genet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/genet/genet-0.2.tar.gz",
+        "checksum": "8a839c8fe8e0ab99abfaea1d45d3fea0",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/genet",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/xtmpl": " >= 0.5.0  <= 0.7.0",
+        "@opam-alpha/mysql": " >= 1.0.4",
+        "@opam-alpha/pcre": " >= 6.2.5",
+        "@opam-alpha/ocamlnet": " >= 3.6.0",
+        "@opam-alpha/ocamldot": " >= 1.0.0",
+        "@opam-alpha/rdf": "=0.4.0",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "genet_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "genet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "genet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/genet/genet-0.3.tar.gz",
+        "checksum": "66e6d71b78d997e23e6a820e6e481396",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/genet",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/xtmpl": " >= 0.5.0  <= 0.7.0",
+        "@opam-alpha/mysql": " >= 1.1.1",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ocamldot": " >= 1.0.0",
+        "@opam-alpha/rdf": "=0.6.0",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "genet_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "genet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "genet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/genet/genet-0.4.tar.gz",
+        "checksum": "5dcba076865a9a020ecf44537dbfcffe",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/genet",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/xtmpl": "=0.6.0",
+        "@opam-alpha/mysql": " >= 1.1.1",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ocamldot": " >= 1.0.0",
+        "@opam-alpha/rdf": " >= 0.7.0",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "genet_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "genet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "genet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/genet/genet-0.5.tar.gz",
+        "checksum": "42dc4a3150dc730b5b4b10bf7038672d",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/genet",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/menhir": " >= 20120123.0.0",
+        "@opam-alpha/xtmpl": " >= 0.8.0",
+        "@opam-alpha/mysql": " >= 1.1.1",
+        "@opam-alpha/pcre": " >= 7.0.2",
+        "@opam-alpha/ocamlnet": " >= 3.6.5",
+        "@opam-alpha/ocamldot": " >= 1.0.0",
+        "@opam-alpha/rdf": " >= 0.8.0",
+        "@opam-alpha/conf-gnomecanvas": "=2.0.0",
+        "@opam-alpha/conf-glade": "=2.0.0",
+        "@opam-alpha/postgresql": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "genet_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "genet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "genet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/genet/genet-0.6.tar.gz",
+        "checksum": "ac3aca5272d1e09180fdb50f42c5f8bb",
+        "files": []
+      }
+    }
+  }
+}

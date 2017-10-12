@@ -1,0 +1,122 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/configuration",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.1",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "configuration_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "configuration_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "configuration_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/configuration/releases/download/v0.4.0/configuration-0.4.0.tar.xz",
+        "checksum": "842d6b9c9b4e41a2dfec2296efdd8572",
+        "files": []
+      }
+    },
+    "0.4.1": {
+      "name": "@opam-alpha/configuration",
+      "version": "0.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.1",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "configuration_version": {
+            "val": "0.4.1",
+            "scope": "global"
+          },
+          "configuration_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "configuration_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/configuration/releases/download/v0.4.1/configuration-0.4.1.tar.xz",
+        "checksum": "02e0db2faaaacc47003c973bd54ccb93",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "1.3.0": {
+      "name": "@opam-alpha/usb",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": " >= 0.3.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": " >= 2.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "usb_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "usb_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "usb_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/946/ocaml-usb-1.3.0.tar.gz",
+        "checksum": "df0cfb6ace35ac8f183735ed284e21fb",
+        "files": []
+      }
+    }
+  }
+}

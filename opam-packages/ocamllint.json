@@ -1,0 +1,158 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/ocamllint",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/ppx_deriving": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamllint_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ocamllint_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamllint_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/ocamllint/archive/v0.1.0.tar.gz",
+        "checksum": "b61c8bd5d9942f187bdd73a0e4e448e6",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/ocamllint",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_tools": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamllint_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "ocamllint_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamllint_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/ocamllint/archive/v0.2.0.tar.gz",
+        "checksum": "f09848b2dd24fb574a1d50545cac08ea",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/ocamllint",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_tools": " >= 5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamllint_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "ocamllint_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamllint_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/cryptosense/ocamllint/archive/v0.3.0.tar.gz",
+        "checksum": "225f5182cdfc40ee6c71ad0367c971ce",
+        "files": []
+      }
+    }
+  }
+}

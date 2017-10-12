@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/assertions",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "assertions_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "assertions_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "assertions_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/bennn/assertions/archive/0.1.tar.gz",
+        "checksum": "2021486112f018aafc818bce8c318a7a",
+        "files": []
+      }
+    }
+  }
+}

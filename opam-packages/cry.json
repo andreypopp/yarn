@@ -1,0 +1,163 @@
+{
+  "versions": {
+    "0.2.2": {
+      "name": "@opam-alpha/cry",
+      "version": "0.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cry_version": {
+            "val": "0.2.2",
+            "scope": "global"
+          },
+          "cry_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cry_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-cry/0.2.2/ocaml-cry-0.2.2.tar.gz",
+        "checksum": "1de9dda722710f939b08ab68fb77a4bc",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/cry",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cry_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "cry_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cry_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-cry/releases/download/0.3.0/ocaml-cry-0.3.0.tar.gz",
+        "checksum": "5730b72e4be65b657caad27c38c0c103",
+        "files": []
+      }
+    },
+    "0.4.1": {
+      "name": "@opam-alpha/cry",
+      "version": "0.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cry_version": {
+            "val": "0.4.1",
+            "scope": "global"
+          },
+          "cry_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cry_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-cry/releases/download/0.4.1/ocaml-cry-0.4.1.tar.gz",
+        "checksum": "297c72df25a6010182b89496108bd8d6",
+        "files": []
+      }
+    }
+  }
+}

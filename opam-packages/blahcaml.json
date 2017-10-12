@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "2.1.0": {
+      "name": "@opam-alpha/blahcaml",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pxp": "*",
+        "@opam-alpha/xstrp4": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "blahcaml_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "blahcaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "blahcaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1219/blahcaml-2.1.tgz",
+        "checksum": "b93d355bfc0a77ff3d26e996773292a3",
+        "files": []
+      }
+    }
+  }
+}

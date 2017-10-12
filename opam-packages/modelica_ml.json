@@ -1,0 +1,147 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/modelica_ml",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ANSITerminal": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_deriving": " >= 1.1.0",
+        "@opam-alpha/sedlex": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "modelica___ml_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "modelica___ml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "modelica___ml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/choeger/modelica.ml/archive/v0.1.1.tar.gz",
+        "checksum": "5983a59ff05c8feadb6bedf24195752c",
+        "files": [
+          {
+            "name": "modelica.ml.install",
+            "content": "bin: [\n  \"?_build/test/parse_modelica.byte\" {\"parse_modelica\"}\n  \"?_build/test/parse_modelica.native\" {\"parse_modelica\"}\n  \"?_build/test/modelica_frontend_tests.byte\" {\"modelica_frontend_tests\"}\n  \"?_build/test/modelica_frontend_tests.native\" {\"modelica_frontend_tests\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/modelica_ml",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlgraph": "*",
+        "@opam-alpha/ppx_deriving": "=1.0.0",
+        "@opam-alpha/ppx_deriving_yojson": "=2.0.0",
+        "@opam-alpha/ppx_import": "*",
+        "@opam-alpha/ppx_monadic": "*",
+        "@opam-alpha/sedlex": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "modelica___ml_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "modelica___ml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "modelica___ml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/choeger/modelica.ml/archive/v0.2.0.tar.gz",
+        "checksum": "5c1780b0a016f106ccc256b0a6f0b388",
+        "files": [
+          {
+            "name": "modelica.ml.install",
+            "content": "bin: [\n  \"?_build/test/modclread.byte\" {\"modclread\"}\n  \"?_build/test/modclread.native\" {\"modclread\"}\n  \"?_build/test/modcl.byte\" {\"modcl\"}\n  \"?_build/test/modcl.native\" {\"modcl\"}\n  \"?_build/test/modclc.byte\" {\"modclc\"}\n  \"?_build/test/modclc.native\" {\"modclc\"}\n  \"?_build/test/parse_package.byte\" {\"parse_pkg\"}\n  \"?_build/test/parse_package.native\" {\"parse_pkg\"}\n  \"?_build/test/parse_modelica.byte\" {\"parse_modelica\"}\n  \"?_build/test/parse_modelica.native\" {\"parse_modelica\"}\n  \"?_build/test/modelica_frontend_tests.byte\" {\"modelica_frontend_tests\"}\n  \"?_build/test/modelica_frontend_tests.native\" {\"modelica_frontend_tests\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

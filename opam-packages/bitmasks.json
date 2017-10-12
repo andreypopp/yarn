@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/bitmasks",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bitmasks_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "bitmasks_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bitmasks_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1386/bitmasks-1.0.0.tar.gz",
+        "checksum": "5f3e3092eac1a535db3f9996e10b4b45",
+        "files": []
+      }
+    }
+  }
+}

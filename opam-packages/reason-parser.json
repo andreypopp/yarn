@@ -1,0 +1,418 @@
+{
+  "versions": {
+    "1.12.0": {
+      "name": "@opam-alpha/reason-parser",
+      "version": "1.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": " >= 20160303.0.0  < 20170418.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": "=5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_parser_version": {
+            "val": "1.12.0",
+            "scope": "global"
+          },
+          "reason_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/releases/download/reason-parser-1.12.0/reason-parser-1.12.0.tar.gz",
+        "checksum": "3f4834052a844b52eeab5bfd5dc1de4a",
+        "files": []
+      }
+    },
+    "1.13.0": {
+      "name": "@opam-alpha/reason-parser",
+      "version": "1.13.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": " >= 20160303.0.0  < 20170418.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": "=5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_parser_version": {
+            "val": "1.13.0",
+            "scope": "global"
+          },
+          "reason_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/releases/download/1.13.0/reason-parser-1.13.0.tar.gz",
+        "checksum": "eae8c60393e6a330d80122c4301a26b6",
+        "files": []
+      }
+    },
+    "1.13.2": {
+      "name": "@opam-alpha/reason-parser",
+      "version": "1.13.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": " >= 20160303.0.0  < 20170418.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": "=5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_parser_version": {
+            "val": "1.13.2",
+            "scope": "global"
+          },
+          "reason_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/releases/download/1.13.2/reason-parser-1.13.2.tar.gz",
+        "checksum": "e659d1f545c46a8c565e9f243cdd01df",
+        "files": []
+      }
+    },
+    "1.13.3": {
+      "name": "@opam-alpha/reason-parser",
+      "version": "1.13.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": " >= 20160303.0.0  < 20170418.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": "=5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_parser_version": {
+            "val": "1.13.3",
+            "scope": "global"
+          },
+          "reason_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/releases/download/1.13.3/reason-parser-1.13.3.tar.gz",
+        "checksum": "508a12282898b62af72a0d40a2b4322c",
+        "files": []
+      }
+    },
+    "1.13.5": {
+      "name": "@opam-alpha/reason-parser",
+      "version": "1.13.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "=20170418.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": " >= 5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_parser_version": {
+            "val": "1.13.5",
+            "scope": "global"
+          },
+          "reason_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/releases/download/1.13.5/reason-parser-1.13.5.tar.gz",
+        "checksum": "e19b0caf980a629cb97b38fd5922abd0",
+        "files": []
+      }
+    },
+    "1.13.6": {
+      "name": "@opam-alpha/reason-parser",
+      "version": "1.13.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "=20170418.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": " >= 5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_parser_version": {
+            "val": "1.13.6",
+            "scope": "global"
+          },
+          "reason_parser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_parser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/releases/download/1.13.6/reason-parser-1.13.6.tar.gz",
+        "checksum": "577ff7e580c65e7e52d899b0c738d69d",
+        "files": []
+      }
+    }
+  }
+}

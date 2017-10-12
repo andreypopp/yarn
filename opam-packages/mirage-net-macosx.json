@@ -1,0 +1,180 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/mirage-net-macosx",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/io-page": " >= 1.2.0  < 1.4.0",
+        "@opam-alpha/vmnet": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_macosx_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "mirage_net_macosx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_macosx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-net-macosx/archive/v1.0.0.tar.gz",
+        "checksum": "acbb49d060c5d788ff049e6501553d3e",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/mirage-net-macosx",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/io-page": " >= 1.4.0",
+        "@opam-alpha/vmnet": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_macosx_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "mirage_net_macosx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_macosx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-net-macosx/archive/v1.1.0.tar.gz",
+        "checksum": "3a3ef093f7002539bf7d88dd6223ba56",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/mirage-net-macosx",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/cstruct": " >= 1.4.0",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/io-page": " >= 1.4.0",
+        "@opam-alpha/vmnet": "*",
+        "@opam-alpha/logs": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_macosx_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "mirage_net_macosx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_macosx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-net-macosx/releases/download/1.2.0/mirage-net-macosx-1.2.0.tbz",
+        "checksum": "0b5537c8dacf9e0d7a7181f87bee61e7",
+        "files": []
+      }
+    }
+  }
+}

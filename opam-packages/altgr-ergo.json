@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "1.30.0": {
+      "name": "@opam-alpha/altgr-ergo",
+      "version": "1.30.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/zarith": " >= 1.4.0",
+        "@opam-alpha/lablgtk": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/ocplib-simplex": "=0.3.0",
+        "@opam-alpha/conf-gtksourceview": "=2.0.0",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "gui"
+          ],
+          [
+            "make",
+            "install-gui",
+            "MANDIR=$cur__man"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "altgr_ergo_version": {
+            "val": "1.30.0",
+            "scope": "global"
+          },
+          "altgr_ergo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "altgr_ergo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://alt-ergo.ocamlpro.com/http/alt-ergo-1.30/alt-ergo-1.30.tar.gz",
+        "checksum": "c7100ebd625fbd7d3e5247dbac689748",
+        "files": []
+      }
+    }
+  }
+}

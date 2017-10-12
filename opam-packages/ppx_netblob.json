@@ -1,0 +1,116 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_netblob",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/cohttp": "  < 0.99.0",
+        "@opam-alpha/lwt": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "native-code"
+          ],
+          [
+            "make",
+            "byte-code"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___netblob_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___netblob_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___netblob_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/chrismamo1/ppx_netblob/archive/v1.0.tar.gz",
+        "checksum": "46b03bf597715f52d8b089a55d7b0d0c",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/ppx_netblob",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/cohttp": "  < 0.99.0",
+        "@opam-alpha/lwt": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "native-code"
+          ],
+          [
+            "make",
+            "byte-code"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___netblob_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "ppx___netblob_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___netblob_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/chrismamo1/ppx_netblob/archive/v1.1.tar.gz",
+        "checksum": "f721ec08b3adb22e4058aaa353c86164",
+        "files": []
+      }
+    }
+  }
+}

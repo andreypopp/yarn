@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/http_router",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "http___router_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "http___router_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "http___router_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/bhoflack/http_router/archive/v0.1.2.zip",
+        "checksum": "b12fbcb44441a35a219cd749596285fb",
+        "files": []
+      }
+    }
+  }
+}

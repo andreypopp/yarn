@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.7.0": {
+      "name": "@opam-alpha/libevent",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "depend"
+          ],
+          [
+            "make",
+            "all",
+            "allopt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "libevent_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "libevent_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "libevent_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://ygrek.org.ua/p/release/ocaml-libevent/ocaml-libevent-0.7.0.tar.gz",
+        "checksum": "ae5fcfcee0b9793d082a94505a34e611",
+        "files": []
+      }
+    }
+  }
+}

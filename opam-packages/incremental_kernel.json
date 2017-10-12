@@ -1,0 +1,129 @@
+{
+  "versions": {
+    "113.33.0": {
+      "name": "@opam-alpha/incremental_kernel",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core_kernel": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental___kernel_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "incremental___kernel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental___kernel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/incremental_kernel-113.33.00.tar.gz",
+        "checksum": "07ec43ef8cdbbc078654b3d3a7d6e0c2",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/incremental_kernel",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core_kernel": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "incremental___kernel_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "incremental___kernel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "incremental___kernel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/incremental_kernel-113.33.03.tar.gz",
+        "checksum": "89de7454800d09285e5549874ac2e0f9",
+        "files": []
+      }
+    }
+  }
+}

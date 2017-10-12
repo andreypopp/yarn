@@ -1,0 +1,269 @@
+{
+  "versions": {
+    "0.8.0": {
+      "name": "@opam-alpha/mysql_protocol",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mysql___protocol_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "mysql___protocol_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mysql___protocol_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1178/ocmp-0.8.tgz",
+        "checksum": "a225a5feb1cecb12ba7ce457664e71cd",
+        "files": []
+      }
+    },
+    "0.9.0": {
+      "name": "@opam-alpha/mysql_protocol",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mysql___protocol_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "mysql___protocol_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mysql___protocol_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1267/ocmp-0.9.tgz",
+        "checksum": "80ece3c0e9a6e271ab7006e5e25da948",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/mysql_protocol",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mysql___protocol_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "mysql___protocol_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mysql___protocol_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/slegrand45/mysql_protocol/archive/v1.0.tar.gz",
+        "checksum": "eff1e4338043336338d7eeb054c5c811",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/mysql_protocol",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mysql___protocol_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "mysql___protocol_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mysql___protocol_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/slegrand45/mysql_protocol/archive/v1.1.tar.gz",
+        "checksum": "b9cdb49736e1e8d12660d202987e539a",
+        "files": []
+      }
+    },
+    "2.0.0": {
+      "name": "@opam-alpha/mysql_protocol",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mysql___protocol_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "mysql___protocol_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mysql___protocol_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/slegrand45/mysql_protocol/archive/v2.0.tar.gz",
+        "checksum": "f6d1e97971f02861e4c03027b9e14c50",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/broken",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "broken_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "broken_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "broken_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/broken/releases/download/v0.3.0/broken-0.3.0.tar.xz",
+        "checksum": "6303ef2cfb50269c42e156ef3e60909b",
+        "files": []
+      }
+    },
+    "0.4.2": {
+      "name": "@opam-alpha/broken",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "broken_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "broken_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "broken_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/broken/releases/download/v0.4.2/broken-0.4.2.tar.xz",
+        "checksum": "bfe86ff5f38631dfa643e98e02793d05",
+        "files": []
+      }
+    }
+  }
+}

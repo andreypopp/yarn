@@ -1,0 +1,93 @@
+{
+  "versions": {
+    "20120224.0.0": {
+      "name": "@opam-alpha/mlgmp",
+      "version": "20120224.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-gmp": "*",
+        "@opam-alpha/conf-mpfr": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "rm -f *.cmo *.cmi *.cma *.cmxa *.o *.a *.cmx *.cmxs"
+          ],
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "mkdir",
+            "-p",
+            "_build"
+          ],
+          [
+            "cp",
+            "conversions.c",
+            "_build/conversions.c"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mlgmp_version": {
+            "val": "20120224.0.0",
+            "scope": "global"
+          },
+          "mlgmp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mlgmp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www-verimag.imag.fr/~monniaux/download/mlgmp_20120224.tar.gz",
+        "checksum": "7001db70f5fed91f230b459425129f96",
+        "files": [
+          {
+            "name": "_oasis",
+            "content": "OASISFormat: 0.3\nName:        gmp\nVersion:     20120224\nSynopsis:    GMP\nAuthors:     Jean-Christophe Filliatre.\nLicense:     ISC\nPlugins:     META (0.3)\nBuildTools:  ocamlbuild\n\nLibrary gmp\n  Path: .\n  Modules: Gmp\n  CSources: mlgmp_z.c,mlgmp_q.c,mlgmp_f.c,mlgmp_fr.c,mlgmp_random.c,mlgmp_misc.c,config.h,mlgmp.h\n  CCLib: -L/usr/local/lib -lgmp -lmpfr\n  CCOpt: -I/usr/local/include -Wall\n"
+          },
+          {
+            "name": "fix-extern-declarations.diff",
+            "content": "Description: Update extern declarations for [de]serialize functions to match ocaml 4.04 definitions.\nAuthor: Dimitri John Ledkov <xnox@ubuntu.com>\n\n--- mlgmp-20021123.orig/config.h\n+++ mlgmp-20021123/config.h\n@@ -58,11 +58,11 @@\n #define MPFR_SIZE_ARCH32 16\n #define MPFR_SIZE_ARCH64 24\n \n-extern void serialize_int_4(int32 i);\n+extern void serialize_int_4(int32_t i);\n extern void serialize_block_1(void * data, long len);\n \n-extern uint32 deserialize_uint_4(void);\n-extern int32 deserialize_sint_4(void);\n+extern uint32_t deserialize_uint_4(void);\n+extern int32_t deserialize_sint_4(void);\n extern void deserialize_block_1(void * data, long len);\n \n #endif /* SERIALIZE */\n"
+          }
+        ]
+      }
+    }
+  }
+}

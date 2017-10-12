@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/pci-db",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pci_db_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "pci_db_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pci_db_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/simonjbeaumont/ocaml-pci-db/archive/0.3.0.tar.gz",
+        "checksum": "a70d017e2a0e7782e0473e16c45f5aa7",
+        "files": []
+      }
+    }
+  }
+}

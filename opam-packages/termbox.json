@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/termbox",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "termbox_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "termbox_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "termbox_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pacemkr/ocaml-termbox/tarball/v0.1.0",
+        "checksum": "3013e202a71b02c209777b2bd34fdb6e",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "2.5.0": {
+      "name": "@opam-alpha/opam-core",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocp-build": "  >= 1.99.7",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/ocamlgraph": " >= 1.8.5",
+        "@opam-alpha/re": " >= 1.5.0",
+        "@opam-alpha/jsonm": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-checks",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "opam-core"
+          ],
+          [
+            "make",
+            "opam-core.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_core_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "opam_core_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_core_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/opam/archive/2.0-alpha5+1.tar.gz",
+        "checksum": "f8a571ba9132a08d1de90cce499b0fb3",
+        "files": []
+      }
+    }
+  }
+}

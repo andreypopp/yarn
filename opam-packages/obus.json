@@ -1,0 +1,193 @@
+{
+  "versions": {
+    "1.1.5": {
+      "name": "@opam-alpha/obus",
+      "version": "1.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/react": " < 1.0.0",
+        "@opam-alpha/type_conv": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "obus_version": {
+            "val": "1.1.5",
+            "scope": "global"
+          },
+          "obus_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "obus_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1026/obus-1.1.5.tar.gz",
+        "checksum": "d8d25c4b40aebcf6d219cba39490278a",
+        "files": []
+      }
+    },
+    "1.1.6": {
+      "name": "@opam-alpha/obus",
+      "version": "1.1.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/react": " >= 1.0.0",
+        "@opam-alpha/type_conv": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "obus_version": {
+            "val": "1.1.6",
+            "scope": "global"
+          },
+          "obus_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "obus_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/diml/obus/archive/1.1.6.tar.gz",
+        "checksum": "935f941a34145230dfb9e59d715cc1fd",
+        "files": []
+      }
+    },
+    "1.1.7": {
+      "name": "@opam-alpha/obus",
+      "version": "1.1.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/react": " >= 1.0.0",
+        "@opam-alpha/type_conv": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "obus_version": {
+            "val": "1.1.7",
+            "scope": "global"
+          },
+          "obus_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "obus_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/diml/obus/archive/1.1.7.tar.gz",
+        "checksum": "3a82fde56e3c98084847cf40b4aae7d0",
+        "files": []
+      }
+    }
+  }
+}

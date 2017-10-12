@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/pbs",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/nonstd": "*",
+        "@opam-alpha/sosa": "*",
+        "@opam-alpha/pvem": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pbs_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "pbs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pbs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/smondet/pbs/archive/pbs.0.2.0.tar.gz",
+        "checksum": "7505740ab3a8ea73e23c6c5368690c75",
+        "files": []
+      }
+    }
+  }
+}

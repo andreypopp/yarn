@@ -1,0 +1,100 @@
+{
+  "versions": {
+    "4.0.0": {
+      "name": "@opam-alpha/tyxml-ppx",
+      "version": "4.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/tyxml": " >= 4.0.0",
+        "@opam-alpha/markup": " >= 0.7.2",
+        "@opam-alpha/ppx_tools": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "query",
+            "tyxml.ppx"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tyxml_ppx_version": {
+            "val": "4.0.0",
+            "scope": "global"
+          },
+          "tyxml_ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tyxml_ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "4.0.1": {
+      "name": "@opam-alpha/tyxml-ppx",
+      "version": "4.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/tyxml": " >= 4.0.1",
+        "@opam-alpha/markup": " >= 0.7.2",
+        "@opam-alpha/ppx_tools": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "query",
+            "tyxml.ppx"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tyxml_ppx_version": {
+            "val": "4.0.1",
+            "scope": "global"
+          },
+          "tyxml_ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tyxml_ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

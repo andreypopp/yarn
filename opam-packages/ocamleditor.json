@@ -1,0 +1,338 @@
+{
+  "versions": {
+    "1.12.0": {
+      "name": "@opam-alpha/ocamleditor",
+      "version": "1.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/xml-light": " >= 2.2.0",
+        "@opam-alpha/ocurl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "build.ml",
+            "ocamleditor"
+          ],
+          [
+            "ocaml",
+            "tools/install.ml",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamleditor_version": {
+            "val": "1.12.0",
+            "scope": "global"
+          },
+          "ocamleditor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamleditor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ftovagliari/ocamleditor/archive/1.12.0.tar.gz",
+        "checksum": "fc666d77f9e545310d241df8cde095aa",
+        "files": []
+      }
+    },
+    "1.13.1": {
+      "name": "@opam-alpha/ocamleditor",
+      "version": "1.13.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/xml-light": " >= 2.2.0",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/ocamldiff": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "build.ml",
+            "ocamleditor"
+          ],
+          [
+            "ocaml",
+            "tools/install.ml",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamleditor_version": {
+            "val": "1.13.1",
+            "scope": "global"
+          },
+          "ocamleditor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamleditor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ftovagliari/ocamleditor/archive/1.13.1.tar.gz",
+        "checksum": "bcc1793c9cab53fc2dc67ad937b7fbb7",
+        "files": []
+      }
+    },
+    "1.13.2": {
+      "name": "@opam-alpha/ocamleditor",
+      "version": "1.13.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/xml-light": " >= 2.2.0",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/ocamldiff": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "build.ml",
+            "ocamleditor"
+          ],
+          [
+            "ocaml",
+            "tools/install.ml",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamleditor_version": {
+            "val": "1.13.2",
+            "scope": "global"
+          },
+          "ocamleditor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamleditor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ftovagliari/ocamleditor/archive/1.13.2.tar.gz",
+        "checksum": "31a8c43e8f487fdca9c4436db75e3a5d",
+        "files": []
+      }
+    },
+    "1.13.3": {
+      "name": "@opam-alpha/ocamleditor",
+      "version": "1.13.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/xml-light": " >= 2.2.0",
+        "@opam-alpha/ocurl": " >= 0.6.0",
+        "@opam-alpha/ocamldiff": " >= 1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "build.ml",
+            "ocamleditor"
+          ],
+          [
+            "ocaml",
+            "tools/install.ml",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamleditor_version": {
+            "val": "1.13.3",
+            "scope": "global"
+          },
+          "ocamleditor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamleditor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ftovagliari/ocamleditor/archive/1.13.3.tar.gz",
+        "checksum": "1e038c4d0cf8a3b00b473e643bb223a1",
+        "files": []
+      }
+    },
+    "1.13.4": {
+      "name": "@opam-alpha/ocamleditor",
+      "version": "1.13.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": " >= 2.18.0",
+        "@opam-alpha/xml-light": " >= 2.2.0",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/ocamldiff": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "build.ml",
+            "ocamleditor"
+          ],
+          [
+            "ocaml",
+            "tools/install.ml",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamleditor_version": {
+            "val": "1.13.4",
+            "scope": "global"
+          },
+          "ocamleditor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamleditor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ftovagliari/ocamleditor/archive/1.13.4.tar.gz",
+        "checksum": "a25741f590631c824a6d741ebb6248de",
+        "files": []
+      }
+    },
+    "1.9.2": {
+      "name": "@opam-alpha/ocamleditor",
+      "version": "1.9.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": " >= 2.16.0",
+        "@opam-alpha/xml-light": " >= 2.2.0",
+        "@opam-alpha/ocurl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "build.ml",
+            "ocamleditor"
+          ],
+          [
+            "ocaml",
+            "tools/install.ml",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamleditor_version": {
+            "val": "1.9.2",
+            "scope": "global"
+          },
+          "ocamleditor_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamleditor_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/AltGr/ocamleditor/archive/1.9.0-2.tar.gz",
+        "checksum": "e6bd11cf5f33c661c402f8dd886a8814",
+        "files": []
+      }
+    }
+  }
+}

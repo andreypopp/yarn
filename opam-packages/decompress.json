@@ -1,0 +1,234 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/decompress",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "decompress_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "decompress_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "decompress_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/oklm-wsh/Decompress/archive/0.1.tar.gz",
+        "checksum": "6d9914dfbabe486bb4ab62d71ade1bc1",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/decompress",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "decompress_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "decompress_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "decompress_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/oklm-wsh/Decompress/archive/0.2.tar.gz",
+        "checksum": "d44d4c5f07b1a00c9a60af05800b2b2d",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/decompress",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/re": "",
+        "@opam-alpha/cstruct": "",
+        "@opam-alpha/camlzip": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${base_unix_enable:-disable}-unix",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "decompress_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "decompress_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "decompress_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/oklm-wsh/Decompress/archive/0.3.tar.gz",
+        "checksum": "e35c92aea4b3135e4b07bc75f0afb84c",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/decompress",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/re": "",
+        "@opam-alpha/camlzip": "",
+        "@opam-alpha/cmdliner": "",
+        "@opam-alpha/ctypes": "",
+        "@opam-alpha/ctypes-foreign": "",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${base_unix_enable:-disable}-unix",
+            "--prefix=$cur__install",
+            "--${cmdliner_enable:-disable}-cmdliner"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "decompress_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "decompress_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "decompress_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/oklm-wsh/Decompress/archive/0.4.tar.gz",
+        "checksum": "32f4db760f033d1fcd139eb327d70a64",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cfstream",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/core": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "rm",
+            "-f",
+            "configure.om"
+          ],
+          [
+            "omake"
+          ],
+          [
+            "omake",
+            "cfstream.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfstream_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cfstream_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfstream_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/biocaml/cfstream/archive/cfstream-1.0.0.tar.gz",
+        "checksum": "08b26ea9b21ecb50635d4d63b7dab4ed",
+        "files": []
+      }
+    },
+    "1.1.1": {
+      "name": "@opam-alpha/cfstream",
+      "version": "1.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/core": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake",
+            "PREFIX=$cur__install",
+            "COMPILE_TEST=false"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfstream_version": {
+            "val": "1.1.1",
+            "scope": "global"
+          },
+          "cfstream_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfstream_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/biocaml/cfstream/archive/1.1.1.tar.gz",
+        "checksum": "914b69f09b1faa1d0e4fd9075985f39d",
+        "files": []
+      }
+    },
+    "1.1.2": {
+      "name": "@opam-alpha/cfstream",
+      "version": "1.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/core_kernel": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake",
+            "PREFIX=$cur__install",
+            "COMPILE_TEST=false"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfstream_version": {
+            "val": "1.1.2",
+            "scope": "global"
+          },
+          "cfstream_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfstream_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/biocaml/cfstream/releases/download/v1.1.2/cfstream-1.1.2.tar.gz",
+        "checksum": "c08b6e71b25b0d281270076e2d08f4b9",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/cfstream",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/core_kernel": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake",
+            "PREFIX=$cur__install",
+            "COMPILE_TEST=false"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfstream_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "cfstream_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfstream_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/biocaml/cfstream/archive/1.2.0.tar.gz",
+        "checksum": "2ea6b953909d44b1120d4b2c297e109a",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "versions": {
+    "3.4.0": {
+      "name": "@opam-alpha/conf-llvm",
+      "version": "3.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-which": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-x",
+            "configure",
+            "os"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_llvm_version": {
+            "val": "3.4.0",
+            "scope": "global"
+          },
+          "conf_llvm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_llvm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "configure",
+            "content": "#!/bin/sh\n\nconfig=\"llvm-config-3.4\"\n\nif ! which $config ; then\n    [ \"os-$1\" == \"os-darwin\" ] && config=\"llvm-config-mp-3.4\"\nfi\n\ncat > conf-llvm.config <<EOF\nconfig: \"$config\"\nversion: \"`$config --version`\"\nEOF\n"
+          }
+        ]
+      }
+    },
+    "3.8.0": {
+      "name": "@opam-alpha/conf-llvm",
+      "version": "3.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "bash",
+            "-ex",
+            "configure.sh",
+            "version"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_llvm_version": {
+            "val": "3.8.0",
+            "scope": "global"
+          },
+          "conf_llvm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_llvm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "configure.sh",
+            "content": "#!/bin/bash -ex\n\nversion=\"$1\"\n\nif hash brew 2>/dev/null; then\n    brew_llvm_config=\"$(brew --cellar)\"/llvm*/${version}*/bin/llvm-config\nfi\n\nshopt -s nullglob\nfor llvm_config in llvm-config-$version llvm-config${version//./} llvm-config-mp-$version $brew_llvm_config llvm-config; do\n    llvm_version=\"`$llvm_config --version`\" || true\n    case $llvm_version in\n    $version*)\n        echo \"config: \\\"$llvm_config\\\"\" >> conf-llvm.config\n        echo \"version: \\\"$llvm_version\\\"\" >> conf-llvm.config\n        exit 0;;\n    *)\n        echo \"Note: '$llvm_config' doesn't match the required version. Got '$llvm_version' but required '$version'.\"\n        continue;;\n    esac\ndone\n\necho \"Error: LLVM ${version} is not installed.\"\nexit 1\n"
+          }
+        ]
+      }
+    }
+  }
+}

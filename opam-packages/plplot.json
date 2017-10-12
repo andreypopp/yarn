@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "5.11.0": {
+      "name": "@opam-alpha/plplot",
+      "version": "5.11.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "plplot_version": {
+            "val": "5.11.0",
+            "scope": "global"
+          },
+          "plplot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "plplot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/ocaml-plplot/archive/v5.11.0.tar.gz",
+        "checksum": "b73c6801b42187695d9d3aae96696143",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "versions": {
+    "0.6.1": {
+      "name": "@opam-alpha/plasma",
+      "version": "0.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "=3.6.0",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlgraph": "=1.8.2",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/xstrp4": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-bindir",
+            "$cur__bin",
+            "-sharedir",
+            "$cur__lib/plasma/share"
+          ],
+          [
+            "omake"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "plasma_version": {
+            "val": "0.6.1",
+            "scope": "global"
+          },
+          "plasma_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "plasma_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/plasma-0.6.1.tar.gz",
+        "checksum": "d8fb26f1c2157ffccaa4fae1931d0787",
+        "files": [
+          {
+            "name": "plasma.install",
+            "content": "bin: [\n  \"src/pfs_daemon/plasmad.opt\" {\"plasmad\"}\n  \"src/pkv/plasma_kv_httpd_demo.opt\" {\"plasma_kv_httpd_demo\"}\n  \"src/pkv/plasma_kv.opt\" {\"plasma_kv\"}\n  \"src/pfs_admin/plasma_datanode_init.opt\" {\"plasma_datanode_init\"}\n  \"src/mr_framework/plasma_convert.opt\" {\"plasma_convert\"}\n  \"src/pfs_admin/plasma_admin.opt\" {\"plasma_admin\"}\n  \"src/plasmaclient/plasma.opt\" {\"plasma\"}\n  \"src/pfs_nfs3/nfs3d.opt\" {\"nfs3d\"}\n  \"src/mr_framework/mr_streaming.opt\" {\"mr_streaming\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.6.2": {
+      "name": "@opam-alpha/plasma",
+      "version": "0.6.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlgraph": "=1.8.2",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/xstrp4": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-bindir",
+            "$cur__bin",
+            "-sharedir",
+            "$cur__lib/plasma/share"
+          ],
+          [
+            "omake"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "plasma_version": {
+            "val": "0.6.2",
+            "scope": "global"
+          },
+          "plasma_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "plasma_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/plasma-0.6.2.tar.gz",
+        "checksum": "b7d4b449c62893e0bbab5ac82b7a7ad1",
+        "files": [
+          {
+            "name": "plasma.install",
+            "content": "bin: [\n  \"src/pfs_daemon/plasmad.opt\" {\"plasmad\"}\n  \"src/pkv/plasma_kv_httpd_demo.opt\" {\"plasma_kv_httpd_demo\"}\n  \"src/pkv/plasma_kv.opt\" {\"plasma_kv\"}\n  \"src/pfs_admin/plasma_datanode_init.opt\" {\"plasma_datanode_init\"}\n  \"src/mr_framework/plasma_convert.opt\" {\"plasma_convert\"}\n  \"src/pfs_admin/plasma_admin.opt\" {\"plasma_admin\"}\n  \"src/plasmaclient/plasma.opt\" {\"plasma\"}\n  \"src/pfs_nfs3/nfs3d.opt\" {\"nfs3d\"}\n  \"src/mr_framework/mr_streaming.opt\" {\"mr_streaming\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

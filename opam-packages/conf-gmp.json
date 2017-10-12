@@ -1,0 +1,50 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-gmp",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cc",
+            "-c",
+            "$CFLAGS",
+            "-I/usr/local/include test.c"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_gmp_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_gmp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_gmp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test.c",
+            "content": "#include <gmp.h>\n#ifndef __GMP_H__\n#error \"No GMP header\"\n#endif\n\nvoid test(void) {\n\t__gmp_init();\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

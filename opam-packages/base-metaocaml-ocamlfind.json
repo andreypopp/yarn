@@ -1,0 +1,69 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/base-metaocaml-ocamlfind",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__lib/findlib.conf.d/"
+          ],
+          [
+            "cp",
+            "metaocaml.native.conf",
+            "$cur__lib/findlib.conf.d/metaocaml.conf"
+          ],
+          [
+            "cp",
+            "metaocaml.conf",
+            "$cur__lib/findlib.conf.d/metaocaml.conf"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "base_metaocaml_ocamlfind_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "base_metaocaml_ocamlfind_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "base_metaocaml_ocamlfind_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "metaocaml.conf",
+            "content": "ocamlc(metaocaml) = \"metaocamlc\"\nocamlmktop(metaocaml) = \"metaocamlmktop\"\n"
+          },
+          {
+            "name": "metaocaml.native.conf",
+            "content": "ocamlc(metaocaml) = \"metaocamlc\"\nocamlopt(metaocaml) = \"metaocamlopt\"\nocamlmktop(metaocaml) = \"metaocamlmktop\"\n"
+          }
+        ]
+      }
+    }
+  }
+}

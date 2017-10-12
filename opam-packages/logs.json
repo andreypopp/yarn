@@ -1,0 +1,312 @@
+{
+  "versions": {
+    "0.4.2": {
+      "name": "@opam-alpha/logs",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "jsoo=${js___of___ocaml_installed:-false}",
+            "fmt=${fmt_installed:-false}",
+            "cmdliner=${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "logs_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "logs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "logs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/logs/releases/logs-0.4.2.tbz",
+        "checksum": "ca937a070ade70ac58ab2d5402af5f72",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/logs",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/mtime": "",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "jsoo=${js___of___ocaml_installed:-false}",
+            "fmt=${fmt_installed:-false}",
+            "cmdliner=${cmdliner_installed:-false}",
+            "lwt=${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "logs_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "logs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "logs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/logs/releases/logs-0.5.0.tbz",
+        "checksum": "f5a882164b986456c3178d7e50774394",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/logs",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "  >= 0.7.5",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mtime": "",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-js_of_ocaml",
+            "${js___of___ocaml_installed:-false}",
+            "--with-fmt",
+            "${fmt_installed:-false}",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}",
+            "--with-lwt",
+            "${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "logs_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "logs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "logs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/logs/releases/logs-0.6.0.tbz",
+        "checksum": "ae85c0dc3a7adc4f36f9dfc01d876d2f",
+        "files": []
+      }
+    },
+    "0.6.1": {
+      "name": "@opam-alpha/logs",
+      "version": "0.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "  >= 0.7.5",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mtime": "",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-js_of_ocaml",
+            "${js___of___ocaml_installed:-false}",
+            "--with-fmt",
+            "${fmt_installed:-false}",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}",
+            "--with-lwt",
+            "${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "logs_version": {
+            "val": "0.6.1",
+            "scope": "global"
+          },
+          "logs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "logs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/logs/releases/logs-0.6.1.tbz",
+        "checksum": "a2edb0f7a50acca0833fea2f446015bb",
+        "files": []
+      }
+    },
+    "0.6.2": {
+      "name": "@opam-alpha/logs",
+      "version": "0.6.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/mtime": "",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-js_of_ocaml",
+            "${js___of___ocaml_installed:-false}",
+            "--with-fmt",
+            "${fmt_installed:-false}",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}",
+            "--with-lwt",
+            "${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "logs_version": {
+            "val": "0.6.2",
+            "scope": "global"
+          },
+          "logs_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "logs_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/logs/releases/logs-0.6.2.tbz",
+        "checksum": "19f824c02c83c6dddc3bfb6459e4743e",
+        "files": []
+      }
+    }
+  }
+}

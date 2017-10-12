@@ -1,0 +1,116 @@
+{
+  "versions": {
+    "0.6.0": {
+      "name": "@opam-alpha/webbrowser",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/bos": "*",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "webbrowser_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "webbrowser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "webbrowser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/webbrowser/releases/webbrowser-0.6.0.tbz",
+        "checksum": "13b1ac970d60ff99464752411a67df78",
+        "files": []
+      }
+    },
+    "0.6.1": {
+      "name": "@opam-alpha/webbrowser",
+      "version": "0.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/bos": "*",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "webbrowser_version": {
+            "val": "0.6.1",
+            "scope": "global"
+          },
+          "webbrowser_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "webbrowser_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/webbrowser/releases/webbrowser-0.6.1.tbz",
+        "checksum": "1f6cefc449515921a5890df8fce5eab3",
+        "files": []
+      }
+    }
+  }
+}

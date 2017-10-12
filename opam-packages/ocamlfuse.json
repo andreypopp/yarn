@@ -1,0 +1,237 @@
+{
+  "versions": {
+    "2.7.1": {
+      "name": "@opam-alpha/ocamlfuse",
+      "version": "2.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlidl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-C",
+            "lib",
+            "INCDIRS=$cur__lib/camlidl"
+          ],
+          [
+            "make",
+            "-C",
+            "lib",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlfuse_version": {
+            "val": "2.7.1",
+            "scope": "global"
+          },
+          "ocamlfuse_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlfuse_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1074/ocamlfuse-2.7.1-cvs.tar.gz",
+        "checksum": "3e9e7ee2fd89e033a265840ca5aa4d44",
+        "files": []
+      }
+    },
+    "2.7.12": {
+      "name": "@opam-alpha/ocamlfuse",
+      "version": "2.7.12",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/camlidl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-C",
+            "lib",
+            "INCDIRS=$cur__lib/camlidl"
+          ],
+          [
+            "make",
+            "-C",
+            "lib",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlfuse_version": {
+            "val": "2.7.12",
+            "scope": "global"
+          },
+          "ocamlfuse_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlfuse_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1369/ocamlfuse-2.7.1_cvs2.tar.gz",
+        "checksum": "639c41e535acb1d983d16e67e2d015db",
+        "files": []
+      }
+    },
+    "2.7.13": {
+      "name": "@opam-alpha/ocamlfuse",
+      "version": "2.7.13",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlfuse_version": {
+            "val": "2.7.13",
+            "scope": "global"
+          },
+          "ocamlfuse_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlfuse_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1662/ocamlfuse-2.7.1-cvs3.tar.gz",
+        "checksum": "96217775a14e5c91f1267a2cdf42cfeb",
+        "files": []
+      }
+    },
+    "2.7.14": {
+      "name": "@opam-alpha/ocamlfuse",
+      "version": "2.7.14",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocamlfuse_version": {
+            "val": "2.7.14",
+            "scope": "global"
+          },
+          "ocamlfuse_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocamlfuse_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1663/ocamlfuse-2.7.1-cvs4.tar.gz",
+        "checksum": "bc8e70d6886fd6a45387c3a7992a31cb",
+        "files": []
+      }
+    }
+  }
+}

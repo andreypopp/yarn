@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/portia",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/batteries": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "portia_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "portia_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "portia_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rixed/portia/archive/v0.1.3.tar.gz",
+        "checksum": "aed551ae3c6d230de1e5fa277362630c",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/portia",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/batteries": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "portia_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "portia_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "portia_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rixed/portia/archive/v1.0.tar.gz",
+        "checksum": "bf67490818183da1db4b18f803629ab7",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/launchd",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__launchd__lib/launchd:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "launchd_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "launchd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "launchd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/ocaml-launchd/archive/v1.0.tar.gz",
+        "checksum": "1cc24c1bdb5b11c9c8d254ad46669cc3",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/launchd",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__launchd__lib/launchd:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "launchd_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "launchd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "launchd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-launchd/archive/v1.1.tar.gz",
+        "checksum": "892493ce4a6570fd4a221bd8e8115efa",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/launchd",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 0.7.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__launchd__lib/launchd:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "launchd_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "launchd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "launchd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-launchd/archive/v1.2.tar.gz",
+        "checksum": "abf6eb7d8d44211dd64c5a632b78c336",
+        "files": []
+      }
+    }
+  }
+}

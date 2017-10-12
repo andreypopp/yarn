@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/ancient",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-exc",
+            "cd mmalloc && ./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "DESTDIR=$cur__lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ancient_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "ancient_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ancient_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.ocaml-programming.de/godi-backup/ancient-0.9.0.tar.gz",
+        "checksum": "a5529e09f3c96247f362b7640e710157",
+        "files": []
+      }
+    }
+  }
+}

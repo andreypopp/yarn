@@ -1,0 +1,113 @@
+{
+  "versions": {
+    "0.4.3": {
+      "name": "@opam-alpha/ogg",
+      "version": "0.4.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__lib",
+            "--mandir",
+            "$cur__man"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ogg_version": {
+            "val": "0.4.3",
+            "scope": "global"
+          },
+          "ogg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ogg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://sourceforge.net/projects/savonet/files/ocaml-ogg/0.4.3/ocaml-ogg-0.4.3.tar.gz/download",
+        "checksum": "c7315615800cc493b8d53e7b269a83c3",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/ogg",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ogg_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "ogg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ogg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-ogg/releases/download/0.5.0/ocaml-ogg-0.5.0.tar.gz",
+        "checksum": "21eaee00d3765b3a78aed78520219a52",
+        "files": []
+      }
+    }
+  }
+}

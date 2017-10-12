@@ -1,0 +1,113 @@
+{
+  "versions": {
+    "2.6.0": {
+      "name": "@opam-alpha/hll",
+      "version": "2.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pds": "*",
+        "@opam-alpha/process": "*",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hll_version": {
+            "val": "2.6.0",
+            "scope": "global"
+          },
+          "hll_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hll_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/hll/get/2.6.tar.gz",
+        "checksum": "9383baedd9b2d4450df3690827dca1fb",
+        "files": []
+      }
+    },
+    "2.7.0": {
+      "name": "@opam-alpha/hll",
+      "version": "2.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/containers": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pds": "  >= 5.0.0  < 6.0.0",
+        "@opam-alpha/process": "*",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hll_version": {
+            "val": "2.7.0",
+            "scope": "global"
+          },
+          "hll_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hll_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/hll/get/2.7.tar.gz",
+        "checksum": "3268e2d351f91a4a0718f7daf3ff5076",
+        "files": []
+      }
+    }
+  }
+}

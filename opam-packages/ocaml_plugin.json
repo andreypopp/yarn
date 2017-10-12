@@ -1,0 +1,338 @@
+{
+  "versions": {
+    "113.0.0": {
+      "name": "@opam-alpha/ocaml_plugin",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/sexplib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/comparelib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/bin_prot": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/fieldslib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/herelib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__ocaml___plugin__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "ocaml___plugin_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "ocaml___plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml___plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.00/files/ocaml_plugin-113.00.00.tar.gz",
+        "checksum": "7304c5c83325389c9b9a535f1ed41818",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/ocaml_plugin",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/bin_prot": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_bench": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_expect": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_jane": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__ocaml___plugin__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "ocaml___plugin_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "ocaml___plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml___plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/ocaml_plugin-113.24.00.tar.gz",
+        "checksum": "15a3c9542c7ff791adf68eb2559eb52b",
+        "files": []
+      }
+    },
+    "113.24.2": {
+      "name": "@opam-alpha/ocaml_plugin",
+      "version": "113.24.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/bin_prot": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_bench": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_expect": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_jane": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__ocaml___plugin__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "ocaml___plugin_version": {
+            "val": "113.24.2",
+            "scope": "global"
+          },
+          "ocaml___plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml___plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/ocaml_plugin-113.24.02.tar.gz",
+        "checksum": "049d9821dddd12f5cf10867f5855acea",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/ocaml_plugin",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__ocaml___plugin__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "ocaml___plugin_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "ocaml___plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml___plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ocaml_plugin-113.33.00+4.03.tar.gz",
+        "checksum": "b34a15d4defb0453dc000dd6c7e79a58",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/ocaml_plugin",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__ocaml___plugin__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "ocaml___plugin_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "ocaml___plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml___plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/ocaml_plugin-113.33.03.tar.gz",
+        "checksum": "b32fb3fe3af80e2992be4d0d179a45fe",
+        "files": []
+      }
+    }
+  }
+}

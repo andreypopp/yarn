@@ -1,0 +1,66 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/docker-api",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "docker_api_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "docker_api_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "docker_api_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-docker/releases/download/0.1/docker-api-0.1.tar.gz",
+        "checksum": "6745c33bddc7437d8bd725b91e783b93",
+        "files": []
+      }
+    }
+  }
+}

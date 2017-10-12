@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/bap-saluki",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bap-std": "*",
+        "@opam-alpha/bap-callsites": "*",
+        "@opam-alpha/bap-taint-propagator": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-C",
+            "saluki",
+            "build"
+          ],
+          [
+            "make",
+            "-C",
+            "saluki",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bap_saluki_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "bap_saluki_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bap_saluki_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "git://github.com/BinaryAnalysisPlatform/bap-plugins.git",
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "2.5.0": {
+      "name": "@opam-alpha/opam-solver",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/opam-core": "=2.5.0",
+        "@opam-alpha/opam-format": "=2.5.0",
+        "@opam-alpha/dose3": " >= 5.0.0",
+        "@opam-alpha/cudf": " <= 0.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--disable-checks",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "opam-solver"
+          ],
+          [
+            "make",
+            "opam-solver.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_solver_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "opam_solver_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_solver_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/opam/archive/2.0-alpha5+1.tar.gz",
+        "checksum": "f8a571ba9132a08d1de90cce499b0fb3",
+        "files": []
+      }
+    }
+  }
+}

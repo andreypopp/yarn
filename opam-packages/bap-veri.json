@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/bap-veri",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bap-std": "*",
+        "@opam-alpha/bap-traces": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/textutils": "*",
+        "@opam-alpha/uri": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bap_veri_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "bap_veri_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bap_veri_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/BinaryAnalysisPlatform/bap-veri/archive/v0.2.tar.gz",
+        "checksum": "1bdbbeee1d2c143609690720f3860521",
+        "files": []
+      }
+    }
+  }
+}

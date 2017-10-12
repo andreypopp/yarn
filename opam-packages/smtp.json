@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/smtp",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "unix=${base_unix_installed:-false}",
+            "lwt=${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "smtp_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "smtp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "smtp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/vbmithr/ocaml-smtp/archive/0.2.tar.gz",
+        "checksum": "ee077653988e8913928fe267d1827d40",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/smtp",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "unix=${base_unix_installed:-false}",
+            "lwt=${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "smtp_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "smtp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "smtp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/vbmithr/ocaml-smtp/archive/0.3.tar.gz",
+        "checksum": "181b1ec742b598ad54b1622c5a7d3b6d",
+        "files": []
+      }
+    }
+  }
+}

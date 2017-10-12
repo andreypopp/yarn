@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/ezirmin",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/git-unix": " < 1.10.0",
+        "@opam-alpha/irmin": "=0.12.0",
+        "@opam-alpha/irmin-watcher": "*",
+        "@opam-alpha/ptime": "*",
+        "@opam-alpha/ppx_jane": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ezirmin_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ezirmin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ezirmin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/kayceesrk/ezirmin/releases/download/0.1.0/ezirmin-0.1.0.tbz",
+        "checksum": "cd9ea932b471fb237ec478c867455b69",
+        "files": []
+      }
+    }
+  }
+}

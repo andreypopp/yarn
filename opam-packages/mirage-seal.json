@@ -1,0 +1,264 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/mirage-seal",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "  >= 2.5.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/dolog": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_seal_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "mirage_seal_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_seal_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-seal/archive/0.3.0.tar.gz",
+        "checksum": "f584a4978a68be46ec4978b58920a5cb",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/mirage-seal",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "  >= 2.5.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/dolog": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_seal_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "mirage_seal_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_seal_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-seal/archive/0.3.1.tar.gz",
+        "checksum": "8fbb6847d5511324c3f1bfa5aa8593cd",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/mirage-seal",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "  >= 2.5.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/dolog": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_seal_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "mirage_seal_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_seal_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-seal/archive/0.4.0.tar.gz",
+        "checksum": "566d76e8fdc5a2ffbab6c0f9b3d766fa",
+        "files": []
+      }
+    },
+    "0.4.1": {
+      "name": "@opam-alpha/mirage-seal",
+      "version": "0.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "  >= 2.5.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/dolog": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_seal_version": {
+            "val": "0.4.1",
+            "scope": "global"
+          },
+          "mirage_seal_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_seal_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-seal/archive/0.4.1.tar.gz",
+        "checksum": "c7ba150c7fbdb74df9fb2687430dbcce",
+        "files": []
+      }
+    },
+    "0.4.2": {
+      "name": "@opam-alpha/mirage-seal",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "  >= 2.5.0  < 3.0.0",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/dolog": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_seal_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "mirage_seal_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_seal_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-seal/archive/0.4.2.tar.gz",
+        "checksum": "370cc4191890d91e9fcb3e63fb1ed8de",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/camlgpc",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camlgpc_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "camlgpc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camlgpc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnwhitington/camlgpc/archive/v1.0.tar.gz",
+        "checksum": "d00bf0237fda31301f9cc8e1cd8db2af",
+        "files": []
+      }
+    }
+  }
+}

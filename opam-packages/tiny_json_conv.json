@@ -1,0 +1,451 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/tiny_json": " < 1.1.0",
+        "@opam-alpha/meta_conv": "=0.9.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.0.0.tar.gz",
+        "checksum": "b58883bec47cceccae7439d106136ca2",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/tiny_json": " < 1.1.0",
+        "@opam-alpha/meta_conv": "=0.10.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.0.1.tar.gz",
+        "checksum": "cac7cc1c72cb3c7610029d957104f305",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/tiny_json": " < 1.1.0",
+        "@opam-alpha/meta_conv": "=0.11.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.1.0.tar.gz",
+        "checksum": "655e254679a91ddc440610e8b6620e36",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/tiny_json": " < 1.1.0",
+        "@opam-alpha/meta_conv": "=1.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.2.0.tar.gz",
+        "checksum": "618a9588be637a668cdee1ee8dc19831",
+        "files": []
+      }
+    },
+    "1.3.0": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/tiny_json": " >= 1.0.1",
+        "@opam-alpha/meta_conv": " >= 1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.3.0.tar.gz",
+        "checksum": "2dd468ec719224ea201b8d8cacae736f",
+        "files": []
+      }
+    },
+    "1.4.0": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/tiny_json": " >= 1.1.0",
+        "@opam-alpha/meta_conv": " >= 1.1.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.4.0.tar.gz",
+        "checksum": "5536cd44067bbd29a92c6a2b6c2a69dc",
+        "files": []
+      }
+    },
+    "1.4.1": {
+      "name": "@opam-alpha/tiny_json_conv",
+      "version": "1.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/tiny_json": " >= 1.1.0",
+        "@opam-alpha/meta_conv": " >= 1.1.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tiny___json___conv_version": {
+            "val": "1.4.1",
+            "scope": "global"
+          },
+          "tiny___json___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tiny___json___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/camlspotter/tiny_json_conv/get/1.4.1.tar.gz",
+        "checksum": "3b9eb319c57f0678e0c4e93ead1f1e94",
+        "files": []
+      }
+    }
+  }
+}

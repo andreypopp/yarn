@@ -1,0 +1,551 @@
+{
+  "versions": {
+    "111.3.1": {
+      "name": "@opam-alpha/re2",
+      "version": "111.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/core": "=111.3.0",
+        "@opam-alpha/sexplib": "=111.3.0",
+        "@opam-alpha/bin_prot": "=111.3.0",
+        "@opam-alpha/comparelib": " >= 109.15.0  <= 109.60.0",
+        "@opam-alpha/pa_ounit": " >= 109.53.0  <= 109.53.2",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "111.3.1",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/111.03.00/individual/re2-111.03.01.tar.gz",
+        "checksum": "f602a46df7521d6ea9e035f03919cdf3",
+        "files": []
+      }
+    },
+    "111.6.0": {
+      "name": "@opam-alpha/re2",
+      "version": "111.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/core": "=111.6.0",
+        "@opam-alpha/sexplib": "=111.3.0",
+        "@opam-alpha/bin_prot": "=111.3.0",
+        "@opam-alpha/comparelib": " >= 109.15.0  <= 109.60.0",
+        "@opam-alpha/pa_ounit": " >= 109.53.0  <= 109.53.2",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "111.6.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/111.06.00/individual/re2-111.06.00.tar.gz",
+        "checksum": "affa46f6dd9d2f99e60a1fb04762e0c8",
+        "files": []
+      }
+    },
+    "111.8.0": {
+      "name": "@opam-alpha/re2",
+      "version": "111.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/core": " >= 111.8.0  < 112.2.0",
+        "@opam-alpha/sexplib": " >= 111.3.0  < 112.2.0",
+        "@opam-alpha/bin_prot": " >= 111.3.0  < 112.2.0",
+        "@opam-alpha/comparelib": " >= 109.15.0  < 109.61.0",
+        "@opam-alpha/pa_ounit": " >= 109.53.0  < 111.29.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "111.8.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/111.08.00/individual/re2-111.08.00.tar.gz",
+        "checksum": "63a13c8fe0bdfa3518e730e310b75255",
+        "files": []
+      }
+    },
+    "112.6.0": {
+      "name": "@opam-alpha/re2",
+      "version": "112.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/core": " >= 112.6.0  < 112.25.0",
+        "@opam-alpha/sexplib": " >= 112.6.0  < 112.25.0",
+        "@opam-alpha/bin_prot": " >= 112.6.0  < 112.25.0",
+        "@opam-alpha/comparelib": " >= 109.15.0  < 109.61.0",
+        "@opam-alpha/pa_ounit": " >= 109.53.0  < 112.25.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "112.6.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.06.00/individual/re2-112.06.00.tar.gz",
+        "checksum": "1c28ff6eaf7c2259dce83747c3d86aef",
+        "files": []
+      }
+    },
+    "112.35.0": {
+      "name": "@opam-alpha/re2",
+      "version": "112.35.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/core": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/sexplib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/bin_prot": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/comparelib": " >= 109.15.0  < 109.61.0",
+        "@opam-alpha/pa_ounit": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "112.35.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.35/files/re2-112.35.00.tar.gz",
+        "checksum": "1e9631708e053112b3d4cb792d71cec1",
+        "files": []
+      }
+    },
+    "113.0.0": {
+      "name": "@opam-alpha/re2",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/core": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/sexplib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/bin_prot": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/comparelib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/pa_ounit": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.00/files/re2-113.00.00.tar.gz",
+        "checksum": "cac068fe5dc1659732dfa73513e421b2",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/re2",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core_kernel": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_bench": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_expect": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_jane": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/re2-113.24.00.tar.gz",
+        "checksum": "f83100978e8e6fad05cf9f2cca64aa28",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/re2",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core_kernel": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/re2-113.33.00.tar.gz",
+        "checksum": "89b6465f84f88a9b4d43243ae26be1a2",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/re2",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core_kernel": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__re2__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "re2_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "re2_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "re2_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/re2-113.33.03.tar.gz",
+        "checksum": "6d23b0dcb9e72f197fe22eef65204f44",
+        "files": []
+      }
+    }
+  }
+}

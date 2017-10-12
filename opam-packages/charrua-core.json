@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/charrua-core",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": " <= 1.9.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ipaddr": " >= 2.5.0  < 2.7.0",
+        "@opam-alpha/io-page": " <= 1.3.0",
+        "@opam-alpha/tcpip": " >= 2.3.0  < 3.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "charrua_core_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "charrua_core_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "charrua_core_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/charrua-core/archive/v0.1.tar.gz",
+        "checksum": "80a9123e49380001b17cfdb4477e16ba",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/charrua-core",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_cstruct": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/ppx_type_conv": "",
+        "@opam-alpha/cstruct": " >= 1.9.0  < 3.0.0",
+        "@opam-alpha/cstruct-unix": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ipaddr": " >= 2.5.0",
+        "@opam-alpha/tcpip": " >= 2.6.0  < 3.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "build.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "charrua_core_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "charrua_core_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "charrua_core_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/haesbaert/charrua-core/archive/v0.3.tar.gz",
+        "checksum": "64fb05a05ef73405c6477c8cba5257ec",
+        "files": []
+      }
+    }
+  }
+}

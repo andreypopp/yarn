@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "5.2.1": {
+      "name": "@opam-alpha/conf-qt",
+      "version": "5.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-exc",
+            "echo \"Your Qt version is `PATH=/usr/lib64/qt5/bin:/usr/lib/qt5/bin:$PATH qmake -query QT_VERSION`\""
+          ],
+          [
+            "sh",
+            "-exc",
+            "min=\"5.2.1\" cur=`PATH=/usr/lib64/qt5/bin:/usr/lib/qt5/bin:$PATH qmake -query QT_VERSION`; res=`printf \"$min\\n$cur\\n\" | sort | head -n 1`; [ \"$res\" = \"$min\" ]"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_qt_version": {
+            "val": "5.2.1",
+            "scope": "global"
+          },
+          "conf_qt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_qt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

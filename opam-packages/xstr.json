@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "0.2.1": {
+      "name": "@opam-alpha/xstr",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xstr_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "xstr_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xstr_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/xstr-0.2.1.tar.gz",
+        "checksum": "81598c438d6ab5c5d544ea7cc6ed8a34",
+        "files": []
+      }
+    }
+  }
+}

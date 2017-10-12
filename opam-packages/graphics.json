@@ -1,0 +1,51 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/graphics",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlc",
+            "-custom",
+            "graphics.cma",
+            "-o",
+            "test"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "graphics_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "graphics_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "graphics_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

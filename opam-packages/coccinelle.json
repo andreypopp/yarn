@@ -1,0 +1,431 @@
+{
+  "versions": {
+    "1.0.21": {
+      "name": "@opam-alpha/coccinelle",
+      "version": "1.0.21",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/menhir": " < 20141215.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": " <= 7.1.1",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/conf-python-2-7": "*",
+        "@opam-alpha/conf-python-2-7-dev": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-release",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "clean"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coccinelle_version": {
+            "val": "1.0.21",
+            "scope": "global"
+          },
+          "coccinelle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coccinelle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://coccinelle.lip6.fr/distrib/coccinelle-1.0.0-rc21.tgz",
+        "checksum": "0387370889c434a69306f8e22919d6ce",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff --git a/Makefile b/Makefile\nindex 8700df5..25a434e 100644\n--- a/Makefile\n+++ b/Makefile\n@@ -538,30 +538,12 @@ install-opt:\n \t$(INSTALL_PROGRAM) scripts/spatch.opt $(DESTDIR)$(BINDIR)/spatch.opt\n \n uninstall:\n-\trm -f $(DESTDIR)$(BINDIR)/spatch\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.byte\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpycaml_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpcre_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.h\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.iso\n-\trm -f $(DESTDIR)$(SHAREDIR)/ocaml/coccilib.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/parsing_c/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/commons/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/globals/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui/*\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/*.py\n-\trmdir --ignore-fail-on-non-empty -p \\\n-\t\t$(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui\n-\trmdir $(DESTDIR)$(SHAREDIR)/globals\n-\trmdir $(DESTDIR)$(SHAREDIR)/commons\n-\trmdir $(DESTDIR)$(SHAREDIR)/parsing_c\n-\trmdir $(DESTDIR)$(SHAREDIR)/ocaml\n-\trmdir $(DESTDIR)$(SHAREDIR)\n-\trm -f $(DESTDIR)$(MANDIR)/man1/spatch.1\n-\trm -f $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.opt\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.byte\n+\trm -rf $(DESTDIR)$(SHAREDIR)\n+\trm -f  $(DESTDIR)$(MANDIR)/man1/spatch.1\n+\trm -f  $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n \n uninstall-bash:\n \trm -f $(DESTDIR)$(BASH_COMPLETION_DIR)/spatch\n"
+          }
+        ]
+      }
+    },
+    "1.0.22": {
+      "name": "@opam-alpha/coccinelle",
+      "version": "1.0.22",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/menhir": " < 20141215.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": " <= 7.1.1",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/conf-python-2-7": "*",
+        "@opam-alpha/conf-python-2-7-dev": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-release",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "clean"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coccinelle_version": {
+            "val": "1.0.22",
+            "scope": "global"
+          },
+          "coccinelle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coccinelle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://coccinelle.lip6.fr/distrib/coccinelle-1.0.0-rc22.tgz",
+        "checksum": "0eb75dc542475f6b9a957a84f5fb1a4e",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff --git a/Makefile b/Makefile\nindex 8700df5..25a434e 100644\n--- a/Makefile\n+++ b/Makefile\n@@ -538,30 +538,12 @@ install-opt:\n \t$(INSTALL_PROGRAM) scripts/spatch.opt $(DESTDIR)$(BINDIR)/spatch.opt\n \n uninstall:\n-\trm -f $(DESTDIR)$(BINDIR)/spatch\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.byte\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpycaml_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpcre_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.h\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.iso\n-\trm -f $(DESTDIR)$(SHAREDIR)/ocaml/coccilib.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/parsing_c/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/commons/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/globals/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui/*\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/*.py\n-\trmdir --ignore-fail-on-non-empty -p \\\n-\t\t$(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui\n-\trmdir $(DESTDIR)$(SHAREDIR)/globals\n-\trmdir $(DESTDIR)$(SHAREDIR)/commons\n-\trmdir $(DESTDIR)$(SHAREDIR)/parsing_c\n-\trmdir $(DESTDIR)$(SHAREDIR)/ocaml\n-\trmdir $(DESTDIR)$(SHAREDIR)\n-\trm -f $(DESTDIR)$(MANDIR)/man1/spatch.1\n-\trm -f $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.opt\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.byte\n+\trm -rf $(DESTDIR)$(SHAREDIR)\n+\trm -f  $(DESTDIR)$(MANDIR)/man1/spatch.1\n+\trm -f  $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n \n uninstall-bash:\n \trm -f $(DESTDIR)$(BASH_COMPLETION_DIR)/spatch\n"
+          }
+        ]
+      }
+    },
+    "1.0.23": {
+      "name": "@opam-alpha/coccinelle",
+      "version": "1.0.23",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/menhir": "=20140422.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": " <= 7.1.1",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/conf-python-2-7": "*",
+        "@opam-alpha/conf-python-2-7-dev": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-release",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "clean"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coccinelle_version": {
+            "val": "1.0.23",
+            "scope": "global"
+          },
+          "coccinelle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coccinelle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/coccinelle/coccinelle/archive/coccinelle-1.0.0-rc23.tar.gz",
+        "checksum": "b4b12e8b8730c586891572a2518b87a5",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff --git a/Makefile b/Makefile\nindex 8700df5..25a434e 100644\n--- a/Makefile\n+++ b/Makefile\n@@ -538,30 +538,12 @@ install-opt:\n \t$(INSTALL_PROGRAM) scripts/spatch.opt $(DESTDIR)$(BINDIR)/spatch.opt\n \n uninstall:\n-\trm -f $(DESTDIR)$(BINDIR)/spatch\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.byte\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpycaml_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpcre_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.h\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.iso\n-\trm -f $(DESTDIR)$(SHAREDIR)/ocaml/coccilib.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/parsing_c/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/commons/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/globals/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui/*\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/*.py\n-\trmdir --ignore-fail-on-non-empty -p \\\n-\t\t$(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui\n-\trmdir $(DESTDIR)$(SHAREDIR)/globals\n-\trmdir $(DESTDIR)$(SHAREDIR)/commons\n-\trmdir $(DESTDIR)$(SHAREDIR)/parsing_c\n-\trmdir $(DESTDIR)$(SHAREDIR)/ocaml\n-\trmdir $(DESTDIR)$(SHAREDIR)\n-\trm -f $(DESTDIR)$(MANDIR)/man1/spatch.1\n-\trm -f $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.opt\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.byte\n+\trm -rf $(DESTDIR)$(SHAREDIR)\n+\trm -f  $(DESTDIR)$(MANDIR)/man1/spatch.1\n+\trm -f  $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n \n uninstall-bash:\n \trm -f $(DESTDIR)$(BASH_COMPLETION_DIR)/spatch\n"
+          }
+        ]
+      }
+    },
+    "1.0.24": {
+      "name": "@opam-alpha/coccinelle",
+      "version": "1.0.24",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/menhir": "=20140422.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": " <= 7.1.1",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/conf-python-2-7": "*",
+        "@opam-alpha/conf-python-2-7-dev": "*",
+        "@opam-alpha/parmap": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-release",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "clean"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coccinelle_version": {
+            "val": "1.0.24",
+            "scope": "global"
+          },
+          "coccinelle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coccinelle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/coccinelle/coccinelle/archive/coccinelle-1.0.0-rc24.tar.gz",
+        "checksum": "8cbe943716a7a1033d46f8157ea986d4",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff --git a/Makefile b/Makefile\nindex 8700df5..25a434e 100644\n--- a/Makefile\n+++ b/Makefile\n@@ -538,30 +538,12 @@ install-opt:\n \t$(INSTALL_PROGRAM) scripts/spatch.opt $(DESTDIR)$(BINDIR)/spatch.opt\n \n uninstall:\n-\trm -f $(DESTDIR)$(BINDIR)/spatch\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.byte\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpycaml_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpcre_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.h\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.iso\n-\trm -f $(DESTDIR)$(SHAREDIR)/ocaml/coccilib.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/parsing_c/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/commons/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/globals/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui/*\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/*.py\n-\trmdir --ignore-fail-on-non-empty -p \\\n-\t\t$(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui\n-\trmdir $(DESTDIR)$(SHAREDIR)/globals\n-\trmdir $(DESTDIR)$(SHAREDIR)/commons\n-\trmdir $(DESTDIR)$(SHAREDIR)/parsing_c\n-\trmdir $(DESTDIR)$(SHAREDIR)/ocaml\n-\trmdir $(DESTDIR)$(SHAREDIR)\n-\trm -f $(DESTDIR)$(MANDIR)/man1/spatch.1\n-\trm -f $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.opt\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.byte\n+\trm -rf $(DESTDIR)$(SHAREDIR)\n+\trm -f  $(DESTDIR)$(MANDIR)/man1/spatch.1\n+\trm -f  $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n \n uninstall-bash:\n \trm -f $(DESTDIR)$(BASH_COMPLETION_DIR)/spatch\n"
+          }
+        ]
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/coccinelle",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/menhir": "=20140422.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": " <= 7.1.1",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/conf-python-2-7": "*",
+        "@opam-alpha/conf-python-2-7-dev": "*",
+        "@opam-alpha/parmap": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-release",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "clean"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coccinelle_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "coccinelle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coccinelle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://coccinelle.lip6.fr/distrib/coccinelle-1.0.0.tgz",
+        "checksum": "bce69f218d0a2b4f3bfd438c97633327",
+        "files": [
+          {
+            "name": "opam.patch",
+            "content": "diff --git a/Makefile b/Makefile\nindex 8700df5..25a434e 100644\n--- a/Makefile\n+++ b/Makefile\n@@ -538,30 +538,12 @@ install-opt:\n \t$(INSTALL_PROGRAM) scripts/spatch.opt $(DESTDIR)$(BINDIR)/spatch.opt\n \n uninstall:\n-\trm -f $(DESTDIR)$(BINDIR)/spatch\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(BINDIR)/spatch.byte\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpycaml_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/dllpcre_stubs.so\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch\n-\trm -f $(DESTDIR)$(SHAREDIR)/spatch.opt\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.h\n-\trm -f $(DESTDIR)$(SHAREDIR)/standard.iso\n-\trm -f $(DESTDIR)$(SHAREDIR)/ocaml/coccilib.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/parsing_c/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/commons/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/globals/*.cmi\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui/*\n-\trm -f $(DESTDIR)$(SHAREDIR)/python/coccilib/*.py\n-\trmdir --ignore-fail-on-non-empty -p \\\n-\t\t$(DESTDIR)$(SHAREDIR)/python/coccilib/coccigui\n-\trmdir $(DESTDIR)$(SHAREDIR)/globals\n-\trmdir $(DESTDIR)$(SHAREDIR)/commons\n-\trmdir $(DESTDIR)$(SHAREDIR)/parsing_c\n-\trmdir $(DESTDIR)$(SHAREDIR)/ocaml\n-\trmdir $(DESTDIR)$(SHAREDIR)\n-\trm -f $(DESTDIR)$(MANDIR)/man1/spatch.1\n-\trm -f $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.opt\n+\trm -f  $(DESTDIR)$(BINDIR)/spatch.byte\n+\trm -rf $(DESTDIR)$(SHAREDIR)\n+\trm -f  $(DESTDIR)$(MANDIR)/man1/spatch.1\n+\trm -f  $(DESTDIR)$(MANDIR)/man3/Coccilib.3cocci\n \n uninstall-bash:\n \trm -f $(DESTDIR)$(BASH_COMPLETION_DIR)/spatch\n"
+          }
+        ]
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/coccinelle",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/menhir": "=20140422.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": " <= 7.1.1",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/conf-python-2-7": "*",
+        "@opam-alpha/conf-python-2-7-dev": "*",
+        "@opam-alpha/parmap": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-release",
+            "--enable-ocaml",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "clean"
+          ],
+          [
+            "make",
+            "all.opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "coccinelle_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "coccinelle_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "coccinelle_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/coccinelle/coccinelle/archive/1.0.2.tar.gz",
+        "checksum": "5170cdf7d42bdd83d8f78d2a6a957830",
+        "files": []
+      }
+    }
+  }
+}

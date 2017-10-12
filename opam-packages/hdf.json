@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "0.9.1": {
+      "name": "@opam-alpha/hdf",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hdf_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "hdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/hcarty/ocaml-hdf/tarball/v0.9.1",
+        "checksum": "0aeb8210a812cc2c108669ddfa16f24a",
+        "files": []
+      }
+    }
+  }
+}

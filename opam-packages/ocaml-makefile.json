@@ -1,0 +1,104 @@
+{
+  "versions": {
+    "6.37.0": {
+      "name": "@opam-alpha/ocaml-makefile",
+      "version": "6.37.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__lib/ocaml-makefile"
+          ],
+          [
+            "cp",
+            "OCamlMakefile",
+            "$cur__lib/ocaml-makefile"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_makefile_version": {
+            "val": "6.37.0",
+            "scope": "global"
+          },
+          "ocaml_makefile_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_makefile_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/ocaml-makefile/archive/v6.37.0.tar.gz",
+        "checksum": "535f9fca36fe0f684f73bdcff429f392",
+        "files": []
+      }
+    },
+    "6.38.0": {
+      "name": "@opam-alpha/ocaml-makefile",
+      "version": "6.38.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__lib/ocaml-makefile"
+          ],
+          [
+            "cp",
+            "OCamlMakefile",
+            "$cur__lib/ocaml-makefile"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_makefile_version": {
+            "val": "6.38.0",
+            "scope": "global"
+          },
+          "ocaml_makefile_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_makefile_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/ocaml-makefile/releases/download/v6.38.0/ocaml-makefile-6.38.0.tar.gz",
+        "checksum": "570fd8b4e37d7ee5f4fec379e2642025",
+        "files": []
+      }
+    }
+  }
+}

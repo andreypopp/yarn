@@ -1,0 +1,106 @@
+{
+  "versions": {
+    "2.0.0": {
+      "name": "@opam-alpha/lablgtkosx",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtkosx_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "lablgtkosx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtkosx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pirbo/lablGtkOSXApplication/releases/download/v2.00/lablgtkosx-2.00.tar.bz2",
+        "checksum": "20bb494f1c05e8f1f152439df2e9d674",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/lablgtkosx",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtkosx_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "lablgtkosx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtkosx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pirbo/lablGtkOSXApplication/releases/download/v2.01/lablgtkosx-2.01.tar.bz2",
+        "checksum": "6af612785ec4e1c34b9d80f0db705193",
+        "files": []
+      }
+    }
+  }
+}

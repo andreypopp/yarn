@@ -1,0 +1,356 @@
+{
+  "versions": {
+    "1.2.0": {
+      "name": "@opam-alpha/sill",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/bin_prot": " < 113.1.0",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sill_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "sill_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sill_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ISANobody/sill/archive/v1.2.tar.gz",
+        "checksum": "034a68a3adff8bbbe459684316f9a960",
+        "files": [
+          {
+            "name": "sill.install",
+            "content": "bin: [\n  \"?_build/./sill.byte\" {\"sill\"}\n  \"?_build/./sill.native\" {\"sill\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.2.1": {
+      "name": "@opam-alpha/sill",
+      "version": "1.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/bin_prot": " < 113.1.0",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sill_version": {
+            "val": "1.2.1",
+            "scope": "global"
+          },
+          "sill_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sill_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ISANobody/sill/archive/v1.2.1.tar.gz",
+        "checksum": "67484fde1eeb216ab2da5ad239f947d8",
+        "files": [
+          {
+            "name": "sill.install",
+            "content": "bin: [\n  \"?_build/./sill.byte\" {\"sill\"}\n  \"?_build/./sill.native\" {\"sill\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.0": {
+      "name": "@opam-alpha/sill",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/bin_prot": " < 113.1.0",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/mparser": "*",
+        "@opam-alpha/pa_monad_custom": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sill_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "sill_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sill_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ISANobody/sill/archive/v1.3.zip",
+        "checksum": "317148bbd50b78eed7b1a966f38f06f9",
+        "files": [
+          {
+            "name": "sill.install",
+            "content": "bin: [\n  \"?_build/./sill.byte\" {\"sill\"}\n  \"?_build/./sill.native\" {\"sill\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.1": {
+      "name": "@opam-alpha/sill",
+      "version": "1.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/bin_prot": " < 113.1.0",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/mparser": " >= 1.1.0",
+        "@opam-alpha/pa_monad_custom": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sill_version": {
+            "val": "1.3.1",
+            "scope": "global"
+          },
+          "sill_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sill_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ISANobody/sill/archive/v1.3.1.tar.gz",
+        "checksum": "ef33ca00b0eb6b1fa48e8e03ce0c79da",
+        "files": [
+          {
+            "name": "sill.install",
+            "content": "bin: [\n  \"?_build/./sill.byte\" {\"sill\"}\n  \"?_build/./sill.native\" {\"sill\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.4.0": {
+      "name": "@opam-alpha/sill",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/bin_prot": " < 113.1.0",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/mparser": " >= 1.1.0",
+        "@opam-alpha/pa_monad_custom": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sill_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "sill_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sill_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ISANobody/sill/archive/1.4.tar.gz",
+        "checksum": "805f8c6f72cc1054d2777152a700a144",
+        "files": [
+          {
+            "name": "sill.install",
+            "content": "bin: [\n  \"?_build/./sill.byte\" {\"sill\"}\n  \"?_build/./sill.native\" {\"sill\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

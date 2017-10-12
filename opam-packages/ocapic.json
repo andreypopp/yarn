@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "3.0.0": {
+      "name": "@opam-alpha/ocapic",
+      "version": "3.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlclean": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocapic_version": {
+            "val": "3.0.0",
+            "scope": "global"
+          },
+          "ocapic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocapic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.algo-prog.info/ocapic/web/lib/exe/fetch.php?media=ocapic-3.0.tar.bz2",
+        "checksum": "e453251c23ec866a05bdc44cad83675e",
+        "files": []
+      }
+    },
+    "3.3.0": {
+      "name": "@opam-alpha/ocapic",
+      "version": "3.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/graphics": "*",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlclean": " >= 2.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocapic_version": {
+            "val": "3.3.0",
+            "scope": "global"
+          },
+          "ocapic_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocapic_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.algo-prog.info/ocapic/web/lib/exe/fetch.php?media=ocapic:ocapic-3.3.tar.bz2",
+        "checksum": "bd1b2e89acb3399600910b8c2dd48fc6",
+        "files": []
+      }
+    }
+  }
+}

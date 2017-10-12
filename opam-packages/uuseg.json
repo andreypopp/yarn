@@ -1,0 +1,176 @@
+{
+  "versions": {
+    "0.8.0": {
+      "name": "@opam-alpha/uuseg",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uucp": " >= 0.9.1  < 1.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/uutf": "",
+        "@opam-alpha/cmdliner": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "uutf=${uutf_installed:-false}",
+            "cmdliner=${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uuseg_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "uuseg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uuseg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/uuseg/releases/uuseg-0.8.0.tbz",
+        "checksum": "409bbd8a3c3f00e0d7259441a5e4b648",
+        "files": []
+      }
+    },
+    "0.9.0": {
+      "name": "@opam-alpha/uuseg",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/uucp": " >= 1.0.0  < 2.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/uutf": "",
+        "@opam-alpha/cmdliner": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "uutf=${uutf_installed:-false}",
+            "cmdliner=${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uuseg_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "uuseg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uuseg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/uuseg/releases/uuseg-0.9.0.tbz",
+        "checksum": "186e52fcbd81e35514342dc3bfd10601",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/uuseg",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/uchar": "*",
+        "@opam-alpha/uucp": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/uutf": "",
+        "@opam-alpha/cmdliner": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-uutf",
+            "${uutf_installed:-false}",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uuseg_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "uuseg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uuseg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/uuseg/releases/uuseg-1.0.0.tbz",
+        "checksum": "58082c8a644b24a785069734f365e665",
+        "files": []
+      }
+    }
+  }
+}

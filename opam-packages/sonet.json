@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/sonet",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sonet_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "sonet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sonet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pmundkur/sonet/archive/v0.1.1.tar.gz",
+        "checksum": "c26d2f18a74d1a458f19ad3ba14badac",
+        "files": []
+      }
+    },
+    "0.1.2": {
+      "name": "@opam-alpha/sonet",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sonet_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "sonet_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sonet_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pmundkur/sonet/archive/v0.1.2.tar.gz",
+        "checksum": "5174875920b75e33f120e78bd6cf3f87",
+        "files": []
+      }
+    }
+  }
+}

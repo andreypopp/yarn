@@ -1,0 +1,532 @@
+{
+  "versions": {
+    "20111001.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20111001.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.2",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/frama-c/sbin",
+            "--libexecdir=$cur__lib/frama-c/libexec",
+            "--sysconfdir=$cur__lib/frama-c/etc",
+            "--sharedstatedir=$cur__lib/frama-c/com",
+            "--localstatedir=$cur__lib/frama-c/var",
+            "--libdir=$cur__lib/frama-c/lib",
+            "--includedir=$cur__lib/frama-c/include",
+            "--datarootdir=$cur__lib/frama-c/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20111001.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Nitrogen-20111001.tar.gz",
+        "checksum": "09bf25ed3d1b54e2d523166aa4499edd",
+        "files": [
+          {
+            "name": "frama-c.install",
+            "content": "bin: [\n  \"bin/ptests.byte\"\n  \"bin/toplevel.byte\" {\"frama-c.byte\"}\n  \"bin/toplevel.opt\" {\"frama-c\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "20120901.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20120901.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": " >= 1.8.2",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/frama-c/sbin",
+            "--libexecdir=$cur__lib/frama-c/libexec",
+            "--sysconfdir=$cur__lib/frama-c/etc",
+            "--sharedstatedir=$cur__lib/frama-c/com",
+            "--localstatedir=$cur__lib/frama-c/var",
+            "--libdir=$cur__lib/frama-c/lib",
+            "--includedir=$cur__lib/frama-c/include",
+            "--datarootdir=$cur__lib/frama-c/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20120901.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Oxygen-20120901.tar.gz",
+        "checksum": "f8f22501761fc67fcac5daceac82bb31",
+        "files": [
+          {
+            "name": "frama-c.install",
+            "content": "bin: [\n  \"bin/ptests.byte\"\n  \"bin/toplevel.byte\" {\"frama-c.byte\"}\n  \"bin/toplevel.opt\" {\"frama-c\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "20130501.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20130501.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": " >= 1.8.2",
+        "@opam-alpha/lablgtk": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/frama-c/sbin",
+            "--libexecdir=$cur__lib/frama-c/libexec",
+            "--sysconfdir=$cur__lib/frama-c/etc",
+            "--sharedstatedir=$cur__lib/frama-c/com",
+            "--localstatedir=$cur__lib/frama-c/var",
+            "--libdir=$cur__lib/frama-c/lib",
+            "--includedir=$cur__lib/frama-c/include",
+            "--datarootdir=$cur__lib/frama-c/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20130501.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Fluorine-20130501.tar.gz",
+        "checksum": "47a4c649f0b8c0f87006316054522688",
+        "files": [
+          {
+            "name": "frama-c.install",
+            "content": "bin: [\n  \"bin/ptests.byte\"\n  \"bin/toplevel.byte\" {\"frama-c.byte\"}\n  \"bin/toplevel.opt\" {\"frama-c\"}\n  \"bin/viewer.byte\" {\"frama-c-gui.byte\"}\n  \"bin/viewer.opt\" {\"frama-c-gui\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "20130601.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20130601.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": " >= 1.8.3",
+        "@opam-alpha/lablgtk": "*",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/frama-c/sbin",
+            "--libexecdir=$cur__lib/frama-c/libexec",
+            "--sysconfdir=$cur__lib/frama-c/etc",
+            "--sharedstatedir=$cur__lib/frama-c/com",
+            "--localstatedir=$cur__lib/frama-c/var",
+            "--libdir=$cur__lib/frama-c/lib",
+            "--includedir=$cur__lib/frama-c/include",
+            "--datarootdir=$cur__lib/frama-c/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20130601.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Fluorine-20130601.tar.gz",
+        "checksum": "69eed6b3f649725bf03d8500aaeb20a5",
+        "files": [
+          {
+            "name": "4.01-compat.patch",
+            "content": "diff -ur frama-c.20130601/external/hptmap.ml ../frama-c.20130601/external/hptmap.ml\n--- frama-c.20130601/external/hptmap.ml\t2013-06-11 16:15:19.000000000 +0200\n+++ ../frama-c.20130601/external/hptmap.ml\t2013-08-27 11:12:04.145187344 +0200\n@@ -357,6 +357,21 @@\n       find htr\n \n  \n+    let find_key key htr =\n+      let id = Key.id key in\n+      let rec find htr =\n+\tmatch htr with\n+\t| Empty ->\n+\t    raise Not_found\n+\t| Leaf (key', _, _) ->\n+\t    if Key.equal key key' then\n+\t      key'\n+\t    else\n+\t      raise Not_found\n+\t| Branch (_, mask, tree0, tree1, _) ->\n+\t    find (if (id land mask) = 0 then tree0 else tree1)\n+      in\n+      find htr\t\n \t\t\n \n     let mem key htr =\ndiff -ur frama-c.20130601/external/hptmap.mli ../frama-c.20130601/external/hptmap.mli\n--- frama-c.20130601/external/hptmap.mli\t2013-06-11 16:15:19.000000000 +0200\n+++ ../frama-c.20130601/external/hptmap.mli\t2013-08-27 11:12:30.621238364 +0200\n@@ -84,6 +84,9 @@\n       for [k], it is overridden. *)\n \n   val find : key -> t -> V.t\n+\n+  val find_key: key -> t -> key\n+\n   val remove : key -> t -> t\n   (** [remove k m] returns the map [m] deprived from any binding involving\n       [k]. *)\n\n--- frama-c.20130601/src/kernel/file.ml\t2013-06-11 16:13:13.000000000 +0200\n+++ ../frama-c.20130601/src/kernel/file.ml\t2013-08-27 11:16:41.157719017 +0200\n@@ -322,6 +322,7 @@\n \tPrinter.pp_logic_var lv Printer.pp_varinfo v\n \n   method vlogic_info_decl li =\n+    Logic_var.Hashtbl.add known_logic_info li.l_var_info li;\n     List.iter\n       (fun lv ->\n         if lv.lv_kind <> LVFormal then\n@@ -769,10 +770,6 @@\n         DoChildren\n     | _ -> DoChildren\n \n-  method vlogic_info_decl li =\n-    Logic_var.Hashtbl.add known_logic_info li.l_var_info li;\n-    DoChildren\n-\n   method vlogic_info_use li =\n     let unknown () =\n       check_abort \"logic function %s has no information\" li.l_var_info.lv_name\ndiff -ur frama-c.20130601/src/lib/hptset.ml ../frama-c.20130601/src/lib/hptset.ml\n--- frama-c.20130601/src/lib/hptset.ml\t2013-06-11 16:13:42.000000000 +0200\n+++ ../frama-c.20130601/src/lib/hptset.ml\t2013-08-27 11:07:26.680649886 +0200\n@@ -26,6 +26,7 @@\n   val empty: t\n   val is_empty: t -> bool\n   val mem: elt -> t -> bool\n+  val find: elt -> t -> elt\n   val add: elt -> t -> t\n   val singleton: elt -> t\n   val remove: elt -> t -> t\n@@ -71,6 +72,7 @@\n   type elt = X.t\n \n   let add k = add k ()\n+  let find = find_key\n   let iter f = iter (fun x () -> f x)\n   let fold f = fold (fun x () -> f x)\n \ndiff -ur frama-c.20130601/src/lib/hptset.mli ../frama-c.20130601/src/lib/hptset.mli\n--- frama-c.20130601/src/lib/hptset.mli\t2013-06-11 16:13:42.000000000 +0200\n+++ ../frama-c.20130601/src/lib/hptset.mli\t2013-08-27 11:05:03.992371348 +0200\n@@ -50,6 +50,8 @@\n     val mem: elt -> t -> bool\n     (** [mem x s] tests whether [x] belongs to the set [s]. *)\n \n+    val find: elt -> t -> elt\n+\n     val add: elt -> t -> t\n     (** [add x s] returns a set containing all elements of [s],\n        plus [x]. If [x] was already in [s], [s] is returned unchanged. *)\nSeulement dans frama-c.20130601/src/lib: hptset.mli.new\nSeulement dans frama-c.20130601/src/lib: hptset.ml.new\nSeulement dans frama-c.20130601/src/lib: hptset.ml.old\ndiff -ur frama-c.20130601/src/lib/setWithNearest.ml ../frama-c.20130601/src/lib/setWithNearest.ml\n--- frama-c.20130601/src/lib/setWithNearest.ml\t2013-06-11 16:13:42.000000000 +0200\n+++ ../frama-c.20130601/src/lib/setWithNearest.ml\t2013-08-27 11:10:45.753036025 +0200\n@@ -165,6 +165,14 @@\n \tlet c = Ord.compare x v in\n \tc = 0 || mem x (if c < 0 then l else r)\n \n+    let rec find x = function\n+      | Empty -> raise Not_found\n+      | Node(l, v, r, _) ->\n+\tmatch Ord.compare x v with\n+          | c when c < 0 -> find x l\n+          | 0 -> v\n+          | _ -> find x r\n+\n     let singleton x = Node(Empty, x, Empty, 1)\n \n     let rec remove x = function\ndiff -ur frama-c.20130601/src/memory_state/cvalue.mli ../frama-c.20130601/src/memory_state/cvalue.mli\n--- frama-c.20130601/src/memory_state/cvalue.mli\t2013-06-11 16:13:51.000000000 +0200\n+++ ../frama-c.20130601/src/memory_state/cvalue.mli\t2013-08-27 11:15:32.077586855 +0200\n@@ -35,8 +35,8 @@\n   include module type of Location_Bytes\n     (* Too many aliases, and OCaml module system is not able to keep track\n        of all of them. Use some shortcuts *)\n-    with type z = Location_Bytes.z\n-    and type M.t = Location_Bytes.M.t\n+    with type M.t = Location_Bytes.M.t\n+    and type z = Location_Bytes.z\n \n   include Lattice_With_Isotropy.S\n       with type t := t\nSeulement dans ../frama-c.20130601/src/wp/qed: bin\nSeulement dans ../frama-c.20130601/src/wp/qed/src: .depend\ndiff -ur frama-c.20130601/src/wp/qed/src/idxset.ml ../frama-c.20130601/src/wp/qed/src/idxset.ml\n--- frama-c.20130601/src/wp/qed/src/idxset.ml\t2013-06-11 16:13:23.000000000 +0200\n+++ ../frama-c.20130601/src/wp/qed/src/idxset.ml\t2013-08-27 11:22:06.194343180 +0200\n@@ -59,6 +59,8 @@\n \n   let mem e s = mem_k (E.id e) s\n \n+  let find e s = if mem e s then e else raise Not_found\n+\n   let lowest_bit x = x land (-x)\n     \n   let branching_bit p0 p1 = lowest_bit (p0 lxor p1)\n@@ -360,6 +362,8 @@\n \n   let mem e s = mem_k (index e) s\n \n+  let find e s = if mem e s then e else raise Not_found\n+\n   let mask k m  = (k lor (m-1)) land (lnot m)\n \n   (* we first write a naive implementation of [highest_bit] \nSeulement dans ../frama-c.20130601/src/wp/qed/src: numbers.ml\nSeulement dans ../frama-c.20130601/src/wp/share: .depend\n"
+          },
+          {
+            "name": "frama-c.install",
+            "content": "bin: [\n  \"bin/ptests.byte\"\n  \"bin/toplevel.byte\" {\"frama-c.byte\"}\n  \"bin/toplevel.opt\" {\"frama-c\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "20140301.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20140301.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.5 || =1.8.6",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/frama-c/sbin",
+            "--libexecdir=$cur__lib/frama-c/libexec",
+            "--sysconfdir=$cur__lib/frama-c/etc",
+            "--sharedstatedir=$cur__lib/frama-c/com",
+            "--localstatedir=$cur__lib/frama-c/var",
+            "--libdir=$cur__lib/frama-c/lib",
+            "--includedir=$cur__lib/frama-c/include",
+            "--datarootdir=$cur__lib/frama-c/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20140301.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Neon-20140301.tar.gz",
+        "checksum": "c050eaf6f3acff2edf8edb44bf64976d",
+        "files": [
+          {
+            "name": "0004-Port-to-OCamlgraph-1.8.5.patch",
+            "content": "From: Mehdi Dogguy <mehdi@debian.org>\nDate: Sun, 27 Apr 2014 13:46:16 +0200\nSubject: Port to OCamlgraph 1.8.5\n\n---\n src/impact/reason_graph.ml          |    2 +-\n src/kernel/stmts_graph.ml           |   10 +++++-----\n src/logic/property_status.ml        |    8 ++++----\n src/misc/service_graph.ml           |    4 ++--\n src/pdg_types/pdgTypes.ml           |    6 +++---\n src/postdominators/print.ml         |    2 +-\n src/semantic_callgraph/register.ml  |    4 ++--\n src/slicing/printSlice.ml           |   10 +++++-----\n src/syntactic_callgraph/register.ml |    4 ++--\n src/wp/cil2cfg.ml                   |   12 ++++++------\n 10 files changed, 31 insertions(+), 31 deletions(-)\n\ndiff --git a/src/impact/reason_graph.ml b/src/impact/reason_graph.ml\nindex eabacb0..ce19b4a 100644\n--- a/src/impact/reason_graph.ml\n+++ b/src/impact/reason_graph.ml\n@@ -139,7 +139,7 @@ module Printer (X: AdditionalInfo) = struct\n \n   let graph_attributes _ = [`Label \"Impact graph\"]\n \n-  let default_vertex_attributes _g = [`Style [`Filled]; `Shape `Box]\n+  let default_vertex_attributes _g = [`Style `Filled; `Shape `Box]\n   let default_edge_attributes _g = []\n \n   let vertex_attributes v =\ndiff --git a/src/kernel/stmts_graph.ml b/src/kernel/stmts_graph.ml\nindex a8fe121..16059c3 100644\n--- a/src/kernel/stmts_graph.ml\n+++ b/src/kernel/stmts_graph.ml\n@@ -157,12 +157,12 @@ module TP = struct\n \n   let vertex_attributes s =\n     match s.skind with\n-    | Loop _ -> [`Color 0xFF0000; `Style [`Filled]]\n-    | If _ -> [`Color 0x00FF00; `Style [`Filled]; `Shape `Diamond]\n-    | Return _ -> [`Color 0x0000FF; `Style [`Filled]]\n+    | Loop _ -> [`Color 0xFF0000; `Style `Filled]\n+    | If _ -> [`Color 0x00FF00; `Style `Filled; `Shape `Diamond]\n+    | Return _ -> [`Color 0x0000FF; `Style `Filled]\n     | Block _ -> [`Shape `Box; `Fontsize 8]\n-    | Goto _ -> [`Shape `Diamond; `Color 0x00FFFF ; `Style [`Filled]]\n-    | Instr (Skip _) -> [`Color 0x00FFFF ; `Style [`Filled]]\n+    | Goto _ -> [`Shape `Diamond; `Color 0x00FFFF ; `Style `Filled]\n+    | Instr (Skip _) -> [`Color 0x00FFFF ; `Style `Filled]\n     | _ -> []\n   let default_vertex_attributes _ = []\n \ndiff --git a/src/logic/property_status.ml b/src/logic/property_status.ml\nindex f7c278d..47485f6 100644\n--- a/src/logic/property_status.ml\n+++ b/src/logic/property_status.ml\n@@ -1481,12 +1481,12 @@ module Consolidation_graph = struct\n                 let s = get_status p in\n \t\tlet color = status_color p s in\n                 let style = match s with\n-                  | Never_tried -> [`Style [`Bold]; `Width 0.8 ]\n-                  | _ -> [`Style [`Filled]]\n+                  | Never_tried -> [`Style `Bold; `Width 0.8 ]\n+                  | _ -> [`Style `Filled]\n                 in\n \t\tstyle @ [ label v; `Color color; `Shape `Box ]\n               | Emitter _ as v -> \n-\t\t[ label v; `Shape `Diamond; `Color 0xb0c4de; `Style [`Filled] ]\n+\t\t[ label v; `Shape `Diamond; `Color 0xb0c4de; `Style `Filled ]\n               | Tuning_parameter _ as v ->\n \t\t[ label v; (*`Style `Dotted;*) `Color 0xb0c4de;  ]\n \t      (*| Correctness_parameter _ (*as v*) -> assert false (*[ label v; `Color 0xb0c4de ]*)*)\n@@ -1495,7 +1495,7 @@ module Consolidation_graph = struct\n \t      | None -> []\n \t      | Some s ->\n \t\tlet c = emitted_status_color s in\n-\t\t[ `Color c; `Fontcolor c; `Style [`Bold] ]\n+\t\t[ `Color c; `Fontcolor c; `Style `Bold ]\n \n         let default_vertex_attributes _ = []\n         let default_edge_attributes _ = []\ndiff --git a/src/misc/service_graph.ml b/src/misc/service_graph.ml\nindex 4f866c5..d158028 100644\n--- a/src/misc/service_graph.ml\n+++ b/src/misc/service_graph.ml\n@@ -289,7 +289,7 @@ Src root:%s in %s (is_root:%b) Dst:%s in %s (is_root:%b) [2d case]\"\n         color e\n       else\n         match CallG.E.label e with\n-        | Inter_services -> [ `Style [`Invis] ]\n+        | Inter_services -> [ `Style `Invis ]\n         | Inter_functions | Both -> color e\n \n     let default_edge_attributes _ = []\n@@ -303,7 +303,7 @@ Src root:%s in %s (is_root:%b) Dst:%s in %s (is_root:%b) [2d case]\"\n           sg_attributes =\n             [ `Label (\"S \" ^ cs);\n               `Color (Extlib.number_to_color id);\n-              `Style [`Bold] ] }\n+              `Style `Bold ] }\n \n   end\n \ndiff --git a/src/pdg_types/pdgTypes.ml b/src/pdg_types/pdgTypes.ml\nindex 05754e4..74cdebf 100644\n--- a/src/pdg_types/pdgTypes.ml\n+++ b/src/pdg_types/pdgTypes.ml\n@@ -626,7 +626,7 @@ module Pdg = struct\n \n     let graph_attributes _ = [`Rankdir `TopToBottom ]\n \n-    let default_vertex_attributes _ = [`Style [`Filled]]\n+    let default_vertex_attributes _ = [`Style `Filled]\n     let vertex_name v = string_of_int (Node.id v)\n \n     let vertex_attributes v =\n@@ -711,13 +711,13 @@ module Pdg = struct\n         if Dpd.is_ctrl d then (`Arrowtail `Odot)::attrib else attrib\n       in\n       let attrib =\n-        if Dpd.is_addr d then (`Style [`Dotted])::attrib else attrib\n+        if Dpd.is_addr d then (`Style `Dotted)::attrib else attrib\n       in\n         attrib\n \n     let get_subgraph v =\n       let mk_subgraph name attrib =\n-        let attrib = (`Style [`Filled]) :: attrib in\n+        let attrib = (`Style `Filled) :: attrib in\n         Some { Graph.Graphviz.DotAttributes.sg_name= name;\n                sg_parent = None;\n                sg_attributes = attrib }\ndiff --git a/src/postdominators/print.ml b/src/postdominators/print.ml\nindex f2e3a25..15f4ff2 100644\n--- a/src/postdominators/print.ml\n+++ b/src/postdominators/print.ml\n@@ -63,7 +63,7 @@ module Printer = struct\n \n   let graph_attributes (title, _) = [`Label title]\n \n-  let default_vertex_attributes _g = [`Style [`Filled]]\n+  let default_vertex_attributes _g = [`Style `Filled]\n   let default_edge_attributes _g = []\n \n   let vertex_attributes (s, has_postdom) =\ndiff --git a/src/semantic_callgraph/register.ml b/src/semantic_callgraph/register.ml\nindex 1c79dcc..071f061 100644\n--- a/src/semantic_callgraph/register.ml\n+++ b/src/semantic_callgraph/register.ml\n@@ -102,8 +102,8 @@ module Service =\n          let name = Kernel_function.get_name\n          let attributes v =\n            [ `Style\n-               [if Kernel_function.is_definition v then `Bold\n-                else `Dotted] ]\n+               (if Kernel_function.is_definition v then `Bold\n+                else `Dotted) ]\n          let entry_point () =\n            try Some (fst (Globals.entry_point ()))\n            with Globals.No_such_entry_point _ -> None\ndiff --git a/src/slicing/printSlice.ml b/src/slicing/printSlice.ml\nindex c5363f9..211e0bb 100644\n--- a/src/slicing/printSlice.ml\n+++ b/src/slicing/printSlice.ml\n@@ -227,7 +227,7 @@ module PrintProject = struct\n \n   let graph_attributes (name, _) = [`Label name]\n \n-  let default_vertex_attributes _ = [`Style [`Filled]]\n+  let default_vertex_attributes _ = [`Style `Filled]\n \n   let vertex_name v = match v with\n     | Src fi -> SlicingMacros.fi_name fi\n@@ -280,16 +280,16 @@ module PrintProject = struct\n \n   let edge_attributes (e, call) =\n     let attrib = match e with\n-    | (Src _, Src _) -> [`Style [`Invis]]\n-    | (OptSliceCallers _, _) -> [`Style [`Invis]]\n-    | (_, OptSliceCallers _) -> [`Style [`Invis]]\n+    | (Src _, Src _) -> [`Style `Invis]\n+    | (OptSliceCallers _, _) -> [`Style `Invis]\n+    | (_, OptSliceCallers _) -> [`Style `Invis]\n     | _ -> []\n     in match call with None -> attrib\n       | Some call -> (`Label (string_of_int call.sid)):: attrib\n \n   let get_subgraph v =\n     let mk_subgraph name attrib =\n-      let attrib = (*(`Label name) ::*) (`Style [`Filled]) :: attrib in\n+      let attrib = (*(`Label name) ::*) (`Style `Filled) :: attrib in\n           Some { Graph.Graphviz.DotAttributes.sg_name= name;\n                  sg_parent = None;\n                  sg_attributes = attrib }\ndiff --git a/src/syntactic_callgraph/register.ml b/src/syntactic_callgraph/register.ml\nindex d4669c4..d41980e 100644\n--- a/src/syntactic_callgraph/register.ml\n+++ b/src/syntactic_callgraph/register.ml\n@@ -37,8 +37,8 @@ module Service =\n          let name v = nodeName v.cnInfo\n          let attributes v =\n            [ match v.cnInfo with\n-             | NIVar (_,b) when not !b -> `Style [`Dotted]\n-             | _ -> `Style [`Bold] ]\n+             | NIVar (_,b) when not !b -> `Style `Dotted\n+             | _ -> `Style `Bold ]\n          let equal v1 v2 = id v1 = id v2\n \t let compare v1 v2 = \n \t   let i1 = id v1 in\ndiff --git a/src/wp/cil2cfg.ml b/src/wp/cil2cfg.ml\nindex 6d8cf09..ba5f410 100644\n--- a/src/wp/cil2cfg.ml\n+++ b/src/wp/cil2cfg.ml\n@@ -1278,9 +1278,9 @@ module Printer (PE : sig val edge_txt : edge -> string end) = struct\n       | Vstart | Vend | Vexit -> [`Color 0x0000FF; `Shape `Doublecircle]\n       | VfctIn | VfctOut -> [`Color 0x0000FF; `Shape `Box]\n       | VblkIn _ | VblkOut _ -> [`Shape `Box]\n-      | Vloop _ | Vloop2 _ -> [`Color 0xFF0000; `Style [`Filled]]\n+      | Vloop _ | Vloop2 _ -> [`Color 0xFF0000; `Style `Filled]\n       | Vtest _ | Vswitch _ ->\n-        [`Color 0x00FF00; `Style [`Filled]; `Shape `Diamond]\n+        [`Color 0x00FF00; `Style `Filled; `Shape `Diamond]\n       | Vcall _ | Vstmt _ -> []\n     in (`Label (String.escaped label))::attr\n \n@@ -1290,15 +1290,15 @@ module Printer (PE : sig val edge_txt : edge -> string end) = struct\n     let attr = [] in\n     let attr = (`Label (String.escaped (PE.edge_txt e)))::attr in\n     let attr =\n-      if is_back_edge e then (`Constraint false)::(`Style [`Bold])::attr\n+      if is_back_edge e then (`Constraint false)::(`Style `Bold)::attr\n       else attr\n     in\n     let attr = match (edge_type e) with\n       | Ethen | EbackThen -> (`Color 0x00FF00)::attr\n       | Eelse | EbackElse -> (`Color 0xFF0000)::attr\n-      | Ecase [] -> (`Color 0x0000FF)::(`Style [`Dashed])::attr\n+      | Ecase [] -> (`Color 0x0000FF)::(`Style `Dashed)::attr\n       | Ecase _ -> (`Color 0x0000FF)::attr\n-      | Enext -> (`Style [`Dotted])::attr\n+      | Enext -> (`Style `Dotted)::attr\n       | Eback -> attr (* see is_back_edge above *)\n       | Enone -> attr\n     in\n@@ -1308,7 +1308,7 @@ module Printer (PE : sig val edge_txt : edge -> string end) = struct\n \n   let get_subgraph v =\n      let mk_subgraph name attrib =\n-      let attrib = (`Style [`Filled]) :: attrib in\n+      let attrib = (`Style `Filled) :: attrib in\n           Some { Graph.Graphviz.DotAttributes.sg_name= name;\n                  sg_parent = None;\n                  sg_attributes = attrib }\n-- \n"
+          }
+        ]
+      }
+    },
+    "20150201.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20150201.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/frama-c-base": "=20150201.0.0",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/lablgtk": " >= 2.18.2",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20150201.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "20151002.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20151002.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/frama-c-base": "=20151002.0.0",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/lablgtk": " >= 2.18.2",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20151002.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "20160502.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20160502.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/frama-c-base": "=20160502.0.0",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/lablgtk": " >= 2.18.2",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/alt-ergo": "*",
+        "@opam-alpha/altgr-ergo": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20160502.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "20161101.0.0": {
+      "name": "@opam-alpha/frama-c",
+      "version": "20161101.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/frama-c-base": "=20161101.0.0",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/lablgtk": " >= 2.18.2",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/alt-ergo": "*",
+        "@opam-alpha/altgr-ergo": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_version": {
+            "val": "20161101.0.0",
+            "scope": "global"
+          },
+          "frama_c_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

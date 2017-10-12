@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "2.8.0": {
+      "name": "@opam-alpha/mirage-types",
+      "version": "2.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build-types"
+          ],
+          [
+            "make",
+            "install-types"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_types_version": {
+            "val": "2.8.0",
+            "scope": "global"
+          },
+          "mirage_types_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_types_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage/archive/v2.8.0.tar.gz",
+        "checksum": "41360785ca35994c447df887c70ca1aa",
+        "files": []
+      }
+    }
+  }
+}

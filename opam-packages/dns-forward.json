@@ -1,0 +1,73 @@
+{
+  "versions": {
+    "0.7.2": {
+      "name": "@opam-alpha/dns-forward",
+      "version": "0.7.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ppx_cstruct": "",
+        "@opam-alpha/ppx_sexp_conv": "",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/mirage-flow": "=1.1.0",
+        "@opam-alpha/channel": "*",
+        "@opam-alpha/dns": "*",
+        "@opam-alpha/rresult": "*",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/cstruct": " >= 2.4.0  < 3.0.0",
+        "@opam-alpha/cstruct-lwt": "*",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/lwt": " >= 2.6.0  < 3.0.0",
+        "@opam-alpha/logs": " >= 0.5.0",
+        "@opam-alpha/mtime": " < 1.0.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/alcotest": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dns_forward_version": {
+            "val": "0.7.2",
+            "scope": "global"
+          },
+          "dns_forward_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dns_forward_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/ocaml-dns-forward/archive/v0.7.2.tar.gz",
+        "checksum": "460cb45b014c90f3a54a7b3a3e2dcee9",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "versions": {
+    "0.9.1": {
+      "name": "@opam-alpha/mirage-net-socket",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "=0.9.1",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "socket-build",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "socket-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_socket_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "mirage_net_socket_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_socket_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-tcpip/archive/mirage-net-0.9.1.tar.gz",
+        "checksum": "8d63e498af796c435898525d2db3be48",
+        "files": []
+      }
+    },
+    "0.9.2": {
+      "name": "@opam-alpha/mirage-net-socket",
+      "version": "0.9.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "=0.9.2",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "socket-build",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "socket-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_socket_version": {
+            "val": "0.9.2",
+            "scope": "global"
+          },
+          "mirage_net_socket_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_socket_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-tcpip/archive/v0.9.2.tar.gz",
+        "checksum": "c2b6ccf4d3235755dcc4a6569ac7d4c9",
+        "files": []
+      }
+    },
+    "0.9.3": {
+      "name": "@opam-alpha/mirage-net-socket",
+      "version": "0.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": "=0.9.3",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "socket-build",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "socket-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_socket_version": {
+            "val": "0.9.3",
+            "scope": "global"
+          },
+          "mirage_net_socket_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_socket_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-tcpip/archive/v0.9.3.tar.gz",
+        "checksum": "d6673d32a5d6a559b339bd195b5fb56f",
+        "files": []
+      }
+    },
+    "0.9.4": {
+      "name": "@opam-alpha/mirage-net-socket",
+      "version": "0.9.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage": " >= 0.9.5  < 0.10.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "socket-build",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "make",
+            "socket-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_net_socket_version": {
+            "val": "0.9.4",
+            "scope": "global"
+          },
+          "mirage_net_socket_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_net_socket_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-tcpip/archive/v0.9.4.tar.gz",
+        "checksum": "f4b8cc459026bea7534304654023143e",
+        "files": []
+      }
+    }
+  }
+}

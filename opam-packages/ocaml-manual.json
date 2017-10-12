@@ -1,0 +1,212 @@
+{
+  "versions": {
+    "4.1.0": {
+      "name": "@opam-alpha/ocaml-manual",
+      "version": "4.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "-R",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "robocopy",
+            "/E",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_manual_version": {
+            "val": "4.1.0",
+            "scope": "global"
+          },
+          "ocaml_manual_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_manual_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://caml.inria.fr/distrib/ocaml-4.01/ocaml-4.01-refman-html.tar.gz",
+        "checksum": "73f4657680baeb200135720fbc84eb4b",
+        "files": []
+      }
+    },
+    "4.2.0": {
+      "name": "@opam-alpha/ocaml-manual",
+      "version": "4.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "-R",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "robocopy",
+            "/E",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_manual_version": {
+            "val": "4.2.0",
+            "scope": "global"
+          },
+          "ocaml_manual_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_manual_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://caml.inria.fr/distrib/ocaml-4.02/ocaml-4.02-refman-html.tar.gz",
+        "checksum": "915a1949f7af7186e16354e9682dc1e5",
+        "files": []
+      }
+    },
+    "4.3.0": {
+      "name": "@opam-alpha/ocaml-manual",
+      "version": "4.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "-R",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "robocopy",
+            "/E",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_manual_version": {
+            "val": "4.3.0",
+            "scope": "global"
+          },
+          "ocaml_manual_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_manual_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://caml.inria.fr/distrib/ocaml-4.03/ocaml-4.03-refman-html.tar.gz",
+        "checksum": "d3e44d3984d029d2e88ba219ad8e24c2",
+        "files": []
+      }
+    },
+    "4.4.0": {
+      "name": "@opam-alpha/ocaml-manual",
+      "version": "4.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "cp",
+            "-R",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "robocopy",
+            "/E",
+            ".",
+            "ocaml-manual:doc"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_manual_version": {
+            "val": "4.4.0",
+            "scope": "global"
+          },
+          "ocaml_manual_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_manual_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://caml.inria.fr/distrib/ocaml-4.04/ocaml-4.04-refman-html.tar.gz",
+        "checksum": "5c58a4fce99b20e02c3208ad956bcb9d",
+        "files": []
+      }
+    }
+  }
+}

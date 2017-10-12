@@ -1,0 +1,69 @@
+{
+  "versions": {
+    "1.0.2": {
+      "name": "@opam-alpha/camltemplate",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__lib"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "-C",
+            "src",
+            "install"
+          ],
+          [
+            "make",
+            "-C",
+            "doc",
+            "install",
+            "INSTALL_DIR=$cur__doc/camltemplate"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camltemplate_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "camltemplate_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camltemplate_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/29/camltemplate-1.0.2.tar.gz",
+        "checksum": "b2fec2070e2480d80752251953be1bd1",
+        "files": []
+      }
+    }
+  }
+}

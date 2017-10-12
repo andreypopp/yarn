@@ -1,0 +1,193 @@
+{
+  "versions": {
+    "3.2.1": {
+      "name": "@opam-alpha/postgresql",
+      "version": "3.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${lablgtk_enable:-disable}-lablgtk2"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "postgresql_version": {
+            "val": "3.2.1",
+            "scope": "global"
+          },
+          "postgresql_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "postgresql_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/postgresql-ocaml/releases/download/v3.2.1/postgresql-ocaml-3.2.1.tar.gz",
+        "checksum": "89f7c6b7dc8a877b6a3cb2f23191aac3",
+        "files": []
+      }
+    },
+    "4.0.0": {
+      "name": "@opam-alpha/postgresql",
+      "version": "4.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${lablgtk_enable:-disable}-lablgtk2"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "postgresql_version": {
+            "val": "4.0.0",
+            "scope": "global"
+          },
+          "postgresql_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "postgresql_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/postgresql-ocaml/releases/download/v4.0.0/postgresql-ocaml-4.0.0.tar.gz",
+        "checksum": "c981eac6ab54105644aa41c1fa0f5bd7",
+        "files": []
+      }
+    },
+    "4.0.1": {
+      "name": "@opam-alpha/postgresql",
+      "version": "4.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bigarray": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${lablgtk_enable:-disable}-lablgtk2"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "postgresql_version": {
+            "val": "4.0.1",
+            "scope": "global"
+          },
+          "postgresql_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "postgresql_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mmottl/postgresql-ocaml/releases/download/v4.0.1/postgresql-ocaml-4.0.1.tar.gz",
+        "checksum": "88b368523fa6f7dcba14123a06347d0a",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "0.1.6": {
+      "name": "@opam-alpha/mirage-entropy-unix",
+      "version": "0.1.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.3.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/io-page": "*",
+        "@opam-alpha/ipaddr": "*",
+        "@opam-alpha/mirage-types": " >= 1.2.0  < 2.4.0",
+        "@opam-alpha/mirage-unix": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "unix-build"
+          ],
+          [
+            "make",
+            "unix-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_entropy_unix_version": {
+            "val": "0.1.6",
+            "scope": "global"
+          },
+          "mirage_entropy_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_entropy_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-entropy/archive/0.1.6.tar.gz",
+        "checksum": "c3955c6821271ec2145160d69a673522",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/mirage-entropy-unix",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cstruct": " >= 1.3.0",
+        "@opam-alpha/cstruct-lwt": "*",
+        "@opam-alpha/mirage-types-lwt": " < 2.5.0",
+        "@opam-alpha/mirage-unix": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "unix-build"
+          ],
+          [
+            "make",
+            "unix-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_entropy_unix_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "mirage_entropy_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_entropy_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-entropy/archive/v0.2.0.tar.gz",
+        "checksum": "772d355891c8036d04e6e52c655657b3",
+        "files": []
+      }
+    }
+  }
+}

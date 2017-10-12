@@ -1,0 +1,106 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/ml2mxml",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 1.2.1  < 2.0.0",
+        "@opam-alpha/ounit": " >= 2.0.0",
+        "@opam-alpha/omake": " >= 0.9.8"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ml2mxml_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ml2mxml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ml2mxml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/yetanotherion/ml2mxml/archive/v0.1.tar.gz",
+        "checksum": "7a642fea3792b5d142a5e4fd4ba86fc4",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/ml2mxml",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cow": " >= 1.2.1  < 2.0.0",
+        "@opam-alpha/ounit": " >= 2.0.0",
+        "@opam-alpha/omake": " >= 0.9.8"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake"
+          ],
+          [
+            "omake",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ml2mxml_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "ml2mxml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ml2mxml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/yetanotherion/ml2mxml/archive/v0.2.tar.gz",
+        "checksum": "a3c3ee3829163314e11e07248358cfc7",
+        "files": []
+      }
+    }
+  }
+}

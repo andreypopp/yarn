@@ -1,0 +1,56 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/avroc",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ctypes": "*",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "avroc"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "avroc_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "avroc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "avroc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/sidharthkuruvila/ocaml-avroc/archive/v0.0.1g.tar.gz",
+        "checksum": "736d14f64e1de1b4bf94b044e106676d",
+        "files": []
+      }
+    }
+  }
+}

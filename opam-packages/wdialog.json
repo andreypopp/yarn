@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "2.1.3": {
+      "name": "@opam-alpha/wdialog",
+      "version": "2.1.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/ocamlnet": "=3.6.0",
+        "@opam-alpha/pxp": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/ocaml-inifiles": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "wdialog_version": {
+            "val": "2.1.3",
+            "scope": "global"
+          },
+          "wdialog_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "wdialog_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/wdialog-2.1.3.tar.gz",
+        "checksum": "508f6df0f987a36a93730e88d67fc3c5",
+        "files": []
+      }
+    }
+  }
+}

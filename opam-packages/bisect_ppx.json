@@ -1,0 +1,653 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.1.tar.gz",
+        "checksum": "f6cc1612adf5ca9fd59c796dc24f23ee",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.2.tar.gz",
+        "checksum": "3280351ff0c894fdc35e0dc20d9e43c4",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.2": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.2.2",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.2.2.tar.gz",
+        "checksum": "2b556494605d1d3a2630e6d7e33691f3",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.3": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.2.3",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.2.3.tar.gz",
+        "checksum": "aa2a332baec6bd7f22f93d31a2a4965c",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.4": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.2.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.2.4",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.2.4.tar.gz",
+        "checksum": "8723d55f4d58f2328d11baab86763a97",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.5": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.2.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.2.5",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.2.5.tar.gz",
+        "checksum": "bc2e35ac0d6b12e2c14d64e9859ba653",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.6": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "0.2.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "0.2.6",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/0.2.6.tar.gz",
+        "checksum": "fbf18a7efe55bb632b87ae4355fd8a8c",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/1.0.0.tar.gz",
+        "checksum": "7b965d605e000812b33ae7dfe8ec0dcc",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"?_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rleonid/bisect_ppx/archive/1.0.1.tar.gz",
+        "checksum": "9c320ad23d919972a64fd24e7b4642f1",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"?_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "  >= 4.2.3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/aantron/bisect_ppx/archive/1.1.0.tar.gz",
+        "checksum": "963bb0ff4a1d9e5c0a0476adc326fa8e",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"?_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/bisect_ppx",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ppx_tools": "  >= 4.2.3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bisect___ppx_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "bisect___ppx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bisect___ppx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/aantron/bisect_ppx/archive/1.2.0.tar.gz",
+        "checksum": "e9dd15cb3d1e1e5ec7013bb960f3bdc3",
+        "files": [
+          {
+            "name": "bisect_ppx.install",
+            "content": "bin: [\n  \"?_build/src/report/report.byte\" {\"bisect-ppx-report\"}\n  \"?_build/src/report/report.native\" {\"bisect-ppx-report\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

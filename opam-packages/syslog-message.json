@@ -1,0 +1,123 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/syslog-message",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ptime": "*",
+        "@opam-alpha/qcheck": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "syslog_message_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "syslog_message_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "syslog_message_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/verbosemode/syslog-message/archive/0.0.1.tar.gz",
+        "checksum": "23646fb9778c9f46eef1a0d00799d8f5",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/syslog-message",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/astring": "*",
+        "@opam-alpha/ptime": "*",
+        "@opam-alpha/qcheck": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "syslog_message_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "syslog_message_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "syslog_message_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/verbosemode/syslog-message/releases/download/0.0.2/syslog-message-0.0.2.tbz",
+        "checksum": "0894adad6e936975d5aaf7ed32ec2908",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ppx_debugger",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___debugger_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ppx___debugger_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___debugger_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xvw/ppx_debugger/releases/download/v1.0/ppx_debugger.tar.gz",
+        "checksum": "1b6537b17f45c84ec2b8ebab18b3b256",
+        "files": []
+      }
+    }
+  }
+}

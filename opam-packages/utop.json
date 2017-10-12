@@ -1,0 +1,70 @@
+{
+  "versions": {
+    "1.19.3": {
+      "name": "@opam-alpha/utop",
+      "version": "1.19.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lambda-term": " >= 1.9.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/react": " >= 1.0.0",
+        "@opam-alpha/cppo": " >= 1.1.2",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--${camlp4_enable:-disable}-camlp4"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "utop_version": {
+            "val": "1.19.3",
+            "scope": "global"
+          },
+          "utop_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "utop_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/diml/utop/archive/1.19.3.tar.gz",
+        "checksum": "280f9a1062c53be8bae41cfd57ce29dd",
+        "files": [
+          {
+            "name": "utop.install",
+            "content": "bin: [\n  \"?_build/src/top/uTop_top_full.byte\" {\"utop-full\"}\n  \"?_build/src/top/uTop_top_full.native\" {\"utop-full\"}\n  \"?_build/src/top/uTop_top.byte\" {\"utop\"}\n  \"?_build/src/top/uTop_top.native\" {\"utop\"}\n]\nman: [\n  \"man/utop.1\"\n  \"man/utop-full.1\"\n  \"man/utoprc.5\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-blas",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-exc",
+            "cc $CFLAGS test.c -lblas"
+          ],
+          [
+            "sh",
+            "-exc",
+            "${CC:-gcc} $CFLAGS test.c -lblas $LDFLAGS"
+          ],
+          [
+            "sh",
+            "-exc",
+            "cc -framework Accelerate $CFLAGS test.c -lblas"
+          ],
+          [
+            "$cur__target_dir/test-win.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_blas_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_blas_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_blas_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test-win.sh",
+            "content": "#!/usr/bin/env sh\n\ncc=$(ocamlc -config | awk '/^bytecomp_c_compiler/ {$1=\"\";sub(/^ /, \"\"); print}')\n$cc $CFLAGS test.c -lblas\n\n"
+          },
+          {
+            "name": "test.c",
+            "content": "extern double dnrm2_(int *N, double *X, int *INCX);\n\nint main(int argc, char **argv)\n{\n  int N = 3;\n  double X[] = { 1, 2, 3 };\n  int INCX = 1;\n\tdouble res = dnrm2_(&N, X, &INCX);\n  return 0;\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

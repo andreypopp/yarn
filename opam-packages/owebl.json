@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/owebl",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "owebl_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "owebl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "owebl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/eatonphil/owebl/archive/v0.1.tar.gz",
+        "checksum": "9e7e686c0fab3ced7cac0e9b0689d5ee",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/ffmpeg",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ffmpeg_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ffmpeg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ffmpeg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-ffmpeg/0.1.0/ocaml-ffmpeg-0.1.0.tar.gz",
+        "checksum": "70d6f838d357ff02f8209655bafd3575",
+        "files": []
+      }
+    },
+    "0.1.1": {
+      "name": "@opam-alpha/ffmpeg",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ffmpeg_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "ffmpeg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ffmpeg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-ffmpeg/releases/download/0.1.1/ocaml-ffmpeg-0.1.1.tar.gz",
+        "checksum": "7c0c7198c877d72668a14c6d4400ba8c",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "versions": {
+    "0.6.3": {
+      "name": "@opam-alpha/orm",
+      "version": "0.6.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/dyntype": " >= 0.8.4",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/type_conv": " <= 108.0.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "orm_version": {
+            "val": "0.6.3",
+            "scope": "global"
+          },
+          "orm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "orm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/orm/tarball/orm-0.6.3",
+        "checksum": "2ae25f4a3fcfe33804db502a23482a8f",
+        "files": []
+      }
+    },
+    "0.6.4": {
+      "name": "@opam-alpha/orm",
+      "version": "0.6.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/dyntype": " >= 0.8.4",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/type_conv": " <= 108.0.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "orm_version": {
+            "val": "0.6.4",
+            "scope": "global"
+          },
+          "orm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "orm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/orm/tarball/orm-0.6.4",
+        "checksum": "3ce4a7f9c0f152c50fa64855aa0626b4",
+        "files": []
+      }
+    },
+    "0.7.0": {
+      "name": "@opam-alpha/orm",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/dyntype": " >= 0.9.0",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "orm_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "orm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "orm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/orm/tarball/orm-0.7.0",
+        "checksum": "effe34f86035a515a79a75e34d1a8131",
+        "files": []
+      }
+    },
+    "0.7.1": {
+      "name": "@opam-alpha/orm",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/dyntype": " >= 0.9.0",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "orm_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "orm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "orm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/orm/tarball/orm-0.7.1",
+        "checksum": "15cd87fb3ade1521f0ff8ed843f97f17",
+        "files": []
+      }
+    }
+  }
+}

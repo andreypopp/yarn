@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/ocaml-zmq",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uint": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_zmq_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "ocaml_zmq_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_zmq_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/issuu/ocaml-zmq/tarball/67586823edd",
+        "checksum": "32db494bfaaeb15ee536644090ee0b2b",
+        "files": []
+      }
+    }
+  }
+}

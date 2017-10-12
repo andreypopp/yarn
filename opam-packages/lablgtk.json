@@ -1,0 +1,347 @@
+{
+  "versions": {
+    "2.16.0": {
+      "name": "@opam-alpha/lablgtk",
+      "version": "2.16.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/lablgl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "LABLGLDIR=$cur__lib/lablgl"
+          ],
+          [
+            "make",
+            "world"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtk_version": {
+            "val": "2.16.0",
+            "scope": "global"
+          },
+          "lablgtk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/979/lablgtk-2.16.0.tar.gz",
+        "checksum": "052519ce2a77d2316732bc4d565b6399",
+        "files": [
+          {
+            "name": "lablgldir.patch",
+            "content": "diff -Naur lablgtk-2.16.0.orig/configure lablgtk-2.16.0/configure\n--- lablgtk-2.16.0.orig/configure\t2012-08-23 12:37:48.000000000 +0200\n+++ lablgtk-2.16.0/configure\t2013-08-21 11:16:50.707187151 +0200\n@@ -4066,7 +4066,7 @@\n       cat > conftest.ml << EOF\n       open Raw\n EOF\n-      if $CAMLC -c -I \"${LABLGLDIR:=+lablGL}\" conftest.ml > /dev/null 2>&1 ; then\n+      if $CAMLC -c -I \"$LABLGLDIR\" conftest.ml > /dev/null 2>&1 ; then\n         { $as_echo \"$as_me:${as_lineno-$LINENO}: result: $LABLGLDIR\" >&5\n $as_echo \"$LABLGLDIR\" >&6; }\n       else\n"
+          },
+          {
+            "name": "lablgtk.install",
+            "content": "bin: [\n  \"src/lablgtk2\"\n  \"src/gdk_pixbuf_mlsource\"\n  \"?src/lablgladecc2\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.18.2": {
+      "name": "@opam-alpha/lablgtk",
+      "version": "2.18.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/lablgl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "LABLGLDIR=$cur__lib/lablgl"
+          ],
+          [
+            "make",
+            "world"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtk_version": {
+            "val": "2.18.2",
+            "scope": "global"
+          },
+          "lablgtk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1456/lablgtk-2.18.2.tar.gz",
+        "checksum": "382003b46e52249810b3d6e7e9f3c80b",
+        "files": [
+          {
+            "name": "lablgldir.patch",
+            "content": "diff -Naur lablgtk-2.16.0.orig/configure lablgtk-2.16.0/configure\n--- lablgtk-2.16.0.orig/configure\t2012-08-23 12:37:48.000000000 +0200\n+++ lablgtk-2.16.0/configure\t2013-08-21 11:16:50.707187151 +0200\n@@ -4066,7 +4066,7 @@\n       cat > conftest.ml << EOF\n       open Raw\n EOF\n-      if $CAMLC -c -I \"${LABLGLDIR:=+lablGL}\" conftest.ml > /dev/null 2>&1 ; then\n+      if $CAMLC -c -I \"$LABLGLDIR\" conftest.ml > /dev/null 2>&1 ; then\n         { $as_echo \"$as_me:${as_lineno-$LINENO}: result: $LABLGLDIR\" >&5\n $as_echo \"$LABLGLDIR\" >&6; }\n       else\n"
+          },
+          {
+            "name": "lablgtk.install",
+            "content": "bin: [\n  \"src/lablgtk2\"\n  \"src/gdk_pixbuf_mlsource\"\n  \"?src/lablgladecc2\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.18.3": {
+      "name": "@opam-alpha/lablgtk",
+      "version": "2.18.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/lablgl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "LABLGLDIR=$cur__lib/lablgl"
+          ],
+          [
+            "make",
+            "world"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtk_version": {
+            "val": "2.18.3",
+            "scope": "global"
+          },
+          "lablgtk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1479/lablgtk-2.18.3.tar.gz",
+        "checksum": "bcbad64a28c3dc40f24cc7a4d2f1d0dd",
+        "files": [
+          {
+            "name": "lablgldir.patch",
+            "content": "diff -Naur lablgtk-2.16.0.orig/configure lablgtk-2.16.0/configure\n--- lablgtk-2.16.0.orig/configure\t2012-08-23 12:37:48.000000000 +0200\n+++ lablgtk-2.16.0/configure\t2013-08-21 11:16:50.707187151 +0200\n@@ -4066,7 +4066,7 @@\n       cat > conftest.ml << EOF\n       open Raw\n EOF\n-      if $CAMLC -c -I \"${LABLGLDIR:=+lablGL}\" conftest.ml > /dev/null 2>&1 ; then\n+      if $CAMLC -c -I \"$LABLGLDIR\" conftest.ml > /dev/null 2>&1 ; then\n         { $as_echo \"$as_me:${as_lineno-$LINENO}: result: $LABLGLDIR\" >&5\n $as_echo \"$LABLGLDIR\" >&6; }\n       else\n"
+          },
+          {
+            "name": "lablgtk.install",
+            "content": "bin: [\n  \"src/lablgtk2\"\n  \"src/gdk_pixbuf_mlsource\"\n  \"?src/lablgladecc2\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.18.4": {
+      "name": "@opam-alpha/lablgtk",
+      "version": "2.18.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/lablgl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "LABLGLDIR=$cur__lib/lablgl"
+          ],
+          [
+            "make",
+            "world"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtk_version": {
+            "val": "2.18.4",
+            "scope": "global"
+          },
+          "lablgtk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1602/lablgtk-2.18.4.tar.gz",
+        "checksum": "cb95497a3a34facd70d475892a806d02",
+        "files": [
+          {
+            "name": "lablgldir.patch",
+            "content": "diff -Naur lablgtk-2.16.0.orig/configure lablgtk-2.16.0/configure\n--- lablgtk-2.16.0.orig/configure\t2012-08-23 12:37:48.000000000 +0200\n+++ lablgtk-2.16.0/configure\t2013-08-21 11:16:50.707187151 +0200\n@@ -4066,7 +4066,7 @@\n       cat > conftest.ml << EOF\n       open Raw\n EOF\n-      if $CAMLC -c -I \"${LABLGLDIR:=+lablGL}\" conftest.ml > /dev/null 2>&1 ; then\n+      if $CAMLC -c -I \"$LABLGLDIR\" conftest.ml > /dev/null 2>&1 ; then\n         { $as_echo \"$as_me:${as_lineno-$LINENO}: result: $LABLGLDIR\" >&5\n $as_echo \"$LABLGLDIR\" >&6; }\n       else\n"
+          },
+          {
+            "name": "lablgtk.install",
+            "content": "bin: [\n  \"src/lablgtk2\"\n  \"src/gdk_pixbuf_mlsource\"\n  \"?src/lablgladecc2\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.18.5": {
+      "name": "@opam-alpha/lablgtk",
+      "version": "2.18.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/conf-glade": "*",
+        "@opam-alpha/lablgl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "LABLGLDIR=$cur__lib/lablgl"
+          ],
+          [
+            "make",
+            "world"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablgtk_version": {
+            "val": "2.18.5",
+            "scope": "global"
+          },
+          "lablgtk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablgtk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1627/lablgtk-2.18.5.tar.gz",
+        "checksum": "43eb7062439f7ddd0d8ad96c3e3b87dd",
+        "files": [
+          {
+            "name": "lablgldir.patch",
+            "content": "diff -Naur lablgtk-2.16.0.orig/configure lablgtk-2.16.0/configure\n--- lablgtk-2.16.0.orig/configure\t2012-08-23 12:37:48.000000000 +0200\n+++ lablgtk-2.16.0/configure\t2013-08-21 11:16:50.707187151 +0200\n@@ -4066,7 +4066,7 @@\n       cat > conftest.ml << EOF\n       open Raw\n EOF\n-      if $CAMLC -c -I \"${LABLGLDIR:=+lablGL}\" conftest.ml > /dev/null 2>&1 ; then\n+      if $CAMLC -c -I \"$LABLGLDIR\" conftest.ml > /dev/null 2>&1 ; then\n         { $as_echo \"$as_me:${as_lineno-$LINENO}: result: $LABLGLDIR\" >&5\n $as_echo \"$LABLGLDIR\" >&6; }\n       else\n"
+          },
+          {
+            "name": "lablgtk.install",
+            "content": "bin: [\n  \"src/lablgtk2\"\n  \"src/gdk_pixbuf_mlsource\"\n  \"?src/lablgladecc2\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

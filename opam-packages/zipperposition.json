@@ -1,0 +1,76 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/zipperposition",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/containers": " > 0.16.0  < 1.0.0",
+        "@opam-alpha/sequence": " >= 0.4.0  < 0.9.0",
+        "@opam-alpha/gen": "*",
+        "@opam-alpha/oclock": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/msat": " >= 0.3.0  < 0.4.0",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/menhir": "",
+        "@opam-alpha/qcheck": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir",
+            "$cur__bin",
+            "--disable-tests",
+            "--disable-docs",
+            "--${menhir_enable:-disable}-parsers",
+            "--disable-solving",
+            "--disable-qcheck",
+            "--disable-tools",
+            "--enable-meta"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "zipperposition_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "zipperposition_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "zipperposition_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/c-cube/zipperposition/archive/1.0.tar.gz",
+        "checksum": "48b8a8319663b6520622fe23f24fc073",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "0.6.1": {
+      "name": "@opam-alpha/vorbis",
+      "version": "0.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ogg": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vorbis_version": {
+            "val": "0.6.1",
+            "scope": "global"
+          },
+          "vorbis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vorbis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-vorbis/0.6.1/ocaml-vorbis-0.6.1.tar.gz",
+        "checksum": "f56c3566d1485e5b5cb9aa75acbd9d0c",
+        "files": []
+      }
+    },
+    "0.6.2": {
+      "name": "@opam-alpha/vorbis",
+      "version": "0.6.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ogg": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vorbis_version": {
+            "val": "0.6.2",
+            "scope": "global"
+          },
+          "vorbis_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vorbis_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-vorbis/releases/download/0.6.2/ocaml-vorbis-0.6.2.tar.gz",
+        "checksum": "bb20473496ea5102c5ccd25aa5ef785d",
+        "files": []
+      }
+    }
+  }
+}

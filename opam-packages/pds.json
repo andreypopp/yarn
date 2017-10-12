@@ -1,0 +1,424 @@
+{
+  "versions": {
+    "3.0.2": {
+      "name": "@opam-alpha/pds",
+      "version": "3.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*",
+        "@opam-alpha/crunch": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "3.0.2",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/3.0.2.tar.gz",
+        "checksum": "3e041e802864117de212816c104e307a",
+        "files": []
+      }
+    },
+    "3.0.4": {
+      "name": "@opam-alpha/pds",
+      "version": "3.0.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "3.0.4",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/3.0.4.tar.gz",
+        "checksum": "e74579a54c589cd36cde64e8c0eb1c5b",
+        "files": []
+      }
+    },
+    "3.1.0": {
+      "name": "@opam-alpha/pds",
+      "version": "3.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "3.1.0",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/3.1.0.tar.gz",
+        "checksum": "e92147e7977becef899169d82864a040",
+        "files": []
+      }
+    },
+    "3.1.1": {
+      "name": "@opam-alpha/pds",
+      "version": "3.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "3.1.1",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/3.1.1.tar.gz",
+        "checksum": "461d81aafb5c12207daf6000d9d3adbd",
+        "files": []
+      }
+    },
+    "4.13.0": {
+      "name": "@opam-alpha/pds",
+      "version": "4.13.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "4.13.0",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/4.13.tar.gz",
+        "checksum": "b26c3821216d8b195cd6150b41071958",
+        "files": []
+      }
+    },
+    "5.15.0": {
+      "name": "@opam-alpha/pds",
+      "version": "5.15.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "5.15.0",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/5.15.tar.gz",
+        "checksum": "818d47f502ae5662f27cca69950dd18d",
+        "files": []
+      }
+    },
+    "5.16.0": {
+      "name": "@opam-alpha/pds",
+      "version": "5.16.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "5.16.0",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/5.16.tar.gz",
+        "checksum": "a8bf52589a9230fe265c274ddf1c866c",
+        "files": []
+      }
+    },
+    "5.18.0": {
+      "name": "@opam-alpha/pds",
+      "version": "5.18.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/crunch": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/toml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pds_version": {
+            "val": "5.18.0",
+            "scope": "global"
+          },
+          "pds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/mimirops/pds/get/5.18.tar.gz",
+        "checksum": "cdf053cf6e361f698f3aa77bdd37d0b8",
+        "files": []
+      }
+    }
+  }
+}

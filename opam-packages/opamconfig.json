@@ -1,0 +1,99 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/opamconfig",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "./detect_configure_settings.sh",
+            "./opamconfig.config"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opamconfig_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "opamconfig_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opamconfig_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/opamconfig/releases/download/v0.1.0/opamconfig-0.1.0.tar.xz",
+        "checksum": "71c2fd2d5ac764871497292fe1e1265c",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/opamconfig",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "opamconfig_install.sh",
+            "$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opamconfig_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "opamconfig_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opamconfig_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/opamconfig/releases/download/v0.2.0/opamconfig-0.2.0.tar.xz",
+        "checksum": "657dea4d504ade1510c5cabd3de96cea",
+        "files": []
+      }
+    }
+  }
+}

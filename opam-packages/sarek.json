@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "20140620.0.0": {
+      "name": "@opam-alpha/sarek",
+      "version": "20140620.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocp-build": "*",
+        "@opam-alpha/spoc": " >= 20140620.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sarek_version": {
+            "val": "20140620.0.0",
+            "scope": "global"
+          },
+          "sarek_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sarek_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mathiasbourgoin/SPOC/releases/download/20140620/sarek-20140620.tar.gz",
+        "checksum": "469948b5f80795eccf2a3eccae0e01c9",
+        "files": []
+      }
+    }
+  }
+}

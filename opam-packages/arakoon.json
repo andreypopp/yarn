@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "1.9.0": {
+      "name": "@opam-alpha/arakoon",
+      "version": "1.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/bisect": "  >= 1.3.0",
+        "@opam-alpha/camltc": " >= 0.9.2",
+        "@opam-alpha/camlbz2": " >= 0.6.0",
+        "@opam-alpha/conf-libev": " >= 411.0.0",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/ocplib-endian": " >= 0.8.0",
+        "@opam-alpha/ssl": " >= 0.5.0",
+        "@opam-alpha/snappy": " >= 0.1.0",
+        "@opam-alpha/quickcheck": " >= 1.0.2",
+        "@opam-alpha/sexplib": " >= 113.0.0",
+        "@opam-alpha/core": " >= 113.0.0  < 113.33.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/redis": " >= 0.2.3",
+        "@opam-alpha/uri": " >= 1.9.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "OCAML_LIBDIR=$cur__install/lib",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "arakoon_version": {
+            "val": "1.9.0",
+            "scope": "global"
+          },
+          "arakoon_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "arakoon_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/openvstorage/arakoon/archive/1.9.0.tar.gz",
+        "checksum": "6e3c290c9f2e6bf5cfa607f9d2c4d756",
+        "files": []
+      }
+    }
+  }
+}

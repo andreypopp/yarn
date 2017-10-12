@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`installation 1`] = `
+"<root>
+| bin
+| | say-hello.exe
+| | with-binary
+| etc
+| lib
+| | node_modules
+| | | with-binary
+| | | | .bin
+| | | | | say-hello.exe
+| | | | | with-binary
+| | | | package.json
+| | | | postinstall.sh
+| | | | prerelease.sh
+| | | | records
+| | | | | recordedClientBuildStorePath.txt
+| | | | | recordedClientInstallStorePath.txt
+| | | | | recordedCoppiedArtifacts.txt
+| | | | | recordedServerBuildStorePath.txt
+| | | | rel
+| | | | | 3.x.x__________________________
+| | | | | | i
+| | | | | | | with_binary-0.1.0
+| | | | | | | | bin
+| | | | | | | | | say-hello.exe
+| | | | | | | | doc
+| | | | | | | | etc
+| | | | | | | | lib
+| | | | | | | | man
+| | | | | | | | sbin
+| | | | | | | | share
+| | | | | node_modules
+| | | | | | .cache
+| | | | | | | _esy
+| | | | | | | | build-eject
+| | | | | | | | | bin
+| | | | | | | | | | fastreplacestring.cpp
+| | | | | | | | | | fastreplacestring.exe
+| | | | | | | | | | realpath
+| | | | | | | | | | realpath.c
+| | | | | | | | | | render-env
+| | | | | | | | | | runtime.sh
+| | | | | | | | | command-env
+| | | | | | | | | eject-env
+| | | | | | | | | final-install-path-set.txt
+| | | | | | | | | final-install-path-set.txt.in
+| | | | | | | | | Makefile
+| | | | | | | | | sandbox.sb.in
+| | | | | | | | store
+| | | | | | | | | b
+| | | | | | | | | i
+| | | | | | | | | s
+| | | | | package.json
+| | | | | say-hello.exe
+| | | | | test.js
+| | | | | yarn.lock"
+`;
+
+exports[`installation stdout 1`] = `
+"/tmp/TMPDIR/npm/bin/say-hello.exe -> /tmp/TMPDIR/npm/lib/node_modules/with-binary/.bin/say-hello.exe
+/tmp/TMPDIR/npm/bin/with-binary -> /tmp/TMPDIR/npm/lib/node_modules/with-binary/.bin/with-binary
+
+> with-binary@0.1.0 postinstall /tmp/TMPDIR/npm/lib/node_modules/with-binary
+> ./postinstall.sh
+
+*** Unpacking the release...
+*** Building the release...
+[1;37m*** with-binary @ 0.1.0: building from source...[0m
+[0;32m*** with-binary @ 0.1.0: build complete[0m
+*** Decompressing artefacts...
+*** Relocating artefacts to the final destination...
++ with-binary@0.1.0
+added 1 package in X.XXXs"
+`;
+
+exports[`release 1`] = `
+"<root>
+| pack
+| | .bin
+| | | say-hello.exe
+| | | with-binary
+| | package.json
+| | postinstall.sh
+| | prerelease.sh
+| | rel.tar.gz"
+`;
+
+exports[`release stdout 1`] = `
+"*** Creating pack-type release for with-binary...
+*** Installing esy for the release...
+*** Installing dependencies...
+*** Packing the release..."
+`;

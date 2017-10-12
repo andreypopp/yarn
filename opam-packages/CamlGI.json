@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.6.0": {
+      "name": "@opam-alpha/CamlGI",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CamlGI_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "CamlGI_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "CamlGI_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/ocaml-cgi/CamlGI/0.6/CamlGI-0.6.tar.gz",
+        "checksum": "f53aab889a265dcb9ad0e0f7110577a5",
+        "files": [
+          {
+            "name": "CamlGI.install",
+            "content": "lib: [\"camlGI.a\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

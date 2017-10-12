@@ -1,0 +1,129 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/plist",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/lambdasoup": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "plist_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "plist_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "plist_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/ocaml-plist/archive/v0.1.tar.gz",
+        "checksum": "1c8a60e65db0fab9fd9559ecb5381b5c",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/plist",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "  >= 0.4.7",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/yojson": " >= 1.3.3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "plist_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "plist_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "plist_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/fxfactorial/ocaml-plist/archive/v1.0.0.tar.gz",
+        "checksum": "9558303cbc1a106d55e46694f713369f",
+        "files": []
+      }
+    }
+  }
+}

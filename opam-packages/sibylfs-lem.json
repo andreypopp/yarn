@@ -1,0 +1,78 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/sibylfs-lem",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/coq": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "-e"
+          ],
+          [
+            "make",
+            "ocaml-libs"
+          ],
+          [
+            "make",
+            "coq-libs"
+          ],
+          [
+            "sh",
+            "-ex",
+            "./generate_install_manifest.sh"
+          ],
+          [
+            "sh",
+            "-ex",
+            "./ocamlfind_install.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sibylfs_lem_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "sibylfs_lem_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sibylfs_lem_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/dsheets/lem/get/0.4.0.tar.gz",
+        "checksum": "9306b3bdc99638d5895156c840033b86",
+        "files": [
+          {
+            "name": "generate_install_manifest.sh",
+            "content": "#!/bin/sh -ex\n\necho \"bin: [\"                                  > sibylfs-lem.install\necho \"  \\\"src/main.native\\\" {\\\"lem\\\"}\"        >> sibylfs-lem.install\nprintf \"]\\nlib: [\\n\"                          >> sibylfs-lem.install\n\nls -1 library/*.* hol-lib/*.* isabelle-lib/*.* coq-lib/*.* ocaml-lib/*.* \\\n| sed -e \"s/\\\\(.*\\\\)/  \\\"\\1\\\" \\{ \\\"\\1\\\" \\}/\"  >> sibylfs-lem.install\necho \"]\"                                      >> sibylfs-lem.install\n"
+          },
+          {
+            "name": "ocamlfind_install.sh",
+            "content": "#!/bin/sh -ex\n\nocamlfind install sibylfs-lem ocaml-lib/META \\\n  ocaml-lib/_build/extract.a \\\n  ocaml-lib/_build/extract.cma \\\n  ocaml-lib/_build/extract.cmxa \\\n  ocaml-lib/_build/*.mli \\\n  ocaml-lib/_build/*.cmi\n"
+          }
+        ]
+      }
+    }
+  }
+}

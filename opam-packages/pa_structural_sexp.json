@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "112.35.0": {
+      "name": "@opam-alpha/pa_structural_sexp",
+      "version": "112.35.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 109.53.0  < 112.2.0",
+        "@opam-alpha/sexplib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___structural___sexp_version": {
+            "val": "112.35.0",
+            "scope": "global"
+          },
+          "pa___structural___sexp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___structural___sexp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.35/files/pa_structural_sexp-112.35.00.tar.gz",
+        "checksum": "b9d40e3a8586d6679c799d99cfabc596",
+        "files": []
+      }
+    },
+    "113.0.0": {
+      "name": "@opam-alpha/pa_structural_sexp",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/sexplib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___structural___sexp_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "pa___structural___sexp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___structural___sexp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.00/files/pa_structural_sexp-113.00.00.tar.gz",
+        "checksum": "288c81277d521d938a46514b8e3fb623",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/macaroons",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/hex": "*",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/sodium": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "macaroons"
+          ],
+          [
+            "make",
+            "sodium_macaroons"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "install_sodium"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "macaroons_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "macaroons_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "macaroons_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nojb/ocaml-macaroons/archive/v0.1.0.tar.gz",
+        "checksum": "6816ced35f687944f58e1a0d27bc888c",
+        "files": []
+      }
+    }
+  }
+}

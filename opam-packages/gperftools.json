@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/gperftools",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gperftools_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "gperftools_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gperftools_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1132/ocaml-gperftools-0.2.tar.gz",
+        "checksum": "e75a8aea7407037bcd26597d49e995a1",
+        "files": []
+      }
+    }
+  }
+}

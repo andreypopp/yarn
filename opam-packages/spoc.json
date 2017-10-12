@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "20140620.0.0": {
+      "name": "@opam-alpha/spoc",
+      "version": "20140620.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocp-build": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spoc_version": {
+            "val": "20140620.0.0",
+            "scope": "global"
+          },
+          "spoc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spoc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mathiasbourgoin/SPOC/releases/download/20140620/spoc-20140620.tar.gz",
+        "checksum": "cf100bf83ec1068e5f5f254daeb8dd06",
+        "files": []
+      }
+    }
+  }
+}

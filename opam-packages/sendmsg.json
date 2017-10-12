@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "0.0.2": {
+      "name": "@opam-alpha/sendmsg",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/ocb-stubblr": "",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-lwt",
+            "${lwt_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "sendmsg_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "sendmsg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "sendmsg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/pqwy/sendmsg/releases/download/v0.0.2/sendmsg-0.0.2.tbz",
+        "checksum": "3efcf4186dc080e0fdb030d0fb7d4ab4",
+        "files": []
+      }
+    }
+  }
+}

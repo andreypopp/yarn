@@ -1,0 +1,196 @@
+{
+  "versions": {
+    "2.1.0": {
+      "name": "@opam-alpha/chamo",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0  < 2.18.0",
+        "@opam-alpha/pcre": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "chamo_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "chamo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "chamo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/chamo/chamo-2.01.tar.gz",
+        "checksum": "e9e2047c929680884c35cee6a973735c",
+        "files": [
+          {
+            "name": "chamo.install",
+            "content": "bin: [\n  \"?src/chamo\"\n  \"?src/chamo.byte\"\n  \"src/mk-chamo\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/chamo",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.1.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.2.0",
+        "@opam-alpha/lablgtk": " >= 2.16.0  < 2.18.0",
+        "@opam-alpha/conf-glade": "=2.0.0",
+        "@opam-alpha/pcre": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "chamo_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "chamo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "chamo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/chamo/chamo-2.02.tar.gz",
+        "checksum": "efedc2453f1ca3e24c9de93f236db578",
+        "files": [
+          {
+            "name": "chamo.install",
+            "content": "bin: [\n  \"?src/chamo\"\n  \"?src/chamo.byte\"\n  \"src/mk-chamo\"\n]\n"
+          }
+        ]
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/chamo",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/config-file": " >= 1.2.0",
+        "@opam-alpha/lablgtk-extras": " >= 1.5.0",
+        "@opam-alpha/lablgtk": " >= 2.18.0",
+        "@opam-alpha/conf-glade": "=2.0.0",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install-lib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "chamo_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "chamo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "chamo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.com/chamo/chamo-2.03.tar.gz",
+        "checksum": "f2dc1e57c4205349796a8745065f5e95",
+        "files": [
+          {
+            "name": "chamo.install",
+            "content": "bin: [\n  \"?src/chamo\"\n  \"?src/chamo.byte\"\n  \"src/mk-chamo\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

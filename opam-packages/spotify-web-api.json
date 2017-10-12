@@ -1,0 +1,61 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/spotify-web-api",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/atdgen": "*",
+        "@opam-alpha/biniou": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": " >= 0.10.0  < 0.99.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "spotify_web_api_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "spotify_web_api_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "spotify_web_api_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-spotify-web-api/archive/0.2.0.tar.gz",
+        "checksum": "4aba2ceffa2ff3980ca0ca918f62f133",
+        "files": []
+      }
+    }
+  }
+}

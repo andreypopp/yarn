@@ -1,0 +1,106 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/uchar",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uchar_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "uchar_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uchar_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/uchar/releases/download/v0.0.1/uchar-0.0.1.tbz",
+        "checksum": "3a7e5de4c4f7f25f55d50693f92f1960",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/uchar",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uchar_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "uchar_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uchar_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/uchar/releases/download/v0.0.2/uchar-0.0.2.tbz",
+        "checksum": "c9ba2c738d264c420c642f7bb1cf4a36",
+        "files": []
+      }
+    }
+  }
+}

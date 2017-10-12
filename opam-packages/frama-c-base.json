@@ -1,0 +1,278 @@
+{
+  "versions": {
+    "20150201.0.0": {
+      "name": "@opam-alpha/frama-c-base",
+      "version": "20150201.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.5 || =1.8.6",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/coq": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--disable-gui"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_base_version": {
+            "val": "20150201.0.0",
+            "scope": "global"
+          },
+          "frama_c_base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Sodium-20150201.tar.gz",
+        "checksum": "7719bccdd319523da508e818e8e34fee",
+        "files": []
+      }
+    },
+    "20151002.0.0": {
+      "name": "@opam-alpha/frama-c-base",
+      "version": "20151002.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.5 || =1.8.6",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/coq": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--disable-gui"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_base_version": {
+            "val": "20151002.0.0",
+            "scope": "global"
+          },
+          "frama_c_base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Magnesium-20151002.tar.gz",
+        "checksum": "b7d761bdf0a58f3f8ec4242a3b67d50a",
+        "files": [
+          {
+            "name": "wp-ocaml-403.patch",
+            "content": "--- a/src/plugins/wp/wpo.mli\n+++ b/src/plugins/wp/wpo.mli\n@@ -127,7 +127,7 @@ type po = t and t = {\n \n module S : Datatype.S_with_collections with type t = po\n module Index : Map.OrderedType with type t = index\n-module Gmap : Map.S with type key = index\n+module Gmap : FCMap.S with type key = index\n \n (** Dynamically exported\n     @since Nitrogen-20111001\n"
+          }
+        ]
+      }
+    },
+    "20160502.0.0": {
+      "name": "@opam-alpha/frama-c-base",
+      "version": "20160502.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.5 || =1.8.6",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/coq": "",
+        "@opam-alpha/why3": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-eux",
+            "./run_autoconf_if_needed.sh"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--disable-local-ocamlgraph",
+            "--disable-gui"
+          ],
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_base_version": {
+            "val": "20160502.0.0",
+            "scope": "global"
+          },
+          "frama_c_base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Aluminium-20160502.tar.gz",
+        "checksum": "73775124849b7e21889ae85fff6ea0d2",
+        "files": [
+          {
+            "name": "run_autoconf_if_needed.sh",
+            "content": "#!/bin/sh -eux\n\nif [ ! -f \"configure\" ]; then\n  autoconf\nfi\n"
+          }
+        ]
+      }
+    },
+    "20161101.0.0": {
+      "name": "@opam-alpha/frama-c-base",
+      "version": "20161101.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": " >= 1.8.5  < 1.9.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/num": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/conf-gtksourceview": "*",
+        "@opam-alpha/conf-gnomecanvas": "*",
+        "@opam-alpha/coq": "",
+        "@opam-alpha/why3": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-eux",
+            "./run_autoconf_if_needed.sh"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--disable-gui"
+          ],
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_base_version": {
+            "val": "20161101.0.0",
+            "scope": "global"
+          },
+          "frama_c_base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/frama-c-Silicon-20161101.tar.gz",
+        "checksum": "454cce7dd6c4d2ce80db2395b90f912e",
+        "files": [
+          {
+            "name": "4.05-support.patch",
+            "content": "From 282370281cb8c720620851e339664cc07fd8e4b2 Mon Sep 17 00:00:00 2001\nFrom: Virgile Prevosto <virgile.prevosto@m4x.org>\nDate: Mon, 27 Feb 2017 08:50:26 +0100\nSubject: [PATCH] 4.05 compatibility\n\n---\n src/kernel_services/analysis/dataflow.ml  |  2 +-\n src/kernel_services/analysis/dataflow2.ml |  2 +-\n src/libraries/project/state_builder.ml    | 17 ++++++++++++++-\n src/libraries/utils/hook.ml               |  5 +++--\n src/plugins/wp/qed/src/idxset.ml          | 36 +++++++++++++++----------------\n 5 files changed, 39 insertions(+), 23 deletions(-)\n\ndiff --git a/src/kernel_services/analysis/dataflow.ml b/src/kernel_services/analysis/dataflow.ml\nindex 0f32f24..952d113 100644\n--- a/src/kernel_services/analysis/dataflow.ml\n+++ b/src/kernel_services/analysis/dataflow.ml\n@@ -83,7 +83,7 @@ end\n module StartData(X: sig type t val size: int end) = struct\n   type data = X.t\n   open Cil_datatype.Stmt.Hashtbl\n-  let stmtStartData = create X.size\n+  let stmtStartData: data Cil_datatype.Stmt.Hashtbl.t = create X.size\n   let clear () = clear stmtStartData\n   let mem = mem stmtStartData\n   let find = find stmtStartData\ndiff --git a/src/kernel_services/analysis/dataflow2.ml b/src/kernel_services/analysis/dataflow2.ml\nindex 0d6eb24..813ef7b 100644\n--- a/src/kernel_services/analysis/dataflow2.ml\n+++ b/src/kernel_services/analysis/dataflow2.ml\n@@ -60,7 +60,7 @@ end\n module StartData(X: sig type t val size: int end) = struct\n   type data = X.t\n   open Cil_datatype.Stmt.Hashtbl\n-  let stmtStartData = create X.size\n+  let stmtStartData: data Cil_datatype.Stmt.Hashtbl.t = create X.size\n   let clear () = clear stmtStartData\n   let mem = mem stmtStartData\n   let find = find stmtStartData\ndiff --git a/src/libraries/project/state_builder.ml b/src/libraries/project/state_builder.ml\nindex 8d07c0d..781e5ff 100644\n--- a/src/libraries/project/state_builder.ml\n+++ b/src/libraries/project/state_builder.ml\n@@ -585,8 +585,23 @@ module type Weak_hashtbl = sig\n   val remove: data -> unit\n end\n \n+module type Sub_caml_weak_hashtbl =\n+sig\n+  include Datatype.Sub_caml_weak_hashtbl\n+  val clear: t -> unit\n+  val merge: t -> data -> data\n+  val add: t -> data -> unit\n+  val count: t -> int\n+  val iter: (data->unit) -> t -> unit\n+  val fold: (data->'a->'a) -> t -> 'a -> 'a\n+  val find: t -> data -> data\n+  val find_all: t -> data -> data list\n+  val mem: t -> data -> bool\n+  val remove: t -> data -> unit\n+end\n+\n module Weak_hashtbl\n-  (W: Weak.S)\n+  (W: Sub_caml_weak_hashtbl)\n   (Data: Datatype.S with type t = W.data)\n   (Info: Info_with_size) =\n struct\ndiff --git a/src/libraries/utils/hook.ml b/src/libraries/utils/hook.ml\nindex 7c4e762..53021dd 100644\n--- a/src/libraries/utils/hook.ml\n+++ b/src/libraries/utils/hook.ml\n@@ -54,7 +54,7 @@ let add_once v queue =\n   let already = Queue.fold (fun b v' -> b || v' == v) false queue in\n   if not already then Queue.add v queue\n \n-module Build(P:sig type t end) = struct\n+module Build(P:sig type t end): Iter_hook with type param = P.t = struct\n   type param = P.t\n   type result = unit\n   let hooks = Queue.create ()\n@@ -74,7 +74,8 @@ module Build(P:sig type t end) = struct\n   let length () = Queue.length hooks\n end\n \n-module Fold(P:sig type t end) = struct\n+module Fold(P:sig type t end): S with type param=P.t and type result = P.t =\n+struct\n   type param = P.t\n   type result = P.t\n   let hooks = Queue.create ()\ndiff --git a/src/plugins/wp/qed/src/idxset.ml b/src/plugins/wp/qed/src/idxset.ml\nindex 941384b..54d0b3e 100644\n--- a/src/plugins/wp/qed/src/idxset.ml\n+++ b/src/plugins/wp/qed/src/idxset.ml\n@@ -69,48 +69,48 @@ struct\n   (* good sharing *)\n   let remove x = Intmap.remove (E.id x)\n   let is_empty = Intmap.is_empty\n-  let mem x = Intmap.mem (E.id x)\n-  let find x = Intmap.find (E.id x)\n+  let mem x m = Intmap.mem (E.id x) m\n+  let find x m = Intmap.find (E.id x) m\n   let cardinal = Intmap.size\n-  let compare = Intmap.compare (fun _ _ -> 0)\n-  let equal = Intmap.equal (fun _ _ -> true)\n+  let compare m1 m2 = Intmap.compare (fun _ _ -> 0) m1 m2\n+  let equal m1 m2 = Intmap.equal (fun _ _ -> true) m1 m2\n \n   let _keep _ x _ = x\n   let _keepq _ x _ = Some x\n   let _same _ _ _ = true\n \n   (* good sharing *)\n-  let union = Intmap.union _keep\n+  let union m1 m2 = Intmap.union _keep m1 m2\n \n   (* good sharing *)\n-  let inter = Intmap.interq _keepq\n+  let inter m1 m2 = Intmap.interq _keepq m1 m2\n \n   (* good sharing *)\n-  let diff = Intmap.diffq _keepq\n-  let subset = Intmap.subset _same\n-  let intersect = Intmap.intersectf _same\n+  let diff m1 m2 = Intmap.diffq _keepq m1 m2\n+  let subset m1 m2 = Intmap.subset _same m1 m2\n+  let intersect m1 m2 = Intmap.intersectf _same m1 m2\n \n   (* increasing order on id *)\n-  let iter f = Intmap.iteri (fun _i x -> f x)\n+  let iter f m = Intmap.iteri (fun _i x -> f x) m\n \n   (* increasing order on id *)\n-  let fold f = Intmap.foldi (fun _i x e -> f x e)\n+  let fold f m i = Intmap.foldi (fun _i x e -> f x e) m i\n \n   (* good sharing *)\n-  let filter f = Intmap.filter (fun _i x -> f x)\n+  let filter f m = Intmap.filter (fun _i x -> f x) m\n \n   (* good sharing *)\n-  let partition f = Intmap.partition (fun _i x -> f x)\n+  let partition f m = Intmap.partition (fun _i x -> f x) m\n \n-  let for_all f = Intmap.for_all (fun _i x -> f x)\n-  let exists f = Intmap.exists (fun _i x -> f x)\n+  let for_all f m = Intmap.for_all (fun _i x -> f x) m\n+  let exists f m = Intmap.exists (fun _i x -> f x) m\n \n   (* increasing order on id *)\n-  let elements = Intmap.mapl (fun _i x -> x)\n+  let elements m = Intmap.mapl (fun _i x -> x) m\n \n   (* good sharing *)\n-  let mapf f= Intmap.mapq (fun _i x -> f x)\n+  let mapf f m = Intmap.mapq (fun _i x -> f x) m\n \n   (* good sharing *)\n-  let map f = Intmap.mapq (fun _i x -> Some (f x))\n+  let map f m = Intmap.mapq (fun _i x -> Some (f x)) m\n end\n"
+          },
+          {
+            "name": "run_autoconf_if_needed.sh",
+            "content": "#!/bin/sh -eux\n\nif [ ! -f \"configure\" ]; then\n  autoconf\nfi\n"
+          }
+        ]
+      }
+    }
+  }
+}

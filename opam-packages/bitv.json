@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/bitv",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bitv_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "bitv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bitv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://www.lri.fr/~filliatr/ftp/ocaml/ds/bitv-1.0.tar.gz",
+        "checksum": "b9532c91945f3f22090c18669fd60f2a",
+        "files": [
+          {
+            "name": "META",
+            "content": "name = \"bitv\"\nversion = \"1.0\"\ndescription = \"A bit vector library\"\narchive(byte) = \"bitv.cmo\"\narchive(native) = \"bitv.cmx\"\n"
+          },
+          {
+            "name": "bitv.install",
+            "content": "lib: [\n  \"META\"\n  \"bitv.cmi\"\n  \"bitv.cmo\"\n  \"bitv.cmx\"\n  \"bitv.o\"\n  \"bitv.mli\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/bitv",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bitv_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "bitv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bitv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://www.lri.fr/~filliatr/ftp/ocaml/ds/bitv-1.1.tar.gz",
+        "checksum": "5b65f4e719a1ea29add797563950c9ea",
+        "files": []
+      }
+    }
+  }
+}

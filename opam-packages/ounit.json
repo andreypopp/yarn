@@ -1,0 +1,105 @@
+{
+  "versions": {
+    "1.1.2": {
+      "name": "@opam-alpha/ounit",
+      "version": "1.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ounit_version": {
+            "val": "1.1.2",
+            "scope": "global"
+          },
+          "ounit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ounit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/886/ounit-1.1.2.tar.gz",
+        "checksum": "14e4d8ee551004dbcc1607f438ef7d83",
+        "files": []
+      }
+    },
+    "2.0.0": {
+      "name": "@opam-alpha/ounit",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ounit_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "ounit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ounit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz",
+        "checksum": "2e0a24648c55005978d4923eb4925b28",
+        "files": []
+      }
+    }
+  }
+}

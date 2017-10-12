@@ -1,0 +1,181 @@
+{
+  "versions": {
+    "3.1.2": {
+      "name": "@opam-alpha/mldonkey",
+      "version": "3.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mldonkey_version": {
+            "val": "3.1.2",
+            "scope": "global"
+          },
+          "mldonkey_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mldonkey_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/mldonkey/mldonkey/3.1.2/mldonkey-3.1.2.tar.bz2",
+        "checksum": "85e6a0fe358b8c71a71da6d979c9760f",
+        "files": [
+          {
+            "name": "mldonkey.install",
+            "content": "bin: [\n  \"mlnet\" {\"mlslsk\"}\n  \"mlnet\"\n  \"mlnet\" {\"mlgnut\"}\n  \"mlnet\" {\"mldonkey\"}\n  \"mlnet\" {\"mldc\"}\n  \"mlnet\" {\"mlbt\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "3.1.3": {
+      "name": "@opam-alpha/mldonkey",
+      "version": "3.1.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-debug",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mldonkey_version": {
+            "val": "3.1.3",
+            "scope": "global"
+          },
+          "mldonkey_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mldonkey_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/mldonkey/mldonkey/3.1.3/mldonkey-3.1.3.tar.bz2",
+        "checksum": "671f60467a918a9b7c2affef63ff5c25",
+        "files": [
+          {
+            "name": "mldonkey.install",
+            "content": "bin: [\n  \"mlnet\" {\"mlslsk\"}\n  \"mlnet\"\n  \"mlnet\" {\"mlgnut\"}\n  \"mlnet\" {\"mldonkey\"}\n  \"mlnet\" {\"mldc\"}\n  \"mlnet\" {\"mlbt\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "3.1.5": {
+      "name": "@opam-alpha/mldonkey",
+      "version": "3.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--enable-debug",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mldonkey_version": {
+            "val": "3.1.5",
+            "scope": "global"
+          },
+          "mldonkey_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mldonkey_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/mldonkey/mldonkey/3.1.5/mldonkey-3.1.5.tar.bz2",
+        "checksum": "eca07c8ce88702dd437c72db531162d9",
+        "files": [
+          {
+            "name": "mldonkey.install",
+            "content": "bin: [\n  \"mlnet\" {\"mlslsk\"}\n  \"mlnet\"\n  \"mlnet\" {\"mlgnut\"}\n  \"mlnet\" {\"mldonkey\"}\n  \"mlnet\" {\"mldc\"}\n  \"mlnet\" {\"mlbt\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

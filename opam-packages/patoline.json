@@ -1,0 +1,76 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/patoline",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camomile": "*",
+        "@opam-alpha/camlimages": "*",
+        "@opam-alpha/dypgen": "*",
+        "@opam-alpha/sqlite3": "*",
+        "@opam-alpha/camlzip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "unix.cma",
+            "configure.ml",
+            "--prefix",
+            "$cur__install",
+            "--bin-prefix",
+            "$cur__bin",
+            "--ocaml-libs",
+            "$cur__lib",
+            "--fonts-dir",
+            "$cur__share/patoline/fonts",
+            "--grammars-dir",
+            "$cur__lib/patoline/grammars",
+            "--plugins-dir",
+            "$cur__lib/patoline/plugins",
+            "--hyphen-dir",
+            "$cur__share/patoline/hyphen"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "patoline_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "patoline_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "patoline_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://patoline.org/darcs/patoline/patoline-0.1.tar.gz",
+        "checksum": "2f7fe33ef6dff305e9a2407696c7a799",
+        "files": []
+      }
+    }
+  }
+}

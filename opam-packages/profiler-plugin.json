@@ -1,0 +1,118 @@
+{
+  "versions": {
+    "1.1.0": {
+      "name": "@opam-alpha/profiler-plugin",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/alt-ergo": "=1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "profiler"
+          ],
+          [
+            "make",
+            "install-profiler",
+            "MANDIR=$cur__man/man1"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "profiler_plugin_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "profiler_plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "profiler_plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://alt-ergo.ocamlpro.com/http/alt-ergo-1.01/alt-ergo-1.01.tar.gz",
+        "checksum": "9fbf8e42bec2a171dc9422f9dcea9519",
+        "files": []
+      }
+    },
+    "1.30.0": {
+      "name": "@opam-alpha/profiler-plugin",
+      "version": "1.30.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/zarith": " >= 1.4.0",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/ocplib-simplex": "=0.3.0",
+        "@opam-alpha/alt-ergo": "=1.30.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-prefix",
+            "$cur__install"
+          ],
+          [
+            "make",
+            "profiler"
+          ],
+          [
+            "make",
+            "install-profiler",
+            "MANDIR=$cur__man/man1"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "profiler_plugin_version": {
+            "val": "1.30.0",
+            "scope": "global"
+          },
+          "profiler_plugin_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "profiler_plugin_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://alt-ergo.ocamlpro.com/http/alt-ergo-1.30/alt-ergo-1.30.tar.gz",
+        "checksum": "c7100ebd625fbd7d3e5247dbac689748",
+        "files": []
+      }
+    }
+  }
+}

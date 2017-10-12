@@ -1,0 +1,107 @@
+{
+  "versions": {
+    "109.15.3": {
+      "name": "@opam-alpha/pa_variants_conv",
+      "version": "109.15.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 109.15.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/oasis": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___variants___conv_version": {
+            "val": "109.15.3",
+            "scope": "global"
+          },
+          "pa___variants___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___variants___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/pa_variants_conv/archive/109.15.03.tar.gz",
+        "checksum": "dd8605362ae7cc1948595f9db7c83b4a",
+        "files": []
+      }
+    },
+    "109.15.4": {
+      "name": "@opam-alpha/pa_variants_conv",
+      "version": "109.15.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 109.15.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___variants___conv_version": {
+            "val": "109.15.4",
+            "scope": "global"
+          },
+          "pa___variants___conv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___variants___conv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/pa_variants_conv/archive/109.15.04.tar.gz",
+        "checksum": "e6db8d87b14d0f9fa90565e240c98ac0",
+        "files": []
+      }
+    }
+  }
+}

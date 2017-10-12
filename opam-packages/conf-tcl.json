@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-tcl",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-pkg-config": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "check.sh"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_tcl_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_tcl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_tcl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "check.sh",
+            "content": "pkg-config tcl || \\\ncc -o /dev/null \\\n  -I/usr/include/tcl \\\n  -I/usr/local/include/tcl \\\n  compiletest.c\n"
+          },
+          {
+            "name": "compiletest.c",
+            "content": "#include <stdio.h>\n#include <tcl.h>\nint main (){\n\tputs(TCL_VERSION);\n\treturn 0;\n}\n"
+          }
+        ]
+      }
+    }
+  }
+}

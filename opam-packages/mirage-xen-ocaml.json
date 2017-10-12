@@ -1,0 +1,219 @@
+{
+  "versions": {
+    "2.3.0": {
+      "name": "@opam-alpha/mirage-xen-ocaml",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen-posix": "*",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/ocaml-src": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-ocaml-build"
+          ],
+          [
+            "make",
+            "xen-ocaml-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_xen_ocaml_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-platform/archive/v2.3.0.tar.gz",
+        "checksum": "4bae08a22f8260f764646620ce83d084",
+        "files": []
+      }
+    },
+    "2.3.1": {
+      "name": "@opam-alpha/mirage-xen-ocaml",
+      "version": "2.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen-posix": "*",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-src": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-ocaml-build"
+          ],
+          [
+            "make",
+            "xen-ocaml-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_xen_ocaml_version": {
+            "val": "2.3.1",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-platform/archive/v2.3.1.tar.gz",
+        "checksum": "4d2918daafd0dc192d537f8422bf43cb",
+        "files": []
+      }
+    },
+    "2.3.4": {
+      "name": "@opam-alpha/mirage-xen-ocaml",
+      "version": "2.3.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen-posix": "*",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-src": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-ocaml-build"
+          ],
+          [
+            "make",
+            "xen-ocaml-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_xen_ocaml_version": {
+            "val": "2.3.4",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-platform/archive/v2.3.4.tar.gz",
+        "checksum": "00402709acf64d7405091c587a81e4eb",
+        "files": []
+      }
+    },
+    "2.6.0": {
+      "name": "@opam-alpha/mirage-xen-ocaml",
+      "version": "2.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-xen-posix": " >= 2.6.0",
+        "@opam-alpha/conf-pkg-config": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-src": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "xen-ocaml-build"
+          ],
+          [
+            "make",
+            "xen-ocaml-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_xen_ocaml_version": {
+            "val": "2.6.0",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_xen_ocaml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-platform/archive/v2.6.0.tar.gz",
+        "checksum": "e9d5ec80ae06b42658e48af130aea7c1",
+        "files": []
+      }
+    }
+  }
+}

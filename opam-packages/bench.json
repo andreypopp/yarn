@@ -1,0 +1,72 @@
+{
+  "versions": {
+    "1.3.0": {
+      "name": "@opam-alpha/bench",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": " >= 0.3.0  < 0.4.7",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "rm",
+            "setup.ml"
+          ],
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bench_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "bench_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bench_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/thelema/bench/releases/download/v1.3/bench-1.3.tar.gz",
+        "checksum": "8878462e1be5b580b84a3761de699e92",
+        "files": []
+      }
+    }
+  }
+}

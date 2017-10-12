@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cordova-plugin-activity-indicator",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/gen_js_api": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cordova_plugin_activity_indicator_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cordova_plugin_activity_indicator_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cordova_plugin_activity_indicator_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dannywillems/ocaml-cordova-plugin-activity-indicator/archive/v1.0.tar.gz",
+        "checksum": "6559e42a3b423c34155bbc950c5f9b38",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.1": {
+      "name": "@opam-alpha/dum",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/easy-format": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dum_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "dum_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dum_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/dum/archive/v1.0.1.tar.gz",
+        "checksum": "aa5bd1ea89d2f5881c18652545361a1c",
+        "files": []
+      }
+    }
+  }
+}

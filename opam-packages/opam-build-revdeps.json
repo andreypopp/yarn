@@ -1,0 +1,81 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/opam-build-revdeps",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "",
+        "@opam-alpha/calendar": "  >= 2.3.0",
+        "@opam-alpha/cmdliner": "  >= 0.9.0",
+        "@opam-alpha/fileutils": "  >= 0.5.1",
+        "@opam-alpha/jingoo": "  >= 1.2.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/opam-lib": " =1.2.2",
+        "@opam-alpha/re": "  >= 1.7.0",
+        "@opam-alpha/uuidm": "  >= 0.9.6",
+        "@opam-alpha/ocamlify": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_build_revdeps_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "opam_build_revdeps_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_build_revdeps_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gildor478/opam-build-revdeps/releases/download/0.1.0/opam-build-revdeps-0.1.0.tar.gz",
+        "checksum": "07d04ea5b2df5f18e9a12bc5db43855f",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "opam-build-revdeps.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/starterkit",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lambda-term": "*",
+        "@opam-alpha/ocp-indent": "*",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/utop": "*",
+        "@opam-alpha/ocp-index": "*",
+        "@opam-alpha/merlin": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "starterkit_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "starterkit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "starterkit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

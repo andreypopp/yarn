@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.1.0": {
+      "name": "@opam-alpha/afl-persistent",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/topkg": "  >= 0.7.4",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "afl_persistent_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "afl_persistent_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "afl_persistent_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/stedolan/ocaml-afl-persistent/archive/v1.1.tar.gz",
+        "checksum": "5aee7d5233c99a73a6344bf0451d0618",
+        "files": []
+      }
+    }
+  }
+}

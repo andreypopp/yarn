@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "0.1.5": {
+      "name": "@opam-alpha/ofx",
+      "version": "0.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/xml-light": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ofx_version": {
+            "val": "0.1.5",
+            "scope": "global"
+          },
+          "ofx_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ofx_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mvalle/ocaml-ofx/archive/ofx.0.1.5.zip",
+        "checksum": "ac7edcda7c272ca5c83ea8bc2f7a3009",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "versions": {
+    "2.2.2": {
+      "name": "@opam-alpha/javalib",
+      "version": "2.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlzip": "=1.4.0",
+        "@opam-alpha/extlib": " <= 1.6.0",
+        "@opam-alpha/extlib-compat": " < 1.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure.sh"
+          ],
+          [
+            "make",
+            "ptrees"
+          ],
+          [
+            "make",
+            "installptrees"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "javalib_version": {
+            "val": "2.2.2",
+            "scope": "global"
+          },
+          "javalib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "javalib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/31494/javalib-2.2.2.tar.bz2",
+        "checksum": "a04dfea2e7fb23636c23d24096cefc07",
+        "files": []
+      }
+    },
+    "2.3.0": {
+      "name": "@opam-alpha/javalib",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlzip": "=1.5.0",
+        "@opam-alpha/extlib": " >= 1.5.1  <= 1.6.0",
+        "@opam-alpha/extlib-compat": " < 1.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure.sh"
+          ],
+          [
+            "make",
+            "ptrees"
+          ],
+          [
+            "make",
+            "installptrees"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "javalib_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "javalib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "javalib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/33090/javalib-2.3.tar.bz2",
+        "checksum": "9b79ea9cfd2b30e0e6c2c655b989532f",
+        "files": [
+          {
+            "name": "patch-javalib.diff",
+            "content": "diff -uNr javalib-2.3/src/jBasics.ml javalib-2.3a/src/jBasics.ml\n--- javalib-2.3/src/jBasics.ml\t2013-10-30 08:35:30.000000000 +0100\n+++ javalib-2.3a/src/jBasics.ml\t2015-06-18 15:36:17.000000000 +0200\n@@ -278,8 +278,6 @@\n       with _ ->\n \tlet cni = cnt.cni_next in\n         let new_cn = (cni,cn) in\n-\t  if not (Str.string_match valid_class_name cn 0)\n-\t  then invalid_arg (\"Error : \" ^ cn ^ \" is not a valid name for a class\");\n \t  cnt.cni_map <- ClassNameMap.add cn new_cn cnt.cni_map;\n \t  cnt.cni_next <- cni + 1;\n \t  new_cn\n"
+          }
+        ]
+      }
+    },
+    "2.3.1": {
+      "name": "@opam-alpha/javalib",
+      "version": "2.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlzip": "=1.5.0",
+        "@opam-alpha/extlib": " >= 1.5.1  <= 1.6.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure.sh"
+          ],
+          [
+            "make",
+            "ptrees"
+          ],
+          [
+            "make",
+            "installptrees"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "javalib_version": {
+            "val": "2.3.1",
+            "scope": "global"
+          },
+          "javalib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "javalib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/34920/javalib-2.3.1.tar.bz2",
+        "checksum": "31e33a2c462f8bbda79218f9041f3639",
+        "files": []
+      }
+    },
+    "2.3.2": {
+      "name": "@opam-alpha/javalib",
+      "version": "2.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlzip": " >= 1.5.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/extlib-compat": " < 1.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure.sh"
+          ],
+          [
+            "make",
+            "ptrees"
+          ],
+          [
+            "make",
+            "installptrees"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "javalib_version": {
+            "val": "2.3.2",
+            "scope": "global"
+          },
+          "javalib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "javalib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/36092/javalib-2.3.2.tar.bz2",
+        "checksum": "17ec3fabb1472dd3324ec68fb63b22a6",
+        "files": []
+      }
+    },
+    "2.3.3": {
+      "name": "@opam-alpha/javalib",
+      "version": "2.3.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlzip": " >= 1.5.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/extlib-compat": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure.sh"
+          ],
+          [
+            "make",
+            "ptrees"
+          ],
+          [
+            "make",
+            "installptrees"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "javalib_version": {
+            "val": "2.3.3",
+            "scope": "global"
+          },
+          "javalib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "javalib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/36307/javalib-2.3.3.tar.bz2",
+        "checksum": "a4d4b06e8f4860db34c128e760fa8397",
+        "files": []
+      }
+    }
+  }
+}

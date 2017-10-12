@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "2.5.0": {
+      "name": "@opam-alpha/opam-file-format",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte",
+            "all"
+          ],
+          [
+            "make",
+            "install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opam_file_format_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "opam_file_format_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opam_file_format_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ocaml/opam-file-format/archive/2.0-alpha5.tar.gz",
+        "checksum": "2ccdf87e2bd8ed8541dda1d3369b3199",
+        "files": []
+      }
+    }
+  }
+}

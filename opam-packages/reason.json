@@ -1,0 +1,475 @@
+{
+  "versions": {
+    "1.3.0": {
+      "name": "@opam-alpha/reason",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/easy-format": " >= 1.2.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/utop": " >= 1.17.0  < 2.0.0",
+        "@opam-alpha/BetterErrors": " >= 0.0.1",
+        "@opam-alpha/menhir": " >= 20160303.0.0",
+        "@opam-alpha/merlin": " >= 2.5.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/re": " >= 1.5.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "utop=${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.3.0.zip",
+        "checksum": "b8a94ad7b8803b716ee41c006ebcafa8",
+        "files": []
+      }
+    },
+    "1.4.0": {
+      "name": "@opam-alpha/reason",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/easy-format": " >= 1.2.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/utop": " >= 1.17.0  < 2.0.0",
+        "@opam-alpha/BetterErrors": " >= 0.0.1",
+        "@opam-alpha/menhir": " >= 20160303.0.0",
+        "@opam-alpha/merlin": " >= 2.5.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/re": " >= 1.5.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "utop=${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.4.0.zip",
+        "checksum": "b1445f4e44b394afee3bd9a838df7270",
+        "files": []
+      }
+    },
+    "1.11.0": {
+      "name": "@opam-alpha/reason",
+      "version": "1.11.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/utop": " >= 1.17.0  < 2.0.0",
+        "@opam-alpha/menhir": " >= 20160303.0.0  <= 20170101.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": "=5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true",
+            "--utop",
+            "${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.11.0",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.11.0.tar.gz",
+        "checksum": "24e7636b8eb4ba6bc2bca73671e39e59",
+        "files": []
+      }
+    },
+    "1.13.3": {
+      "name": "@opam-alpha/reason",
+      "version": "1.13.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/utop": " >= 1.17.0  < 2.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": "=0.8.1",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/reason-parser": "=1.13.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true",
+            "--utop",
+            "${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.13.3",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.13.3.tar.gz",
+        "checksum": "7f5c3b8ca5664d162effb3b3108bc440",
+        "files": []
+      }
+    },
+    "1.13.5": {
+      "name": "@opam-alpha/reason",
+      "version": "1.13.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/utop": " >= 1.17.0  < 2.0.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": " >= 0.8.1  < 0.9.0",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/reason-parser": "=1.13.5"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true",
+            "--utop",
+            "${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.13.5",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.13.5.tar.gz",
+        "checksum": "bdec9018b2258a0439570b78f538cf07",
+        "files": []
+      }
+    },
+    "1.13.6": {
+      "name": "@opam-alpha/reason",
+      "version": "1.13.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/utop": " >= 1.17.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": " >= 0.8.1  < 0.9.0",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/reason-parser": "=1.13.6"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true",
+            "--utop",
+            "${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.13.6",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.13.6.tar.gz",
+        "checksum": "ebe00cbe865ba636c7be2f78aff5e54a",
+        "files": []
+      }
+    },
+    "1.13.7": {
+      "name": "@opam-alpha/reason",
+      "version": "1.13.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": "=20170418.0.0",
+        "@opam-alpha/utop": " >= 1.17.0",
+        "@opam-alpha/merlin-extend": " >= 0.3.0",
+        "@opam-alpha/result": "=1.2.0",
+        "@opam-alpha/topkg": " >= 0.8.1  < 0.9.0",
+        "@opam-alpha/ocaml-migrate-parsetree": "*",
+        "@opam-alpha/ppx_tools_versioned": " >= 5.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "pkg/META.in"
+          ],
+          [
+            "make",
+            "compile_error"
+          ],
+          [
+            "ocamlbuild",
+            "-package",
+            "topkg",
+            "pkg/build.native"
+          ],
+          [
+            "./build.native",
+            "build",
+            "--native",
+            "true",
+            "--native-dynlink",
+            "true",
+            "--utop",
+            "${utop_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "reason_version": {
+            "val": "1.13.7",
+            "scope": "global"
+          },
+          "reason_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "reason_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/facebook/reason/archive/1.13.7.tar.gz",
+        "checksum": "2463d7333d464fdbacc0ea262669374f",
+        "files": []
+      }
+    }
+  }
+}

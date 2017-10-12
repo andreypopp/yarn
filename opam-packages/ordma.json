@@ -1,0 +1,104 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/ordma",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.5.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "lib"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ordma_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "ordma_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ordma_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/toolslive/ordma/archive/0.0.1.tar.gz",
+        "checksum": "245fda663419cfd44d3d67c59a820f33",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/ordma",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.5.1"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "$cur__lib"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ordma_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "ordma_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ordma_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/toolslive/ordma/archive/0.0.2.tar.gz",
+        "checksum": "995a49c777e39fc0c9a5367328151623",
+        "files": []
+      }
+    }
+  }
+}

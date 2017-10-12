@@ -1,0 +1,459 @@
+{
+  "versions": {
+    "112.1.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "112.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 112.1.0  < 112.6.0",
+        "@opam-alpha/core": " >= 112.1.0  < 112.7.0",
+        "@opam-alpha/sexplib": " >= 112.1.0  < 112.7.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "112.1.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.01.00/individual/rpc_parallel-112.01.00.tar.gz",
+        "checksum": "df2341e65d9f4c93c5f1f4b7dc575d7d",
+        "files": []
+      }
+    },
+    "112.17.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "112.17.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 112.17.0  < 112.18.0",
+        "@opam-alpha/core": " >= 112.17.0  < 112.18.0",
+        "@opam-alpha/sexplib": " >= 112.17.0  < 112.18.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "112.17.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.17/files/rpc_parallel-112.17.00.tar.gz",
+        "checksum": "5477d191c368fb4dc20aa4de87db9a64",
+        "files": []
+      }
+    },
+    "112.24.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "112.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 112.24.0  < 112.25.0",
+        "@opam-alpha/core": " >= 112.24.0  < 112.25.0",
+        "@opam-alpha/sexplib": " >= 112.24.0  < 112.25.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "112.24.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.24/files/rpc_parallel-112.24.tar.gz",
+        "checksum": "979ef4f4309edb59b8b271b9cbfff49d",
+        "files": []
+      }
+    },
+    "112.35.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "112.35.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/core": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/sexplib": " >= 112.35.0  < 112.36.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "112.35.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/112.35/files/rpc_parallel-112.35.00.tar.gz",
+        "checksum": "1064aa82ac156e3c99d4d5ec9907a296",
+        "files": []
+      }
+    },
+    "113.0.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/core": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/sexplib": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.00/files/rpc_parallel-113.00.00.tar.gz",
+        "checksum": "3697f5c3c33a07cc8a26c38f378707b2",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/bin_prot": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_bench": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_expect": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_jane": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/rpc_parallel-113.24.00.tar.gz",
+        "checksum": "d2879123383301ff194f316b705e8225",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/rpc_parallel-113.33.00.tar.gz",
+        "checksum": "c8692f8273cf1b2fdbf0040c2b19e725",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/rpc_parallel",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rpc___parallel_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "rpc___parallel_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rpc___parallel_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/rpc_parallel-113.33.03.tar.gz",
+        "checksum": "cfb5ea1cd8fad6fae47adaebd35b12d1",
+        "files": []
+      }
+    }
+  }
+}

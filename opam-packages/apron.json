@@ -1,0 +1,68 @@
+{
+  "versions": {
+    "20160125.0.0": {
+      "name": "@opam-alpha/apron",
+      "version": "20160125.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlidl": "*",
+        "@opam-alpha/mlgmpidl": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/conf-perl": "*",
+        "@opam-alpha/conf-ppl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "./configure",
+            "--prefix",
+            "$cur__share/apron",
+            "--no-ppl",
+            "--no-java",
+            "--no-ocaml-plugins",
+            "--absolute-dylibs"
+          ],
+          [
+            "make",
+            "-j4"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "apron_version": {
+            "val": "20160125.0.0",
+            "scope": "global"
+          },
+          "apron_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "apron_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://apron.gforge.inria.fr/apron-20160125.tar.gz",
+        "checksum": "6bd20a4b4f42c2c467b26dc2b4024e55",
+        "files": []
+      }
+    }
+  }
+}

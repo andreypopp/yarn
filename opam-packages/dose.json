@@ -1,0 +1,410 @@
+{
+  "versions": {
+    "3.1.2": {
+      "name": "@opam-alpha/dose",
+      "version": "3.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocp-build": " >= 1.99.3",
+        "@opam-alpha/ocamlgraph": " <= 1.8.5",
+        "@opam-alpha/cudf": "=0.6.3",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/re": " >= 1.2.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "substs",
+            "dose.ocp.in"
+          ],
+          [
+            "ocp-build",
+            "-init"
+          ],
+          [
+            "ocp-build",
+            "-scan",
+            "dose",
+            "-v",
+            "0"
+          ],
+          [
+            "mv",
+            "META.dose3",
+            "META"
+          ],
+          [
+            "ocamlfind",
+            "install",
+            "dose3",
+            "META"
+          ],
+          [
+            "mv",
+            "META.dose",
+            "META"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose_version": {
+            "val": "3.1.2",
+            "scope": "global"
+          },
+          "dose_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/31595/dose3-3.1.2.tar.gz",
+        "checksum": "e98ff720fcc3873def46c85c6a980a1b",
+        "files": [
+          {
+            "name": "META.dose",
+            "content": "archive(byte) = \"dose.cma\"\nrequires = \"unix, cudf, extlib, re.pcre, ocamlgraph\"\narchive(native) = \"dose.cmxa\""
+          },
+          {
+            "name": "META.dose3",
+            "content": "directory = \"../dose\"\narchive(byte) = \"dose.cma\"\nrequires = \"unix, cudf, extlib, re.pcre, ocamlgraph\"\narchive(native) = \"dose.cmxa\""
+          },
+          {
+            "name": "dose.install",
+            "content": "lib: [\n  \"META\"\n  \"_obuild/dose/dose.cma\"\n  \"_obuild/dose/dose.cmxa\"\n  \"_obuild/dose/dose.a\"\n  \"_obuild/dose/Debian.cmi\"\n  \"_obuild/dose/Common.cmi\"\n  \"_obuild/dose/Algo.cmi\"\n]\n"
+          },
+          {
+            "name": "dose.ocp.in",
+            "content": "begin library \"re_perl\"\n  dirname  = \"%{lib}%/re\"\n  generated = true\nend\n\nbegin library \"extLib\"\n  dirname  = \"%{lib}%/extlib\"\n  generated = true\nend\n\nbegin library \"cudf\"\n  dirname  = \"%{lib}%/cudf\"\n  generated = true\n  requires  = [ \"re_perl\" \"extLib\" ]\nend\n\nbegin library \"graph\"\n  dirname  = \"%{lib}%/ocamlgraph\"\n  generated = true\nend\n\n\nbegin library \"unix\"\n  version = \"[distributed with Ocaml]\"\n  dirname = [ \"%{lib}%/ocaml\" ]\n  generated = true\nend\n\nbegin library \"dose\"\n   sort = true\n   files = [\n     pack Common [\n       \"common/util.ml\"\n       \"common/url.ml\"\n       \"common/input.ml\"\n       \"common/cudfDiff.ml\"\n       \"common/cudfAdd.ml\"\n       \"common/edosSolver.ml\"\n       \"common/cudfSolver.ml\"\n(*     \"common/minisatSolver.ml\" *)\n     ]\n\n     pack Debian [\n       \"deb/format822_parser.mly\"\n       \"deb/format822_lexer.mll\"\n       \"deb/format822.ml\"\n       \"deb/debcudf.ml\"\n       \"deb/packages_parser.mly\"\n       \"deb/packages_lexer.mll\"\n       \"deb/packages.ml\"\n       \"deb/version.ml\"\n       \"deb/sources.ml\"\n       \"deb/release.ml\"\n       \"deb/evolution.ml\"\n       \"deb/edsp.ml\"\n       \"deb/debutil.ml\"\n       \"deb/architecture.ml\"\n       \"deb/apt.ml\"\n   ]\n\n   pack Algo [\n     \"algo/strongdeps_int.ml\"\n     \"algo/strongdeps.ml\"\n     \"algo/strongconflicts_int.ml\"\n     \"algo/strongconflicts.ml\"\n     \"algo/statistics.ml\"\n     \"algo/flatten.ml\"\n     \"algo/dominator.ml\"\n     \"algo/dominators.ml\"\n     \"algo/diagnostic_int.ml\"\n     \"algo/diagnostic.ml\"\n     \"algo/depsolver_int.ml\"\n     \"algo/depsolver.ml\"\n     \"algo/defaultgraphs.ml\"\n   ]]\n\n   requires = [\n     \"re_perl\"\n     \"extLib\"\n     \"cudf\"\n     \"graph\"\n     \"unix\"\n   ]\nend\n"
+          },
+          {
+            "name": "patches/0001-Added-portable-invocation-of-mktemp-for-Linux-and-BS.patch",
+            "content": "From 5d5d1d4a39830a9f852714ad6b14fec27a9ba0a5 Mon Sep 17 00:00:00 2001\nFrom: Roberto Di Cosmo <github@dicosmo.org>\nDate: Sun, 12 Jan 2014 22:54:38 +0100\nSubject: [PATCH 01/10] Added portable invocation of mktemp for Linux and *BSD\n\n---\n common/cudfSolver.ml | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n\ndiff --git a/common/cudfSolver.ml b/common/cudfSolver.ml\nindex 9b71147..8638f12 100644\n--- a/common/cudfSolver.ml\n+++ b/common/cudfSolver.ml\n@@ -27,7 +27,7 @@ let check_fail file =\n (** see mktemp(1) for the syntax of [tmp_pattern] *)\n let mktmpdir tmp_pattern =\n   let ic =\n-    Unix.open_process_in (Printf.sprintf \"mktemp --tmpdir -d %s\" tmp_pattern) in\n+    Unix.open_process_in (Printf.sprintf \"(mktemp --tmpdir -d %s || mktemp -d -t %s) 2>/dev/null\" tmp_pattern tmp_pattern) in\n   let path = input_line ic in\n   ignore (Unix.close_process_in ic);\n   path\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0002-Sanitize-the-string-containing-the-criteria-before-p.patch",
+            "content": "From 0a9dda72d9bbb7f1b7888ec5c506336181ae19b5 Mon Sep 17 00:00:00 2001\nFrom: Roberto Di Cosmo <github@dicosmo.org>\nDate: Thu, 16 Jan 2014 11:34:53 +0100\nSubject: [PATCH 02/10] Sanitize the string containing the criteria before\n passing it to the shell.\n\n---\n common/cudfSolver.ml | 6 +++++-\n 1 file changed, 5 insertions(+), 1 deletion(-)\n\ndiff --git a/common/cudfSolver.ml b/common/cudfSolver.ml\nindex 8638f12..6d21dd6 100644\n--- a/common/cudfSolver.ml\n+++ b/common/cudfSolver.ml\n@@ -53,10 +53,14 @@ let rec input_all_lines acc chan =\n (** Solver \"exec:\" line. Contains three named wildcards to be interpolated:\n    \"$in\", \"$out\", and \"$pref\"; corresponding to, respectively, input CUDF\n    document, output CUDF universe, user preferences. *)\n+\n+(* quote string for the shell, after removing all characters disallowed in criteria *)\n+let sanitize s = Printf.sprintf \"\\\"%s\\\"\" (Pcre.substitute ~rex:(Pcre.regexp \"[^+()a-z,\\\"-]\") ~subst:(fun _ -> \"\") s);;\n+\n let interpolate_solver_pat exec cudf_in cudf_out pref =\n   let _, exec = String.replace ~str:exec ~sub:\"$in\"   ~by:cudf_in  in\n   let _, exec = String.replace ~str:exec ~sub:\"$out\"  ~by:cudf_out in\n-  let _, exec = String.replace ~str:exec ~sub:\"$pref\" ~by:pref     in\n+  let _, exec = String.replace ~str:exec ~sub:\"$pref\" ~by:(sanitize pref) in\n   exec\n ;;\n \n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0003-Modified-pattern-interpolation-to-ensure-only-one-is.patch",
+            "content": "From d26a67f13bc445463ba474d578c2ea8ee4a9dd0c Mon Sep 17 00:00:00 2001\nFrom: Roberto Di Cosmo <github@dicosmo.org>\nDate: Fri, 17 Jan 2014 13:55:30 +0100\nSubject: [PATCH 03/10] Modified pattern interpolation to ensure only one \" is\n used around arguments.\n\n---\n common/cudfSolver.ml | 12 +++++++-----\n 1 file changed, 7 insertions(+), 5 deletions(-)\n\ndiff --git a/common/cudfSolver.ml b/common/cudfSolver.ml\nindex 6d21dd6..43e1680 100644\n--- a/common/cudfSolver.ml\n+++ b/common/cudfSolver.ml\n@@ -55,13 +55,15 @@ let rec input_all_lines acc chan =\n    document, output CUDF universe, user preferences. *)\n \n (* quote string for the shell, after removing all characters disallowed in criteria *)\n-let sanitize s = Printf.sprintf \"\\\"%s\\\"\" (Pcre.substitute ~rex:(Pcre.regexp \"[^+()a-z,\\\"-]\") ~subst:(fun _ -> \"\") s);;\n+let quote s = Printf.sprintf \"\\\"%s\\\"\" s;;\n+let sanitize s = quote (Pcre.substitute ~rex:(Pcre.regexp \"[^+()a-z,\\\"-]\") ~subst:(fun _ -> \"\") s);;\n \n let interpolate_solver_pat exec cudf_in cudf_out pref =\n-  let _, exec = String.replace ~str:exec ~sub:\"$in\"   ~by:cudf_in  in\n-  let _, exec = String.replace ~str:exec ~sub:\"$out\"  ~by:cudf_out in\n-  let _, exec = String.replace ~str:exec ~sub:\"$pref\" ~by:(sanitize pref) in\n-  exec\n+  let (|>) f g = fun x -> g(f x) in\n+  let dequote s = Pcre.regexp (\"\\\"*\"^(Pcre.quote s)^\"\\\"*\") in\n+  (Pcre.substitute ~rex:(dequote \"$in\")   ~subst: (fun _ -> (quote cudf_in))  |>\n+   Pcre.substitute ~rex:(dequote \"$out\")  ~subst: (fun _ -> (quote cudf_out)) |>\n+   Pcre.substitute ~rex:(dequote \"$pref\") ~subst: (fun _ -> (sanitize pref))) exec\n ;;\n \n exception Error of string\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0004-All-errors-from-cudfsolver-are-now-exceptions-and-no.patch",
+            "content": "From 2f396d2bae904472347519f8d797882081ea6b58 Mon Sep 17 00:00:00 2001\nFrom: Pietro Abate <pietro.abate@pps.jussieu.fr>\nDate: Tue, 4 Mar 2014 13:06:55 +0100\nSubject: [PATCH 04/10] All errors from cudfsolver are now exceptions and not\n fatal errors\n\nConflicts:\n\tcommon/cudfSolver.ml\n---\n common/cudfSolver.ml | 16 +++++++---------\n 1 file changed, 7 insertions(+), 9 deletions(-)\n\ndiff --git a/common/cudfSolver.ml b/common/cudfSolver.ml\nindex 43e1680..41509e1 100644\n--- a/common/cudfSolver.ml\n+++ b/common/cudfSolver.ml\n@@ -38,13 +38,6 @@ let rmtmpdir path =\n     ignore (Unix.system (Printf.sprintf \"rm -rf %s\" path))\n ;;\n \n-let check_exit_status cmd = function\n-  |Unix.WEXITED 0   -> ()\n-  |Unix.WEXITED i   -> fatal \"command '%s' failed with code %d\" cmd i\n-  |Unix.WSIGNALED i -> fatal \"command '%s' killed by signal %d\" cmd i\n-  |Unix.WSTOPPED i  -> fatal \"command '%s' stopped by signal %d\" cmd i\n-;;\n-\n let rec input_all_lines acc chan =\n   try input_all_lines ((input_line chan)::acc) chan\n   with End_of_file -> acc\n@@ -75,6 +68,13 @@ let fatal fmt =\n   ) fmt\n ;;\n \n+let check_exit_status cmd = function\n+  |Unix.WEXITED 0   -> ()\n+  |Unix.WEXITED i   -> fatal \"command '%s' failed with code %d\" cmd i\n+  |Unix.WSIGNALED i -> fatal \"command '%s' killed by signal %d\" cmd i\n+  |Unix.WSTOPPED i  -> fatal \"command '%s' stopped by signal %d\" cmd i\n+;;\n+\n (** [execsolver] execute an external cudf solver.\n     exec_pat : execution string\n     cudf : a cudf document (preamble, universe, request)\n@@ -92,8 +92,6 @@ let execsolver exec_pat criteria cudf =\n   let solver_out = Filename.concat tmpdir \"out-cudf\" in\n   let cmd = interpolate_solver_pat exec_pat solver_in solver_out criteria in\n \n-  debug \"%s\" cmd;\n-\n   let env = Unix.environment () in\n   let (cin,cout,cerr) = Unix.open_process_full cmd env in\n \n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0005-Fix-upgrade-bug-in-the-check_request-function.patch",
+            "content": "From 5a3daaaddbdc8ca2816bb00164a24a2b74a81b26 Mon Sep 17 00:00:00 2001\nFrom: Pietro Abate <pietro.abate@pps.jussieu.fr>\nDate: Thu, 19 Sep 2013 12:14:54 +0200\nSubject: [PATCH 05/10] Fix upgrade bug in the check_request function\n\nthe upgrade request is not correctly encoded and passed to\nthe edos solver.\n\nConflicts:\n\tcudf\n---\n algo/depsolver.ml | 13 ++++++++++++-\n 1 file changed, 12 insertions(+), 1 deletion(-)\n\ndiff --git a/algo/depsolver.ml b/algo/depsolver.ml\nindex 869d153..6c5092a 100644\n--- a/algo/depsolver.ml\n+++ b/algo/depsolver.ml\n@@ -337,7 +337,18 @@ let check_request ?cmd ?criteria ?(explain=false) (pre,universe,request) =\n           else acc\n         ) [] universe\n       in\n-      let l = request.Cudf.install @ request.Cudf.upgrade in\n+      let il = request.Cudf.install in\n+      let ul = \n+        List.filter_map (function (name,None) ->\n+          match Cudf.get_installed universe name with\n+          |[] -> Some((name,None))\n+          |[p] -> Some(name,Some(`Geq,p.Cudf.version))\n+          |pl ->\n+              let p = List.hd(List.sort ~cmp:Cudf.(>%) pl) in\n+              Some(name,Some(`Geq,p.Cudf.version))\n+        ) request.Cudf.upgrade  \n+      in\n+      let l = il @ ul in\n       debug \"request consistency (keep %d) (install %d) (upgrade %d) (remove %d) (# %d)\"\n       (List.length k) (List.length request.Cudf.install) \n       (List.length request.Cudf.upgrade)\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0006-Fix-compilation-problems-with-ocaml-4.0.1.patch",
+            "content": "From 4a789f7a785a9b5134e10263dd0f9cd0a85d431d Mon Sep 17 00:00:00 2001\nFrom: Pietro Abate <pietro.abate@pps.jussieu.fr>\nDate: Fri, 6 Dec 2013 13:46:52 +0100\nSubject: [PATCH 06/10] Fix compilation problems with ocaml 4.0.1\n\nConflicts:\n\tdoc/manpages/ceve.pod\n---\n _tags.in              | 12 +++----\n doc/manpages/ceve.pod | 95 +++++++++++++++++++++++++++++++++++----------------\n 2 files changed, 72 insertions(+), 35 deletions(-)\n\ndiff --git a/_tags.in b/_tags.in\nindex 8937afa..643209f 100644\n--- a/_tags.in\n+++ b/_tags.in\n@@ -31,12 +31,12 @@ true: -traverse\n <rpm/rpm.cm{x,}a>: @USE_RPM@\n <rpm/rpm.cmxs>: @LINK_RPM@\n \n-<common/*.cmx>: for-pack(Common)\n-<algo/*.cmx>: for-pack(Algo)\n-<deb/*.cmx>: for-pack(Debian)\n-<eclipse/*.cmx>: for-pack(Eclipse)\n-<opencsw/*.cmx>: for-pack(Csw)\n-<rpm/*.cmx>: for-pack(Rpm)\n+<common/*.cmx> and not <common/common.cmx>: for-pack(Common)\n+<algo/*.cmx> and not <algo/algo.cmx>: for-pack(Algo)\n+<deb/*.cmx> and not <deb/debian.cmx>: for-pack(Debian)\n+<eclipse/*.cmx> and not <eclipse/eclipse.cmx>: for-pack(Eclipse)\n+<opencsw/*.cmx> and not <opencsw/csw.cmx>: for-pack(Csw)\n+<rpm/*.cmx> and not <rpm/rpm.cmx>: for-pack(Rpm)\n \n <{applications,experimental}/*>: use_common, use_debian, use_eclipse, use_csw\n <{applications,experimental}/*>: package(extlib), package(pcre), package(unix)\ndiff --git a/doc/manpages/ceve.pod b/doc/manpages/ceve.pod\nindex a014345..b0fba34 100644\n--- a/doc/manpages/ceve.pod\n+++ b/doc/manpages/ceve.pod\n@@ -53,11 +53,50 @@ In combination with the B<-e>, B<-c> or B<-r> options, this\n specifies the maximum depth for the transitive closure. \n =item B<-t >I<format> \n \n-Specifies\n-the output format to use. Possible values are B<dot> for a graph output in\n-Dot/GraphViz format, B<cnf> for an output in CNF format, B<dimacs> for an output\n-in the DIMACS format for CNF formulae, and B<cudf> for a pretty-print output\n-in an RFC 822-like format. This option can also be specified as --outtype=I<format>.I<>\n+Specifies the output format to use. Possible values are B<dot> for a graph\n+output in Dot/GraphViz format, B<cnf> for an output in CNF format, B<dimacs>\n+for an output in the DIMACS format for CNF formulae, and B<cudf> for a\n+pretty-print output in an RFC 822-like format.\n+\n+=item B<-t >I<input-spec>\n+\n+Select the input type.\n+\n+=item B<--request >I<installation-request>\n+\n+Specifies an installation request of the form \"B<install:> I<vpkglist>\" or\n+\"B<remove:> I<vpkglist>\" or \"B<upgrade:> I<vpkglist>\" where I<vpkglist> is a list of (real)\n+packages possibly associated with a constraint. Ex.: bash (< 2.0), exim (=\n+3.1-debian1). This option can be repeated to specify install, remove and\n+upgrade actions.\n+\n+Examples:\n+\n+=item --request \"install: bash (< 2.0), exim (= 3.1-debian1)\" --request \"upgrade: apt-cudf\"\n+\n+=item B<-G >I<graph type> \n+\n+Specifies the graph type format to compute. This option must be used together\n+with the option B<-T >I<dot|gml|grml>. Possible values are:\n+\n+=item .\n+\n+B<syn> for the syntactic graph where disjunctions nodes and conflicts are\n+explicitely added to the graph. \n+\n+=item .\n+\n+B<pkg> for the package graph where all dependencies are threated uniformely and\n+conflicts are not added to the graph.\n+\n+=item .\n+\n+B<strong> the strong dependency graph.\n+\n+=item .\n+\n+B<conj> the conjunctive graph where only conjunctive dependencies are\n+considered.\n \n =item B<-o >I<filename> \n \n@@ -65,49 +104,47 @@ Instead of stdout, send output to the file I<filename>. This option\n can also be specified as --outfile=I<filename>.I<> \n =item I<input-spec> \n \n-This is a URL specifying\n-both the input format and the file to get the input from. Possible schemes\n-are: \n-=item *\n+This is a URL specifying both the input format and the file to get the input\n+from. Possible schemes are: \n+\n+=item .\n \n B<cudf> for cudf files \n =item *\n \n-B<deb> for Debian package files (possibly compressed\n-with L<gzip(1)> or L<bzip2(1)>, depending on compile-time options for dose3) \n-=item *\n+=item .\n \n-B<debstdin>\n-for Debian package files read from standard input \n-=item *\n+B<deb> for Debian package files (possibly compressed with L<gzip(1)> or\n+L<bzip2(1)>, depending on compile-time options for dose3) \n \n-B<eclipse> for Eclipse (p2)\n-package files \n-=item *\n+=item .\n \n-B<pgsql> for PostgreSQL databasess \n-=item *\n+B<debstdin> for Debian package files read from standard input \n \n-B<sqlite> for sqlite databases\n+=item .\n \n-=item *\n+B<edsp> for apt-get External Dependency Solver Protocol\n+\n+=item .\n+\n+B<eclipse> for Eclipse (p2) package files \n+\n+=item .\n \n B<hdlist> for RPM hdlists \n-=item *\n+\n+=item .\n \n B<synth> for urpmi synthesis hdlists \n  Some examples\n of URLs: \n  \n-=item *\n+=item .\n \n deb://Packages.gz (the Debian file packages.gz in the current directory)\n \n-=item *\n+=item .\n \n cudf:///home/examples/cudf/test.cudf (the CUDF file /home/examples/cudf/test.cudf)\n \n-=item *\n-\n-psql://user@db.mancoosi.org:723/packages (the database I<packages> on host I<db.mancoosi.org>\n-on port 723, accessed as user I<user>) \n+=back\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0007-Fixed-code-for-computing-upgrade-constraints-handle-.patch",
+            "content": "From 5241aed77b87d34555ef96f0307aa323b7b60f6c Mon Sep 17 00:00:00 2001\nFrom: Roberto Di Cosmo <github@dicosmo.org>\nDate: Wed, 12 Mar 2014 17:25:06 +0100\nSubject: [PATCH 07/10] Fixed code for computing upgrade constraints: handle\n user constraints properly.\n\n---\n algo/depsolver.ml | 26 +++++++++++++++-----------\n 1 file changed, 15 insertions(+), 11 deletions(-)\n\ndiff --git a/algo/depsolver.ml b/algo/depsolver.ml\nindex 6c5092a..71189a5 100644\n--- a/algo/depsolver.ml\n+++ b/algo/depsolver.ml\n@@ -322,8 +322,18 @@ type solver_result =\n   |Unsat of Diagnostic.diagnosis option\n   |Error of string\n \n+\n+(* add a version constraint to ensure name is upgraded *)\n+let upgrade_constr universe name = \n+  match Cudf.get_installed universe name with\n+  | [] -> name,None\n+  |[p] -> name,Some(`Geq,p.Cudf.version)\n+  | pl -> let p = List.hd(List.sort ~cmp:Cudf.(>%) pl) in\n+          name,Some(`Geq,p.Cudf.version)\n+\n (** check if a cudf request is satisfiable. we do not care about\n  * universe consistency . We try to install a dummy package *)\n+\n let check_request ?cmd ?criteria ?(explain=false) (pre,universe,request) =\n   let intSolver universe request =\n     let deps = \n@@ -338,17 +348,11 @@ let check_request ?cmd ?criteria ?(explain=false) (pre,universe,request) =\n         ) [] universe\n       in\n       let il = request.Cudf.install in\n-      let ul = \n-        List.filter_map (function (name,None) ->\n-          match Cudf.get_installed universe name with\n-          |[] -> Some((name,None))\n-          |[p] -> Some(name,Some(`Geq,p.Cudf.version))\n-          |pl ->\n-              let p = List.hd(List.sort ~cmp:Cudf.(>%) pl) in\n-              Some(name,Some(`Geq,p.Cudf.version))\n-        ) request.Cudf.upgrade  \n-      in\n-      let l = il @ ul in\n+\n+      (* we preserve the user defined constraints, while adding the upgrade constraint *)\n+      let ulc = List.filter (function (_,Some _) -> true | _ -> false) request.Cudf.upgrade in\n+      let ulnc = List.map (fun (name,_) -> upgrade_constr universe name) request.Cudf.upgrade in\n+      let l = il @ ulc @ ulnc in\n       debug \"request consistency (keep %d) (install %d) (upgrade %d) (remove %d) (# %d)\"\n       (List.length k) (List.length request.Cudf.install) \n       (List.length request.Cudf.upgrade)\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0008-Use-re.pcre-instead-of-pcre.patch",
+            "content": "From 4fa17051073d73319bd01394984e159fb41bbb8d Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Fri, 7 Mar 2014 10:22:39 +0100\nSubject: [PATCH 7/7] Use re.pcre instead of pcre-ocaml\n\n(original patch on OPAM by samoht)\n---\n common/cudfAdd.ml      |  8 ++++----\n common/cudfSolver.ml   | 10 +++++-----\n common/extBenchmark.ml |  6 +++---\n common/tests.ml        |  2 +-\n deb/apt.ml             | 42 +++++++++++++++++++++---------------------\n deb/edsp.ml            |  2 +-\n deb/version.ml         |  4 ++--\n eclipse/version.ml     |  4 ++--\n opencsw/packages.ml    |  2 +-\n opencsw/version.ml     |  4 ++--\n rpm/packages.ml        |  2 +-\n 11 files changed, 43 insertions(+), 43 deletions(-)\n\ndiff --git a/common/cudfAdd.ml b/common/cudfAdd.ml\nindex dbd38dd..a3f8049 100644\n--- a/common/cudfAdd.ml\n+++ b/common/cudfAdd.ml\n@@ -109,18 +109,18 @@ init_hashtables enc_ht dec_ht;;\n \n (* encode *)\n let encode_single s   = EncodingHashtable.find enc_ht s;;\n-let not_allowed_regexp = Pcre.regexp \"[^a-zA-Z0-9@/+().-]\";;\n+let not_allowed_regexp = Re_pcre.regexp \"[^a-zA-Z0-9@/+().-]\";;\n \n let encode s =\n-  Pcre.substitute ~rex:not_allowed_regexp ~subst:encode_single s\n+  Re_pcre.substitute ~rex:not_allowed_regexp ~subst:encode_single s\n ;;\n \n (* decode *)\n let decode_single s = DecodingHashtable.find dec_ht s;;\n-let encoded_char_regexp = Pcre.regexp \"%[0-9a-f][0-9a-f]\";;\n+let encoded_char_regexp = Re_pcre.regexp \"%[0-9a-f][0-9a-f]\";;\n \n let decode s =\n-  Pcre.substitute ~rex:encoded_char_regexp ~subst:decode_single s\n+  Re_pcre.substitute ~rex:encoded_char_regexp ~subst:decode_single s\n ;;\n \n (* formatting *)\ndiff --git a/common/cudfSolver.ml b/common/cudfSolver.ml\nindex 41509e1..0f6b43f 100644\n--- a/common/cudfSolver.ml\n+++ b/common/cudfSolver.ml\n@@ -49,14 +49,14 @@ let rec input_all_lines acc chan =\n \n (* quote string for the shell, after removing all characters disallowed in criteria *)\n let quote s = Printf.sprintf \"\\\"%s\\\"\" s;;\n-let sanitize s = quote (Pcre.substitute ~rex:(Pcre.regexp \"[^+()a-z,\\\"-]\") ~subst:(fun _ -> \"\") s);;\n+let sanitize s = quote (Re_pcre.substitute ~rex:(Re_pcre.regexp \"[^+()a-z,\\\"-]\") ~subst:(fun _ -> \"\") s);;\n \n let interpolate_solver_pat exec cudf_in cudf_out pref =\n   let (|>) f g = fun x -> g(f x) in\n-  let dequote s = Pcre.regexp (\"\\\"*\"^(Pcre.quote s)^\"\\\"*\") in\n-  (Pcre.substitute ~rex:(dequote \"$in\")   ~subst: (fun _ -> (quote cudf_in))  |>\n-   Pcre.substitute ~rex:(dequote \"$out\")  ~subst: (fun _ -> (quote cudf_out)) |>\n-   Pcre.substitute ~rex:(dequote \"$pref\") ~subst: (fun _ -> (sanitize pref))) exec\n+  let dequote s = Re_pcre.regexp (\"\\\"*\"^(Re_pcre.quote s)^\"\\\"*\") in\n+  (Re_pcre.substitute ~rex:(dequote \"$in\")   ~subst: (fun _ -> (quote cudf_in))  |>\n+   Re_pcre.substitute ~rex:(dequote \"$out\")  ~subst: (fun _ -> (quote cudf_out)) |>\n+   Re_pcre.substitute ~rex:(dequote \"$pref\") ~subst: (fun _ -> (sanitize pref))) exec\n ;;\n \n exception Error of string\ndiff --git a/common/extBenchmark.ml b/common/extBenchmark.ml\nindex 839b12e..333755f 100644\n--- a/common/extBenchmark.ml\n+++ b/common/extBenchmark.ml\n@@ -108,10 +108,10 @@ let parse_sample s =\n (* \"parse_date s\" extracts the date from a date-string of a specific format.\n     e.g. parse_date \"date 12345\" = 12345 *)\n let parse_date s =\n-  let date_regexp = Pcre.regexp \"^date ([0-9]+)$\" in\n+  let date_regexp = Re_pcre.regexp \"^date ([0-9]+)$\" in\n   try\n-    let substrings = Pcre.exec ~rex:date_regexp s in\n-    float_of_string(Pcre.get_substring substrings 1)\n+    let substrings = Re_pcre.exec ~rex:date_regexp s in\n+    float_of_string(Re_pcre.get_substring substrings 1)\n   with Not_found -> failwith (Printf.sprintf \"invalid date %s\" s)\n \n let parse_benchmark filename =\ndiff --git a/common/tests.ml b/common/tests.ml\nindex 21869e9..e29f9d4 100644\n--- a/common/tests.ml\n+++ b/common/tests.ml\n@@ -140,7 +140,7 @@ let test_lookup_packages =\n let (test_encode, test_decode) =\n   (* Some useful very long strings for testing encoding and decoding. *)\n   let a_lot_of =  (* a huge number *)\n-    (Pcre.config_match_limit + 111)\n+    (Re_pcre.config_match_limit + 111)\n   in\n   let a_lot_of_a           = String.make a_lot_of 'a'\n   (* This test takes too much time... \ndiff --git a/deb/apt.ml b/deb/apt.ml\nindex 6b8a2f2..599daa8 100644\n--- a/deb/apt.ml\n+++ b/deb/apt.ml\n@@ -17,7 +17,7 @@ open Common\n \n include Util.Logging(struct let label = __FILE__ end) ;;\n \n-let blank_regexp = Pcre.regexp \"[ \\t]+\" ;;\n+let blank_regexp = Re_pcre.regexp \"[ \\t]+\" ;;\n \n (* parse the output of \"dpkg -l\" *)\n let parse_inst ch =\n@@ -25,7 +25,7 @@ let parse_inst ch =\n   try\n     while true do\n       let s = (input_line ch) in\n-      match Pcre.split ~rex:blank_regexp s with\n+      match Re_pcre.split ~rex:blank_regexp s with\n       |status::name::version::_ when status = \"ii\"-> Hashtbl.add h (name,version) ()\n       |_ -> ()\n     done ;\n@@ -48,7 +48,7 @@ let parse_inst_from_file file =\n \n (* parse the a popcon file *)\n let parse_popcon s =\n-  match Pcre.split ~rex:blank_regexp s with\n+  match Re_pcre.split ~rex:blank_regexp s with\n   |rank::name::inst::_ -> (int_of_string rank,name,int_of_string inst)\n   |_ -> fatal \"Parse error %s\\n\" s\n \n@@ -107,7 +107,7 @@ let parse_request_apt s =\n   let reqlist = ref [] in\n   let anon s = reqlist := s :: !reqlist in\n   begin\n-    begin try Arg.parse_argv ~current:(ref 0) (Array.of_list (Pcre.split ~rex:blank_regexp s)) options anon \"\"\n+    begin try Arg.parse_argv ~current:(ref 0) (Array.of_list (Re_pcre.split ~rex:blank_regexp s)) options anon \"\"\n     with Arg.Bad s -> fatal \"%s\" s end ;\n     match List.rev !reqlist with\n     |\"install\" :: tl -> Install(List.map (parse_pkg_req !suite) tl)\n@@ -140,7 +140,7 @@ let parse_request_aptitude s =\n   let reqlist = ref [] in\n   let anon s = reqlist := s :: !reqlist in\n   begin\n-    begin try Arg.parse_argv ~current:(ref 0) (Array.of_list (Pcre.split ~rex:blank_regexp s)) options anon \"\"\n+    begin try Arg.parse_argv ~current:(ref 0) (Array.of_list (Re_pcre.split ~rex:blank_regexp s)) options anon \"\"\n     with Arg.Bad s -> fatal \"%s\" s end ;\n     match List.rev !reqlist with\n     |\"install\" :: tl -> Install(List.map (parse_pkg_req !suite) tl)\n@@ -174,36 +174,36 @@ module Pref = struct\n \n end\n \n-let comma_regexp = Pcre.regexp \"[ \\t]*,[ \\t]*\" ;;\n-let eq_regexp = Pcre.regexp \"[ \\t]*=[ \\t]*\" ;;\n-let di_regexp = Pcre.regexp \"[0-9.]+\" ;;\n-let al_regexp = Pcre.regexp \"[a-zA-Z]+\" ;; \n+let comma_regexp = Re_pcre.regexp \"[ \\t]*,[ \\t]*\" ;;\n+let eq_regexp = Re_pcre.regexp \"[ \\t]*=[ \\t]*\" ;;\n+let di_regexp = Re_pcre.regexp \"[0-9.]+\" ;;\n+let al_regexp = Re_pcre.regexp \"[a-zA-Z]+\" ;;\n \n let parse_pref_labels s =\n   List.map (fun s' ->\n-    match Pcre.split ~rex:eq_regexp s' with\n-    |[v] when (Pcre.pmatch ~rex:di_regexp v) -> (\"v\",v)\n-    |[v] when (Pcre.pmatch ~rex:al_regexp v) -> (\"a\",v)\n+    match Re_pcre.split ~rex:eq_regexp s' with\n+    |[v] when (Re_pcre.pmatch ~rex:di_regexp v) -> (\"v\",v)\n+    |[v] when (Re_pcre.pmatch ~rex:al_regexp v) -> (\"a\",v)\n     |[l;v] -> (l,v)\n     |_ -> fatal \"To many '=' in label %s\" s\n-  ) (Pcre.split ~rex:comma_regexp s)\n+  ) (Re_pcre.split ~rex:comma_regexp s)\n \n-let general_regexp = Pcre.regexp \"^[ \\t]*[*][ \\t]*$\" ;;\n+let general_regexp = Re_pcre.regexp \"^[ \\t]*[*][ \\t]*$\" ;;\n \n let parse_pref_package (_,s) =\n-  if Pcre.pmatch ~rex:general_regexp s then Pref.Star\n+  if Re_pcre.pmatch ~rex:general_regexp s then Pref.Star\n   else Pref.Package (Packages.parse_name (Format822.dummy_loc,s))\n \n-let pin_regexp = Pcre.regexp \"^([A-Za-z]+)[ \\t]+(.*)$\" ;;\n+let pin_regexp = Re_pcre.regexp \"^([A-Za-z]+)[ \\t]+(.*)$\" ;;\n \n let parse_pin (_,s) =\n   try\n-    let substrings = Pcre.exec ~rex:pin_regexp s\n+    let substrings = Re_pcre.exec ~rex:pin_regexp s\n     in\n-    match Pcre.get_substring substrings 1 with\n-    |\"release\" -> Pref.Release (parse_pref_labels (Pcre.get_substring substrings 2))\n-    |\"version\" -> Pref.Version (Pcre.get_substring substrings 2) \n-    |\"origin\"  -> Pref.Origin  (Pcre.get_substring substrings 2)\n+    match Re_pcre.get_substring substrings 1 with\n+    |\"release\" -> Pref.Release (parse_pref_labels (Re_pcre.get_substring substrings 2))\n+    |\"version\" -> Pref.Version (Re_pcre.get_substring substrings 2)\n+    |\"origin\"  -> Pref.Origin  (Re_pcre.get_substring substrings 2)\n     |s -> fatal \"Unknown pin type %s\" s\n   with Not_found -> fatal \"Unknown pin format %s\" s\n \ndiff --git a/deb/edsp.ml b/deb/edsp.ml\nindex bc656a6..cbc4e7e 100644\n--- a/deb/edsp.ml\n+++ b/deb/edsp.ml\n@@ -62,7 +62,7 @@ let parse_string (_,s) = s\n let parse_int_s (_,s) = string_of_int(int_of_string s)\n let parse_req (loc,s) = \n   let aux = Packages.lexbuf_wrapper Packages_parser.vpkg_top in\n-  let l = Pcre.split ~rex:Apt.blank_regexp s in \n+  let l = Re_pcre.split ~rex:Apt.blank_regexp s in\n   List.map (fun s -> aux (loc,s)) l\n \n let parse_request_stanza par =\ndiff --git a/deb/version.ml b/deb/version.ml\nindex d85207b..07aa45b 100644\n--- a/deb/version.ml\n+++ b/deb/version.ml\n@@ -180,10 +180,10 @@ type version_analysis =\n     (* epoch,upstream,revision,binnmu *)\n ;;\n \n-let binnmu_regexp = Pcre.regexp \"^(.*)\\\\+(b[\\\\d]+)$\" ;;\n+let binnmu_regexp = Re_pcre.regexp \"^(.*)\\\\+(b[\\\\d]+)$\" ;;\n let extract_binnmu v =\n   try\n-    let subs = Pcre.extract ~rex:binnmu_regexp v\n+    let subs = Re_pcre.extract ~rex:binnmu_regexp v\n     in (subs.(1),subs.(2))\n   with Not_found -> (v,\"\")\n ;;\ndiff --git a/eclipse/version.ml b/eclipse/version.ml\nindex 984f386..779fe8d 100644\n--- a/eclipse/version.ml\n+++ b/eclipse/version.ml\n@@ -23,9 +23,9 @@ open Common\n \n include Util.Logging(struct let label = __FILE__ end) ;;\n \n-let rex = Pcre.regexp \"^\\\\d+(\\\\.\\\\d+(\\\\.\\\\d+(\\\\.[\\\\w_-]+)?)?)?$\" ;;\n+let rex = Re_pcre.regexp \"^\\\\d+(\\\\.\\\\d+(\\\\.\\\\d+(\\\\.[\\\\w_-]+)?)?)?$\" ;;\n let parse_version s =\n-  if not(Pcre.pmatch ~rex s) then \n+  if not(Re_pcre.pmatch ~rex s) then\n     warning \"bad version '%s'\" s;\n   s\n ;;\ndiff --git a/opencsw/packages.ml b/opencsw/packages.ml\nindex b626e5f..99b05de 100644\n--- a/opencsw/packages.ml\n+++ b/opencsw/packages.ml\n@@ -86,7 +86,7 @@ let parse_paragraph pkg ch =\n     Some \n       { pkg with\n         name = a.(2);\n-        version = List.hd(Pcre.split ~rex:(Pcre.regexp \",\") a.(1));\n+        version = List.hd(Re_pcre.split ~rex:(Re_pcre.regexp \",\") a.(1));\n         depends = catcherr a 6;\n         conflicts = catcherr a 8\n       }\ndiff --git a/opencsw/version.ml b/opencsw/version.ml\nindex 984f386..779fe8d 100644\n--- a/opencsw/version.ml\n+++ b/opencsw/version.ml\n@@ -23,9 +23,9 @@ open Common\n \n include Util.Logging(struct let label = __FILE__ end) ;;\n \n-let rex = Pcre.regexp \"^\\\\d+(\\\\.\\\\d+(\\\\.\\\\d+(\\\\.[\\\\w_-]+)?)?)?$\" ;;\n+let rex = Re_pcre.regexp \"^\\\\d+(\\\\.\\\\d+(\\\\.\\\\d+(\\\\.[\\\\w_-]+)?)?)?$\" ;;\n let parse_version s =\n-  if not(Pcre.pmatch ~rex s) then \n+  if not(Re_pcre.pmatch ~rex s) then\n     warning \"bad version '%s'\" s;\n   s\n ;;\ndiff --git a/rpm/packages.ml b/rpm/packages.ml\nindex 7b89c0c..6e0a9cb 100644\n--- a/rpm/packages.ml\n+++ b/rpm/packages.ml\n@@ -156,7 +156,7 @@ module Synthesis = struct\n       with IO.No_more_input -> raise Eof | End_of_file -> assert false\n     in\n     try\n-      match List.tl (Pcre.split ~rex:(Pcre.regexp \"@\") line) with\n+      match List.tl (Re_pcre.split ~rex:(Re_pcre.regexp \"@\") line) with\n       |\"provides\"::l -> parse_paragraph {pkg with provides = parse_deps l} ch\n       |\"requires\"::l -> parse_paragraph {pkg with depends = parse_deps l} ch\n       |\"obsoletes\"::l -> parse_paragraph {pkg with obsoletes = parse_deps l} ch\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0009-Hardcode-__FILE__-macros.patch",
+            "content": "From 495ba5cb2699a1ce3b6aac9d3df1fff98293ed6f Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Fri, 14 Mar 2014 17:52:41 +0100\nSubject: [PATCH 09/10] Hardcode __FILE__ macros\n\nNeeded to get rid of the camlp4 dependency.\n\nDone using:\n```\nfor f in $(git ls-files \\*.ml \\*.mli); do echo $f; sed -i 's%__FILE__%\"'$f'\"%g' $f; git add $f; done\n```\nexperimental/ excluded because it's not in the release tarball\n\nNot sure if we'd rather add this in the build scripts of opam and of the opam package ?\n---\n algo/defaultgraphs.ml            | 2 +-\n algo/depsolver.ml                | 2 +-\n algo/depsolver_int.ml            | 2 +-\n algo/diagnostic.ml               | 2 +-\n algo/dominators.ml               | 2 +-\n algo/flatten.ml                  | 2 +-\n algo/statistics.ml               | 2 +-\n algo/strongconflicts.ml          | 2 +-\n algo/strongconflicts_int.ml      | 2 +-\n algo/strongdeps.ml               | 2 +-\n algo/strongdeps_int.ml           | 2 +-\n applications/ceve.ml             | 2 +-\n applications/challenged.ml       | 4 ++--\n applications/deb-buildcheck.ml   | 2 +-\n applications/distcheck.ml        | 2 +-\n applications/dominators-graph.ml | 2 +-\n applications/outdated.ml         | 4 ++--\n applications/smallworld.ml       | 2 +-\n applications/strong-deps.ml      | 2 +-\n common/cudfAdd.ml                | 2 +-\n common/cudfSolver.ml             | 2 +-\n common/edosSolver.ml             | 2 +-\n common/input.ml                  | 2 +-\n common/url.ml                    | 2 +-\n common/util.ml                   | 2 +-\n common/util.mli                  | 2 +-\n deb/apt.ml                       | 2 +-\n deb/debcudf.ml                   | 2 +-\n deb/debutil.ml                   | 2 +-\n deb/edsp.ml                      | 2 +-\n deb/format822.ml                 | 2 +-\n deb/packages.ml                  | 2 +-\n deb/sources.ml                   | 2 +-\n doseparse/boilerplate.ml         | 2 +-\n eclipse/packages.ml              | 2 +-\n eclipse/version.ml               | 2 +-\n opencsw/packages.ml              | 4 ++--\n opencsw/version.ml               | 2 +-\n rpm/hdlists.ml                   | 2 +-\n rpm/packages.ml                  | 2 +-\n rpm/rpmcudf.ml                   | 2 +-\n 41 files changed, 44 insertions(+), 44 deletions(-)\n\ndiff --git a/algo/defaultgraphs.ml b/algo/defaultgraphs.ml\nindex c6a9fb5..69b0c85 100644\n--- a/algo/defaultgraphs.ml\n+++ b/algo/defaultgraphs.ml\n@@ -15,7 +15,7 @@\n open Graph\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/defaultgraphs.ml\" end) ;;\n \n let tr_timer = Util.Timer.create \"Defaultgraph.GraphOper.transitive_reduction\"\n let trbar = Util.Progress.create \"Defaultgraph.GraphOper.transitive_reduction\"\ndiff --git a/algo/depsolver.ml b/algo/depsolver.ml\nindex 71189a5..9597ae8 100644\n--- a/algo/depsolver.ml\n+++ b/algo/depsolver.ml\n@@ -14,7 +14,7 @@ open ExtLib\n open Common\n open CudfAdd\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/depsolver.ml\" end) ;;\n \n type solver = Depsolver_int.solver\n \ndiff --git a/algo/depsolver_int.ml b/algo/depsolver_int.ml\nindex 84451e6..554ad97 100644\n--- a/algo/depsolver_int.ml\n+++ b/algo/depsolver_int.ml\n@@ -32,7 +32,7 @@ open Common\n let progressbar_init = Util.Progress.create \"Depsolver_int.init_solver\"\n let progressbar_univcheck = Util.Progress.create \"Depsolver_int.univcheck\"\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/depsolver_int.ml\" end) ;;\n \n module R = struct type reason = Diagnostic_int.reason end\n module S = EdosSolver.M(R)\ndiff --git a/algo/diagnostic.ml b/algo/diagnostic.ml\nindex dbb8584..80c3dbe 100644\n--- a/algo/diagnostic.ml\n+++ b/algo/diagnostic.ml\n@@ -14,7 +14,7 @@ module OcamlHash = Hashtbl\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/diagnostic.ml\" end) ;;\n \n (** One un-installability reason for a package *)\n type reason =\ndiff --git a/algo/dominators.ml b/algo/dominators.ml\nindex d24ae09..eb484f3 100644\n--- a/algo/dominators.ml\n+++ b/algo/dominators.ml\n@@ -23,7 +23,7 @@ let crtimer = Util.Timer.create \"Algo.Dominators.cycle_reduction\"\n let sdtrtimer = Util.Timer.create \"Algo.Dominators.sd_transitive_reduction\"\n let domtrtimer = Util.Timer.create \"Algo.Dominators.dom_transitive_reduction\"\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/dominators.ml\" end) ;;\n \n module G = Defaultgraphs.PackageGraph.G\n module O = Defaultgraphs.GraphOper(G)\ndiff --git a/algo/flatten.ml b/algo/flatten.ml\nindex bd99528..7640eee 100644\n--- a/algo/flatten.ml\n+++ b/algo/flatten.ml\n@@ -6,7 +6,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/flatten.ml\" end) ;;\n \n let print_list fmt pr sep l =\n   match l with\ndiff --git a/algo/statistics.ml b/algo/statistics.ml\nindex 1962dfc..54b63e7 100644\n--- a/algo/statistics.ml\n+++ b/algo/statistics.ml\n@@ -22,7 +22,7 @@ open Graph\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/statistics.ml\" end) ;;\n \n module Make (G: Sig.I ) = struct\n   module VS = Set.Make (G.V)\ndiff --git a/algo/strongconflicts.ml b/algo/strongconflicts.ml\nindex 71226e5..471bd3e 100644\n--- a/algo/strongconflicts.ml\n+++ b/algo/strongconflicts.ml\n@@ -14,7 +14,7 @@ open Common\n open CudfAdd\n open Defaultgraphs\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/strongconflicts.ml\" end) ;;\n \n module ICG = Strongconflicts_int.CG\n \ndiff --git a/algo/strongconflicts_int.ml b/algo/strongconflicts_int.ml\nindex 8cb910d..36023d6 100644\n--- a/algo/strongconflicts_int.ml\n+++ b/algo/strongconflicts_int.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/strongconflicts_int.ml\" end) ;;\n \n module SG = Defaultgraphs.IntPkgGraph.G\n module PkgV = Defaultgraphs.IntPkgGraph.PkgV\ndiff --git a/algo/strongdeps.ml b/algo/strongdeps.ml\nindex d8f1772..e8807b4 100644\n--- a/algo/strongdeps.ml\n+++ b/algo/strongdeps.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/strongdeps.ml\" end) ;;\n \n (** [strongdeps u l] build the strong dependency graph of all packages in \n     [l] wrt the universe [u] *)\ndiff --git a/algo/strongdeps_int.ml b/algo/strongdeps_int.ml\nindex 965574d..7aa2599 100644\n--- a/algo/strongdeps_int.ml\n+++ b/algo/strongdeps_int.ml\n@@ -20,7 +20,7 @@ let conjbar = Util.Progress.create \"Strongdeps_int.conj\"\n let strongtimer = Util.Timer.create \"Strongdeps_int.strong\"\n let conjtimer = Util.Timer.create \"Strongdeps_int.conjdep\"\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"algo/strongdeps_int.ml\" end) ;;\n \n module G = Defaultgraphs.PackageGraph.G\n module O = Defaultgraphs.PackageGraph.O\ndiff --git a/applications/ceve.ml b/applications/ceve.ml\nindex cdf0fb4..5cd4ee7 100644\n--- a/applications/ceve.ml\n+++ b/applications/ceve.ml\n@@ -15,7 +15,7 @@ open ExtLib\n open Common\n open Algo\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/ceve.ml\" end) ;;\n \n IFDEF HASOCAMLGRAPH THEN\n   module DGraph = Defaultgraphs.SyntacticDependencyGraph\ndiff --git a/applications/challenged.ml b/applications/challenged.ml\nindex bd99b83..41236d1 100644\n--- a/applications/challenged.ml\n+++ b/applications/challenged.ml\n@@ -19,7 +19,7 @@ open Algo\n module Boilerplate = BoilerplateNoRpm\n \n let predbar = Util.Progress.create \"challenged\" ;;\n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/challenged.ml\" end) ;;\n \n module Options = struct\n   open OptParse\n@@ -328,5 +328,5 @@ let main () =\n \n Boilerplate.if_application \n ~alternatives:[\"dose-challenged\";\"dose3-challenged\";\"edos-challenged\";\"deb-challenged\"]\n-__FILE__ main ;;\n+\"applications/challenged.ml\" main ;;\n \ndiff --git a/applications/deb-buildcheck.ml b/applications/deb-buildcheck.ml\nindex 18bf507..53a3693 100644\n--- a/applications/deb-buildcheck.ml\n+++ b/applications/deb-buildcheck.ml\n@@ -50,7 +50,7 @@ module Options = struct\n \n end\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/deb-buildcheck.ml\" end) ;;\n \n let timer = Util.Timer.create \"Solver\"\n \ndiff --git a/applications/distcheck.ml b/applications/distcheck.ml\nindex 768c5e0..5b327d0 100644\n--- a/applications/distcheck.ml\n+++ b/applications/distcheck.ml\n@@ -67,7 +67,7 @@ module Options = struct\n \n end\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/distcheck.ml\" end) ;;\n \n let timer = Util.Timer.create \"Solver\" \n \ndiff --git a/applications/dominators-graph.ml b/applications/dominators-graph.ml\nindex c5afe5a..30bc083 100644\n--- a/applications/dominators-graph.ml\n+++ b/applications/dominators-graph.ml\n@@ -37,7 +37,7 @@ end\n \n (* ----------------------------------- *)\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/dominators-graph.ml\" end) ;;\n \n module G = Defaultgraphs.PackageGraph.G\n module O = Defaultgraphs.PackageGraph.O\ndiff --git a/applications/outdated.ml b/applications/outdated.ml\nindex 583f8be..910480f 100644\n--- a/applications/outdated.ml\n+++ b/applications/outdated.ml\n@@ -19,7 +19,7 @@ open Common\n open Algo\n module Boilerplate=BoilerplateNoRpm\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/outdated.ml\" end) ;;\n \n module Options = struct\n   open OptParse\n@@ -313,5 +313,5 @@ let main () =\n \n Boilerplate.if_application\n ~alternatives:[\"dose-outdated\";\"dose3-outdated\";\"edos-outdated\";\"deb-outdated\"] \n-__FILE__ main ;;\n+\"applications/outdated.ml\" main ;;\n \ndiff --git a/applications/smallworld.ml b/applications/smallworld.ml\nindex f772ebb..4405371 100644\n--- a/applications/smallworld.ml\n+++ b/applications/smallworld.ml\n@@ -50,7 +50,7 @@ module Options = struct\n   add options ~long_name:\"trim\" ~help:\"Consider only installable packages\" trim;\n end\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/smallworld.ml\" end) ;;\n \n (**********************************)\n \ndiff --git a/applications/strong-deps.ml b/applications/strong-deps.ml\nindex be62018..ed36391 100644\n--- a/applications/strong-deps.ml\n+++ b/applications/strong-deps.ml\n@@ -34,7 +34,7 @@ module Options = struct\n   include Boilerplate.MakeDistribOptions(struct let options = options end);;\n end\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"applications/strong-deps.ml\" end) ;;\n \n module G = Defaultgraphs.PackageGraph.G\n module O = Defaultgraphs.GraphOper(G)\ndiff --git a/common/cudfAdd.ml b/common/cudfAdd.ml\nindex c47dca6..da29a86 100644\n--- a/common/cudfAdd.ml\n+++ b/common/cudfAdd.ml\n@@ -20,7 +20,7 @@ module Pcre = Re_pcre\n open ExtLib\n \n (* Include internal debugging functions for this module (debug, info, warning, fatal). *)\n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"common/cudfAdd.ml\" end) ;;\n \n let equal = Cudf.(=%)\n let compare = Cudf.(<%)\ndiff --git a/common/cudfSolver.ml b/common/cudfSolver.ml\nindex a40f4b6..1531dd0 100644\n--- a/common/cudfSolver.ml\n+++ b/common/cudfSolver.ml\n@@ -15,7 +15,7 @@\n module Pcre = Re_pcre\n \n open ExtLib\n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"common/cudfSolver.ml\" end) ;;\n \n let check_fail file =\n   let ic = open_in file in\ndiff --git a/common/edosSolver.ml b/common/edosSolver.ml\nindex c55a26a..8200a59 100644\n--- a/common/edosSolver.ml\n+++ b/common/edosSolver.ml\n@@ -43,7 +43,7 @@ module type T = sig\n   val stats : state -> unit\n end\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"common/edosSolver.ml\" end) ;;\n \n module IntHash = \n   Hashtbl.Make (struct\ndiff --git a/common/input.ml b/common/input.ml\nindex 9f82211..c6af980 100644\n--- a/common/input.ml\n+++ b/common/input.ml\n@@ -12,7 +12,7 @@\n \n open ExtLib\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"common/input.ml\" end) ;;\n \n IFDEF HASZIP THEN\n let gzip_open_file file =\ndiff --git a/common/url.ml b/common/url.ml\nindex ce37920..c8ac767 100644\n--- a/common/url.ml\n+++ b/common/url.ml\n@@ -12,7 +12,7 @@\n \n exception Invalid_url of string;;\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"common/url.ml\" end) ;;\n \n (***********************************************************************)\n (* Input schemes *******************************************************)\ndiff --git a/common/util.ml b/common/util.ml\nindex 80b68d2..32ea495 100644\n--- a/common/util.ml\n+++ b/common/util.ml\n@@ -143,7 +143,7 @@ module Logging(X : sig val label : string end) = struct\n     Printf.kprintf (fun s -> Printf.eprintf \"%s\\n %s\\n%!\" l s; exit (64)) fmt\n end\n \n-include Logging(struct let label = __FILE__ end) ;;\n+include Logging(struct let label = \"common/util.ml\" end) ;;\n \n (** Printf bars are printed immediately on stderr.\n  * they can be enabled or disabled (default) *)\ndiff --git a/common/util.mli b/common/util.mli\nindex 836ad99..ae5ffb3 100644\n--- a/common/util.mli\n+++ b/common/util.mli\n@@ -81,7 +81,7 @@ module Info : Messages\n *)\n \n (* \n-  include Util.Logging(struct let label = __FILE__ end) ;;\n+  include Util.Logging(struct let label = \"common/util.mli\" end) ;;\n *)\n module Logging :\n   functor (X : sig val label : string end) ->\ndiff --git a/deb/apt.ml b/deb/apt.ml\nindex 47821af..cc8c2f6 100644\n--- a/deb/apt.ml\n+++ b/deb/apt.ml\n@@ -17,7 +17,7 @@ module Pcre = Re_pcre\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/apt.ml\" end) ;;\n \n let blank_regexp = Pcre.regexp \"[ \\t]+\" ;;\n \ndiff --git a/deb/debcudf.ml b/deb/debcudf.ml\nindex 096a03b..e04c805 100644\n--- a/deb/debcudf.ml\n+++ b/deb/debcudf.ml\n@@ -18,7 +18,7 @@ open ExtLib\n open Common\n open Packages\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/debcudf.ml\" end) ;;\n module SMap = Map.Make (String)\n \n type tables = {\ndiff --git a/deb/debutil.ml b/deb/debutil.ml\nindex 0cf9e67..5f70eda 100644\n--- a/deb/debutil.ml\n+++ b/deb/debutil.ml\n@@ -13,7 +13,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/debutil.ml\" end) ;;\n \n let get_source pkg =\n   match pkg.Packages.source with\ndiff --git a/deb/edsp.ml b/deb/edsp.ml\nindex 553afcf..f01fc0f 100644\n--- a/deb/edsp.ml\n+++ b/deb/edsp.ml\n@@ -17,7 +17,7 @@ module Pcre = Re_pcre\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/edsp.ml\" end) ;;\n \n type request = {\n   request : string;\ndiff --git a/deb/format822.ml b/deb/format822.ml\nindex 88a9a06..caefea7 100644\n--- a/deb/format822.ml\n+++ b/deb/format822.ml\n@@ -13,7 +13,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/format822.ml\" end) ;;\n \n type loc = Lexing.position * Lexing.position\n let dummy_loc: loc = Lexing.dummy_pos, Lexing.dummy_pos\ndiff --git a/deb/packages.ml b/deb/packages.ml\nindex 33e5166..b460767 100644\n--- a/deb/packages.ml\n+++ b/deb/packages.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/packages.ml\" end) ;;\n \n (** debian package format *)\n type package = {\ndiff --git a/deb/sources.ml b/deb/sources.ml\nindex 1fe8388..ec5210c 100644\n--- a/deb/sources.ml\n+++ b/deb/sources.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"deb/sources.ml\" end) ;;\n \n type source = {\n   name : Format822.name;\ndiff --git a/doseparse/boilerplate.ml b/doseparse/boilerplate.ml\nindex 3e3fd2a..a7a0b23 100644\n--- a/doseparse/boilerplate.ml\n+++ b/doseparse/boilerplate.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"doseparse/boilerplate.ml\" end) ;;\n \n (*************************************************************)\n (* Options *)\ndiff --git a/eclipse/packages.ml b/eclipse/packages.ml\nindex 59a4499..19f0e8e 100644\n--- a/eclipse/packages.ml\n+++ b/eclipse/packages.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"eclipse/packages.ml\" end) ;;\n \n (** strip down version of the debian package format *)\n type package = {\ndiff --git a/eclipse/version.ml b/eclipse/version.ml\nindex f94e87a..d6909d1 100644\n--- a/eclipse/version.ml\n+++ b/eclipse/version.ml\n@@ -23,7 +23,7 @@ open Common\n  alpha ::= [a..zA..Z]\n *)\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"eclipse/version.ml\" end) ;;\n \n let rex = Pcre.regexp \"^\\\\d+(\\\\.\\\\d+(\\\\.\\\\d+(\\\\.[\\\\w_-]+)?)?)?$\" ;;\n let parse_version s =\ndiff --git a/opencsw/packages.ml b/opencsw/packages.ml\nindex e69c7cf..a4e0057 100644\n--- a/opencsw/packages.ml\n+++ b/opencsw/packages.ml\n@@ -17,7 +17,7 @@ module Pcre = Re_pcre\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"opencsw/packages.ml\" end) ;;\n \n type name = string\n type version = string\n@@ -45,7 +45,7 @@ module Set = Set.Make(struct\n end)\n \n let input_raw_priv parse_packages files =\n-  let timer = Util.Timer.create __FILE__ in\n+  let timer = Util.Timer.create \"opencsw/packages.ml\" in\n   Util.Timer.start timer;\n   if List.length files > 1 then info \"Merging input lists\" ;\n   let s =\ndiff --git a/opencsw/version.ml b/opencsw/version.ml\nindex f94e87a..10586b1 100644\n--- a/opencsw/version.ml\n+++ b/opencsw/version.ml\n@@ -23,7 +23,7 @@ open Common\n  alpha ::= [a..zA..Z]\n *)\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"opencsw/version.ml\" end) ;;\n \n let rex = Pcre.regexp \"^\\\\d+(\\\\.\\\\d+(\\\\.\\\\d+(\\\\.[\\\\w_-]+)?)?)?$\" ;;\n let parse_version s =\ndiff --git a/rpm/hdlists.ml b/rpm/hdlists.ml\nindex 0302a38..a7a7a1d 100644\n--- a/rpm/hdlists.ml\n+++ b/rpm/hdlists.ml\n@@ -15,7 +15,7 @@\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"rpm/hdlists.ml\" end) ;;\n \n let progressbar = Util.Progress.create \"Rpm.Parse.Hdlists.parse_822_iter\" ;;\n Util.Progress.set_total progressbar 8000 (* estimate *) ;\ndiff --git a/rpm/packages.ml b/rpm/packages.ml\nindex fff6035..7547690 100644\n--- a/rpm/packages.ml\n+++ b/rpm/packages.ml\n@@ -15,7 +15,7 @@ module Pcre = Re_pcre\n open ExtLib\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"rpm/packages.ml\" end) ;;\n \n type name = string\n type version = string\ndiff --git a/rpm/rpmcudf.ml b/rpm/rpmcudf.ml\nindex 2397880..0c2d1aa 100644\n--- a/rpm/rpmcudf.ml\n+++ b/rpm/rpmcudf.ml\n@@ -14,7 +14,7 @@ open ExtLib\n open ExtString\n open Common\n \n-include Util.Logging(struct let label = __FILE__ end) ;;\n+include Util.Logging(struct let label = \"rpm/rpmcudf.ml\" end) ;;\n \n type tables = {\n   units : (Packages.name, (int * (Packages.rel * string)) list) Hashtbl.t;\n-- \n1.8.5.3\n\n"
+          },
+          {
+            "name": "patches/0010-Hardcode-IFDEF-macros-assuming-false.patch",
+            "content": "From 4f0510eaa4818b202ab8067a3ec8405cb0126055 Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Fri, 14 Mar 2014 18:32:59 +0100\nSubject: [PATCH 10/10] Hardcode IFDEF macros (assuming false)\n\nthe quick-and-dirty way:\n```\nsed -i -nre '\n/\\bIFDEF\\b/{\n  :LOOP\n  s/.*\\bELSE\\b(.*)/\\1/p; t ELSE\n  s/.*\\bEND\\b(.*)/\\1/p; t END\n  n; b LOOP\n  :ELSE\n  s/.*\\bEND\\b(.*)/\\1/p; t END\n  p; n; b ELSE\n  :END\n}; p'\n```\non all ml/mli files.\nSame remarks as for __FILE__\n---\n applications/ceve.ml       | 52 ++++++++++++---------------------\n applications/challenged.ml | 27 ++++++-----------\n common/input.ml            | 51 +++++++++-----------------------\n common/input.mli           | 14 +++------\n db/backend.ml              |  8 ++++--\n doseparse/boilerplate.ml   | 72 ++++++++++++++++------------------------------\n 6 files changed, 73 insertions(+), 151 deletions(-)\n\ndiff --git a/applications/ceve.ml b/applications/ceve.ml\nindex 5cd4ee7..551d4ca 100644\n--- a/applications/ceve.ml\n+++ b/applications/ceve.ml\n@@ -17,9 +17,8 @@ open Algo\n \n include Util.Logging(struct let label = \"applications/ceve.ml\" end) ;;\n \n-IFDEF HASOCAMLGRAPH THEN\n-  module DGraph = Defaultgraphs.SyntacticDependencyGraph\n-END\n+\n+\n \n module Options = struct\n   open OptParse\n@@ -62,23 +61,11 @@ end;;\n (* -------------------------------- *)\n \n let output_to_sqlite args =\n-IFDEF HASDB THEN\n-  begin\n-    let pl = List.unique (List.flatten (List.map (function u ->\n-      match Input.parse_uri u with\n-      | (\"deb\", (_, _, _, _, f), _) -> Debian.Packages.input_raw [f]\n-      | _ -> failwith \"Other file formats than Debian are not yet supported for SQLite insertion\"\n-     ) args)) in\n-    let db = Backend.open_database \"sqlite\" (None, None, Some \"localhost\", None, \"cudf\") in\n-    Backend.create_tables db; \n-    List.iter (fun p ->\n-      Backend.insert_package db p\n-    ) pl;\n-    (* !Sql.database.close_db db.Backend.connection; *)\n-  end \n-ELSE\n+\n+\n   failwith \"DB not available\"\n-END\n+\n+\n ;;\n \n let nr_conflicts univ =\n@@ -193,30 +180,27 @@ let main () =\n       in\n       begin match OptParse.Opt.get Options.out_type with\n       |\"dot\" -> \n-IFDEF HASOCAMLGRAPH THEN\n-          DGraph.DotPrinter.output_graph oc (DGraph.dependency_graph u)\n-ELSE\n+\n+\n         failwith (\"dot not supported: needs ocamlgraph\")\n-END\n+\n+\n       |\"gml\" -> \n-IFDEF HASOCAMLGRAPH THEN\n-          let fmt = Format.formatter_of_out_channel oc in\n-          DGraph.GmlPrinter.print fmt (DGraph.dependency_graph u)\n-ELSE\n+\n+\n         failwith (\"dot not supported: needs ocamlgraph\")\n-END\n+\n+\n \n       |\"cnf\" -> Printf.fprintf oc \"%s\" (Depsolver.output_clauses ~global_constraints ~enc:Depsolver.Cnf u)\n       |\"dimacs\" -> Printf.fprintf oc \"%s\" (Depsolver.output_clauses ~global_constraints ~enc:Depsolver.Dimacs u)\n       |\"cudf\" -> output_cudf oc preamble u\n       |\"table\" ->\n-IFDEF HASOCAMLGRAPH THEN\n-        Printf.fprintf oc \"%d\\t%d\\t%d\\n\"\n-        (Cudf.universe_size u) (DGraph.G.nb_edges (DGraph.dependency_graph u))\n-        (nr_conflicts u)\n-ELSE\n+\n+\n         failwith (\"table not supported: needs ocamlgraph\")\n-END\n+\n+\n       |_ -> assert false\n       end ;\n       close_out oc;\ndiff --git a/applications/challenged.ml b/applications/challenged.ml\nindex 41236d1..9407146 100644\n--- a/applications/challenged.ml\n+++ b/applications/challenged.ml\n@@ -30,18 +30,12 @@ module Options = struct\n   let brokenlist = StdOpt.store_true ()\n   let downgrades = StdOpt.store_true ()\n   let cluster = StdOpt.store_true ()\n-IFDEF HASPARMAP THEN\n-  let ncores = StdOpt.int_option ~default:1 ()\n-  let chunksize = StdOpt.int_option ()\n-END\n+\n+\n   open OptParser ;;\n \n-IFDEF HASPARMAP THEN\n-  add options ~long_name:\"ncores\"\n-    ~help:\"Number of cores to use on a multicore\" ncores;\n-  add options ~long_name:\"chunksize\"\n-    ~help:\"Size of each task executed by the workers (controls granularity)\" chunksize;\n-END\n+\n+\n \n   add options ~long_name:\"checkonly\"\n     ~help:\"Check only these package ex. (sn1,sv1),(sn2,sv2)\" checkonly;\n@@ -224,16 +218,11 @@ let challenged\n   (* computing *)\n   let results = \n     let map f l =\n-IFDEF HASPARMAP THEN\n-    let ncores = OptParse.Opt.get Options.ncores in\n-    match OptParse.Opt.opt Options.chunksize with\n-      None ->     \n-\tParmap.parmap ~ncores f (Parmap.L l)\n-    | Some chunksize ->       \n-\tParmap.parmap ~ncores ~chunksize f (Parmap.L l)\n-ELSE\n+\n+\n     List.map f l\n-END\n+\n+\n     in\n     map (fun ((sn,sv,version),(cluster,vl,constr)) ->\n       let startd=Unix.gettimeofday() in\ndiff --git a/common/input.ml b/common/input.ml\nindex c6af980..2ae132d 100644\n--- a/common/input.ml\n+++ b/common/input.ml\n@@ -14,36 +14,11 @@ open ExtLib\n \n include Util.Logging(struct let label = \"common/input.ml\" end) ;;\n \n-IFDEF HASZIP THEN\n-let gzip_open_file file =\n-  let ch = Gzip.open_in file in\n-  let input_char ch = try Gzip.input_char ch with End_of_file -> raise IO.No_more_input in\n-  let read ch = try Gzip.input ch with End_of_file -> raise IO.No_more_input in\n-  IO.create_in\n-  ~read:(fun () -> input_char ch)\n-  ~input:(read ch)\n-  ~close:(fun () -> Gzip.close_in ch)\n-;;\n-END\n-\n-IFDEF HASBZ2 THEN\n-let bzip_open_file file =\n-  let s = \" \" in\n-  let ch = Bz2.open_in (open_in file) in\n-  let input_char ch = \n-    try ignore (Bz2.read ch s 0 1) ; s.[0]\n-    with End_of_file -> raise IO.No_more_input\n-  in\n-  let read ch s pos len =\n-    try Bz2.read ch s pos len \n-    with End_of_file -> raise IO.No_more_input\n-  in\n-  IO.create_in\n-  ~read:(fun () -> input_char ch)\n-  ~input:(read ch)\n-  ~close:(fun () -> Bz2.close_in ch)\n-;;\n-END\n+\n+\n+\n+\n+\n \n let std_open_file file = IO.input_channel (open_in file)\n let open_ch ch = IO.input_channel ch\n@@ -52,18 +27,18 @@ let close_ch ch = IO.close_in ch\n let open_file file =\n   if (Unix.stat file).Unix.st_size = 0 then fatal \"Input file %s is empty\" file;\n   if Filename.check_suffix file \".gz\" || Filename.check_suffix file \".cz\" then\n-IFDEF HASZIP THEN\n-    gzip_open_file file\n-ELSE\n+\n+\n     fatal \"gzip not supported. re-configure with --with-zip\"\n-END\n+\n+\n   else \n   if Filename.check_suffix file \".bz2\" then\n-IFDEF HASBZ2 THEN\n-    bzip_open_file file\n-ELSE\n+\n+\n     fatal \"bzip not supported. re-configure with --with-bz2\"\n-END\n+\n+\n   else \n     std_open_file file\n ;;\ndiff --git a/common/input.mli b/common/input.mli\nindex 4fcca69..5ddb0e4 100644\n--- a/common/input.mli\n+++ b/common/input.mli\n@@ -14,17 +14,11 @@\n \n open ExtLib\n \n-IFDEF HASZIP THEN\n-(** load a file in gzip format\n-    @return ExtLib.IO.input channel *)\n-val gzip_open_file : string -> IO.input\n-END\n \n-IFDEF HASBZ2 THEN\n-(** load a file in bzip format - Not implemented yet\n-    @return ExtLib.IO.input channel *)\n-val bzip_open_file : string -> IO.input\n-END\n+\n+\n+\n+\n \n (** load a non compressed file  \n     @return ExtLib.IO.input channel *)\ndiff --git a/db/backend.ml b/db/backend.ml\nindex 8dbf1f5..052982d 100644\n--- a/db/backend.ml\n+++ b/db/backend.ml\n@@ -233,9 +233,13 @@ let create_view_universe db =\n \n let late_binding = function\n   |\"pgsql\" ->\n-      IFDEF PGSQL THEN Pgsql.load () ELSE failwith \"pgsql not supported\" END\n+ failwith \"pgsql not supported\" END\n+\n+\n   |\"sqlite\" ->\n-      IFDEF SQLITE THEN Sqlite.load () ELSE failwith \"sqlite not supported\" END\n+ failwith \"sqlite not supported\" END\n+\n+\n   |_ -> failwith \"DB late binding failed\"\n ;;\n \ndiff --git a/doseparse/boilerplate.ml b/doseparse/boilerplate.ml\nindex a7a0b23..f17cb88 100644\n--- a/doseparse/boilerplate.ml\n+++ b/doseparse/boilerplate.ml\n@@ -309,21 +309,11 @@ let deb_load_universe options l =\n  * refactor or not refactor ? *)\n (** transform a list of rpm control stanza into a cudf packages list *)\n let rpm_load_list dll =\n-IFDEF HASRPM THEN\n-  let tables =  Rpm.Rpmcudf.init_tables (List.flatten dll) in\n-  let cll = \n-    List.map (fun l -> \n-      List.map (Rpm.Rpmcudf.tocudf tables) l \n-    ) dll\n-  in\n-  (* Rpm.Rpmcudf.clear tables; *)\n-  let from_cudf (p,i) = (p,string_of_int i) in\n-  let to_cudf (p,v) = (p,Rpm.Rpmcudf.get_cudf_version tables (p,v)) in\n-  let preamble = Rpm.Rpmcudf.preamble in\n-  (preamble,cll,from_cudf,to_cudf)\n-ELSE\n+\n+\n   failwith \"librpm not available. re-configure with --with-rpm\"\n-END\n+\n+\n \n (** transform a list of rpm control stanza into a cudf universe *)\n let rpm_load_universe l =\n@@ -453,39 +443,25 @@ let parse_input ?(options=None) urilist =\n   |`Csw, None -> csw_parse_input filelist\n \n   |`Hdlist, None -> \n-IFDEF HASRPM THEN\n-      let dll = \n-        List.map (fun l ->\n-          let filelist = List.map unpack l in\n-          Rpm.Packages.Hdlists.input_raw filelist\n-        ) filelist \n-      in\n-      rpm_load_list dll\n-ELSE\n+\n+\n     fatal \"hdlist Not supported. re-configure with --with-rpm\"\n-END\n+\n+\n \n   |`Synthesis, None -> \n-IFDEF HASRPM THEN\n-      let dll = \n-        List.map (fun l ->\n-          let filelist = List.map unpack l in\n-          Rpm.Packages.Synthesis.input_raw filelist\n-        ) filelist\n-      in\n-      rpm_load_list dll\n-ELSE\n+\n+\n     fatal \"synthesis input format not supported. re-configure with --with-rpm\"\n-END\n+\n+\n (*\n   |Some (Url.Pgsql|Url.Sqlite), [((Url.Pgsql|Url.Sqlite) as dbtype,info,(Some query))] ->\n-IFDEF HASDB THEN\n-      let db = Db.Backend.init_database dbtype info (Idbr.parse_query query) in\n-      let l = Db.Backend.load_selection db (`All) in\n-      deb_load_list ~extras [l]\n-ELSE\n+\n+\n     fatal \"%s Not supported. re-configure with --with-??\" (Url.scheme_to_string dbtype)\n-END\n+\n+\n *)\n     |s,_ -> fatal \"%s Not supported\" (Url.scheme_to_string s)\n ;;\n@@ -493,18 +469,18 @@ END\n let supported_formats () =\n   let standard = [\"cudf://\";\"deb://\";\"deb://-\";\"eclipse://\"] in\n   let rpm = \n-IFDEF HASRPM THEN\n-     [\"hdlist://\";\"synthesis://\"]\n-ELSE\n+\n+\n      []\n-END\n+\n+\n    in\n    let db =\n-IFDEF HASDB THEN\n-     [\"pgsql://\";\"sqlite://\"]\n-ELSE\n+\n+\n      []\n-END\n+\n+\n    in\n    standard@rpm@db\n ;;\n-- \n1.8.5.3\n\n"
+          }
+        ]
+      }
+    },
+    "3.2.2": {
+      "name": "@opam-alpha/dose",
+      "version": "3.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.5",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/re": " >= 1.2.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--with-ocamlgraph",
+            "--bindir=$cur__bin"
+          ],
+          [
+            "make",
+            "TARGETS="
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose_version": {
+            "val": "3.2.2",
+            "scope": "global"
+          },
+          "dose_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/33677/dose3-3.2.2.tar.gz",
+        "checksum": "3ffed1987a040024076c08f4a7af9b21",
+        "files": [
+          {
+            "name": "0002-ocamlgraph-1.8.6.diff",
+            "content": "diff --git a/algo/dominators.ml b/algo/dominators.ml\nindex d24ae09..8681b96 100644\n--- a/algo/dominators.ml\n+++ b/algo/dominators.ml\n@@ -99,7 +99,7 @@ let dominators_tarjan graph =\n   ) graph;\n \n   Util.Timer.start tjntimer;\n-  let module Dom = Dominator.Make(G) in\n+  let module Dom = Dominator.Make_graph(G) in\n   let idom = Dom.compute_all graph start_pkg in\n   let domgr = idom.Dom.dom_graph () in\n   Util.Timer.stop tjntimer ();\n"
+          },
+          {
+            "name": "0003-Removed-hard-failure-cases-in-favor-of-finer-diagnos.patch",
+            "content": "From b93f8b64c86ded96b31b49b983beabfd8d7280f2 Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Fri, 18 Jul 2014 15:50:24 +0200\nSubject: [PATCH] Removed hard failure cases, in favor of finer diagnostics\n\n---\n algo/depsolver.ml | 5 -----\n 1 file changed, 5 deletions(-)\n\ndiff --git a/algo/depsolver.ml b/algo/depsolver.ml\nindex f93fb86..a812ede 100644\n--- a/algo/depsolver.ml\n+++ b/algo/depsolver.ml\n@@ -37,11 +37,6 @@ let reason map universe =\n   let globalid = Cudf.universe_size universe in\n   List.filter_map (function\n     |Diagnostic_int.Dependency(i,vl,il) when i = globalid -> None\n-    |Diagnostic_int.Missing(i,vl) when i = globalid -> \n-        fatal \"the package encoding global constraints can't be missing\"\n-    |Diagnostic_int.Conflict(i,j,vpkg) when i = globalid || j = globalid -> \n-        fatal \"the package encoding global constraints can't be in conflict\"\n-\n     |Diagnostic_int.Dependency(i,vl,il) -> Some (\n         Diagnostic.Dependency(from_sat (map#inttovar i),vl,List.map (fun i -> from_sat (map#inttovar i)) il)\n     )\n-- \n2.0.1\n\n"
+          },
+          {
+            "name": "0004-Remove-broken-assert.patch",
+            "content": "From 06c50a5050aa82c41b1c5f614716fad7a1e0b98d Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Tue, 29 Jul 2014 17:53:45 +0200\nSubject: [PATCH] Remove broken assert\n\nA timer may be stopped by an exception, in which case it's not stopped.\nOn the next call, the assert fails at timer start.\n---\n common/util.ml | 1 -\n 1 file changed, 1 deletion(-)\n\ndiff --git a/common/util.ml b/common/util.ml\nindex 707f159..dc64451 100644\n--- a/common/util.ml\n+++ b/common/util.ml\n@@ -266,7 +266,6 @@ module Timer = struct\n   let available () = Hashtbl.fold (fun k _ acc -> k::acc) timers []\n \n   let start c =\n-    assert(not c.is_in);\n     c.is_in <- true;\n     c.last <- !gettimeofday()\n \n-- \n2.0.1\n\n"
+          },
+          {
+            "name": "0005-Add-a-check_request-function-allowing-more-control-o.patch",
+            "content": "From 652059c78bf3d745563a725786b3dce2a7529f57 Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Wed, 30 Jul 2014 12:38:45 +0200\nSubject: [PATCH 5/5] Add a check_request function allowing more control over\n the underlying process\n\n---\n algo/depsolver.ml  | 27 ++++++++++++++++++---------\n algo/depsolver.mli |  9 +++++++++\n 2 files changed, 27 insertions(+), 9 deletions(-)\n\ndiff --git a/algo/depsolver.ml b/algo/depsolver.ml\nindex f93fb86..754b44e 100644\n--- a/algo/depsolver.ml\n+++ b/algo/depsolver.ml\n@@ -369,9 +369,7 @@ let upgrade_constr universe name =\n       let p = List.hd(List.sort ~cmp:Cudf.(>%) pl) \n       in (name,Some(`Geq,p.Cudf.version))\n \n-(** check if a cudf request is satisfiable. we do not care about\n- * universe consistency . We try to install a dummy package *)\n-let check_request ?cmd ?callback ?criteria ?(explain=false) (pre,universe,request) =\n+let check_request_using ?call_solver ?callback ?criteria ?(explain=false) (pre,universe,request) =\n   let intSolver ?(explain=false) universe request =\n \n     let deps = \n@@ -413,19 +411,30 @@ let check_request ?cmd ?callback ?criteria ?(explain=false) (pre,universe,reques\n       let criteria_array = Array.of_list (criteria_parser (Option.get criteria)) in\n       minimize ?callback criteria_array universe dummy\n   in\n-  if Option.is_none cmd then begin\n+  match call_solver with\n+  | None ->\n     let d = intSolver universe request in\n     if Diagnostic.is_solution d then\n       let is = Diagnostic.get_installationset d in\n       Sat (Some pre,Cudf.load_universe is)\n     else\n       if explain then Unsat (Some d) else Unsat None\n-  end else begin\n-    let cmd = Option.get cmd in\n-    let criteria = if Option.is_none criteria then \"-removed,-new\" else Option.get criteria in\n-    try Sat(CudfSolver.execsolver cmd criteria (pre,universe,request)) with\n+  | Some call_solver ->\n+    try Sat(call_solver (pre,universe,request)) with\n     |CudfSolver.Unsat when not explain -> Unsat None\n     |CudfSolver.Unsat when explain -> Unsat (Some (intSolver ~explain universe request))\n     |CudfSolver.Error s -> Error s\n-  end\n+\n+(** check if a cudf request is satisfiable. we do not care about\n+ * universe consistency . We try to install a dummy package *)\n+let check_request ?cmd ?callback ?criteria ?explain cudf =\n+  let call_solver =\n+    match cmd with\n+    | Some cmd ->\n+        let criteria = Option.default \"-removed,-new\" criteria in\n+        Some (CudfSolver.execsolver cmd criteria)\n+    | None -> None\n+  in\n+  check_request_using ?call_solver ?callback ?explain cudf\n+\n ;;\ndiff --git a/algo/depsolver.mli b/algo/depsolver.mli\nindex 6c6c397..546a140 100644\n--- a/algo/depsolver.mli\n+++ b/algo/depsolver.mli\n@@ -135,3 +135,12 @@ type solver_result =\n *)\n val check_request : ?cmd : string -> ?callback:(int array * Diagnostic.diagnosis -> unit) -> \n   ?criteria:string -> ?explain : bool -> Cudf.cudf -> solver_result\n+\n+(** Same as [check_request], but allows to specify any function to call the\n+    external solver. It should raise [Depsolver.Unsat] on failure *)\n+val check_request_using:\n+  ?call_solver:(Cudf.cudf -> Cudf.preamble option * Cudf.universe) ->\n+  ?callback:(int array * Diagnostic.diagnosis -> unit) ->\n+  ?criteria:string ->\n+  ?explain : bool ->\n+  Cudf.cudf -> solver_result\n-- \n2.0.1\n\n"
+          }
+        ]
+      }
+    },
+    "3.3.0": {
+      "name": "@opam-alpha/dose",
+      "version": "3.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.5",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/conf-perl": "",
+        "@opam-alpha/extlib": " < 1.7.0",
+        "@opam-alpha/extlib-compat": " < 1.7.0",
+        "@opam-alpha/re": " >= 1.2.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--with-ocamlgraph",
+            "--bindir=$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose_version": {
+            "val": "3.3.0",
+            "scope": "global"
+          },
+          "dose_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/34277/dose3-3.3.tar.gz",
+        "checksum": "ea947804c636059bb8b64dbda5c1df08",
+        "files": [
+          {
+            "name": "0001-Removed-hard-failure-cases-in-favor-of-finer-diagnos.patch",
+            "content": "From efb8135cb5283c18233324c490d8fae750f05978 Mon Sep 17 00:00:00 2001\nFrom: Louis Gesbert <louis.gesbert@ocamlpro.com>\nDate: Fri, 18 Jul 2014 15:50:24 +0200\nSubject: [PATCH] Removed hard failure cases, in favor of finer diagnostics\n\n---\n algo/depsolver.ml | 5 -----\n 1 file changed, 5 deletions(-)\n\ndiff --git a/algo/depsolver.ml b/algo/depsolver.ml\nindex 754b44e..4c83464 100644\n--- a/algo/depsolver.ml\n+++ b/algo/depsolver.ml\n@@ -37,11 +37,6 @@ let reason map universe =\n   let globalid = Cudf.universe_size universe in\n   List.filter_map (function\n     |Diagnostic_int.Dependency(i,vl,il) when i = globalid -> None\n-    |Diagnostic_int.Missing(i,vl) when i = globalid -> \n-        fatal \"the package encoding global constraints can't be missing\"\n-    |Diagnostic_int.Conflict(i,j,vpkg) when i = globalid || j = globalid -> \n-        fatal \"the package encoding global constraints can't be in conflict\"\n-\n     |Diagnostic_int.Dependency(i,vl,il) -> Some (\n         Diagnostic.Dependency(from_sat (map#inttovar i),vl,List.map (fun i -> from_sat (map#inttovar i)) il)\n     )\n-- \n2.1.4\n\n"
+          },
+          {
+            "name": "0002-ocamlgraph-1.8.6.diff",
+            "content": "diff --git a/algo/dominators.ml b/algo/dominators.ml\nindex d24ae09..8681b96 100644\n--- a/algo/dominators.ml\n+++ b/algo/dominators.ml\n@@ -99,7 +99,7 @@ let dominators_tarjan graph =\n   ) graph;\n \n   Util.Timer.start tjntimer;\n-  let module Dom = Dominator.Make(G) in\n+  let module Dom = Dominator.Make_graph(G) in\n   let idom = Dom.compute_all graph start_pkg in\n   let domgr = idom.Dom.dom_graph () in\n   Util.Timer.stop tjntimer ();\n"
+          }
+        ]
+      }
+    },
+    "3.4.1": {
+      "name": "@opam-alpha/dose",
+      "version": "3.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.6",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/conf-perl": "",
+        "@opam-alpha/extlib": " >= 1.7.0",
+        "@opam-alpha/extlib-compat": " >= 1.7.0",
+        "@opam-alpha/re": " >= 1.2.2",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cppo": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--with-ocamlgraph"
+          ],
+          [
+            "make",
+            "printconf"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "installlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose_version": {
+            "val": "3.4.1",
+            "scope": "global"
+          },
+          "dose_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/35438/dose3-4.1.tar.gz",
+        "checksum": "a571c85a3bd0ed4a3ef9450880e2e92d",
+        "files": []
+      }
+    },
+    "3.4.2": {
+      "name": "@opam-alpha/dose",
+      "version": "3.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlgraph": "=1.8.6",
+        "@opam-alpha/cudf": " >= 0.7.0",
+        "@opam-alpha/conf-perl": "",
+        "@opam-alpha/extlib": " >= 1.7.0",
+        "@opam-alpha/extlib-compat": " >= 1.7.0",
+        "@opam-alpha/re": " >= 1.2.2",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/cppo": "  >= 1.1.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--with-ocamlgraph"
+          ],
+          [
+            "make",
+            "printconf"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "installlib"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "dose_version": {
+            "val": "3.4.2",
+            "scope": "global"
+          },
+          "dose_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "dose_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://gforge.inria.fr/frs/download.php/file/35465/dose3-4.2.tar.gz",
+        "checksum": "99a5c01496165e47d8fda8e3810c62a1",
+        "files": []
+      }
+    }
+  }
+}

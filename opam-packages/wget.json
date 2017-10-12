@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/wget",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocp-build": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocp-build",
+            "-init"
+          ],
+          [
+            "ocp-build",
+            "-scan",
+            "ocaml-wget",
+            "owget"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "wget_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "wget_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "wget_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/samoht/ocaml-wget/tarball/0.1.0",
+        "checksum": "d1e2f51b61b8d8791ccd7bc2a18d98dc",
+        "files": [
+          {
+            "name": "wget.install",
+            "content": "bin: [\"_obuild/owget/owget.asm\" {\"owget\"}]\n"
+          }
+        ]
+      }
+    }
+  }
+}

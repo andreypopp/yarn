@@ -1,0 +1,101 @@
+{
+  "versions": {
+    "2.0.0": {
+      "name": "@opam-alpha/mirage-dns",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/dns": " >= 0.11.0  < 1.0.0",
+        "@opam-alpha/tcpip": "*",
+        "@opam-alpha/mirage-types-lwt": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_dns_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "mirage_dns_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_dns_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.5.0": {
+      "name": "@opam-alpha/mirage-dns",
+      "version": "2.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/dns": " >= 0.15.1  < 1.0.0",
+        "@opam-alpha/mirage-types-lwt": " >= 2.3.0  < 3.0.0",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.0",
+        "@opam-alpha/tcpip": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "query",
+            "dns.mirage"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_dns_version": {
+            "val": "2.5.0",
+            "scope": "global"
+          },
+          "mirage_dns_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_dns_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

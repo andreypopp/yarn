@@ -1,0 +1,100 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/stb_truetype",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "stb___truetype_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "stb___truetype_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "stb___truetype_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/def-lkb/stb_truetype/archive/v0.1.tar.gz",
+        "checksum": "50f342f0b6b330dc9875dfe22f8f6b97",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/stb_truetype",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "stb___truetype_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "stb___truetype_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "stb___truetype_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/let-def/stb_truetype/archive/v0.2.tar.gz",
+        "checksum": "682a0876d3d7e0e5f982b4de34b9b55e",
+        "files": []
+      }
+    }
+  }
+}

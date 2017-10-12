@@ -1,0 +1,517 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/telegraml",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/1.0.tar.gz",
+        "checksum": "d9b252080407b7e6d2e6bc1c72648862",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/telegraml",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v1.1.tar.gz",
+        "checksum": "e66cdac5bc3713ce01e724b82bc5f32b",
+        "files": []
+      }
+    },
+    "1.2.0": {
+      "name": "@opam-alpha/telegraml",
+      "version": "1.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "1.2.0",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v1.2.tar.gz",
+        "checksum": "d87ae41fdba279d9cc5d4897dea25a84",
+        "files": []
+      }
+    },
+    "2.0.0": {
+      "name": "@opam-alpha/telegraml",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v2.0.0.tar.gz",
+        "checksum": "b6594b2fd9f3fa32976569cad42d73d5",
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/telegraml",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v2.1.0.tar.gz",
+        "checksum": "93906b814ee97aa3d7bc0e409e0d8fb9",
+        "files": []
+      }
+    },
+    "2.1.1": {
+      "name": "@opam-alpha/telegraml",
+      "version": "2.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "2.1.1",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v2.1.1.tar.gz",
+        "checksum": "f03521247bb70508b4311f28bbe45b26",
+        "files": []
+      }
+    },
+    "2.1.2": {
+      "name": "@opam-alpha/telegraml",
+      "version": "2.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "2.1.2",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v2.1.2.tar.gz",
+        "checksum": "c1c4f37f0d1c0f34b061c349724f139e",
+        "files": []
+      }
+    },
+    "2.1.3": {
+      "name": "@opam-alpha/telegraml",
+      "version": "2.1.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "2.1.3",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v2.1.3.tar.gz",
+        "checksum": "4fb933d3ee1916444bb5c864b61e1178",
+        "files": []
+      }
+    },
+    "2.1.4": {
+      "name": "@opam-alpha/telegraml",
+      "version": "2.1.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/cohttp": " >= 0.19.0  < 0.99.0",
+        "@opam-alpha/yojson": " >= 1.3.0",
+        "@opam-alpha/batteries": " >= 2.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "telegraml_version": {
+            "val": "2.1.4",
+            "scope": "global"
+          },
+          "telegraml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "telegraml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nv-vn/TelegraML/archive/v2.1.4.tar.gz",
+        "checksum": "e25f2aeb5e0beb116165eeddb191bc97",
+        "files": []
+      }
+    }
+  }
+}

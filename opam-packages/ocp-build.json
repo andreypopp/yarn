@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "1.99.9": {
+      "name": "@opam-alpha/ocp-build",
+      "version": "1.99.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocp_build_version": {
+            "val": "1.99.9",
+            "scope": "global"
+          },
+          "ocp_build_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocp_build_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.typerex.org/pub/ocp-build/ocp-build.1.99.9-beta.tar.gz",
+        "checksum": "756bfe6337160693ec52119b400a12c2",
+        "files": []
+      }
+    }
+  }
+}

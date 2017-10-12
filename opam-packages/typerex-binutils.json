@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/typerex-binutils",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocp-build": " >= 1.99.17"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--with-ocamldir=$cur__install/lib",
+            "--with-metadir=$cur__install/lib"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "typerex_binutils_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "typerex_binutils_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "typerex_binutils_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/OCamlPro/typerex-binutils/archive/1.0.tar.gz",
+        "checksum": "f236baacba4bc881a536c978c5eeecfe",
+        "files": []
+      }
+    }
+  }
+}

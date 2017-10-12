@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "0.2.1": {
+      "name": "@opam-alpha/ao",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ao_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "ao_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ao_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-ao/releases/download/0.2.1/ocaml-ao-0.2.1.tar.gz",
+        "checksum": "7f763e8c47e8369274ee400c640532d4",
+        "files": []
+      }
+    }
+  }
+}

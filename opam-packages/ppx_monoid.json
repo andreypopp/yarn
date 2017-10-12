@@ -1,0 +1,104 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/ppx_monoid",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "  >= 0.99.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___monoid_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ppx___monoid_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___monoid_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/bobatkey/ppx-monoid/archive/0.1.zip",
+        "checksum": "010f9d8ea76a5272b7fd34800e6cd1c3",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/ppx_monoid",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ppx_tools": "  >= 0.99.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___monoid_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "ppx___monoid_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___monoid_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/bobatkey/ppx-monoid/archive/0.2.zip",
+        "checksum": "7ea2104cd9ab0be870340a54e367e5e7",
+        "files": []
+      }
+    }
+  }
+}

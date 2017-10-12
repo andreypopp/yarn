@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "0.4.2": {
+      "name": "@opam-alpha/promela",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ospec": " >= 0.3.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "promela_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "promela_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "promela_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1040/promela-0.4.2.tar.gz",
+        "checksum": "8fc98a1f7f1302d30e682382b186d2a3",
+        "files": []
+      }
+    }
+  }
+}

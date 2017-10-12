@@ -1,0 +1,67 @@
+{
+  "versions": {
+    "0.5.0": {
+      "name": "@opam-alpha/frama-c-e-acsl",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/frama-c-base": " >= 20150201.0.0",
+        "@opam-alpha/conf-autoconf": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "run_autoconf_if_needed.ml"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "frama_c_e_acsl_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "frama_c_e_acsl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "frama_c_e_acsl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://frama-c.com/download/e-acsl/e-acsl-0.5.tar.gz",
+        "checksum": "73842963dfa22548a571c5ccca757bc9",
+        "files": [
+          {
+            "name": "run_autoconf_if_needed.ml",
+            "content": "\n\nlet () =\n  if not (Sys.file_exists \"configure\") then\n    exit (Sys.command \"autoconf\")\n"
+          }
+        ]
+      }
+    }
+  }
+}

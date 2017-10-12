@@ -1,0 +1,48 @@
+{
+  "versions": {
+    "3.0.0": {
+      "name": "@opam-alpha/conf-wxwidgets",
+      "version": "3.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "wx-config",
+            "--libs"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_wxwidgets_version": {
+            "val": "3.0.0",
+            "scope": "global"
+          },
+          "conf_wxwidgets_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_wxwidgets_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

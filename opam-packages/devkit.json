@@ -1,0 +1,134 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/devkit",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/extlib": " >= 1.6.1",
+        "@opam-alpha/extlib-compat": " >= 1.6.1",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/libevent": "*",
+        "@opam-alpha/ocurl": " >= 0.7.2",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/extunix": " >= 0.1.2",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "devkit_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "devkit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "devkit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ahrefs/devkit/archive/v0.3.tar.gz",
+        "checksum": "0befb3f2360f4f257fb313b6cf8fe336",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/devkit",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/extlib": " >= 1.6.1",
+        "@opam-alpha/extlib-compat": " >= 1.6.1",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/libevent": " >= 0.8.0",
+        "@opam-alpha/ocurl": " >= 0.7.2",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/extunix": " >= 0.1.4",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/gperftools": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "devkit_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "devkit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "devkit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ahrefs/devkit/archive/v0.4.tar.gz",
+        "checksum": "ad5557494f954636d40478ec1f14ff7a",
+        "files": []
+      }
+    }
+  }
+}

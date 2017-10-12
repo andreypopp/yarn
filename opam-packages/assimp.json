@@ -1,0 +1,101 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/assimp",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "assimp_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "assimp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "assimp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/def-lkb/assimp/archive/v0.1.tar.gz",
+        "checksum": "6db5910570e52fea58091d682204c92a",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/assimp",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/result": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "assimp_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "assimp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "assimp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/let-def/assimp/archive/v0.3.tar.gz",
+        "checksum": "810fb0f99e0708a1d83e0474fc90a432",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "versions": {
+    "2.0.0": {
+      "name": "@opam-alpha/mirage-conduit",
+      "version": "2.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-types": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-dns": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/tcpip": "*",
+        "@opam-alpha/vchan": "*",
+        "@opam-alpha/conduit": "=0.7.2"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "query",
+            "conduit.mirage"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_conduit_version": {
+            "val": "2.0.0",
+            "scope": "global"
+          },
+          "mirage_conduit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_conduit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.1.0": {
+      "name": "@opam-alpha/mirage-conduit",
+      "version": "2.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-types": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/mirage-dns": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/tcpip": "*",
+        "@opam-alpha/vchan": " < 2.3.0",
+        "@opam-alpha/conduit": " >= 0.8.0  < 0.15.0",
+        "@opam-alpha/tls": " >= 0.4.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "query",
+            "conduit.mirage"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_conduit_version": {
+            "val": "2.1.0",
+            "scope": "global"
+          },
+          "mirage_conduit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_conduit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "2.2.0": {
+      "name": "@opam-alpha/mirage-conduit",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-types-lwt": " >= 2.3.0  < 3.0.0",
+        "@opam-alpha/mirage-dns": " >= 2.0.0  < 3.0.0",
+        "@opam-alpha/conduit": " >= 0.8.4  < 0.15.0",
+        "@opam-alpha/vchan": "*",
+        "@opam-alpha/tls": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlfind",
+            "query",
+            "conduit.mirage"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_conduit_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "mirage_conduit_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_conduit_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

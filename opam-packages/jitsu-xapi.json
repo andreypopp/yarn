@@ -1,0 +1,46 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/jitsu-xapi",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/jitsu": "*",
+        "@opam-alpha/xen-api-client": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jitsu_xapi_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "jitsu_xapi_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jitsu_xapi_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

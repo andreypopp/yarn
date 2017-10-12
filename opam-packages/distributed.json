@@ -1,0 +1,195 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/distributed",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "  >= 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${lwt_enable:-disable}-lwt"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "distributed_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "distributed_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "distributed_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/essdotteedot/distributed/archive/v0.2.0.tar.gz",
+        "checksum": "65a13e43d57117daa61f1496c2ab2d84",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/distributed",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "  >= 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${lwt_enable:-disable}-lwt"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "distributed_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "distributed_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "distributed_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/essdotteedot/distributed/archive/v0.3.0.tar.gz",
+        "checksum": "e478f6d968cef13c82267afaffa376d6",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/distributed",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/lwt": " >= 2.7.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "  >= 2.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install",
+            "--${lwt_enable:-disable}-lwt"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "distributed_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "distributed_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "distributed_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/essdotteedot/distributed/archive/v0.4.0.tar.gz",
+        "checksum": "4db28d42f3c31c0d252ba2e479870232",
+        "files": []
+      }
+    }
+  }
+}

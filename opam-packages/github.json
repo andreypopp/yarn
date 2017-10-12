@@ -1,0 +1,75 @@
+{
+  "versions": {
+    "2.2.0": {
+      "name": "@opam-alpha/github",
+      "version": "2.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/tls": "*",
+        "@opam-alpha/uri": " >= 1.9.0",
+        "@opam-alpha/cohttp": " >= 0.17.0  < 0.99.0",
+        "@opam-alpha/lwt": " >= 2.4.4",
+        "@opam-alpha/atdgen": " >= 1.10.0",
+        "@opam-alpha/yojson": " >= 1.2.0",
+        "@opam-alpha/stringext": "*",
+        "@opam-alpha/lambda-term": "*",
+        "@opam-alpha/cmdliner": " >= 0.9.8",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--${base_unix_enable:-disable}-unix",
+            "--${js___of___ocaml_enable:-disable}-js",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "github_version": {
+            "val": "2.2.0",
+            "scope": "global"
+          },
+          "github_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "github_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-github/archive/v2.2.0.tar.gz",
+        "checksum": "7baa2c8f1ffad01cc8dcd6bb218ef19a",
+        "files": []
+      }
+    }
+  }
+}

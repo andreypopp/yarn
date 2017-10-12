@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "2.3.0": {
+      "name": "@opam-alpha/xml-light",
+      "version": "2.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install_ocamlfind"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xml_light_version": {
+            "val": "2.3.0",
+            "scope": "global"
+          },
+          "xml_light_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xml_light_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/bguil/ocamllibs/releases/download/xml-light.2.3/xml-light.2.3.tar.gz",
+        "checksum": "e2f79f07bd5706ded2baf8c43574e24b",
+        "files": []
+      }
+    },
+    "2.4.0": {
+      "name": "@opam-alpha/xml-light",
+      "version": "2.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install_ocamlfind"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xml_light_version": {
+            "val": "2.4.0",
+            "scope": "global"
+          },
+          "xml_light_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xml_light_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ncannasse/xml-light/archive/2.4.tar.gz",
+        "checksum": "fe55697c13e867ced31ec79d5e33c7de",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/quest",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/lipsum": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "quest_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "quest_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "quest_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/lindig/quest/archive/v0.1.zip",
+        "checksum": "5639257d0f404ba7f5740adab9eb27ec",
+        "files": []
+      }
+    }
+  }
+}

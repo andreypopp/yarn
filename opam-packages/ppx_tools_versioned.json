@@ -1,0 +1,54 @@
+{
+  "versions": {
+    "5.0.1": {
+      "name": "@opam-alpha/ppx_tools_versioned",
+      "version": "5.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocaml-migrate-parsetree": " >= 0.7.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___tools___versioned_version": {
+            "val": "5.0.1",
+            "scope": "global"
+          },
+          "ppx___tools___versioned_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___tools___versioned_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/let-def/ppx_tools_versioned/archive/5.0.1.tar.gz",
+        "checksum": "fa26fd27ac77aaf5058c86158b6b2267",
+        "files": []
+      }
+    }
+  }
+}

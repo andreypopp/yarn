@@ -1,0 +1,122 @@
+{
+  "versions": {
+    "0.9.5": {
+      "name": "@opam-alpha/uuidm",
+      "version": "0.9.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uuidm_version": {
+            "val": "0.9.5",
+            "scope": "global"
+          },
+          "uuidm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uuidm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/uuidm/releases/uuidm-0.9.5.tbz",
+        "checksum": "0ea5da95141c4e16480886d857591cd8",
+        "files": [
+          {
+            "name": "uuidm.install",
+            "content": "bin: [\"_build/test/uuidtrip.native\" {\"uuidtrip\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.9.6": {
+      "name": "@opam-alpha/uuidm",
+      "version": "0.9.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "--with-cmdliner",
+            "${cmdliner_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "uuidm_version": {
+            "val": "0.9.6",
+            "scope": "global"
+          },
+          "uuidm_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "uuidm_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/uuidm/releases/uuidm-0.9.6.tbz",
+        "checksum": "98ef30cd99ad4e4f7b4c33affa19465b",
+        "files": []
+      }
+    }
+  }
+}

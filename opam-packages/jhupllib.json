@@ -1,0 +1,75 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/jhupllib",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-threads": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/monadlib": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocaml-monadic": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ppx_deriving": "*",
+        "@opam-alpha/yojson": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jhupllib_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "jhupllib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jhupllib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/JHU-PL-Lab/jhu-pl-lib/archive/da46a9e849d8d8f627e59025726d90e64268c9f1.zip",
+        "checksum": "e8284912f1eaadd88c5327103893370d",
+        "files": []
+      }
+    }
+  }
+}

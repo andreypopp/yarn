@@ -1,0 +1,136 @@
+{
+  "versions": {
+    "1.4.5": {
+      "name": "@opam-alpha/wyrd",
+      "version": "1.4.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/wyrd/sbin",
+            "--libexecdir=$cur__lib/wyrd/libexec",
+            "--sysconfdir=$cur__lib/wyrd/etc",
+            "--sharedstatedir=$cur__lib/wyrd/com",
+            "--localstatedir=$cur__lib/wyrd/var",
+            "--libdir=$cur__lib/wyrd/lib",
+            "--includedir=$cur__lib/wyrd/include",
+            "--datarootdir=$cur__lib/wyrd/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "wyrd_version": {
+            "val": "1.4.5",
+            "scope": "global"
+          },
+          "wyrd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "wyrd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://pkgs.fedoraproject.org/repo/pkgs/wyrd/wyrd-1.4.5.tar.gz/3f39fa83a54d2d890823094aba9ca3cc/wyrd-1.4.5.tar.gz",
+        "checksum": "3f39fa83a54d2d890823094aba9ca3cc",
+        "files": [
+          {
+            "name": "wyrd.install",
+            "content": "bin: [\"wyrd.opt\" {\"wyrd\"}]\n"
+          }
+        ]
+      }
+    },
+    "1.4.6": {
+      "name": "@opam-alpha/wyrd",
+      "version": "1.4.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/wyrd/sbin",
+            "--libexecdir=$cur__lib/wyrd/libexec",
+            "--sysconfdir=$cur__lib/wyrd/etc",
+            "--sharedstatedir=$cur__lib/wyrd/com",
+            "--localstatedir=$cur__lib/wyrd/var",
+            "--libdir=$cur__lib/wyrd/lib",
+            "--includedir=$cur__lib/wyrd/include",
+            "--datarootdir=$cur__lib/wyrd/share",
+            "--enable-utf8"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "wyrd_version": {
+            "val": "1.4.6",
+            "scope": "global"
+          },
+          "wyrd_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "wyrd_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/wyrd-1.4.6.tar.gz",
+        "checksum": "2fc561482fdac4daac0cb6735d934ebe",
+        "files": [
+          {
+            "name": "wyrd.install",
+            "content": "bin: [\"wyrd.opt\" {\"wyrd\"}]\n"
+          }
+        ]
+      }
+    }
+  }
+}

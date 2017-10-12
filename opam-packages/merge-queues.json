@@ -1,0 +1,118 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/merge-queues",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/irmin": "=0.8.3",
+        "@opam-alpha/comparelib": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "merge_queues_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "merge_queues_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "merge_queues_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/merge-queues/archive/0.1.0.tar.gz",
+        "checksum": "e132e641b2165ef73ce4ad75ff3b1ae8",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/merge-queues",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/irmin": " >= 0.9.3  < 0.10.0",
+        "@opam-alpha/comparelib": "*",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/git": "",
+        "@opam-alpha/cohttp": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "merge_queues_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "merge_queues_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "merge_queues_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/merge-queues/archive/0.2.0.tar.gz",
+        "checksum": "52a3e3d772290a688be2a16a1316ef34",
+        "files": []
+      }
+    }
+  }
+}

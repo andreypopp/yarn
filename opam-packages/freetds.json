@@ -1,0 +1,321 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/freetds",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./autogen.sh"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/freetds/sbin",
+            "--libexecdir=$cur__lib/freetds/libexec",
+            "--sysconfdir=$cur__lib/freetds/etc",
+            "--sharedstatedir=$cur__lib/freetds/com",
+            "--localstatedir=$cur__lib/freetds/var",
+            "--libdir=$cur__lib/freetds/lib",
+            "--includedir=$cur__lib/freetds/include",
+            "--datarootdir=$cur__lib/freetds/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "freetds_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "freetds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "freetds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1127/freetds-0.4.tar.gz",
+        "checksum": "3cd1b8eb818ddba36cc12d064863f309",
+        "files": []
+      }
+    },
+    "0.4.1": {
+      "name": "@opam-alpha/freetds",
+      "version": "0.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./autogen.sh"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/freetds/sbin",
+            "--libexecdir=$cur__lib/freetds/libexec",
+            "--sysconfdir=$cur__lib/freetds/etc",
+            "--sharedstatedir=$cur__lib/freetds/com",
+            "--localstatedir=$cur__lib/freetds/var",
+            "--libdir=$cur__lib/freetds/lib",
+            "--includedir=$cur__lib/freetds/include",
+            "--datarootdir=$cur__lib/freetds/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "freetds_version": {
+            "val": "0.4.1",
+            "scope": "global"
+          },
+          "freetds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "freetds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1161/freetds-0.4.1.tar.gz",
+        "checksum": "224d27d7f630eaf8c733318dd963e332",
+        "files": []
+      }
+    },
+    "0.4.2": {
+      "name": "@opam-alpha/freetds",
+      "version": "0.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./autogen.sh"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/freetds/sbin",
+            "--libexecdir=$cur__lib/freetds/libexec",
+            "--sysconfdir=$cur__lib/freetds/etc",
+            "--sharedstatedir=$cur__lib/freetds/com",
+            "--localstatedir=$cur__lib/freetds/var",
+            "--libdir=$cur__lib/freetds/lib",
+            "--includedir=$cur__lib/freetds/include",
+            "--datarootdir=$cur__lib/freetds/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "freetds_version": {
+            "val": "0.4.2",
+            "scope": "global"
+          },
+          "freetds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "freetds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1165/freetds-0.4.2.tar.gz",
+        "checksum": "5cf5a36fa4002f4a07018143102a3ced",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/freetds",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./autogen.sh"
+          ],
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/freetds/sbin",
+            "--libexecdir=$cur__lib/freetds/libexec",
+            "--sysconfdir=$cur__lib/freetds/etc",
+            "--sharedstatedir=$cur__lib/freetds/com",
+            "--localstatedir=$cur__lib/freetds/var",
+            "--libdir=$cur__lib/freetds/lib",
+            "--includedir=$cur__lib/freetds/include",
+            "--datarootdir=$cur__lib/freetds/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "freetds_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "freetds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "freetds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1168/freetds-0.5.tar.gz",
+        "checksum": "df5063d112f561b875f7832435a50e75",
+        "files": []
+      }
+    },
+    "0.5.1": {
+      "name": "@opam-alpha/freetds",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/freetds/sbin",
+            "--libexecdir=$cur__lib/freetds/libexec",
+            "--sysconfdir=$cur__lib/freetds/etc",
+            "--sharedstatedir=$cur__lib/freetds/com",
+            "--localstatedir=$cur__lib/freetds/var",
+            "--libdir=$cur__lib/freetds/lib",
+            "--includedir=$cur__lib/freetds/include",
+            "--datarootdir=$cur__lib/freetds/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "freetds_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "freetds_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "freetds_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1171/freetds-0.5.1.tar.gz",
+        "checksum": "7beea50fe8cd7957d2883993ffcfdcd3",
+        "files": []
+      }
+    }
+  }
+}

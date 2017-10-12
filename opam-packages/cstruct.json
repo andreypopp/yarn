@@ -1,0 +1,78 @@
+{
+  "versions": {
+    "2.3.1": {
+      "name": "@opam-alpha/cstruct",
+      "version": "2.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocplib-endian": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/conf-time": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/base-unix": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--%{lwt+base-unix:enable}%-lwt",
+            "--${ppx___tools_enable:-disable}-ppx",
+            "--${async_enable:-disable}-async",
+            "--${base_unix_enable:-disable}-unix"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "make",
+            "js-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__cstruct__lib/cstruct:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "cstruct_version": {
+            "val": "2.3.1",
+            "scope": "global"
+          },
+          "cstruct_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cstruct_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/ocaml-cstruct/archive/v2.3.1.tar.gz",
+        "checksum": "800852a194feb06f4762eeee57276fe7",
+        "files": []
+      }
+    }
+  }
+}

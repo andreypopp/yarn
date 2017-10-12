@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cordova-plugin-network-information",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/gen_js_api": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cordova_plugin_network_information_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cordova_plugin_network_information_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cordova_plugin_network_information_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dannywillems/ocaml-cordova-plugin-network-information/archive/v1.0.tar.gz",
+        "checksum": "8fb290ddf061c10be9e6e104fe5fcf55",
+        "files": []
+      }
+    }
+  }
+}

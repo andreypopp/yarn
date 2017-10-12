@@ -1,0 +1,160 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/base",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/jbuilder": "  >= 1.4.0  < 1.8.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "jbuilder",
+            "build",
+            "--only-packages",
+            "base",
+            "--root",
+            ".",
+            "-j",
+            "4",
+            "@install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "base_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/v0.9/files/base-v0.9.0.tar.gz",
+        "checksum": "e8edded940cb541e927a85867b56d422",
+        "files": []
+      }
+    },
+    "0.9.1": {
+      "name": "@opam-alpha/base",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/jbuilder": "  >= 1.2.0  < 1.8.0",
+        "@opam-alpha/sexplib": " >= 0.9.1  < 0.10.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "jbuilder",
+            "build",
+            "--only-packages",
+            "base",
+            "--root",
+            ".",
+            "-j",
+            "4",
+            "@install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "base_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/base/archive/v0.9.1.tar.gz",
+        "checksum": "a0ce2861bcbb756614f0de375576caa6",
+        "files": []
+      }
+    },
+    "0.9.2": {
+      "name": "@opam-alpha/base",
+      "version": "0.9.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/jbuilder": "  >= 1.8.0",
+        "@opam-alpha/sexplib": " >= 0.9.1  < 0.10.0",
+        "@opam-alpha/base-native-int63": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "jbuilder",
+            "build",
+            "-p",
+            "base",
+            "-j",
+            "4"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "base_version": {
+            "val": "0.9.2",
+            "scope": "global"
+          },
+          "base_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "base_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/base/archive/v0.9.2.tar.gz",
+        "checksum": "e9292a2ece0fd664d2251856cc051e17",
+        "files": []
+      }
+    }
+  }
+}

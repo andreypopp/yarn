@@ -1,0 +1,326 @@
+{
+  "versions": {
+    "1.2.10": {
+      "name": "@opam-alpha/jingoo",
+      "version": "1.2.10",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jingoo_version": {
+            "val": "1.2.10",
+            "scope": "global"
+          },
+          "jingoo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jingoo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/tategakibunko/jingoo/archive/v1.2.10.tar.gz",
+        "checksum": "1e0566485212893b286f6926c5f002aa",
+        "files": []
+      }
+    },
+    "1.2.11": {
+      "name": "@opam-alpha/jingoo",
+      "version": "1.2.11",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jingoo_version": {
+            "val": "1.2.11",
+            "scope": "global"
+          },
+          "jingoo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jingoo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/tategakibunko/jingoo/archive/v1.2.11.tar.gz",
+        "checksum": "f608593f9e80203aeec6ba2b8962eff6",
+        "files": []
+      }
+    },
+    "1.2.12": {
+      "name": "@opam-alpha/jingoo",
+      "version": "1.2.12",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jingoo_version": {
+            "val": "1.2.12",
+            "scope": "global"
+          },
+          "jingoo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jingoo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/tategakibunko/jingoo/archive/v1.2.12.tar.gz",
+        "checksum": "906d10bca9fb0e00b29e03257749719c",
+        "files": []
+      }
+    },
+    "1.2.13": {
+      "name": "@opam-alpha/jingoo",
+      "version": "1.2.13",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/uutf": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jingoo_version": {
+            "val": "1.2.13",
+            "scope": "global"
+          },
+          "jingoo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jingoo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/tategakibunko/jingoo/archive/v1.2.13.tar.gz",
+        "checksum": "505be18202cb759e3787df669af2e892",
+        "files": []
+      }
+    },
+    "1.2.14": {
+      "name": "@opam-alpha/jingoo",
+      "version": "1.2.14",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/uutf": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jingoo_version": {
+            "val": "1.2.14",
+            "scope": "global"
+          },
+          "jingoo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jingoo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/tategakibunko/jingoo/archive/v1.2.14.tar.gz",
+        "checksum": "a1edc615307e283b964c93561b7081da",
+        "files": []
+      }
+    },
+    "1.2.9": {
+      "name": "@opam-alpha/jingoo",
+      "version": "1.2.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/pcre": "*",
+        "@opam-alpha/batteries": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "jingoo_version": {
+            "val": "1.2.9",
+            "scope": "global"
+          },
+          "jingoo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "jingoo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/tategakibunko/jingoo/archive/v1.2.9.tar.gz",
+        "checksum": "256a28640dd3a03fefbf76e04cc29391",
+        "files": []
+      }
+    }
+  }
+}

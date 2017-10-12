@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/base58",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/testsimple": "",
+        "@opam-alpha/bisect": "",
+        "@opam-alpha/bisect_ppx": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "library"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "base58_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "base58_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "base58_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/sylvarant/base58/archive/v0.1.2.tar.gz",
+        "checksum": "0361f7f2d8eef14b7de8c4e482fbf5c2",
+        "files": []
+      }
+    }
+  }
+}

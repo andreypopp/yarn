@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/landmarks",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/gen_js_api": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "landmarks_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "landmarks_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "landmarks_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/LexiFi/landmarks/archive/v1.0.zip",
+        "checksum": "6e9ff75f0bc43911218d778800f71d01",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/landmarks",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/gen_js_api": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "landmarks_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "landmarks_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "landmarks_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/LexiFi/landmarks/archive/v1.1.zip",
+        "checksum": "58304a56716a943d5b6e91de5778f516",
+        "files": []
+      }
+    }
+  }
+}

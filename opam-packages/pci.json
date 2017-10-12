@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/pci",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ctypes": " >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pci_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "pci_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pci_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/simonjbeaumont/ocaml-pci/archive/v0.2.0.tar.gz",
+        "checksum": "220ba275078eab5bd41cb8febf2d74f3",
+        "files": []
+      }
+    },
+    "1.0.0": {
+      "name": "@opam-alpha/pci",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ctypes": " >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pci_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "pci_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pci_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/simonjbeaumont/ocaml-pci/archive/v1.0.0.tar.gz",
+        "checksum": "b3b73c70bbde4fe5b4474b624398a224",
+        "files": []
+      }
+    }
+  }
+}

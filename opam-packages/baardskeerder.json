@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "0.5.1": {
+      "name": "@opam-alpha/baardskeerder",
+      "version": "0.5.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": " < 2.0.0",
+        "@opam-alpha/quickcheck": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-exc",
+            "cd src && make"
+          ],
+          [
+            "sh",
+            "-exc",
+            "cd src && make install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "baardskeerder_version": {
+            "val": "0.5.1",
+            "scope": "global"
+          },
+          "baardskeerder_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "baardskeerder_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Incubaid/baardskeerder/tarball/0.5.1",
+        "checksum": "aaa1703be8f109391fc6e9a6a8324f2f",
+        "files": []
+      }
+    },
+    "0.5.2": {
+      "name": "@opam-alpha/baardskeerder",
+      "version": "0.5.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/quickcheck": "*",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-exc",
+            "cd src && make"
+          ],
+          [
+            "sh",
+            "-exc",
+            "cd src && make install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "baardskeerder_version": {
+            "val": "0.5.2",
+            "scope": "global"
+          },
+          "baardskeerder_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "baardskeerder_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Incubaid/baardskeerder/archive/0.5.2.tar.gz",
+        "checksum": "281bd713b823b517b84bb0c88ce8c56d",
+        "files": []
+      }
+    }
+  }
+}

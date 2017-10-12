@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cordova-plugin-background-mode",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/gen_js_api": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cordova_plugin_background_mode_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cordova_plugin_background_mode_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cordova_plugin_background_mode_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dannywillems/ocaml-cordova-plugin-background-mode/archive/v1.0.tar.gz",
+        "checksum": "8aded59720f0d3fdf3c6f7b5384acb9b",
+        "files": []
+      }
+    }
+  }
+}

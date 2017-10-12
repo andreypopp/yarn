@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "0.7.0": {
+      "name": "@opam-alpha/fpath",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "  >= 0.7.5",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fpath_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "fpath_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fpath_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/fpath/releases/fpath-0.7.0.tbz",
+        "checksum": "865c9e7057626894f0e5a54f07bf8295",
+        "files": []
+      }
+    },
+    "0.7.1": {
+      "name": "@opam-alpha/fpath",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/astring": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fpath_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "fpath_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fpath_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/fpath/releases/fpath-0.7.1.tbz",
+        "checksum": "8e519c022c676ea89b712cfc16134fef",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/conf-python-2-7",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "python2.7",
+            "test.py"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_python_2_7_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "conf_python_2_7_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_python_2_7_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": [
+          {
+            "name": "test.py",
+            "content": "print 'python-2.7 OK'\n"
+          }
+        ]
+      }
+    }
+  }
+}

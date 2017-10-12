@@ -1,0 +1,188 @@
+{
+  "versions": {
+    "0.7.0": {
+      "name": "@opam-alpha/yajl",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "yajl_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "yajl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "yajl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://raw.github.com/mlin/yajl-ocaml/tarball/yajl-ocaml-0.7.0.tar.gz",
+        "checksum": "c73b11b6cc7cbbb951cf3ee18578304c",
+        "files": []
+      }
+    },
+    "0.7.1": {
+      "name": "@opam-alpha/yajl",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "yajl_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "yajl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "yajl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://raw.github.com/mlin/yajl-ocaml/tarball/yajl-ocaml-0.7.1.tar.gz",
+        "checksum": "5aa65b8a34f8cf4dbc05adb3f7ec717d",
+        "files": []
+      }
+    },
+    "0.7.2": {
+      "name": "@opam-alpha/yajl",
+      "version": "0.7.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "yajl_version": {
+            "val": "0.7.2",
+            "scope": "global"
+          },
+          "yajl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "yajl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://raw.github.com/mlin/yajl-ocaml/tarball/yajl-ocaml-0.7.2.tar.gz",
+        "checksum": "1d07caa272656864d38e5ddcf9f9efac",
+        "files": []
+      }
+    },
+    "0.7.3": {
+      "name": "@opam-alpha/yajl",
+      "version": "0.7.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "yajl_version": {
+            "val": "0.7.3",
+            "scope": "global"
+          },
+          "yajl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "yajl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://raw.github.com/mlin/yajl-ocaml/tarball/yajl-ocaml-0.7.3.tar.gz",
+        "checksum": "7b889d55010f9cdeb2dafe803ce56f96",
+        "files": []
+      }
+    }
+  }
+}

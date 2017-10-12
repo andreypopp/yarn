@@ -1,0 +1,163 @@
+{
+  "versions": {
+    "3.12.5": {
+      "name": "@opam-alpha/otags",
+      "version": "3.12.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "otags_version": {
+            "val": "3.12.5",
+            "scope": "global"
+          },
+          "otags_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "otags_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://askra.de/software/otags/otags-3.12.5.tar.gz",
+        "checksum": "897f3309a69b133d3f52ef0bf617271e",
+        "files": []
+      }
+    },
+    "4.0.1": {
+      "name": "@opam-alpha/otags",
+      "version": "4.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "otags_version": {
+            "val": "4.0.1",
+            "scope": "global"
+          },
+          "otags_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "otags_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://askra.de/software/otags/otags-4.00.1.tar.gz",
+        "checksum": "97b6b99288b7182a0218688865374c23",
+        "files": []
+      }
+    },
+    "4.1.1": {
+      "name": "@opam-alpha/otags",
+      "version": "4.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "otags_version": {
+            "val": "4.1.1",
+            "scope": "global"
+          },
+          "otags_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "otags_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://askra.de/software/otags/otags-4.01.1.tar.gz",
+        "checksum": "f2397017cfee52015b28a23c588b356f",
+        "files": []
+      }
+    }
+  }
+}

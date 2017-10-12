@@ -1,0 +1,101 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/stb_image",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "stb___image_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "stb___image_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "stb___image_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/def-lkb/stb_image/archive/v0.1.tar.gz",
+        "checksum": "7105586140b4c0dfbc346429349ce1ec",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/stb_image",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/result": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "stb___image_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "stb___image_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "stb___image_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/let-def/stb_image/archive/v0.3.tar.gz",
+        "checksum": "0380d440996416f1f38744619f1234e1",
+        "files": []
+      }
+    }
+  }
+}

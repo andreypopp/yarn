@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/qmp",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": " >= 0.1.1",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "qmp_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "qmp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "qmp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xen-org/ocaml-qmp/archive/0.9.0.tar.gz",
+        "checksum": "0052f6d6e9683969e609fd2dcb3cd7f4",
+        "files": []
+      }
+    },
+    "0.9.1": {
+      "name": "@opam-alpha/qmp",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": " >= 0.1.1",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/cmdliner": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "qmp_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "qmp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "qmp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/xen-org/ocaml-qmp/archive/0.9.1.tar.gz",
+        "checksum": "f317d5e519a236bf4540e09bbb1e0ebf",
+        "files": []
+      }
+    }
+  }
+}

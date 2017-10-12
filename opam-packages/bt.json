@@ -1,0 +1,150 @@
+{
+  "versions": {
+    "0.1.2": {
+      "name": "@opam-alpha/bt",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/cohttp": " >= 0.11.2  < 0.99.0",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/lwt": " < 2.4.7",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/qcheck": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bt_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "bt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nojb/ocaml-bt/archive/v0.1.2.tar.gz",
+        "checksum": "97e7d562c19a6e129aeda3fa007ac346",
+        "files": [
+          {
+            "name": "bt.install",
+            "content": "bin: [\n  \"?_build/otorrent/otorrent.byte\" {\"otorrent\"}\n  \"?_build/otorrent/otorrent.native\" {\"otorrent\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/bt",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/bitstring": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/cohttp": " >= 0.11.2  < 0.99.0",
+        "@opam-alpha/cryptokit": "*",
+        "@opam-alpha/lwt": " < 2.4.7",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/qcheck": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/zarith": "*",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bt_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "bt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nojb/ocaml-bt/archive/v0.2.tar.gz",
+        "checksum": "79877dd825fa6933b73fa5cb237a5238",
+        "files": [
+          {
+            "name": "bt.install",
+            "content": "bin: [\n  \"?_build/otorrent/otorrent.byte\" {\"otorrent\"}\n  \"?_build/otorrent/otorrent.native\" {\"otorrent\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

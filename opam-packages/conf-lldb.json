@@ -1,0 +1,48 @@
+{
+  "versions": {
+    "3.5.0": {
+      "name": "@opam-alpha/conf-lldb",
+      "version": "3.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ls",
+            "/usr/lib/llvm-3.5/include/lldb/API/SBDebugger.h"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "conf_lldb_version": {
+            "val": "3.5.0",
+            "scope": "global"
+          },
+          "conf_lldb_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "conf_lldb_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

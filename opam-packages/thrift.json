@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/thrift",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "thrift_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "thrift_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "thrift_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/vbmithr/ocaml-thrift-lib/archive/0.9.0.tar.gz",
+        "checksum": "e80da38e12a65de81370d71778267d78",
+        "files": []
+      }
+    }
+  }
+}

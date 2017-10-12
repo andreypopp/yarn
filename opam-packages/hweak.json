@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "1.1.0": {
+      "name": "@opam-alpha/hweak",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "mkdir",
+            "-p",
+            "$cur__lib/hweak"
+          ],
+          [
+            "make"
+          ],
+          [
+            "cp",
+            "hweak.cmi",
+            "hweak.cmo",
+            "weak_memo.cmi",
+            "weak_memo.cmo",
+            "$cur__lib/hweak"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "hweak_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "hweak_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "hweak_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://aspellfr.free.fr/hweak/hweak-1.1.tar.gz",
+        "checksum": "980cc30c156a248bbd4e6b58d8c12a9c",
+        "files": []
+      }
+    }
+  }
+}

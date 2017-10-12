@@ -1,0 +1,402 @@
+{
+  "versions": {
+    "0.9.0": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/obuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.0",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/mirari-0.9.0.tar.gz",
+        "checksum": "783b5ff4864ea12c3a206a343f691bfd",
+        "files": [
+          {
+            "name": "mirari.install",
+            "content": "bin: [\"dist/build/mirari/mirari\" {\"mirari\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.9.1": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/obuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.1",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/mirari-0.9.1.tar.gz",
+        "checksum": "1b43f7c908a63a09f295bd3b47807e16",
+        "files": [
+          {
+            "name": "mirari.install",
+            "content": "bin: [\"dist/build/mirari/mirari\" {\"mirari\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.9.2": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/obuild": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.2",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/mirari-0.9.2.tar.gz",
+        "checksum": "2c2a129b7133b04b2ff04f4a93c4ef0e",
+        "files": [
+          {
+            "name": "mirari.install",
+            "content": "bin: [\"dist/build/mirari/mirari\" {\"mirari\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.9.3": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/obuild": " >= 0.0.2",
+        "@opam-alpha/tuntap": " >= 0.5.0  < 1.0.0",
+        "@opam-alpha/fd-send-recv": "*",
+        "@opam-alpha/sexplib": " <= 113.24.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.3",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/mirari-0.9.3.tar.gz",
+        "checksum": "0ee96c73c0456c974e9ab75ea15c53be",
+        "files": [
+          {
+            "name": "mirari.install",
+            "content": "bin: [\"dist/build/mirari/mirari\" {\"mirari\"}]\n"
+          }
+        ]
+      }
+    },
+    "0.9.4": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/obuild": " >= 0.0.2",
+        "@opam-alpha/tuntap": " >= 0.5.0  < 1.0.0",
+        "@opam-alpha/fd-send-recv": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.4",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/v0.9.4.tar.gz",
+        "checksum": "03690f83b8bc1c4b632f8de9c0c3a30c",
+        "files": []
+      }
+    },
+    "0.9.5": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/fd-send-recv": "*",
+        "@opam-alpha/tuntap": " >= 0.5.0  < 1.0.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.5",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/v0.9.5.tar.gz",
+        "checksum": "0f9160ae78770f57df4b5b2acefd64ef",
+        "files": []
+      }
+    },
+    "0.9.6": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/tuntap": " >= 0.5.0  < 1.0.0",
+        "@opam-alpha/fd-send-recv": "*",
+        "@opam-alpha/ipaddr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.6",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/v0.9.6.tar.gz",
+        "checksum": "c43674e45744983a6296b800c51a2179",
+        "files": []
+      }
+    },
+    "0.9.7": {
+      "name": "@opam-alpha/mirari",
+      "version": "0.9.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/tuntap": " >= 0.5.0  < 1.0.0",
+        "@opam-alpha/fd-send-recv": "*",
+        "@opam-alpha/ipaddr": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirari_version": {
+            "val": "0.9.7",
+            "scope": "global"
+          },
+          "mirari_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirari_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirari/archive/v0.9.7.tar.gz",
+        "checksum": "7a2a9347d0d2b74736df82dc7a73b852",
+        "files": []
+      }
+    }
+  }
+}

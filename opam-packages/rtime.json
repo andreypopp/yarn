@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "0.9.3": {
+      "name": "@opam-alpha/rtime",
+      "version": "0.9.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rtime_version": {
+            "val": "0.9.3",
+            "scope": "global"
+          },
+          "rtime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rtime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/rtime/releases/rtime-0.9.3.tbz",
+        "checksum": "22dbba5868ab5a47c5452229e550e6aa",
+        "files": []
+      }
+    }
+  }
+}

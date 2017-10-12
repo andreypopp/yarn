@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "2.12.0": {
+      "name": "@opam-alpha/0install",
+      "version": "2.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/xmlm": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/react": "*",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/ocurl": "*",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlbuild": "  <= 0.9.3",
+        "@opam-alpha/obus": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "0install_version": {
+            "val": "2.12.0",
+            "scope": "global"
+          },
+          "0install_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "0install_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/0install/0install/archive/v2.12-1.tar.gz",
+        "checksum": "b314e3964858d56ea8da42816dd5ae87",
+        "files": [
+          {
+            "name": "0install.install",
+            "content": "bin: [\n  \"dist/files/0install\"\n  \"dist/files/0install\" {\"0launch\"}\n  \"dist/files/0install\" {\"0store\"}\n  \"dist/files/0install\" {\"0store-secure-add\"}\n  \"dist/files/0install\" {\"0desktop\"}\n  \"dist/files/0install\" {\"0alias\"}\n]\nlib: [\n  \"?dist/files/gui_gtk.cmxs\"\n  \"?dist/files/gui_gtk.cma\"\n]\nman: [\n  \"0launch.1\" {\"man1/0launch.1\"}\n  \"0store-secure-add.1\" {\"man1/0store-secure-add.1\"}\n  \"0store.1\" {\"man1/0store.1\"}\n  \"0desktop.1\" {\"man1/0desktop.1\"}\n  \"0install.1\" {\"man1/0install.1\"}\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

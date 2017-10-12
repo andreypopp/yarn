@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "1.8.0": {
+      "name": "@opam-alpha/xstrp4",
+      "version": "1.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xstrp4_version": {
+            "val": "1.8.0",
+            "scope": "global"
+          },
+          "xstrp4_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xstrp4_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/xstrp4-1.8.tar.gz",
+        "checksum": "22d8b794472be7212d18437457ea9c9d",
+        "files": [
+          {
+            "name": "version.patch",
+            "content": "--- a/META\t2010-11-30 16:36:03.000000000 +0200\n+++ b/META\t2015-05-10 23:04:48.960009677 +0300\n@@ -1,4 +1,4 @@\n-version = \"1.7\"\n+version = \"1.8\"\n requires = \"camlp4\"\n \n # This line counts when the compiler is invoked with\n"
+          }
+        ]
+      }
+    }
+  }
+}

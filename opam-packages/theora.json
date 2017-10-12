@@ -1,0 +1,112 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/theora",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ogg": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "theora_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "theora_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "theora_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-theora/0.3.0/ocaml-theora-0.3.0.tar.gz",
+        "checksum": "7fc569ab2de795e44161b554fd1dc1c8",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/theora",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ogg": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "theora_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "theora_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "theora_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-theora/releases/download/0.3.1/ocaml-theora-0.3.1.tar.gz",
+        "checksum": "1a5de0e6254178db0da10e96d4d6d13f",
+        "files": []
+      }
+    }
+  }
+}

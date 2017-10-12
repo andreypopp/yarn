@@ -1,0 +1,44 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/mirage-no-xen",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_no_xen_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "mirage_no_xen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_no_xen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

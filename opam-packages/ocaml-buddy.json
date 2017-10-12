@@ -1,0 +1,58 @@
+{
+  "versions": {
+    "0.6.1": {
+      "name": "@opam-alpha/ocaml-buddy",
+      "version": "0.6.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_buddy_version": {
+            "val": "0.6.1",
+            "scope": "global"
+          },
+          "ocaml_buddy_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_buddy_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/abate/ocaml-buddy/archive/0.6.1.tar.gz",
+        "checksum": "23b5d83b2341d34045378428f8e0758e",
+        "files": []
+      }
+    }
+  }
+}

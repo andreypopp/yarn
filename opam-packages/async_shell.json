@@ -1,0 +1,503 @@
+{
+  "versions": {
+    "109.14.0": {
+      "name": "@opam-alpha/async_shell",
+      "version": "109.14.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/async": "=109.14.0",
+        "@opam-alpha/core_extended": "=109.14.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "109.14.0",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.14.00/individual/async_shell-109.14.00.tar.gz",
+        "checksum": "adea04e1dfa78862e0d73ca7127a240a",
+        "files": []
+      }
+    },
+    "109.15.0": {
+      "name": "@opam-alpha/async_shell",
+      "version": "109.15.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/async": "=109.15.0",
+        "@opam-alpha/core_extended": "=109.15.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "109.15.0",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.15.00/individual/async_shell-109.15.00.tar.gz",
+        "checksum": "f1f7ce8e9db7d4e92652288cb70b8e91",
+        "files": []
+      }
+    },
+    "109.17.0": {
+      "name": "@opam-alpha/async_shell",
+      "version": "109.17.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/async": " >= 109.17.0  <= 109.27.0",
+        "@opam-alpha/core_extended": " >= 109.17.0  <= 109.27.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "109.17.0",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.17.00/individual/async_shell-109.17.00.tar.gz",
+        "checksum": "5d7207b73e5cf2750f966ff3a645a4fb",
+        "files": []
+      }
+    },
+    "109.28.0": {
+      "name": "@opam-alpha/async_shell",
+      "version": "109.28.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/async": " >= 109.17.0  <= 109.53.0",
+        "@opam-alpha/core_extended": " >= 109.28.0  <= 109.55.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "109.28.0",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.28.00/individual/async_shell-109.28.00.tar.gz",
+        "checksum": "203f883af71188a97fb11565224ef238",
+        "files": []
+      }
+    },
+    "109.28.2": {
+      "name": "@opam-alpha/async_shell",
+      "version": "109.28.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/async": " >= 109.17.0  <= 110.1.0",
+        "@opam-alpha/core_extended": " >= 109.28.0  <= 110.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "109.28.2",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.28.00/individual/async_shell-109.28.02.tar.gz",
+        "checksum": "b780cefcd806e0ce843d9b416b035a90",
+        "files": []
+      }
+    },
+    "109.28.3": {
+      "name": "@opam-alpha/async_shell",
+      "version": "109.28.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/async": " >= 109.17.0  < 113.1.0",
+        "@opam-alpha/core_extended": " >= 109.28.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "109.28.3",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/109.28.00/individual/async_shell-109.28.03.tar.gz",
+        "checksum": "3868a1beb65ee59837cde7022d40864f",
+        "files": []
+      }
+    },
+    "113.24.0": {
+      "name": "@opam-alpha/async_shell",
+      "version": "113.24.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/bin_prot": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/core_extended": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_bench": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_driver": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_expect": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_jane": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/sexplib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "113.24.0",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.24/files/async_shell-113.24.00.tar.gz",
+        "checksum": "78181597917da32b4f3c9e0f4a1c1fa1",
+        "files": []
+      }
+    },
+    "113.33.0": {
+      "name": "@opam-alpha/async_shell",
+      "version": "113.33.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/core_extended": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.0  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.24.0  < 113.25.0",
+        "@opam-alpha/variantslib": " >= 113.24.0  < 113.25.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "113.33.0",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/async_shell-113.33.00.tar.gz",
+        "checksum": "3de7060b779fac47c8876ac671cc7ae2",
+        "files": []
+      }
+    },
+    "113.33.3": {
+      "name": "@opam-alpha/async_shell",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/async": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/bin_prot": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/core_extended": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/fieldslib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0",
+        "@opam-alpha/ppx_assert": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_bench": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_driver": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_expect": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_inline_test": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/ppx_jane": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/sexplib": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/typerep": " >= 113.33.3  < 113.34.0",
+        "@opam-alpha/variantslib": " >= 113.33.3  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "async___shell_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "async___shell_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "async___shell_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/async_shell-113.33.03.tar.gz",
+        "checksum": "ae8c79533a5e632504d61d1fac8f8814",
+        "files": []
+      }
+    }
+  }
+}

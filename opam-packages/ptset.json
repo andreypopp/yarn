@@ -1,0 +1,59 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/ptset",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/obuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "obuild",
+            "configure"
+          ],
+          [
+            "obuild",
+            "build",
+            "lib-ptset"
+          ],
+          [
+            "obuild",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ptset_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "ptset_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ptset_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/UnixJunkie/ptset/archive/v1.0.0.tar.gz",
+        "checksum": "1cd9591bb28397c56bd91b8c7e61aad9",
+        "files": []
+      }
+    }
+  }
+}

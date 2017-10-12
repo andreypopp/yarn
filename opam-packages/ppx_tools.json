@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "5.4020.0": {
+      "name": "@opam-alpha/ppx_tools",
+      "version": "5.4020.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ppx___tools_version": {
+            "val": "5.4020.0",
+            "scope": "global"
+          },
+          "ppx___tools_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ppx___tools_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/alainfrisch/ppx_tools/archive/5.0+4.02.0.tar.gz",
+        "checksum": "2f2bbe2ef0d16a6371d25a9e78854b3d",
+        "files": []
+      }
+    }
+  }
+}

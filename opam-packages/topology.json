@@ -1,0 +1,184 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/topology",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlgraph": " < 1.8.6",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "topology_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "topology_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "topology_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-topology/archive/v0.1.0.tar.gz",
+        "checksum": "adceb00bc543b55b817be3d527a6b631",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/topology",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlgraph": " < 1.8.6",
+        "@opam-alpha/packet": " >= 0.2.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "topology_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "topology_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "topology_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-topology/archive/v0.2.0.tar.gz",
+        "checksum": "baf65b7d5094683bd3d28d990074ac1d",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/topology",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlgraph": " >= 1.8.6",
+        "@opam-alpha/packet": " >= 0.3.1  < 0.5.0",
+        "@opam-alpha/pa_ounit": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--${pa___ounit_enable:-disable}-tests"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "topology_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "topology_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "topology_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/frenetic-lang/ocaml-topology/archive/v0.4.0.tar.gz",
+        "checksum": "554ef565d18791f07de2819f33a65659",
+        "files": []
+      }
+    }
+  }
+}

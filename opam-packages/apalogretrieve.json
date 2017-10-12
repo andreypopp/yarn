@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.9.64": {
+      "name": "@opam-alpha/apalogretrieve",
+      "version": "0.9.64",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "compile.native"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "apalogretrieve_version": {
+            "val": "0.9.64",
+            "scope": "global"
+          },
+          "apalogretrieve_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "apalogretrieve_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.first.in-berlin.de/software/tools/apalogretrieve/apalogretrieve-0-9-6_4.tgz",
+        "checksum": "5107f14c2a0bdcda24b449229ca2e2f7",
+        "files": [
+          {
+            "name": "apalogretrieve.install",
+            "content": "bin: [\"apalog\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

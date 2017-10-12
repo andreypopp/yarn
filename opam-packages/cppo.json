@@ -1,0 +1,79 @@
+{
+  "versions": {
+    "1.4.1": {
+      "name": "@opam-alpha/cppo",
+      "version": "1.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/base-bytes": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(make clean || true)"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "ocamlbuild"
+          ],
+          [
+            "make",
+            "LIBDIR=$cur__lib",
+            "install-lib"
+          ],
+          [
+            "make",
+            "BINDIR=$cur__bin",
+            "install-bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cppo_version": {
+            "val": "1.4.1",
+            "scope": "global"
+          },
+          "cppo_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cppo_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mjambon/cppo/archive/v1.4.1.tar.gz",
+        "checksum": "2100b34907caa350d3026a3ed13b08d5",
+        "files": [
+          {
+            "name": "cppo.install",
+            "content": "bin: [\"cppo\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

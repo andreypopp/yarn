@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "0.10.0": {
+      "name": "@opam-alpha/gsasl",
+      "version": "0.10.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ctypes": " >= 0.3.0  < 0.4.0",
+        "@opam-alpha/ctypes-foreign": "*",
+        "@opam-alpha/conf-libgsasl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "gsasl_version": {
+            "val": "0.10.0",
+            "scope": "global"
+          },
+          "gsasl_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "gsasl_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/nojb/ocaml-gsasl/archive/v0.10.0.tar.gz",
+        "checksum": "bed8838b5407b9f31acdeaccc86da22f",
+        "files": []
+      }
+    }
+  }
+}

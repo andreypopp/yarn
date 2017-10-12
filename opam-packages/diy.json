@@ -1,0 +1,61 @@
+{
+  "versions": {
+    "5.1.0": {
+      "name": "@opam-alpha/diy",
+      "version": "5.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sed",
+            "-i",
+            "-e",
+            "s#^PREFIX=.*$#PREFIX=$cur__install#",
+            "Makefile"
+          ],
+          [
+            "make",
+            "-j",
+            "4"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "diy_version": {
+            "val": "5.1.0",
+            "scope": "global"
+          },
+          "diy_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "diy_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://diy.inria.fr/sources/old/diy-5.01.tar.gz",
+        "checksum": "0aac7ad1013b0e15ac595d86b1d130cb",
+        "files": []
+      }
+    }
+  }
+}

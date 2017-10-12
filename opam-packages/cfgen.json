@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cfgen",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/menhir": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cfgen_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cfgen_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cfgen_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dmbaturin/cfgen/archive/1.0.zip",
+        "checksum": "8036d9283ae8c83a710872a9455f4435",
+        "files": []
+      }
+    }
+  }
+}

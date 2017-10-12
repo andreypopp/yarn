@@ -1,0 +1,50 @@
+{
+  "versions": {
+    "1.6.0": {
+      "name": "@opam-alpha/mirage-git",
+      "version": "1.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/mirage-http": "*",
+        "@opam-alpha/mirage-flow": " <= 1.1.0",
+        "@opam-alpha/mirage-types": " < 3.0.0",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/channel": "*",
+        "@opam-alpha/git": " >= 1.6.0  < 1.9.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_git_version": {
+            "val": "1.6.0",
+            "scope": "global"
+          },
+          "mirage_git_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_git_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

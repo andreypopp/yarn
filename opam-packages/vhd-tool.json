@@ -1,0 +1,393 @@
+{
+  "versions": {
+    "0.6.5": {
+      "name": "@opam-alpha/vhd-tool",
+      "version": "0.6.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 0.7.1",
+        "@opam-alpha/vhd-format": " >= 0.6.4  < 0.7.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/obuild": "*",
+        "@opam-alpha/nbd": " >= 0.9.2  < 1.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/tar-format": " > 0.2.0  < 0.3.0",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/cohttp": "=0.9.13",
+        "@opam-alpha/ssl": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir=$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vhd_tool_version": {
+            "val": "0.6.5",
+            "scope": "global"
+          },
+          "vhd_tool_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vhd_tool_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/vhd-tool/archive/0.6.5.tar.gz",
+        "checksum": "52e512eec2c96c90e1b5da1a604cabf4",
+        "files": []
+      }
+    },
+    "0.7.1": {
+      "name": "@opam-alpha/vhd-tool",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/vhd-format": " >= 0.7.0  < 0.8.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/nbd": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/tar-format": " > 0.2.0  < 0.3.0",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/cohttp": " >= 0.9.15  < 0.10.0",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir=$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vhd_tool_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "vhd_tool_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vhd_tool_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/vhd-tool/archive/v0.7.1.tar.gz",
+        "checksum": "7299db8b9abb5144dfc21e878c029392",
+        "files": []
+      }
+    },
+    "0.7.2": {
+      "name": "@opam-alpha/vhd-tool",
+      "version": "0.7.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/vhd-format": " >= 0.7.0  < 0.8.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/nbd": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/tar-format": " > 0.2.0  < 0.3.0",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/cohttp": "=0.9.16",
+        "@opam-alpha/ssl": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir=$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vhd_tool_version": {
+            "val": "0.7.2",
+            "scope": "global"
+          },
+          "vhd_tool_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vhd_tool_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/vhd-tool/archive/v0.7.2.tar.gz",
+        "checksum": "fb41d869f318e22d524e0b3481b0cc78",
+        "files": []
+      }
+    },
+    "0.7.5": {
+      "name": "@opam-alpha/vhd-tool",
+      "version": "0.7.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/vhd-format": " >= 0.7.0  < 0.8.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/nbd": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/tar-format": " > 0.2.0  < 0.3.0",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/cohttp": " >= 0.10.1  < 0.12.0",
+        "@opam-alpha/ssl": " >= 0.5.3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir=$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vhd_tool_version": {
+            "val": "0.7.5",
+            "scope": "global"
+          },
+          "vhd_tool_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vhd_tool_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/vhd-tool/archive/v0.7.5.tar.gz",
+        "checksum": "f3db3c343247c66ddb84136c0e22fb7f",
+        "files": []
+      }
+    },
+    "0.7.6": {
+      "name": "@opam-alpha/vhd-tool",
+      "version": "0.7.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/vhd-format": " >= 0.7.0  < 0.8.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/nbd": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/tar-format": " > 0.2.0  < 0.3.0",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/cohttp": " >= 0.12.0  < 0.99.0",
+        "@opam-alpha/ssl": " >= 0.5.3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir=$cur__bin",
+            "--libexecdir=$cur__lib/xapi"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vhd_tool_version": {
+            "val": "0.7.6",
+            "scope": "global"
+          },
+          "vhd_tool_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vhd_tool_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/vhd-tool/archive/v0.7.6.tar.gz",
+        "checksum": "46894cb07e49f9ca162073049eb76699",
+        "files": []
+      }
+    },
+    "0.7.7": {
+      "name": "@opam-alpha/vhd-tool",
+      "version": "0.7.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/vhd-format": " >= 0.7.0  < 0.8.0",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/nbd": " >= 1.0.1  < 2.0.0",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/tar-format": " > 0.5.0  < 0.6.0",
+        "@opam-alpha/sha": "*",
+        "@opam-alpha/cohttp": " >= 0.12.0  < 0.99.0",
+        "@opam-alpha/ssl": " >= 0.5.3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--bindir=$cur__bin",
+            "--etcdir=$cur__etc",
+            "--libexecdir=$cur__bin"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "vhd_tool_version": {
+            "val": "0.7.7",
+            "scope": "global"
+          },
+          "vhd_tool_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "vhd_tool_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/vhd-tool/archive/v0.7.7.tar.gz",
+        "checksum": "0df1dc6642fabf728c43e5951bb8c908",
+        "files": []
+      }
+    }
+  }
+}

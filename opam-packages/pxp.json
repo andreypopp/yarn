@@ -1,0 +1,198 @@
+{
+  "versions": {
+    "1.2.3": {
+      "name": "@opam-alpha/pxp",
+      "version": "1.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.6.0  < 4.1.0",
+        "@opam-alpha/ulex": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-without-wlex",
+            "-without-wlex-compat",
+            "-lexlist",
+            "utf8,iso88591"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install",
+            "MANDIR=$cur__man"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pxp_version": {
+            "val": "1.2.3",
+            "scope": "global"
+          },
+          "pxp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pxp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/pxp-1.2.3.tar.gz",
+        "checksum": "83347420dae0ee495bb0ac2fbab7b74b",
+        "files": []
+      }
+    },
+    "1.2.7": {
+      "name": "@opam-alpha/pxp",
+      "version": "1.2.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.6.0  < 4.1.0",
+        "@opam-alpha/ulex": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-without-wlex",
+            "-without-wlex-compat",
+            "-lexlist",
+            "utf8,iso88591"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install",
+            "MANDIR=$cur__man"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pxp_version": {
+            "val": "1.2.7",
+            "scope": "global"
+          },
+          "pxp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pxp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/pxp-1.2.7.tar.gz",
+        "checksum": "267831139d56233739e96567ed07aa6c",
+        "files": []
+      }
+    },
+    "1.2.8": {
+      "name": "@opam-alpha/pxp",
+      "version": "1.2.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 4.1.0",
+        "@opam-alpha/ulex": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "-without-wlex",
+            "-without-wlex-compat",
+            "-lexlist",
+            "utf8,iso88591"
+          ],
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install",
+            "MANDIR=$cur__man"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pxp_version": {
+            "val": "1.2.8",
+            "scope": "global"
+          },
+          "pxp_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pxp_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://download.camlcity.org/download/pxp-1.2.8.tar.gz",
+        "checksum": "e9155cf1705287a52f90ec3737924d8a",
+        "files": [
+          {
+            "name": "rm-dup-exc.patch",
+            "content": "diff -urN pxp-1.2.8/src/pxp-engine/pxp_document.ml pxp-1.2.8-cdnm0/src/pxp-engine/pxp_document.ml\n--- pxp-1.2.8/src/pxp-engine/pxp_document.ml\t2016-03-03 22:46:50.000000000 +0900\n+++ pxp-1.2.8-cdnm0/src/pxp-engine/pxp_document.ml\t2017-02-15 13:33:08.000000000 +0900\n@@ -3398,7 +3398,6 @@\n ;;\n \n \n-exception Skip;;\n \n let map_tree ~pre ?(post=(fun x -> x)) base =\n   let rec map_rec n =\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "versions": {
+    "0.5.3": {
+      "name": "@opam-alpha/fftw3",
+      "version": "0.5.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/archimedes": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fftw3_version": {
+            "val": "0.5.3",
+            "scope": "global"
+          },
+          "fftw3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fftw3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://sourceforge.net/projects/ocaml-fftw/files/ocaml-fftw3-0.5.3.tar.gz/download",
+        "checksum": "1e123550e09cfc04f9e25599625d1fd0",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/fftw3",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/archimedes": "*",
+        "@opam-alpha/lacaml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fftw3_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "fftw3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fftw3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://sourceforge.net/projects/ocaml-fftw/files/fftw3-ocaml-0.6.tar.gz/download",
+        "checksum": "8571a1fe0a25783ce522b82228daac7c",
+        "files": []
+      }
+    },
+    "0.7.0": {
+      "name": "@opam-alpha/fftw3",
+      "version": "0.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/archimedes": "*",
+        "@opam-alpha/lacaml": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fftw3_version": {
+            "val": "0.7.0",
+            "scope": "global"
+          },
+          "fftw3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fftw3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://sourceforge.net/projects/ocaml-fftw/files/fftw3-ocaml-0.7.tar.gz/download",
+        "checksum": "0e2ea346412f8702f416ebedf8551388",
+        "files": []
+      }
+    },
+    "0.7.1": {
+      "name": "@opam-alpha/fftw3",
+      "version": "0.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/archimedes": "",
+        "@opam-alpha/lacaml": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fftw3_version": {
+            "val": "0.7.1",
+            "scope": "global"
+          },
+          "fftw3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fftw3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/fftw-ocaml/releases/download/0.7.1/ocaml-fftw3-0.7.1.tar.gz",
+        "checksum": "f8a508194817f18917a672351957b35f",
+        "files": []
+      }
+    },
+    "0.7.2": {
+      "name": "@opam-alpha/fftw3",
+      "version": "0.7.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/archimedes": "",
+        "@opam-alpha/lacaml": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fftw3_version": {
+            "val": "0.7.2",
+            "scope": "global"
+          },
+          "fftw3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fftw3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/fftw-ocaml/releases/download/0.7.2/ocaml-fftw3-0.7.2.tar.gz",
+        "checksum": "1c97c07ae423293ad4608acaac5a7735",
+        "files": []
+      }
+    },
+    "0.7.3": {
+      "name": "@opam-alpha/fftw3",
+      "version": "0.7.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/archimedes": "",
+        "@opam-alpha/lacaml": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "./configure",
+            "CFLAGS=-I/usr/local/include",
+            "LDFLAGS=-L/usr/local/lib",
+            "OCAMLFLAGS=-ccopt -I/usr/local/include -cclib -L/usr/local/lib",
+            "--prefix",
+            "$cur__install",
+            "--sbindir=$cur__lib/fftw3/sbin",
+            "--libexecdir=$cur__lib/fftw3/libexec",
+            "--sysconfdir=$cur__lib/fftw3/etc",
+            "--sharedstatedir=$cur__lib/fftw3/com",
+            "--localstatedir=$cur__lib/fftw3/var",
+            "--libdir=$cur__lib/fftw3/lib",
+            "--includedir=$cur__lib/fftw3/include",
+            "--datarootdir=$cur__lib/fftw3/share"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fftw3_version": {
+            "val": "0.7.3",
+            "scope": "global"
+          },
+          "fftw3_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fftw3_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/fftw-ocaml/releases/download/0.7.3/ocaml-fftw3-0.7.3.tar.gz",
+        "checksum": "a0734fc307014c6bf30512fd5f6ab2a4",
+        "files": []
+      }
+    }
+  }
+}

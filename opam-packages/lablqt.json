@@ -1,0 +1,179 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/lablqt",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/sexplib": " < 113.24.0",
+        "@opam-alpha/yojson": "*",
+        "@opam-alpha/conf-qt": " >= 5.2.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "generator"
+          ],
+          [
+            "sh",
+            "-exc",
+            "cd lablqml && ./configure --datarootdir=$cur__lib && make"
+          ],
+          [
+            "make",
+            "opam.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablqt_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "lablqt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablqt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Kakadu/lablqml/archive/0.2.tar.gz",
+        "checksum": "4ab2b69aa146f9f57000a064e1e0553b",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/lablqt",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/conf-qt": " >= 5.2.1",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make",
+            "generator"
+          ],
+          [
+            "sh",
+            "-exc",
+            "cd lablqml && ./configure --datarootdir=$cur__lib && make"
+          ],
+          [
+            "make",
+            "opam.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablqt_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "lablqt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablqt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Kakadu/lablqml/archive/0.3.tar.gz",
+        "checksum": "fca3f686709d501c72169e4367f25604",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/lablqt",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/conf-qt": " >= 5.2.1",
+        "@opam-alpha/lwt": "",
+        "@opam-alpha/cppo": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "opam.install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lablqt_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "lablqt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lablqt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Kakadu/lablqml/archive/0.4.tar.gz",
+        "checksum": "a4cb0aa6f02301142047ea6c254c0207",
+        "files": []
+      }
+    }
+  }
+}

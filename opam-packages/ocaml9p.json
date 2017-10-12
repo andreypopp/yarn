@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.4.0": {
+      "name": "@opam-alpha/ocaml9p",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml9p_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "ocaml9p_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml9p_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/raphael-proust/ocaml9p/archive/0.4.2.tar.gz",
+        "checksum": "dbf8904f6a18d903de5daa2f461508ab",
+        "files": []
+      }
+    }
+  }
+}

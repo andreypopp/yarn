@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/cordova-plugin-barcode-scanner",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/gen_js_api": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "cordova_plugin_barcode_scanner_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "cordova_plugin_barcode_scanner_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "cordova_plugin_barcode_scanner_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/dannywillems/ocaml-cordova-plugin-barcode-scanner/archive/v1.0.tar.gz",
+        "checksum": "3d7af9e6e85528f3ad73c102aacaa2cb",
+        "files": []
+      }
+    }
+  }
+}

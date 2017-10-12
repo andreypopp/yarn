@@ -1,0 +1,233 @@
+{
+  "versions": {
+    "0.5.0": {
+      "name": "@opam-alpha/beluga",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/omake": "*",
+        "@opam-alpha/ounit": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "omake",
+            "NATIVE_ENABLED=true"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "beluga_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "beluga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "beluga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://complogic.cs.mcgill.ca/beluga/beluga-0.5-20130207.tar.gz",
+        "checksum": "27ca78189f8e5e4346e4850c2faa4bd0",
+        "files": [
+          {
+            "name": "beluga.install",
+            "content": "bin: [\"bin/beluga\" {\"beluga\"}]\nshare: [\"tools/beluga-mode.el\"]\n"
+          }
+        ]
+      }
+    },
+    "0.8.0": {
+      "name": "@opam-alpha/beluga",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlbuild",
+            "-r",
+            "-use-ocamlfind",
+            "-j",
+            "4",
+            "src/beluga/main.native"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "beluga_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "beluga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "beluga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://complogic.cs.mcgill.ca/beluga/beluga-0.8.tar.gz",
+        "checksum": "2292b177fdcd84dc52e2cc1d26495392",
+        "files": [
+          {
+            "name": "beluga.install",
+            "content": "bin: [\"_build/src/beluga/main.native\" {\"beluga\"}]\nshare: [\"tools/beluga-mode.el\"]\n"
+          }
+        ]
+      }
+    },
+    "0.8.1": {
+      "name": "@opam-alpha/beluga",
+      "version": "0.8.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlbuild",
+            "-r",
+            "-use-ocamlfind",
+            "-j",
+            "4",
+            "src/beluga/main.native"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "beluga_version": {
+            "val": "0.8.1",
+            "scope": "global"
+          },
+          "beluga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "beluga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://complogic.cs.mcgill.ca/beluga/beluga-0.8.1.tar.gz",
+        "checksum": "f5e940e1f96d9fa6a5ce5ef954be98e7",
+        "files": [
+          {
+            "name": "beluga.install",
+            "content": "bin: [\"_build/src/beluga/main.native\" {\"beluga\"}]\nshare: [\"tools/beluga-mode.el\"]\n"
+          }
+        ]
+      }
+    },
+    "0.8.2": {
+      "name": "@opam-alpha/beluga",
+      "version": "0.8.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/extlib": "*",
+        "@opam-alpha/extlib-compat": "*",
+        "@opam-alpha/ulex": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocamlbuild",
+            "-r",
+            "-use-ocamlfind",
+            "-j",
+            "4",
+            "src/beluga/main.native"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "beluga_version": {
+            "val": "0.8.2",
+            "scope": "global"
+          },
+          "beluga_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "beluga_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://complogic.cs.mcgill.ca/beluga/beluga-0.8.2.tar.gz",
+        "checksum": "1574e030f203792a822c21926c7106f3",
+        "files": [
+          {
+            "name": "beluga.install",
+            "content": "bin: [\"_build/src/beluga/main.native\" {\"beluga\"}]\nshare: [\"tools/beluga-mode.el\"]\n"
+          }
+        ]
+      }
+    }
+  }
+}

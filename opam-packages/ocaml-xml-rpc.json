@@ -1,0 +1,65 @@
+{
+  "versions": {
+    "0.2.3": {
+      "name": "@opam-alpha/ocaml-xml-rpc",
+      "version": "0.2.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlnet": " >= 3.6.0  < 4.0.0",
+        "@opam-alpha/pxp": "*",
+        "@opam-alpha/annexlib": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install",
+            "BIN_DIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_xml_rpc_version": {
+            "val": "0.2.3",
+            "scope": "global"
+          },
+          "ocaml_xml_rpc_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_xml_rpc_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://raevnos.pennmush.org/code/ocaml-xml-rpc/ocaml-xml-rpc-0.2.3.tar.gz",
+        "checksum": "53894f38130a1a02d0507925865e431d",
+        "files": [
+          {
+            "name": "ocaml-xml-rpc.install",
+            "content": "bin: [\"oxridl.opt\" {\"oxridl\"}]\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "versions": {
+    "0.3.0": {
+      "name": "@opam-alpha/erm_xml",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "erm___xml_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "erm___xml_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "erm___xml_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/ermine/xml/tarball/v0.3",
+        "checksum": "cbac7e9abb5a3607012bd5db83632378",
+        "files": []
+      }
+    }
+  }
+}

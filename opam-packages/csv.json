@@ -1,0 +1,774 @@
+{
+  "versions": {
+    "1.2.2": {
+      "name": "@opam-alpha/csv",
+      "version": "1.2.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "=0.3.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.2.2",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/613/csv-1.2.2.tar.gz",
+        "checksum": "4b177e332719de1f9f5b16a31985d536",
+        "files": []
+      }
+    },
+    "1.2.4": {
+      "name": "@opam-alpha/csv",
+      "version": "1.2.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.2.4",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://forge.ocamlcore.org/frs/download.php/1148/csv-1.2.4.tar.gz",
+        "checksum": "5211c68f75acfc9898a9f28dcf3e8ef4",
+        "files": []
+      }
+    },
+    "1.2.6": {
+      "name": "@opam-alpha/csv",
+      "version": "1.2.6",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.2.6",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1152/csv-1.2.6.tar.gz",
+        "checksum": "7530b3870048355aa73f35689ca3d918",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.0": {
+      "name": "@opam-alpha/csv",
+      "version": "1.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.3.0",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1172/csv-1.3.0.tar.gz",
+        "checksum": "6cbd2eb36603b6c7ccacdc330f3e4d7d",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.1": {
+      "name": "@opam-alpha/csv",
+      "version": "1.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.3.1",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1235/csv-1.3.1.tar.gz",
+        "checksum": "762593f6216564274962c5f360b406c7",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.2": {
+      "name": "@opam-alpha/csv",
+      "version": "1.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.3.2",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1298/csv-1.3.2.tar.gz",
+        "checksum": "23c71896013c69af55c868868f308236",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.3": {
+      "name": "@opam-alpha/csv",
+      "version": "1.3.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.3.3",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/1376/csv-1.3.3.tar.gz",
+        "checksum": "d44ad52d0224c296e169448573d7cc16",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.3.4": {
+      "name": "@opam-alpha/csv",
+      "version": "1.3.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.3.4",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-csv/releases/download/1.3.3/csv-1.3.4.tar.gz",
+        "checksum": "a84556e6c7b86961b4e9fb7519fce9fd",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.4.0": {
+      "name": "@opam-alpha/csv",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-csv/releases/download/1.4/csv-1.4.tar.gz",
+        "checksum": "b9d2c44ec264312e473c66f2da0c2ef0",
+        "files": [
+          {
+            "name": "csv.install",
+            "content": "bin: [\n  \"?_build/examples/csvtool.byte\" {\"csvtool\"}\n  \"?_build/examples/csvtool.native\" {\"csvtool\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.4.1": {
+      "name": "@opam-alpha/csv",
+      "version": "1.4.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.4.1",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-csv/releases/download/1.4.1/csv-1.4.1.tar.gz",
+        "checksum": "800e9220bd6876dcdde8a1c070507bab",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "csv.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.4.2": {
+      "name": "@opam-alpha/csv",
+      "version": "1.4.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.4.2",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-csv/releases/download/1.4.2/csv-1.4.2.tar.gz",
+        "checksum": "0f2afb105766713eda762a3e461b49f2",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "csv.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.5.0": {
+      "name": "@opam-alpha/csv",
+      "version": "1.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-bytes": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "csv_version": {
+            "val": "1.5.0",
+            "scope": "global"
+          },
+          "csv_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "csv_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/Chris00/ocaml-csv/releases/download/1.5/csv-1.5.tar.gz",
+        "checksum": "93fb7204e3a2d38184ddce545d03c2fb",
+        "files": []
+      }
+    }
+  }
+}

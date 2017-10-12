@@ -1,0 +1,232 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/rdbg",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/oasis": " >= 0.4.0",
+        "@opam-alpha/oasis-mirage": " >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdbg_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "rdbg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdbg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/rdbg/rdbg.tgz",
+        "checksum": "751ad98f972e7b1d17a53eab6ab87ce1",
+        "files": [
+          {
+            "name": "rdbg.install",
+            "content": "bin: [\n  \"?_build/src/gnuplotrif.byte\" {\"gnuplot-rif\"}\n  \"?_build/src/gnuplotrif.native\" {\"gnuplot-rif\"}\n  \"?_build/src/rdbgbatch.byte\" {\"rdbg-batch\"}\n  \"?_build/src/rdbgbatch.native\" {\"rdbg-batch\"}\n  \"?_build/src/rdbgstart.byte\" {\"rdbg-top\"}\n  \"?_build/src/rdbgstart.native\" {\"rdbg-top\"}\n  \"?_build/src/rdbg.byte\" {\"rdbg\"}\n  \"?_build/src/rdbg.native\" {\"rdbg\"}\n]\n"
+          }
+        ]
+      }
+    },
+    "1.65.0": {
+      "name": "@opam-alpha/rdbg",
+      "version": "1.65.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lutils": "*",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "  >= 2.0.0",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdbg_version": {
+            "val": "1.65.0",
+            "scope": "global"
+          },
+          "rdbg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdbg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/pool/rdbg.1.65.tgz",
+        "checksum": "bc242ad397aaaab380c84510cf41612f",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "rdbg.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    },
+    "1.70.0": {
+      "name": "@opam-alpha/rdbg",
+      "version": "1.70.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/base-unix": "",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lutils": " >= 1.9.0",
+        "@opam-alpha/oasis": "  >= 0.4.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ounit": "  >= 2.0.0",
+        "@opam-alpha/num": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "rdbg_version": {
+            "val": "1.70.0",
+            "scope": "global"
+          },
+          "rdbg_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "rdbg_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/pool/rdbg.1.70.tgz",
+        "checksum": "92a16d3ede61f83cc2e4e7b5be1c1798",
+        "files": [
+          {
+            "name": "_oasis_remove_.ml",
+            "content": "open Printf\n\nlet () =\n  let dir = Sys.argv.(1) in\n  (try Sys.chdir dir\n   with _ -> eprintf \"Cannot change directory to %s\\n%!\" dir);\n  exit (Sys.command \"ocaml setup.ml -uninstall\")\n"
+          },
+          {
+            "name": "rdbg.install",
+            "content": "etc: [\n  \"setup.ml\"\n  \"setup.data\"\n  \"setup.log\"\n  \"_oasis_remove_.ml\"\n]\n"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "versions": {
+    "0.12.0": {
+      "name": "@opam-alpha/irmin-unix",
+      "version": "0.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/irmin": "=0.12.0",
+        "@opam-alpha/git-unix": " < 1.10.0",
+        "@opam-alpha/irmin-watcher": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irmin_unix_version": {
+            "val": "0.12.0",
+            "scope": "global"
+          },
+          "irmin_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irmin_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "0.9.4": {
+      "name": "@opam-alpha/irmin-unix",
+      "version": "0.9.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/irmin": " >= 0.9.4  < 0.9.9",
+        "@opam-alpha/git": "*",
+        "@opam-alpha/cohttp": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irmin_unix_version": {
+            "val": "0.9.4",
+            "scope": "global"
+          },
+          "irmin_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irmin_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    },
+    "0.9.9": {
+      "name": "@opam-alpha/irmin-unix",
+      "version": "0.9.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/irmin": " >= 0.9.9  < 0.12.0",
+        "@opam-alpha/git-unix": " < 1.10.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irmin_unix_version": {
+            "val": "0.9.9",
+            "scope": "global"
+          },
+          "irmin_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irmin_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

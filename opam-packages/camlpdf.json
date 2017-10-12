@@ -1,0 +1,201 @@
+{
+  "versions": {
+    "1.7.0": {
+      "name": "@opam-alpha/camlpdf",
+      "version": "1.7.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camlpdf_version": {
+            "val": "1.7.0",
+            "scope": "global"
+          },
+          "camlpdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camlpdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnwhitington/camlpdf/archive/v1.7.tar.gz",
+        "checksum": "a777850789cc309ded0eb18d36b70d9c",
+        "files": []
+      }
+    },
+    "1.7.1": {
+      "name": "@opam-alpha/camlpdf",
+      "version": "1.7.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camlpdf_version": {
+            "val": "1.7.1",
+            "scope": "global"
+          },
+          "camlpdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camlpdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnwhitington/camlpdf/archive/v1.7.1.tar.gz",
+        "checksum": "fc025a26d05bcf7452fad2c1dcebd681",
+        "files": []
+      }
+    },
+    "2.1.1": {
+      "name": "@opam-alpha/camlpdf",
+      "version": "2.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camlpdf_version": {
+            "val": "2.1.1",
+            "scope": "global"
+          },
+          "camlpdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camlpdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnwhitington/camlpdf/archive/v2.1.1.zip",
+        "checksum": "1793d6ff77dc5d51034277b2b46225a4",
+        "files": [
+          {
+            "name": "int.patch",
+            "content": "--- a/flatestubs.c\t2016-03-13 20:03:44.000000000 +0000\n+++ b/flatestubs.c\t2016-03-13 20:02:13.000000000 +0000\n@@ -19,6 +19,8 @@\n \n #include \"miniz.c\" //Modified to use miniz.c rather than zlib \n \n+#include <stdint.h>\n+\n #include <caml/mlvalues.h>\n #include <caml/alloc.h>\n #include <caml/callback.h>\n@@ -170,7 +172,7 @@\n \n value camlzip_update_crc32(value crc, value buf, value pos, value len)\n {\n-  return copy_int32(crc32((uint32) Int32_val(crc), \n+  return copy_int32(crc32((uint32_t) Int32_val(crc), \n                           &Byte_u(buf, Long_val(pos)),\n                           Long_val(len)));\n }\n"
+          }
+        ]
+      }
+    },
+    "2.2.1": {
+      "name": "@opam-alpha/camlpdf",
+      "version": "2.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "camlpdf_version": {
+            "val": "2.2.1",
+            "scope": "global"
+          },
+          "camlpdf_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "camlpdf_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnwhitington/camlpdf/archive/v2.2.1.zip",
+        "checksum": "79d84ee6ae54357d187eff6e801e1549",
+        "files": []
+      }
+    }
+  }
+}

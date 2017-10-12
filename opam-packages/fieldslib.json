@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "113.33.3": {
+      "name": "@opam-alpha/fieldslib",
+      "version": "113.33.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/js-build-tools": "  >= 113.33.4  < 113.34.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "fieldslib_version": {
+            "val": "113.33.3",
+            "scope": "global"
+          },
+          "fieldslib_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "fieldslib_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://ocaml.janestreet.com/ocaml-core/113.33/files/fieldslib-113.33.03.tar.gz",
+        "checksum": "20566b9efc8dfc6b7d769ffc060afafc",
+        "files": []
+      }
+    }
+  }
+}

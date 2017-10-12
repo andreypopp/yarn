@@ -1,0 +1,294 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/mirage-flow",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " < 2.3.0",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/lwt": " < 2.5.0",
+        "@opam-alpha/alcotest": "  <= 0.3.3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_flow_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "mirage_flow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_flow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-flow/archive/1.0.0.tar.gz",
+        "checksum": "f0a5922933d5223abe94f74e343b3a01",
+        "files": []
+      }
+    },
+    "1.0.1": {
+      "name": "@opam-alpha/mirage-flow",
+      "version": "1.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/lwt": " < 2.5.0",
+        "@opam-alpha/alcotest": "  <= 0.3.3",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_flow_version": {
+            "val": "1.0.1",
+            "scope": "global"
+          },
+          "mirage_flow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_flow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-flow/archive/1.0.1.tar.gz",
+        "checksum": "24c64a03663b29bb29e7fe97ebd905a1",
+        "files": []
+      }
+    },
+    "1.0.2": {
+      "name": "@opam-alpha/mirage-flow",
+      "version": "1.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/lwt": " < 2.5.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_flow_version": {
+            "val": "1.0.2",
+            "scope": "global"
+          },
+          "mirage_flow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_flow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-flow/archive/1.0.2.tar.gz",
+        "checksum": "5cbc4ebed6b5b155989e65bf7c01cf00",
+        "files": []
+      }
+    },
+    "1.0.3": {
+      "name": "@opam-alpha/mirage-flow",
+      "version": "1.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_flow_version": {
+            "val": "1.0.3",
+            "scope": "global"
+          },
+          "mirage_flow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_flow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-flow/archive/1.0.3.tar.gz",
+        "checksum": "0e1e6964b4400adcc4866b135d288828",
+        "files": []
+      }
+    },
+    "1.1.0": {
+      "name": "@opam-alpha/mirage-flow",
+      "version": "1.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/mirage-types-lwt": " < 3.0.0",
+        "@opam-alpha/cstruct": "*",
+        "@opam-alpha/lwt": " >= 2.5.0",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_flow_version": {
+            "val": "1.1.0",
+            "scope": "global"
+          },
+          "mirage_flow_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_flow_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-flow/archive/v1.1.0.tar.gz",
+        "checksum": "ba12ab7dc477d09e3d27aa984384ce7f",
+        "files": []
+      }
+    }
+  }
+}

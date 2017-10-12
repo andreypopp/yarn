@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "20090.1.1": {
+      "name": "@opam-alpha/tidy",
+      "version": "20090.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core_kernel": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tidy_version": {
+            "val": "20090.1.1",
+            "scope": "global"
+          },
+          "tidy_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tidy_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/zandoye/ocaml-tidy/get/ver.2009-0.1.1.tar.gz",
+        "checksum": "b2528479f6acd0b00c5185b124311614",
+        "files": []
+      }
+    },
+    "14.9.300": {
+      "name": "@opam-alpha/tidy",
+      "version": "14.9.300",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core_kernel": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "tidy_version": {
+            "val": "14.9.300",
+            "scope": "global"
+          },
+          "tidy_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "tidy_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://bitbucket.org/zandoye/ocaml-tidy/get/ver.4.9.30-0.1.1.tar.gz",
+        "checksum": "547e329166ed612acb088a864c072283",
+        "files": []
+      }
+    }
+  }
+}

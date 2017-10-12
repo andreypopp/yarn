@@ -1,0 +1,107 @@
+{
+  "versions": {
+    "113.0.0": {
+      "name": "@opam-alpha/pa_bin_prot",
+      "version": "113.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/oasis": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___bin___prot_version": {
+            "val": "113.0.0",
+            "scope": "global"
+          },
+          "pa___bin___prot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___bin___prot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/pa_bin_prot/archive/113.00.00.tar.gz",
+        "checksum": "7eea971138ecd3843f65d398683f3998",
+        "files": []
+      }
+    },
+    "113.0.1": {
+      "name": "@opam-alpha/pa_bin_prot",
+      "version": "113.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/type_conv": " >= 113.0.0  < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "pa___bin___prot_version": {
+            "val": "113.0.1",
+            "scope": "global"
+          },
+          "pa___bin___prot_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "pa___bin___prot_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/janestreet/pa_bin_prot/archive/113.00.01.tar.gz",
+        "checksum": "d81c041e1ea63da4e4072c80814870e5",
+        "files": []
+      }
+    }
+  }
+}

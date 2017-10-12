@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/obeanstalk",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/core": " >= 109.42.0",
+        "@opam-alpha/async": " >= 109.42.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "opam-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "obeanstalk_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "obeanstalk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "obeanstalk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://github.com/rgrinberg/obeanstalk/archive/0.1.tar.gz",
+        "checksum": "0b8ca89d57151a2c8d90785272fb8938",
+        "files": []
+      }
+    }
+  }
+}

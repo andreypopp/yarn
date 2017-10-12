@@ -1,0 +1,179 @@
+{
+  "versions": {
+    "0.6.0": {
+      "name": "@opam-alpha/xe",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 0.6.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cohttp": " >= 0.10.0  < 0.12.0",
+        "@opam-alpha/ssl": " >= 0.5.3",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xe_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "xe_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xe_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/xapi-xe/archive/0.6.0.tar.gz",
+        "checksum": "771c18c2f5d244980b197b98c650f504",
+        "files": []
+      }
+    },
+    "0.6.2": {
+      "name": "@opam-alpha/xe",
+      "version": "0.6.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 0.6.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cohttp": " >= 0.10.0  < 0.12.0",
+        "@opam-alpha/ssl": " >= 0.5.3",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xe_version": {
+            "val": "0.6.2",
+            "scope": "global"
+          },
+          "xe_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xe_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/xapi-xe/archive/0.6.2.tar.gz",
+        "checksum": "d7f2b3d0e088984f83417d1edaf3200e",
+        "files": []
+      }
+    },
+    "0.6.3": {
+      "name": "@opam-alpha/xe",
+      "version": "0.6.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/cstruct": " >= 0.6.0",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/lwt": " < 3.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cohttp": " >= 0.14.0  < 0.99.0",
+        "@opam-alpha/ssl": " >= 0.5.3",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/uri": "*",
+        "@opam-alpha/uuidm": "*",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install",
+            "BINDIR=$cur__bin"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "xe_version": {
+            "val": "0.6.3",
+            "scope": "global"
+          },
+          "xe_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "xe_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/djs55/xapi-xe/archive/0.6.3.tar.gz",
+        "checksum": "43869fe5717e5478d2e4d8bc6a35d308",
+        "files": []
+      }
+    }
+  }
+}

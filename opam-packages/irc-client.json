@@ -1,0 +1,436 @@
+{
+  "versions": {
+    "0.1.1": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/obuild": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.1.1.tar.gz",
+        "checksum": "90ac5b939c3d1e473afc6a9b9cb0e33a",
+        "files": [
+          {
+            "name": "obuild-workaround.patch",
+            "content": "--- a/irc-client.obuild\n+++ b/irc-client.obuild\n@@ -26,4 +26,4 @@ library irc_client.unix\n test test_parser\n   main: test_parser.ml\n   src-dir: test\n-  build-deps: oUnit, irc_client\n+  build-deps: oUnit, irc_client, unix\n"
+          }
+        ]
+      }
+    },
+    "0.1.2": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.1.2.tar.gz",
+        "checksum": "9728eaa5e16db384354aff45f795f421",
+        "files": []
+      }
+    },
+    "0.2.0": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.2.0.tar.gz",
+        "checksum": "62fb92777d42fc5a2d1d2316c96aedd3",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ounit": " >= 2.0.0",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.2.1.tar.gz",
+        "checksum": "97d280ad8230a880ff78b9b04532326d",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ounit": " >= 2.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.3.0.tar.gz",
+        "checksum": "178f3aeb93402716df031ba284993b8f",
+        "files": []
+      }
+    },
+    "0.3.1": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.3.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.3.1",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.3.1.tar.gz",
+        "checksum": "24497187cbb0b6d347f0a7ede00bbcba",
+        "files": []
+      }
+    },
+    "0.3.2": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.3.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.3.2",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.3.2.tar.gz",
+        "checksum": "a0655a261b020551ecf2e8d04356906f",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/irc-client",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/result": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/base-unix": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/tls": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--${lwt_enable:-disable}-lwt",
+            "--${tls_enable:-disable}-tls",
+            "--${base_unix_enable:-disable}-unix",
+            "--enable-docs",
+            "--enable-examples"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "PREFIX=$cur__install",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "irc_client_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "irc_client_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "irc_client_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnelse/ocaml-irc-client/archive/0.4.0.tar.gz",
+        "checksum": "4424648730b87edfcf96ffae4072550a",
+        "files": []
+      }
+    }
+  }
+}

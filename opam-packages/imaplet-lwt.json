@@ -1,0 +1,703 @@
+{
+  "versions": {
+    "0.1.10": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.10",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": " >= 0.16.1",
+        "@opam-alpha/git": " >= 1.4.11",
+        "@opam-alpha/irmin": " >= 0.9.4  < 0.10.0",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": "=0.4.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/fieldslib": " <= 113.0.0",
+        "@opam-alpha/irmin-unix": " < 0.12.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.10",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.10.tar.gz",
+        "checksum": "97ae6a1150b5b15eeeab5cae6b6aa0ee",
+        "files": []
+      }
+    },
+    "0.1.11": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.11",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": " >= 0.16.1",
+        "@opam-alpha/git": " >= 1.4.11",
+        "@opam-alpha/irmin": " >= 0.9.4  < 0.10.0",
+        "@opam-alpha/irmin-unix": " < 0.12.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": "=0.4.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/fieldslib": " <= 113.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.11",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.11.tar.gz",
+        "checksum": "cdf101b506bb43ea19646a90a853a1bf",
+        "files": []
+      }
+    },
+    "0.1.12": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.12",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": " >= 0.16.1",
+        "@opam-alpha/git": " >= 1.4.11",
+        "@opam-alpha/irmin": " >= 0.9.4  < 0.10.0",
+        "@opam-alpha/irmin-unix": " < 0.12.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": "=0.4.0",
+        "@opam-alpha/dns": " >= 0.15.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/fieldslib": " <= 113.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.12",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.12.tar.gz",
+        "checksum": "f41894dde5f92eb9b3f49dbaa58d5c82",
+        "files": []
+      }
+    },
+    "0.1.13": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.13",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": " >= 0.16.1",
+        "@opam-alpha/git": " >= 1.4.11",
+        "@opam-alpha/irmin": " >= 0.9.4  < 0.10.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": "=0.4.0",
+        "@opam-alpha/dns": " >= 0.15.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.13",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.13.tar.gz",
+        "checksum": "29031d06f4e791a7fe6f8c0b30c8ff4f",
+        "files": []
+      }
+    },
+    "0.1.14": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.14",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/fieldslib": " <= 113.0.0",
+        "@opam-alpha/cohttp": " >= 0.18.2",
+        "@opam-alpha/git": " >= 1.5.1",
+        "@opam-alpha/irmin": " >= 0.9.5  < 0.10.0",
+        "@opam-alpha/irmin-unix": " < 0.12.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": " >= 0.6.0",
+        "@opam-alpha/nocrypto": " >= 0.5.0  < 0.5.3",
+        "@opam-alpha/dns": " >= 0.15.2",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.14",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.14.tar.gz",
+        "checksum": "f27f505c0dc254ddfdae0eef10aeb88a",
+        "files": []
+      }
+    },
+    "0.1.15": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.15",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cohttp": " >= 0.19.3",
+        "@opam-alpha/git": " >= 1.7.1",
+        "@opam-alpha/irmin": " >= 0.9.10  < 0.10.0",
+        "@opam-alpha/irmin-unix": " < 0.12.0",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": " >= 0.6.0",
+        "@opam-alpha/nocrypto": " >= 0.5.1  < 0.5.3",
+        "@opam-alpha/dns": " >= 0.15.3",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/camlzip": "*",
+        "@opam-alpha/sexplib": " <= 113.0.0",
+        "@opam-alpha/fieldslib": " <= 113.0.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.15",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.15.tar.gz",
+        "checksum": "962be85899c7bafe7731d13e19dab8ec",
+        "files": []
+      }
+    },
+    "0.1.2": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/mirage": " < 3.0.0",
+        "@opam-alpha/git": "=1.2.0",
+        "@opam-alpha/irmin": " >= 0.8.2  <= 0.8.3",
+        "@opam-alpha/re2": "*",
+        "@opam-alpha/tls": "=0.2.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--override=ocamlbuildflags",
+            "-I storage"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.2",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.2.tar.gz",
+        "checksum": "a5b5a0687fa9248b31df72d0544b5ed0",
+        "files": []
+      }
+    },
+    "0.1.3": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/mirage": " < 3.0.0",
+        "@opam-alpha/cohttp": " >= 0.14.0",
+        "@opam-alpha/git": " >= 1.4.3",
+        "@opam-alpha/irmin": "=0.9.1",
+        "@opam-alpha/re2": "*",
+        "@opam-alpha/tls": " >= 0.2.0  <= 0.3.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--override=ocamlbuildflags",
+            "-I storage"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.3",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.3.tar.gz",
+        "checksum": "de65d2e7fa4a27512c93fad73822d8a1",
+        "files": []
+      }
+    },
+    "0.1.4": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.4",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/mirage": " < 3.0.0",
+        "@opam-alpha/cohttp": " >= 0.14.0",
+        "@opam-alpha/git": " >= 1.4.3",
+        "@opam-alpha/irmin": "=0.9.1",
+        "@opam-alpha/re2": "*",
+        "@opam-alpha/tls": "=0.2.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--override=ocamlbuildflags",
+            "-I storage"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.4",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.4.tar.gz",
+        "checksum": "152c9a92a635ee50433d23b333cf9889",
+        "files": []
+      }
+    },
+    "0.1.8": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/mirage": " < 3.0.0",
+        "@opam-alpha/cohttp": " >= 0.15.1",
+        "@opam-alpha/git": " >= 1.4.10",
+        "@opam-alpha/irmin": " >= 0.9.3",
+        "@opam-alpha/re2": "*",
+        "@opam-alpha/tls": " >= 0.3.0",
+        "@opam-alpha/x509": " < 0.3.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install",
+            "--override=ocamlbuildflags",
+            "-I storage"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.8",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.8.tar.gz",
+        "checksum": "7848fdd91fbb87d9d3b4dc19bca7cd71",
+        "files": []
+      }
+    },
+    "0.1.9": {
+      "name": "@opam-alpha/imaplet-lwt",
+      "version": "0.1.9",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/mirage": " < 3.0.0",
+        "@opam-alpha/cohttp": " >= 0.15.1",
+        "@opam-alpha/git": " >= 1.4.10",
+        "@opam-alpha/irmin": " >= 0.9.3",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/tls": " >= 0.3.0",
+        "@opam-alpha/x509": " < 0.3.0",
+        "@opam-alpha/menhir": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "imaplet_lwt_version": {
+            "val": "0.1.9",
+            "scope": "global"
+          },
+          "imaplet_lwt_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "imaplet_lwt_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/gregtatcam/imaplet-lwt/archive/v0.1.9.tar.gz",
+        "checksum": "ba0ba5a4e0de83bbb5af78ef9d3ee1d8",
+        "files": []
+      }
+    }
+  }
+}

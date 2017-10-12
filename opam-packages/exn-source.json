@@ -1,0 +1,52 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/exn-source",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "exn_source_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "exn_source_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "exn_source_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/johnwhitington/exn-source/archive/v0.1.tar.gz",
+        "checksum": "964c29f48b8b3c23d971058609e6b415",
+        "files": []
+      }
+    }
+  }
+}

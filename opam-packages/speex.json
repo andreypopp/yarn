@@ -1,0 +1,120 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/speex",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ogg": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "speex_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "speex_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "speex_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-speex/0.2.0/ocaml-speex-0.2.0.tar.gz",
+        "checksum": "acfa92885fa94e46b888bdbc8fbc417a",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/speex",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ogg": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "./configure",
+            "CFLAGS=-I/usr/local/include",
+            "LDFLAGS=-L/usr/local/lib",
+            "OCAMLFLAGS=-ccopt -I/usr/local/include -cclib -L/usr/local/lib",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "speex_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "speex_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "speex_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-speex/releases/download/0.2.1/ocaml-speex-0.2.1.tar.gz",
+        "checksum": "68e3596edc35ce7c4fa010e44abc8770",
+        "files": []
+      }
+    }
+  }
+}

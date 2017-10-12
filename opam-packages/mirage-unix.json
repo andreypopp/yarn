@@ -1,0 +1,62 @@
+{
+  "versions": {
+    "2.6.0": {
+      "name": "@opam-alpha/mirage-unix",
+      "version": "2.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/conf-which": "",
+        "@opam-alpha/cstruct": " >= 1.0.1",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lwt": " >= 2.4.3",
+        "@opam-alpha/io-page": " >= 1.5.0  < 2.0.0",
+        "@opam-alpha/mirage-clock-unix": " >= 1.0.0  < 1.1.0",
+        "@opam-alpha/shared-memory-ring": " >= 1.0.0",
+        "@opam-alpha/mirage-profile": " >= 0.3.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "unix-build"
+          ],
+          [
+            "make",
+            "unix-install",
+            "PREFIX=$cur__install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "mirage_unix_version": {
+            "val": "2.6.0",
+            "scope": "global"
+          },
+          "mirage_unix_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mirage_unix_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/mirage/mirage-platform/archive/v2.6.0.tar.gz",
+        "checksum": "e9d5ec80ae06b42658e48af130aea7c1",
+        "files": []
+      }
+    }
+  }
+}

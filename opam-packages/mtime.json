@@ -1,0 +1,232 @@
+{
+  "versions": {
+    "0.8.0": {
+      "name": "@opam-alpha/mtime",
+      "version": "0.8.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "jsoo=${js___of___ocaml_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__mtime__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "mtime_version": {
+            "val": "0.8.0",
+            "scope": "global"
+          },
+          "mtime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mtime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/mtime/releases/mtime-0.8.0.tbz",
+        "checksum": "bd36b1821e1db62ccea5b47e6fb5be98",
+        "files": []
+      }
+    },
+    "0.8.1": {
+      "name": "@opam-alpha/mtime",
+      "version": "0.8.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "jsoo=${js___of___ocaml_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__mtime__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "mtime_version": {
+            "val": "0.8.1",
+            "scope": "global"
+          },
+          "mtime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mtime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/mtime/releases/mtime-0.8.1.tbz",
+        "checksum": "d1c7b3ef298448ecd7757f62f98e79f4",
+        "files": []
+      }
+    },
+    "0.8.2": {
+      "name": "@opam-alpha/mtime",
+      "version": "0.8.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "jsoo=${js___of___ocaml_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__mtime__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "mtime_version": {
+            "val": "0.8.2",
+            "scope": "global"
+          },
+          "mtime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mtime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/mtime/releases/mtime-0.8.2.tbz",
+        "checksum": "c9b71fef2e30219cc457b4a165c3ab07",
+        "files": []
+      }
+    },
+    "0.8.3": {
+      "name": "@opam-alpha/mtime",
+      "version": "0.8.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/git.ml"
+          ],
+          [
+            "ocaml",
+            "pkg/build.ml",
+            "native=true",
+            "native-dynlink=true",
+            "jsoo=${js___of___ocaml_installed:-false}"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "CAML_LD_LIBRARY_PATH": {
+            "val": "$opam_alpha__slash__mtime__lib/stublibs:$CAML_LD_LIBRARY_PATH",
+            "scope": "global"
+          },
+          "mtime_version": {
+            "val": "0.8.3",
+            "scope": "global"
+          },
+          "mtime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "mtime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://erratique.ch/software/mtime/releases/mtime-0.8.3.tbz",
+        "checksum": "e3577e065a4c09d73b27f5625e321003",
+        "files": []
+      }
+    }
+  }
+}

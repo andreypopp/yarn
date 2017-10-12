@@ -1,0 +1,74 @@
+{
+  "versions": {
+    "0.8.1": {
+      "name": "@opam-alpha/datakit-github",
+      "version": "0.8.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/cmdliner": " < 1.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/asetmap": "*",
+        "@opam-alpha/logs": "*",
+        "@opam-alpha/fmt": "*",
+        "@opam-alpha/mtime": " < 1.0.0",
+        "@opam-alpha/asl": "*",
+        "@opam-alpha/win-eventlog": "*",
+        "@opam-alpha/uri": " >= 1.8.0",
+        "@opam-alpha/hvsock": " >= 0.8.1  < 0.14.0",
+        "@opam-alpha/named-pipe": " >= 0.4.0",
+        "@opam-alpha/hex": "*",
+        "@opam-alpha/nocrypto": "*",
+        "@opam-alpha/conduit": "*",
+        "@opam-alpha/datakit-server": " >= 0.7.0  < 0.10.0",
+        "@opam-alpha/datakit-client": " >= 0.7.0  < 0.10.0",
+        "@opam-alpha/github-hooks": " >= 0.1.1",
+        "@opam-alpha/github": " >= 2.2.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false",
+            "-n",
+            "datakit-github"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "datakit_github_version": {
+            "val": "0.8.1",
+            "scope": "global"
+          },
+          "datakit_github_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "datakit_github_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/docker/datakit/releases/download/0.8.1/datakit-0.8.1.tbz",
+        "checksum": "72c918be8a5b66754e1a29b439605f7c",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "versions": {
+    "0.0.0": {
+      "name": "@opam-alpha/raw_spacetime",
+      "version": "0.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "raw___spacetime_version": {
+            "val": "0.0.0",
+            "scope": "global"
+          },
+          "raw___spacetime_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "raw___spacetime_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": null,
+        "checksum": null,
+        "files": []
+      }
+    }
+  }
+}

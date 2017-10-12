@@ -1,0 +1,750 @@
+{
+  "versions": {
+    "0.10.0": {
+      "name": "@opam-alpha/opium",
+      "version": "0.10.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cohttp": " >= 0.10.0  < 0.12.0",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/humane-re": "*",
+        "@opam-alpha/cow": " >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.10.0",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.10.0.tar.gz",
+        "checksum": "25d3bf783653ee743fbff2ea9b9b81bd",
+        "files": []
+      }
+    },
+    "0.10.1": {
+      "name": "@opam-alpha/opium",
+      "version": "0.10.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cohttp": " >= 0.12.0  < 0.99.0",
+        "@opam-alpha/oasis": " >= 0.4.0",
+        "@opam-alpha/async": "*",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/humane-re": "*",
+        "@opam-alpha/cow": " >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.10.1",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.10.1.tar.gz",
+        "checksum": "3c5076d96ae9682d94b9fb9565a7a094",
+        "files": []
+      }
+    },
+    "0.11.0": {
+      "name": "@opam-alpha/opium",
+      "version": "0.11.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/cohttp": " >= 0.12.0  < 0.99.0",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/humane-re": "*",
+        "@opam-alpha/cow": " >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.11.0",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.11.0.tar.gz",
+        "checksum": "0609879503ba06dafd2b31e469dae29c",
+        "files": []
+      }
+    },
+    "0.12.0": {
+      "name": "@opam-alpha/opium",
+      "version": "0.12.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/humane-re": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/cow": "",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.12.0",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.12.0.tar.gz",
+        "checksum": "dc6500c727af18ff3ba98fd11b5fdae9",
+        "files": []
+      }
+    },
+    "0.13.0": {
+      "name": "@opam-alpha/opium",
+      "version": "0.13.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/humane-re": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/cow": "  >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.13.0",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.13.0.tar.gz",
+        "checksum": "5c1b0fb50bbd5fdffc464664cd48738b",
+        "files": []
+      }
+    },
+    "0.13.1": {
+      "name": "@opam-alpha/opium",
+      "version": "0.13.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/cow": "  >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.13.1",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.13.1.tar.gz",
+        "checksum": "8b8f23b9179cdb3a9551339097bb5c4d",
+        "files": []
+      }
+    },
+    "0.13.2": {
+      "name": "@opam-alpha/opium",
+      "version": "0.13.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/cow": "  >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.13.2",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.13.2.tar.gz",
+        "checksum": "4c1a6139d14ea0b12dff13f290ad2f26",
+        "files": []
+      }
+    },
+    "0.13.3": {
+      "name": "@opam-alpha/opium",
+      "version": "0.13.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/cohttp": " >= 0.15.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": " < 113.1.0",
+        "@opam-alpha/sexplib": " < 113.1.0",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/ounit": "",
+        "@opam-alpha/cow": "  >= 0.10.0",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "oasis",
+            "setup"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-configure"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-build"
+          ],
+          [
+            "ocaml",
+            "setup.ml",
+            "-install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.13.3",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.13.3.tar.gz",
+        "checksum": "ec186cb3700f943655b57913d1098b3e",
+        "files": []
+      }
+    },
+    "0.14.0": {
+      "name": "@opam-alpha/opium",
+      "version": "0.14.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/cppo": "",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/core_kernel": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": " <= 113.0.0",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/cow": " >= 0.10.0  < 2.0.0",
+        "@opam-alpha/ounit": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.14.0",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.14.0.tar.gz",
+        "checksum": "09be6a2006fc1abda8ec0e1547f21503",
+        "files": []
+      }
+    },
+    "0.15.0": {
+      "name": "@opam-alpha/opium",
+      "version": "0.15.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/hmap": "*",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/ppx_fields_conv": "*",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "*",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/alcotest": "*",
+        "@opam-alpha/cow": "  >= 0.10.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "opam"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.15.0",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.15.0.tar.gz",
+        "checksum": "24ce037546846438ce9bac10e21ec6d6",
+        "files": []
+      }
+    },
+    "0.15.1": {
+      "name": "@opam-alpha/opium",
+      "version": "0.15.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/omake": "",
+        "@opam-alpha/hmap": "*",
+        "@opam-alpha/cohttp": " >= 0.15.0  < 0.99.0",
+        "@opam-alpha/ezjsonm": " >= 0.4.0",
+        "@opam-alpha/base64": " >= 2.0.0",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/cmdliner": "*",
+        "@opam-alpha/fieldslib": "*",
+        "@opam-alpha/sexplib": "*",
+        "@opam-alpha/ppx_fields_conv": "*",
+        "@opam-alpha/ppx_deriving": "",
+        "@opam-alpha/ppx_sexp_conv": "*",
+        "@opam-alpha/re": " >= 1.3.0",
+        "@opam-alpha/magic-mime": "*",
+        "@opam-alpha/alcotest": "",
+        "@opam-alpha/cow": "  >= 0.10.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "opam"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "opium_version": {
+            "val": "0.15.1",
+            "scope": "global"
+          },
+          "opium_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "opium_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/opium/archive/v0.15.1.tar.gz",
+        "checksum": "310e17f2a35bfbb7dca64c61aab99084",
+        "files": []
+      }
+    }
+  }
+}

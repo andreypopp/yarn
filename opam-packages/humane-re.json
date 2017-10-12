@@ -1,0 +1,285 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/humane-re",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "humane_re_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "humane_re_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "humane_re_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/humane-re/archive/v0.0.1.tar.gz",
+        "checksum": "003c253bd589301c14c0ad6bdca1fe57",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/humane-re",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "humane_re_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "humane_re_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "humane_re_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/humane-re/archive/v0.0.2.tar.gz",
+        "checksum": "2c08eaf953ceabe425058ca5cdf10a06",
+        "files": []
+      }
+    },
+    "0.0.3": {
+      "name": "@opam-alpha/humane-re",
+      "version": "0.0.3",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ounit": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "humane_re_version": {
+            "val": "0.0.3",
+            "scope": "global"
+          },
+          "humane_re_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "humane_re_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/humane-re/archive/v0.0.3.tar.gz",
+        "checksum": "81d4b69c398bd02e7039f856888aa66a",
+        "files": []
+      }
+    },
+    "0.1.0": {
+      "name": "@opam-alpha/humane-re",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "*",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "humane_re_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "humane_re_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "humane_re_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/humane-re/archive/v0.1.0.tar.gz",
+        "checksum": "37c4f3b15c287766e1f2dc90cac76de9",
+        "files": []
+      }
+    },
+    "0.1.1": {
+      "name": "@opam-alpha/humane-re",
+      "version": "0.1.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/oasis": "",
+        "@opam-alpha/re": "*",
+        "@opam-alpha/ocamlbuild": ""
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "configure-no-tests"
+          ],
+          [
+            "make",
+            "build"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "humane_re_version": {
+            "val": "0.1.1",
+            "scope": "global"
+          },
+          "humane_re_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "humane_re_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/rgrinberg/humane-re/archive/v0.1.1.tar.gz",
+        "checksum": "3babb6e4980cb8e0228451f869828ad5",
+        "files": []
+      }
+    }
+  }
+}

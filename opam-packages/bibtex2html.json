@@ -1,0 +1,108 @@
+{
+  "versions": {
+    "1.97.0": {
+      "name": "@opam-alpha/bibtex2html",
+      "version": "1.97.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/hevea": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bibtex2html_version": {
+            "val": "1.97.0",
+            "scope": "global"
+          },
+          "bibtex2html_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bibtex2html_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.lri.fr/~filliatr/ftp/bibtex2html/bibtex2html-1.97.tar.gz",
+        "checksum": "d20d0d607be3f6aa770554f3eee0dde1",
+        "files": []
+      }
+    },
+    "1.98.0": {
+      "name": "@opam-alpha/bibtex2html",
+      "version": "1.98.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/hevea": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix=$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "bibtex2html_version": {
+            "val": "1.98.0",
+            "scope": "global"
+          },
+          "bibtex2html_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "bibtex2html_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://www.lri.fr/~filliatr/ftp/bibtex2html/bibtex2html-1.98.tar.gz",
+        "checksum": "33a96d32d6ca870163855573253aa720",
+        "files": []
+      }
+    }
+  }
+}

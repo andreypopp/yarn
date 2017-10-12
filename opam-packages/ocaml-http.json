@@ -1,0 +1,60 @@
+{
+  "versions": {
+    "0.1.5": {
+      "name": "@opam-alpha/ocaml-http",
+      "version": "0.1.5",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/camlp4": "esy-ocaml/camlp4#esy/4.02+7-TEST",
+        "@opam-alpha/ocamlnet": "*",
+        "@opam-alpha/pcre": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "opt"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ocaml_http_version": {
+            "val": "0.1.5",
+            "scope": "global"
+          },
+          "ocaml_http_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ocaml_http_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://forge.ocamlcore.org/frs/download.php/545/ocaml-http-0.1.5.tar.gz",
+        "checksum": "5426221ff76d7095fa1f5ee873b07829",
+        "files": []
+      }
+    }
+  }
+}

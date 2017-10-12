@@ -1,0 +1,55 @@
+{
+  "versions": {
+    "1.0.0": {
+      "name": "@opam-alpha/odiff-gtk",
+      "version": "1.0.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/lablgtk": "*",
+        "@opam-alpha/ocamldiff": " >= 1.1.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "all"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "odiff_gtk_version": {
+            "val": "1.0.0",
+            "scope": "global"
+          },
+          "odiff_gtk_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "odiff_gtk_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://zoggy.github.io/odiff-gtk/odiff-gtk-1.0.tar.gz",
+        "checksum": "00fd5f39b6aa0cf146fc52c599eb68c5",
+        "files": []
+      }
+    }
+  }
+}

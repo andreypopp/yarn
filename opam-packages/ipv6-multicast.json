@@ -1,0 +1,57 @@
+{
+  "versions": {
+    "0.1.0": {
+      "name": "@opam-alpha/ipv6-multicast",
+      "version": "0.1.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "",
+        "@opam-alpha/topkg": "",
+        "@opam-alpha/ocb-stubblr": "",
+        "@opam-alpha/lwt": "*",
+        "@opam-alpha/ipaddr": " < 2.8.0"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "ocaml",
+            "pkg/pkg.ml",
+            "build",
+            "--pinned",
+            "false"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "ipv6_multicast_version": {
+            "val": "0.1.0",
+            "scope": "global"
+          },
+          "ipv6_multicast_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "ipv6_multicast_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/vbmithr/ocaml-ipv6-multicast/archive/0.1.tar.gz",
+        "checksum": "ecba6e8a847488884777fed2a1dd5c3d",
+        "files": []
+      }
+    }
+  }
+}

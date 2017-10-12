@@ -1,0 +1,307 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/lemonade",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/mixture": " >= 0.2.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lemonade_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "lemonade_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lemonade_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/lemonade/releases/download/v0.2.0/lemonade-0.2.0.tar.xz",
+        "checksum": "429775bd597f48b9169d8f19abb14455",
+        "files": []
+      }
+    },
+    "0.3.0": {
+      "name": "@opam-alpha/lemonade",
+      "version": "0.3.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/mixture": "=0.2.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lemonade_version": {
+            "val": "0.3.0",
+            "scope": "global"
+          },
+          "lemonade_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lemonade_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/lemonade/releases/download/v0.3.0/lemonade-0.3.0.tar.xz",
+        "checksum": "61e3bec52b6ff865178f09bce6b4f8df",
+        "files": []
+      }
+    },
+    "0.4.0": {
+      "name": "@opam-alpha/lemonade",
+      "version": "0.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/mixture": " >= 1.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--${ppx___tools_enable:-disable}-ppx-rewriter"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lemonade_version": {
+            "val": "0.4.0",
+            "scope": "global"
+          },
+          "lemonade_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lemonade_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/lemonade/releases/download/v0.4.0/lemonade-0.4.0.tar.xz",
+        "checksum": "b626960c77f8e9fde0ccac0aab34a10d",
+        "files": []
+      }
+    },
+    "0.5.0": {
+      "name": "@opam-alpha/lemonade",
+      "version": "0.5.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/mixture": " >= 1.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--${ppx___tools_enable:-disable}-ppx-rewriter"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lemonade_version": {
+            "val": "0.5.0",
+            "scope": "global"
+          },
+          "lemonade_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lemonade_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/lemonade/releases/download/v0.5.0/lemonade-0.5.0.tar.xz",
+        "checksum": "c6e6fcad72f6be446d443b9207abc976",
+        "files": []
+      }
+    },
+    "0.6.0": {
+      "name": "@opam-alpha/lemonade",
+      "version": "0.6.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/broken": " >= 0.4.2",
+        "@opam-alpha/bsdowl": " >= 3.0.0",
+        "@opam-alpha/conf-bmake": "*",
+        "@opam-alpha/mixture": " >= 1.0.0",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install",
+            "--${ppx___tools_enable:-disable}-ppx-rewriter"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "all"
+          ],
+          [
+            "conf-bmake:path",
+            "-Ibsdowl__share",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "lemonade_version": {
+            "val": "0.6.0",
+            "scope": "global"
+          },
+          "lemonade_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "lemonade_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/michipili/lemonade/releases/download/v0.6.0/lemonade-0.6.0.tar.xz",
+        "checksum": "f5c8c194eb4c3a2d6e2f4f014d0fa53c",
+        "files": []
+      }
+    }
+  }
+}

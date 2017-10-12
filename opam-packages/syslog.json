@@ -1,0 +1,53 @@
+{
+  "versions": {
+    "1.4.0": {
+      "name": "@opam-alpha/syslog",
+      "version": "1.4.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "reallyall"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "syslog_version": {
+            "val": "1.4.0",
+            "scope": "global"
+          },
+          "syslog_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "syslog_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://deb.debian.org/debian/pool/main/s/syslog-ocaml/syslog-ocaml_1.4.orig.tar.gz",
+        "checksum": "3042185e6f511aea9956cd8f172b1a84",
+        "files": []
+      }
+    }
+  }
+}

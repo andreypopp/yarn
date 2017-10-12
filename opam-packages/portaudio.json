@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.2.0": {
+      "name": "@opam-alpha/portaudio",
+      "version": "0.2.0",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "portaudio_version": {
+            "val": "0.2.0",
+            "scope": "global"
+          },
+          "portaudio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "portaudio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-portaudio/0.2.0/ocaml-portaudio-0.2.0.tar.gz",
+        "checksum": "a2a0353dc0675bd611d50eacf278ab60",
+        "files": []
+      }
+    },
+    "0.2.1": {
+      "name": "@opam-alpha/portaudio",
+      "version": "0.2.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "portaudio_version": {
+            "val": "0.2.1",
+            "scope": "global"
+          },
+          "portaudio_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "portaudio_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-portaudio/releases/download/0.2.1/ocaml-portaudio-0.2.1.tar.gz",
+        "checksum": "c504a0d47c1aa834b774b9c668b65691",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "versions": {
+    "0.1.7": {
+      "name": "@opam-alpha/soundtouch",
+      "version": "0.1.7",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "soundtouch_version": {
+            "val": "0.1.7",
+            "scope": "global"
+          },
+          "soundtouch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "soundtouch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "http://downloads.sourceforge.net/project/savonet/ocaml-soundtouch/0.1.7/ocaml-soundtouch-0.1.7.tar.gz",
+        "checksum": "8249e34b555d6484b70711d6b1ef9d2e",
+        "files": []
+      }
+    },
+    "0.1.8": {
+      "name": "@opam-alpha/soundtouch",
+      "version": "0.1.8",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "./configure",
+            "--prefix",
+            "$cur__install"
+          ],
+          [
+            "make"
+          ],
+          [
+            "make",
+            "install"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "soundtouch_version": {
+            "val": "0.1.8",
+            "scope": "global"
+          },
+          "soundtouch_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "soundtouch_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/savonet/ocaml-soundtouch/releases/download/0.1.8/ocaml-soundtouch-0.1.8.tar.gz",
+        "checksum": "f88084c05ef822bea3ccbde9e01700a6",
+        "files": []
+      }
+    }
+  }
+}

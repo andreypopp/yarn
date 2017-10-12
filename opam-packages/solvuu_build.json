@@ -1,0 +1,114 @@
+{
+  "versions": {
+    "0.0.1": {
+      "name": "@opam-alpha/solvuu_build",
+      "version": "0.0.1",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlgraph": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "native"
+          ],
+          [
+            "make",
+            "_build/META"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "solvuu___build_version": {
+            "val": "0.0.1",
+            "scope": "global"
+          },
+          "solvuu___build_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "solvuu___build_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/solvuu/solvuu_build/archive/v0.0.1.tar.gz",
+        "checksum": "c00af9b70675fb3ea553c798a2a73d69",
+        "files": []
+      }
+    },
+    "0.0.2": {
+      "name": "@opam-alpha/solvuu_build",
+      "version": "0.0.2",
+      "dependencies": {
+        "substs": "esy-ocaml/substs",
+        "opam-installer-bin": "esy-ocaml/opam-installer-bin",
+        "@opam-alpha/ocamlfind": "esy-ocaml/ocamlfind#esy/1.7.1-esy3",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ocamlgraph": "*"
+      },
+      "peerDependencies": {
+        "ocaml": "*"
+      },
+      "esy": {
+        "build": [
+          [
+            "make",
+            "byte"
+          ],
+          [
+            "make",
+            "native"
+          ],
+          [
+            "make",
+            "_build/META"
+          ],
+          [
+            "sh",
+            "-c",
+            "(opam-installer --prefix=$cur__install || true)"
+          ]
+        ],
+        "buildsInSource": true,
+        "exportedEnv": {
+          "solvuu___build_version": {
+            "val": "0.0.2",
+            "scope": "global"
+          },
+          "solvuu___build_installed": {
+            "val": "true",
+            "scope": "global"
+          },
+          "solvuu___build_enable": {
+            "val": "enable",
+            "scope": "global"
+          }
+        }
+      },
+      "opam": {
+        "url": "https://github.com/solvuu/solvuu_build/archive/v0.0.2.tar.gz",
+        "checksum": "0bd8283f14825c4a078e76c0e595535f",
+        "files": []
+      }
+    }
+  }
+}
