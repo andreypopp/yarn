@@ -25,27 +25,49 @@ export const constants =
 export const lockQueue = new BlockingQueue('fs lock');
 
 export const readFileBuffer = promisify(fs.readFile);
-export const writeFile: (path: string, data: string, options?: Object) => Promise<void> = promisify(fs.writeFile);
-export const readlink: (path: string, opts: void) => Promise<string> = promisify(fs.readlink);
-export const realpath: (path: string, opts: void) => Promise<string> = promisify(fs.realpath);
-export const readdir: (path: string, opts: void) => Promise<Array<string>> = promisify(fs.readdir);
-export const rename: (oldPath: string, newPath: string) => Promise<void> = promisify(fs.rename);
-export const access: (path: string, mode?: number) => Promise<void> = promisify(fs.access);
+export const writeFile: (
+  path: string,
+  data: string,
+  options?: Object,
+) => Promise<void> = promisify(fs.writeFile);
+export const readlink: (path: string, opts: void) => Promise<string> = promisify(
+  fs.readlink,
+);
+export const realpath: (path: string, opts: void) => Promise<string> = promisify(
+  fs.realpath,
+);
+export const readdir: (path: string, opts: void) => Promise<Array<string>> = promisify(
+  fs.readdir,
+);
+export const rename: (oldPath: string, newPath: string) => Promise<void> = promisify(
+  fs.rename,
+);
+export const access: (path: string, mode?: number) => Promise<void> = promisify(
+  fs.access,
+);
 export const stat: (path: string) => Promise<fs.Stats> = promisify(fs.stat);
 export const unlink: (path: string) => Promise<void> = promisify(require('rimraf'));
 export const mkdirp: (path: string) => Promise<void> = promisify(require('mkdirp'));
 export const exists: (path: string) => Promise<boolean> = promisify(fs.exists, true);
 export const lstat: (path: string) => Promise<fs.Stats> = promisify(fs.lstat);
-export const chmod: (path: string, mode: number | string) => Promise<void> = promisify(fs.chmod);
+export const chmod: (path: string, mode: number | string) => Promise<void> = promisify(
+  fs.chmod,
+);
 export const link: (src: string, dst: string) => Promise<fs.Stats> = promisify(fs.link);
-export const glob: (path: string, options?: Object) => Promise<Array<string>> = promisify(globModule);
+export const glob: (path: string, options?: Object) => Promise<Array<string>> = promisify(
+  globModule,
+);
 
 // fs.copyFile uses the native file copying instructions on the system, performing much better
 // than any JS-based solution and consumes fewer resources. Repeated testing to fine tune the
 // concurrency level revealed 128 as the sweet spot on a quad-core, 16 CPU Intel system with SSD.
 const CONCURRENT_QUEUE_ITEMS = fs.copyFile ? 128 : 4;
 
-const open: (path: string, flags: string | number, mode: number) => Promise<number> = promisify(fs.open);
+const open: (
+  path: string,
+  flags: string | number,
+  mode: number,
+) => Promise<number> = promisify(fs.open);
 const close: (fd: number) => Promise<void> = promisify(fs.close);
 const write: (
   fd: number,
@@ -54,11 +76,20 @@ const write: (
   length: ?number,
   position: ?number,
 ) => Promise<void> = promisify(fs.write);
-const futimes: (fd: number, atime: number, mtime: number) => Promise<void> = promisify(fs.futimes);
-const copyFile: (src: string, dest: string, flags: number, data: CopyFileAction) => Promise<void> = fs.copyFile
+const futimes: (fd: number, atime: number, mtime: number) => Promise<void> = promisify(
+  fs.futimes,
+);
+const copyFile: (
+  src: string,
+  dest: string,
+  flags: number,
+  data: CopyFileAction,
+) => Promise<void> = fs.copyFile
   ? // Don't use `promisify` to avoid passing  the last, argument `data`, to the native method
     (src, dest, flags, data) =>
-      new Promise((resolve, reject) => fs.copyFile(src, dest, flags, err => (err ? reject(err) : resolve(err))))
+      new Promise((resolve, reject) =>
+        fs.copyFile(src, dest, flags, err => (err ? reject(err) : resolve(err))),
+      )
   : async (src, dest, flags, data) => {
       // Use open -> write -> futimes -> close sequence to avoid opening the file twice:
       // one with writeFile and one with utimes
@@ -71,9 +102,11 @@ const copyFile: (src: string, dest: string, flags: number, data: CopyFileAction)
         await close(fd);
       }
     };
-const fsSymlink: (target: string, path: string, type?: 'dir' | 'file' | 'junction') => Promise<void> = promisify(
-  fs.symlink,
-);
+const fsSymlink: (
+  target: string,
+  path: string,
+  type?: 'dir' | 'file' | 'junction',
+) => Promise<void> = promisify(fs.symlink);
 const invariant = require('invariant');
 const stripBOM = require('strip-bom');
 
@@ -222,7 +255,9 @@ async function buildActionsForCopy(
     // TODO https://github.com/yarnpkg/yarn/issues/3751
     // related to bundled dependencies handling
     if (files.has(dest.toLowerCase())) {
-      reporter.verbose(`The case-insensitive file ${dest} shouldn't be copied twice in one bulk copy`);
+      reporter.verbose(
+        `The case-insensitive file ${dest} shouldn't be copied twice in one bulk copy`,
+      );
     } else {
       files.add(dest.toLowerCase());
     }
@@ -276,10 +311,16 @@ async function buildActionsForCopy(
         } catch (err) {}
       } */
 
-      if (bothFiles && srcStat.size === destStat.size && fileDatesEqual(srcStat.mtime, destStat.mtime)) {
+      if (
+        bothFiles &&
+        srcStat.size === destStat.size &&
+        fileDatesEqual(srcStat.mtime, destStat.mtime)
+      ) {
         // we can safely assume this is the same file
         onDone();
-        reporter.verbose(reporter.lang('verboseFileSkip', src, dest, srcStat.size, +srcStat.mtime));
+        reporter.verbose(
+          reporter.lang('verboseFileSkip', src, dest, srcStat.size, +srcStat.mtime),
+        );
         return;
       }
 
@@ -288,7 +329,9 @@ async function buildActionsForCopy(
         if (srcReallink === (await readlink(dest))) {
           // if both symlinks are the same then we can continue on
           onDone();
-          reporter.verbose(reporter.lang('verboseFileSkipSymlink', src, dest, srcReallink));
+          reporter.verbose(
+            reporter.lang('verboseFileSkipSymlink', src, dest, srcReallink),
+          );
           return;
         }
       }
@@ -479,7 +522,9 @@ async function buildActionsForHardlink(
         if (srcReallink === (await readlink(dest))) {
           // if both symlinks are the same then we can continue on
           onDone();
-          reporter.verbose(reporter.lang('verboseFileSkipSymlink', src, dest, srcReallink));
+          reporter.verbose(
+            reporter.lang('verboseFileSkipSymlink', src, dest, srcReallink),
+          );
           return;
         }
       }
@@ -566,7 +611,10 @@ export function copy(src: string, dest: string, reporter: Reporter): Promise<voi
  * `data` contains target file attributes like mode, atime and mtime. Built-in copyFile copies these
  * automatically but our polyfill needs the do this manually, thus needs the info.
  */
-const safeCopyFile = async function(data: CopyFileAction, cleanup: () => mixed): Promise<void> {
+const safeCopyFile = async function(
+  data: CopyFileAction,
+  cleanup: () => mixed,
+): Promise<void> {
   try {
     await unlink(data.dest);
     await copyFile(data.src, data.dest, 0, data);
@@ -594,7 +642,12 @@ export async function copyBulk(
     artifactFiles: (_events && _events.artifactFiles) || [],
   };
 
-  const actions: CopyActions = await buildActionsForCopy(queue, events, events.possibleExtraneous, reporter);
+  const actions: CopyActions = await buildActionsForCopy(
+    queue,
+    events,
+    events.possibleExtraneous,
+    reporter,
+  );
   events.onStart(actions.file.length + actions.symlink.length + actions.link.length);
 
   const fileActions: Array<CopyFileAction> = actions.file;
@@ -645,7 +698,12 @@ export async function hardlinkBulk(
     ignoreBasenames: [],
   };
 
-  const actions: CopyActions = await buildActionsForHardlink(queue, events, events.possibleExtraneous, reporter);
+  const actions: CopyActions = await buildActionsForHardlink(
+    queue,
+    events,
+    events.possibleExtraneous,
+    reporter,
+  );
   events.onStart(actions.file.length + actions.symlink.length + actions.link.length);
 
   const fileActions: Array<LinkFileAction> = actions.link;
@@ -727,7 +785,7 @@ export async function readJsonAndFile(
 }
 
 export async function writeJson(filename: string, object: mixed): Promise<void> {
-  await writeFile(filename, JSON.stringify(object, null, 2), 'utf8');
+  await writeFile(filename, JSON.stringify(object, null, 2), {encoding: 'utf8'});
 }
 
 export async function find(filename: string, dir: string): Promise<string | false> {
@@ -772,7 +830,10 @@ export async function symlink(src: string, dest: string): Promise<void> {
       // use relative paths otherwise which will be retained if the directory is moved
       let relative;
       if (await exists(src)) {
-        relative = path.relative(fs.realpathSync(path.dirname(dest)), fs.realpathSync(src));
+        relative = path.relative(
+          fs.realpathSync(path.dirname(dest)),
+          fs.realpathSync(src),
+        );
       } else {
         relative = path.relative(path.dirname(dest), src);
       }
@@ -887,7 +948,10 @@ export async function hardlinksWork(dir: string): Promise<boolean> {
 
 // not a strict polyfill for Node's fs.mkdtemp
 export async function makeTempDir(prefix?: string): Promise<string> {
-  const dir = path.join(os.tmpdir(), `yarn-${prefix || ''}-${Date.now()}-${Math.random()}`);
+  const dir = path.join(
+    os.tmpdir(),
+    `yarn-${prefix || ''}-${Date.now()}-${Math.random()}`,
+  );
   await unlink(dir);
   await mkdirp(dir);
   return dir;

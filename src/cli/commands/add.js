@@ -20,7 +20,13 @@ import path from 'path';
 import semver from 'semver';
 
 export class Add extends Install {
-  constructor(args: Array<string>, flags: Object, config: Config, reporter: Reporter, lockfile: Lockfile) {
+  constructor(
+    args: Array<string>,
+    flags: Object,
+    config: Config,
+    reporter: Reporter,
+    lockfile: Lockfile,
+  ) {
     super(flags, config, reporter, lockfile);
     this.args = args;
     // only one flag is supported, so we can figure out which one was passed to `yarn add`
@@ -61,11 +67,14 @@ export class Add extends Install {
   getPatternVersion(pattern: string, pkg: Manifest): string {
     const tilde = this.flags.tilde;
     const configPrefix = String(this.config.getOption('save-prefix'));
-    const exact = this.flags.exact || Boolean(this.config.getOption('save-exact')) || configPrefix === '';
+    const exact =
+      this.flags.exact ||
+      Boolean(this.config.getOption('save-exact')) ||
+      configPrefix === '';
     const {hasVersion, range} = normalizePattern(pattern);
     let version;
 
-    const Resolver = PackageRequest.getExoticResolver(pattern);
+    const Resolver = getExoticResolver(pattern);
     if (Resolver) {
       // wasn't a name/range tuple so this is just a raw exotic pattern
       version = Resolver.getPatternVersion(pattern, pkg, this.flags);
@@ -74,7 +83,11 @@ export class Add extends Install {
       }
     }
 
-    if (hasVersion && range && (semver.satisfies(pkg.version, range) || getExoticResolver(range))) {
+    if (
+      hasVersion &&
+      range &&
+      (semver.satisfies(pkg.version, range) || getExoticResolver(range))
+    ) {
       // if the user specified a range then use it verbatim
       version = range;
     } else {
@@ -109,13 +122,23 @@ export class Add extends Install {
     return preparedPatterns;
   }
 
-  async bailout(patterns: Array<string>, workspaceLayout: ?WorkspaceLayout): Promise<boolean> {
+  async bailout(
+    patterns: Array<string>,
+    workspaceLayout: ?WorkspaceLayout,
+  ): Promise<boolean> {
     const lockfileCache = this.lockfile.cache;
     if (!lockfileCache) {
       return false;
     }
-    const match = await this.integrityChecker.check(patterns, lockfileCache, this.flags, workspaceLayout);
-    const haveLockfile = await fs.exists(path.join(this.config.lockfileFolder, constants.LOCKFILE_FILENAME));
+    const match = await this.integrityChecker.check(
+      patterns,
+      lockfileCache,
+      this.flags,
+      workspaceLayout,
+    );
+    const haveLockfile = await fs.exists(
+      path.join(this.config.lockfileFolder, constants.LOCKFILE_FILENAME),
+    );
     if (match.integrityFileMissing && haveLockfile) {
       // Integrity file missing, force script installations
       this.scripts.setForce(true);
@@ -128,7 +151,9 @@ export class Add extends Install {
    */
 
   async init(): Promise<Array<string>> {
-    const isWorkspaceRoot = this.config.workspaceRootFolder && this.config.cwd === this.config.workspaceRootFolder;
+    const isWorkspaceRoot =
+      this.config.workspaceRootFolder &&
+      this.config.cwd === this.config.workspaceRootFolder;
 
     // running "yarn add something" in a workspace root is often a mistake
     if (isWorkspaceRoot && !this.flags.ignoreWorkspaceRootCheck) {
@@ -159,9 +184,18 @@ export class Add extends Install {
     const opts: ListOptions = {
       reqDepth: 0,
     };
-    const {trees, count} = await buildTree(this.resolver, this.linker, patterns, opts, true, true);
+    const {trees, count} = await buildTree(
+      this.resolver,
+      this.linker,
+      patterns,
+      opts,
+      true,
+      true,
+    );
     this.reporter.success(
-      count === 1 ? this.reporter.lang('savedNewDependency') : this.reporter.lang('savedNewDependencies', count),
+      count === 1
+        ? this.reporter.lang('savedNewDependency')
+        : this.reporter.lang('savedNewDependencies', count),
     );
     this.reporter.tree('newDependencies', trees);
   }
@@ -213,15 +247,26 @@ export function hasWrapper(commander: Object): boolean {
 
 export function setFlags(commander: Object) {
   commander.usage('add [packages ...] [flags]');
-  commander.option('-W, --ignore-workspace-root-check', 'required to run yarn add inside a workspace root');
+  commander.option(
+    '-W, --ignore-workspace-root-check',
+    'required to run yarn add inside a workspace root',
+  );
   commander.option('-D, --dev', 'save package to your `devDependencies`');
   commander.option('-P, --peer', 'save package to your `peerDependencies`');
   commander.option('-O, --optional', 'save package to your `optionalDependencies`');
   commander.option('-E, --exact', 'install exact version');
-  commander.option('-T, --tilde', 'install most recent release with the same minor version');
+  commander.option(
+    '-T, --tilde',
+    'install most recent release with the same minor version',
+  );
 }
 
-export async function run(config: Config, reporter: Reporter, flags: Object, args: Array<string>): Promise<void> {
+export async function run(
+  config: Config,
+  reporter: Reporter,
+  flags: Object,
+  args: Array<string>,
+): Promise<void> {
   if (!args.length) {
     throw new MessageError(reporter.lang('missingAddDependencies'));
   }

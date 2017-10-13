@@ -33,7 +33,7 @@ export default class OpamFetcher extends BaseFetcher {
     if (manifest.opam.url != null) {
       const tarballStorePath = path.join(dest, constants.TARBALL_FILENAME);
       const tarballFormat = getTarballFormatFromFilename(manifest.opam.url);
-      hash = await this._fetchTarball(manifest, tarballStorePath, tarballFormat);
+      hash = await this._fetchTarball(manifest, tarballStorePath);
       await unpackTarball(tarballStorePath, dest, tarballFormat);
     }
 
@@ -44,7 +44,9 @@ export default class OpamFetcher extends BaseFetcher {
     const {files} = manifest.opam;
     if (files) {
       await Promise.all(
-        files.map(file => fs.writeFile(path.join(dest, file.name), file.content, 'utf8')),
+        files.map(file =>
+          fs.writeFile(path.join(dest, file.name), file.content, {encoding: 'utf8'}),
+        ),
       );
     }
 
@@ -52,7 +54,7 @@ export default class OpamFetcher extends BaseFetcher {
     const {patch} = manifest.opam;
     if (patch) {
       const patchFilename = path.join(dest, '_esy_patch');
-      await fs.writeFile(patchFilename, patch, 'utf8');
+      await fs.writeFile(patchFilename, patch, {encoding: 'utf8'});
       await child.exec('patch -p1 < _esy_patch', {cwd: dest, shell: '/bin/bash'});
     }
 
@@ -74,7 +76,6 @@ export default class OpamFetcher extends BaseFetcher {
 
         const handleRequestError = res => {
           if (res.statusCode >= 400) {
-            // $FlowFixMe
             const statusDescription = http.STATUS_CODES[res.statusCode];
             reject(
               new Error(
@@ -127,7 +128,7 @@ function writeValidatedStream(stream, filename, md5checksum = null): Promise<str
 
 function writeJson(filename, object): Promise<void> {
   const data = JSON.stringify(object, null, 2);
-  return fs.writeFile(filename, data, 'utf8');
+  return fs.writeFile(filename, data, {encoding: 'utf8'});
 }
 
 function unpackTarball(
